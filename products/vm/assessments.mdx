@@ -1,0 +1,180 @@
+---
+title: "Assessments"
+description: "Creating and managing vulnerability assessments in Snapsec Suite"
+icon: "clipboard-check"
+---
+
+# Assessments
+
+Assessments in Snapsec Suite are structured security evaluations that help you systematically identify, track, and remediate vulnerabilities across your organization's assets. Think of assessments as organized security projects that bring together assets, scanning tools, and team members to create a comprehensive security evaluation.
+
+## What are Assessments?
+
+Assessments are the core organizational unit in Snapsec Suite's Vulnerability Management module. They serve as containers that:
+
+- **Group related assets** together for security evaluation
+- **Track vulnerability discovery** and remediation progress
+- **Assign ownership** and responsibility to team members
+- **Organize security work** into manageable projects
+- **Generate reports** and metrics for stakeholders
+
+### How Assessments Work in Snapsec
+
+1. **Create an Assessment**: Define the scope, timeline, and team
+2. **Add Assets**: Include the systems, applications, or infrastructure to be evaluated
+3. **Run Scans**: Execute vulnerability scans or manual testing
+4. **Track Progress**: Monitor vulnerability discovery and remediation
+5. **Generate Reports**: Create executive and technical reports
+
+## Assessment Cards
+
+Each assessment is displayed as a card on the assessments page, providing immediate visibility into key information:
+
+### Card Information
+- **Assessment Name**: Clear title identifying the security project
+- **Date**: When the assessment was created or last modified
+- **Status**: Current state (Not Configured, Paused, Completed)
+- **Vulnerability Breakdown**: Count by severity (C=Critical, H=High, M=Medium, L=Low)
+- **Owner**: Assigned team member (shown as initials)
+
+### Example Assessment Cards
+
+```
+┌─────────────────────────────────────────┐
+│ API Security (API-SEC)                   │
+│ Oct 23, 2025                           │
+│ Status: Not Configured                  │
+│ Vulnerabilities: C:0 H:0 M:0 L:0      │
+│ Owner: FA                              │
+└─────────────────────────────────────────┘
+
+┌─────────────────────────────────────────┐
+│ Docker Scanning (trivy)                 │
+│ Sep 2, 2025                            │
+│ Status: Completed                       │
+│ Vulnerabilities: C:4 H:0 M:31 L:0      │
+│ Owner: FA                              │
+└─────────────────────────────────────────┘
+```
+
+## Filter and Search
+
+The assessments page includes powerful filtering and search capabilities to help you quickly find specific assessments:
+
+### Search Functionality
+- **Search Bar**: Located at the top of the page
+- **Real-time Search**: Results update as you type
+- **Search Fields**: Name, description, owner, and asset information
+
+### Filter Options
+- **Status Filter**: Filter by Not Configured, Paused, Completed
+- **Date Range**: Filter by creation date or last modified
+- **Owner Filter**: Show assessments by specific team members
+- **Vulnerability Count**: Filter by severity levels
+- **Reset Filters**: Clear all applied filters with one click
+
+### Use Cases for Filtering
+- **Find Active Assessments**: Filter by "Paused" to see ongoing work
+- **Review Completed Work**: Filter by "Completed" for finished assessments
+- **Team Workload**: Filter by owner to see individual assignments
+- **Critical Issues**: Filter by vulnerability count to find high-risk assessments
+
+# Creating a New Assessment
+
+Creating a new assessment is straightforward and follows a guided process:
+
+## Step 1: Access Creation
+1. Navigate to the **Assessments** page
+2. Click the **"Create Assessment"** button at the top of the page
+3. The assessment creation wizard will open
+
+## Step 2: Basic Information
+Fill in the essential details:
+- **Assessment Name**: Choose a descriptive name (e.g., "Q4 Web Application Security Review")
+- **Description**: Provide context and scope details
+- **Assessment Type**: Select from predefined types or create custom
+- **Timeline**: Set start and end dates
+
+## Step 3: Asset Selection
+- **Add Assets**: Select from your asset inventory
+- **Asset Groups**: Choose entire asset groups for bulk addition
+- **Custom Scope**: Define specific IP ranges or domains
+
+## Step 4: Team Assignment
+- **Primary Owner**: Assign main responsibility
+- **Collaborators**: Add team members who will work on the assessment
+- **Stakeholders**: Include people who need to be notified of progress
+
+## Step 5: Configuration
+- **Scan Settings**: Configure automated scanning parameters
+- **Notification Preferences**: Set up alerts and updates
+- **Reporting Schedule**: Define when reports should be generated
+
+## Assessment Types
+
+### Automated Assessments
+- **Continuous Vulnerability Scanning**: Ongoing automated scans
+- **Docker Security Scanning**: Container vulnerability assessment
+- **Secret Scanning**: Code repository secret detection
+- **Infrastructure Scanning**: Server and network security evaluation
+
+### Manual Assessments
+- **Penetration Testing**: Professional security testing
+- **Code Review**: Application security analysis
+- **Compliance Audits**: Regulatory requirement assessments
+- **Social Engineering**: Human factor security testing
+
+# Searching Assessments
+
+The search functionality helps you quickly locate specific assessments from your growing list:
+
+## Search Methods
+
+### Text Search
+- **Search Bar**: Type any part of the assessment name
+- **Partial Matches**: Find assessments with partial name matches
+- **Case Insensitive**: Search works regardless of capitalization
+
+### Advanced Search
+- **Owner Search**: Find assessments by team member initials
+- **Date Search**: Search by creation or modification dates
+- **Status Search**: Find assessments by current status
+- **Vulnerability Search**: Search by vulnerability count or severity
+
+## Search Examples
+
+### Finding Specific Assessments
+```
+Search: "Docker" → Shows all Docker-related assessments
+Search: "Q4" → Shows all Q4 assessments
+Search: "API" → Shows API security assessments
+```
+
+### Finding by Owner
+```
+Search: "FA" → Shows all assessments owned by FA
+Search: "MS" → Shows all assessments owned by MS
+```
+
+### Finding by Status
+```
+Filter: "Completed" → Shows all finished assessments
+Filter: "Paused" → Shows all ongoing assessments
+Filter: "Not Configured" → Shows assessments needing setup
+```
+
+## Search Tips
+
+1. **Use Partial Names**: You don't need to type the full assessment name
+2. **Combine Filters**: Use search text with status filters for precise results
+3. **Clear Search**: Click the X or reset button to clear search terms
+4. **Recent Searches**: The system remembers your recent search terms
+
+## Quick Actions from Search Results
+
+Once you find the assessment you're looking for:
+- **Click the Card**: Open the assessment details
+- **View Vulnerabilities**: See discovered security issues
+- **Check Progress**: Review completion status
+- **Generate Reports**: Create assessment reports
+- **Edit Settings**: Modify assessment configuration
