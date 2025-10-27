@@ -1,0 +1,5 @@
+.markdown img:hover, .prose img:hover {
+  border-color: #0070f3;
+  box-shadow: 0 0 6px rgba(0, 112, 243, 0.3);
+  transition: all 0.2s ease-in-out;
+}

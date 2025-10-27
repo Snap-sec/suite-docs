@@ -1,6 +1,7 @@
 {
   "$schema": "https://mintlify.com/docs.json",
-  "theme": "willow",
+  "theme": "aspen",
+  "customCSS": ["./styles/custom.css"],
   "name": "Snapsec Suite",
   "colors": {
     "primary": "#16A34A",
@@ -84,16 +85,7 @@
           {
             "group": "API documentation",
             "pages": [
-              "api-reference/introduction"
-            ]
-          },
-          {
-            "group": "Endpoint examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+              "features/introduction"
             ]
           }
         ]
@@ -102,14 +94,19 @@
     "global": {
       "anchors": [
         {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
+          "anchor": "Website",
+          "href": "https://snapsec.co",
           "icon": "book-open-cover"
         },
         {
           "anchor": "Blog",
-          "href": "https://mintlify.com/blog",
-          "icon": "newspaper"
+          "href": "https://blog.snapsec.co",
+          "icon": "blog"
+        },
+        {
+          "anchor": "Live Demo",
+          "href": "https://suite.snapsec.co/demo",
+          "icon": "blog"
         }
       ]
     }
