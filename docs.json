@@ -42,39 +42,6 @@
               "products/vm/global-settings",
               "products/vm/navigation"
             ]
-          },
-          {
-            "group": "Attack Surface Management",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/reusable-snippets"
-            ]
-          },
-          {
-            "group": "Asset Inventory Management",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          },
-          {
-            "group": "Threat Modeler",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
-          },
-          {
-            "group": "Vulnerability Scanner",
-            "pages": [
-              "ai-tools/cursor",
-              "ai-tools/claude-code",
-              "ai-tools/windsurf"
-            ]
           }
         ]
       },
@@ -100,12 +67,17 @@
         {
           "anchor": "Blog",
           "href": "https://blog.snapsec.co",
-          "icon": "blog"
+          "icon": "square-rss"
+        },
+        {
+          "anchor": "Features",
+          "href": "https://docs.snapsec.co/features/introduction",
+          "icon": "wand-magic-sparkles"
         },
         {
           "anchor": "Live Demo",
           "href": "https://suite.snapsec.co/demo",
-          "icon": "blog"
+          "icon": "laptop"
         }
       ]
     }
@@ -118,13 +90,13 @@
     "links": [
       {
         "label": "Support",
-        "href": "mailto:hi@mintlify.com"
+        "href": "mailto:support@snapsec.co"
       }
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Live Demo",
+      "href": "https://suite.snapsec.co/demo"
     }
   },
   "contextual": {
