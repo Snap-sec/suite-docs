@@ -82,7 +82,7 @@
         "tab": "Features",
         "groups": [
           {
-            "group": "API documentation",
+            "group": "Navigation",
             "pages": [
               "features/introduction"
             ]
