@@ -1,136 +1,77 @@
 ---
 title: "Dashboard"
-description: "Overview of the Vulnerability Management dashboard and key metrics"
-icon: "chart-column"
+description: "Gain a complete, real-time view of your organization’s vulnerabilities, remediation progress, and team performance."
+icon: "gauge"
+mode: "wide"
 ---
 
-# VM Dashboard
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/vm/d1.png"
+/>
 
-The Vulnerability Management dashboard provides a comprehensive overview of your organization's security posture and vulnerability status.
+## Overview
 
-## Key Metrics Cards
+The **Unified Vulnerability Dashboard** serves as your command center for everything related to vulnerability management.  
+It consolidates vulnerabilities, remediation progress, and performance analytics into one intuitive interface — giving both security and engineering teams instant visibility into the current risk posture.
 
-The dashboard displays seven key metric cards showing vulnerability status:
+From tracking the number of vulnerabilities under review or resolved, to monitoring remediation trends and departmental performance, the dashboard helps you make data-driven security decisions with confidence.  
+Clear visual metrics and charts help you identify bottlenecks, measure SLA compliance, and understand how security improvements are progressing across your organization.
 
-### Total Vulnerabilities
-- **Count**: 415 total vulnerabilities
-- **Breakdown**: Shows resolved count (286) in parentheses
-- **Icon**: Shield icon indicating overall security posture
+---
 
-### Status Distribution
-- **In Review**: 273 vulnerabilities currently under review
-- **Resolved**: 118 vulnerabilities successfully resolved
-- **In Progress**: 5 vulnerabilities being actively worked on
-- **Unresolved**: 0 vulnerabilities not yet addressed
-- **Retest**: 12 vulnerabilities requiring retesting
-- **Duplicate**: 0 duplicate vulnerabilities
-- **Rejected**: 7 vulnerabilities marked as false positives
+## Key Insights
 
-## Main Dashboard Sections
-
-### Severity Breakdown
-Visual representation of vulnerabilities by severity level:
-- **Critical**: 41 vulnerabilities (highest priority)
-- **High**: 20 vulnerabilities
-- **Medium**: 326 vulnerabilities (largest category)
-- **Low**: 28 vulnerabilities
-- **Unknown**: 0 vulnerabilities with undetermined severity
-
-Each severity level is color-coded with appropriate icons for quick visual identification.
-
-### Departments Section
-- Currently shows "No departments found" message
-- Provides guidance to create first department
-- Centralized view for organizing vulnerabilities by business units
-
-### Remediation Graph
-Interactive chart showing:
-- **Timeline**: Vulnerability detection and remediation trends over time
-- **Y-axis**: Count scale from 0-250
-- **X-axis**: Date range (September 2025 - October 2025)
-- **Legend**: 
-  - Detected vulnerabilities (blue line)
-  - Remediated vulnerabilities (green line)
-- **Interactive**: Clickable legend to toggle data series
-
-### Open/Close Severity Distribution
-Stacked bar chart displaying:
-- **Open vulnerabilities** by severity (stacked bars)
-- **Closed vulnerabilities** by severity (stacked bars)
-- **Severity levels**: Low, Medium, High, Critical, None
-- **Export options**: Download as SVG, PNG, or CSV
-- **Menu**: Additional chart customization options
-
-## Assessment Performance
-
-### Top Performing Assessments Table
-Shows assessment performance metrics:
-
-| Assessment Name | Remediation Progress | Collaborators | Open/Closed Vulns |
-|----------------|---------------------|---------------|-------------------|
-| Continuous Vulnerability Scanning | Progress bar | FA | 0 Open, 25 Resolved |
-| Secret Scanning (Gitlab) | Progress bar | FA | 6 Open, 17 Resolved |
-| Code Review - Q1 | Progress bar | FA | 14 Open, 11 Resolved |
-| Q1 - VAPT | Progress bar | FA | 27 Open, 13 Resolved |
-| Q2 - VAPT | Progress bar | FA | 82 Open, 36 Resolved |
-
-Each assessment name is clickable and links to detailed assessment view.
-
-### Top Performing Members
-Team performance metrics showing:
-- **Mohammed Saleh**: Resolved 11 issues
-- **imran parray**: Resolved 8 issues  
-- **Heather Maxwell**: Resolved 6 issues
-- **IOS Team**: Resolved 0 issues
-
-Each member shows avatar initials and performance statistics.
-
-## Top 5 Vulnerabilities Table
-
-Critical vulnerabilities requiring immediate attention:
-
-| Title | Owner | State | Severity | Reported On |
-|-------|-------|-------|----------|-------------|
-| SQL injection in Main Profile page | Unknown | In review | Critical | 2 weeks ago |
-
-**Note**: Multiple instances of the same SQL injection vulnerability appear, indicating systemic issues requiring immediate attention.
-
-## Navigation Sidebar
-
-The left sidebar provides access to:
-- **Dashboard** (current page)
-- **Assessments** (with dropdown)
-- **Vulnerabilities** (with dropdown)
-- **Search** (direct link)
-- **Assets** (direct link)
-- **Change Management** (direct link)
-- **Reports** (direct link)
-- **Blockers** (direct link)
-- **Integrations** (direct link)
-
-## Quick Actions
-
-From the dashboard, you can quickly:
-
-<CardGroup cols={2}>
-  <Card title="View Assessments" icon="clipboard-check" href="/products/vm/assessments">
-    Access vulnerability assessments
+<Columns cols={2}>
+  <Card title="Comprehensive Metrics" icon="chart-pie">
+    See total vulnerabilities, categorized by severity and status — from Open and In Review to Resolved and Retest — providing an at-a-glance health summary of your environment.
   </Card>
-  <Card title="View Assets" icon="server" href="/products/vm/assets">
-    Manage your asset inventory
+  <Card title="Remediation Graph" icon="line-chart">
+    Visualize your remediation journey with trend lines showing Detected vs. Remediated vulnerabilities over time.
   </Card>
-  <Card title="Generate Report" icon="file-chart-column" href="/products/vm/reports">
-    Create vulnerability reports
+  <Card title="Top Performing Assessments" icon="layers">
+    Identify which assessments contribute most to remediation success, and track progress across different security campaigns.
   </Card>
-  <Card title="Search Vulnerabilities" icon="search" href="/products/vm/search">
-    Find specific vulnerabilities
+  <Card title="Departmental Insights" icon="building">
+    Monitor how different departments perform against vulnerability closure targets — bringing accountability and transparency across teams.
   </Card>
-</CardGroup>
+  <Card title="Top Contributors" icon="user-check">
+    Recognize high-performing members who drive vulnerability resolution, enabling data-backed recognition and performance tracking.
+  </Card>
+  <Card title="Severity Distribution" icon="triangle-alert">
+    Analyze vulnerability severity distribution to focus remediation efforts on critical and high-impact issues first.
+  </Card>
+</Columns>
 
-## Best Practices
+---
 
-1. **Daily Monitoring**: Check the dashboard daily for new critical vulnerabilities
-2. **Priority Focus**: Address Critical (41) and High (20) severity vulnerabilities first
-3. **Assessment Tracking**: Monitor assessment progress and completion rates
-4. **Team Performance**: Use member performance metrics to optimize resource allocation
-5. **Trend Analysis**: Use remediation graphs to identify patterns and improve processes
+## Analytics in Action
+
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/vm/d2.png"
+/>
+
+The dashboard provides live charts that highlight open vs. closed vulnerabilities, department-wise breakdowns, and time-based remediation performance.  
+These visual insights help teams track improvement over time and ensure SLA commitments are met.
+
+---
+
+## Value
+
+<img
+  style={{ borderRadius: '0.5rem' }}
+  src="/images/vm/d3.png"
+/>
+
+The **Dashboard** transforms complex vulnerability data into actionable intelligence.  
+It allows executives to monitor security posture at a glance, managers to track progress against SLAs, and engineers to focus on the most critical issues.  
+By bringing visibility, accountability, and measurable outcomes to your vulnerability management process, it ensures continuous security improvement across your ecosystem.
+
+---
+
+## Next Steps
+
+<Card title="Explore Live Demo Now" icon="arrow-right" href="https://suite.snapsec.co/demo">
+  Follow our quickstart guide to set up your organization and start securing your assets today.
+</Card>

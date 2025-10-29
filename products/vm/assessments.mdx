@@ -1,180 +1,177 @@
 ---
-title: "Assessments"
-description: "Creating and managing vulnerability assessments in Snapsec Suite"
-icon: "clipboard-check"
+title: "Assessment Details"
+description: "Deep-dive into a single assessment: metrics, configuration, evidence, CSV import, and report building."
+icon: "file-chart-column"
+mode: "wide"
 ---
 
-# Assessments
+<Frame caption="Assessment overview with live remediation and status counters">
+  <img src="/images/vm/ass1.png" alt="Assessment metrics header showing status chips, progress bar, trends and distributions" />
+</Frame>
 
-Assessments in Snapsec Suite are structured security evaluations that help you systematically identify, track, and remediate vulnerabilities across your organization's assets. Think of assessments as organized security projects that bring together assets, scanning tools, and team members to create a comprehensive security evaluation.
+## Overview
 
-## What are Assessments?
+An **Assessment** aggregates everything for one security engagement — status, trends, ownership, evidence, and reporting.  
+Use the top header to see **In Review/In Progress/Resolved**, duplicates, retests, staging fixes, members, and overall progress.  
+Below, charts expose **Vulnerability Trends**, **Open/Close Severity Distribution**, **Severity mix**, and **Top 5 vulnerabilities** for quick triage.
 
-Assessments are the core organizational unit in Snapsec Suite's Vulnerability Management module. They serve as containers that:
+---
 
-- **Group related assets** together for security evaluation
-- **Track vulnerability discovery** and remediation progress
-- **Assign ownership** and responsibility to team members
-- **Organize security work** into manageable projects
-- **Generate reports** and metrics for stakeholders
+## Assessment Metric
 
-### How Assessments Work in Snapsec
+<Frame caption="Live charts for trends and distributions inside an assessment">
+  <img src="/images/vm/ass2.png" alt="Charts for vulnerability trend over time, open vs close severity and severity donut" />
+</Frame>
 
-1. **Create an Assessment**: Define the scope, timeline, and team
-2. **Add Assets**: Include the systems, applications, or infrastructure to be evaluated
-3. **Run Scans**: Execute vulnerability scans or manual testing
-4. **Track Progress**: Monitor vulnerability discovery and remediation
-5. **Generate Reports**: Create executive and technical reports
+Assessment Metrics provides a real-time overview of an assessment’s progress and health.
+It visualizes key data such as total vulnerabilities, remediation status, and severity distribution — helping teams quickly understand how many issues are open, resolved, or pending re-test.
+The page’s purpose is to track remediation effectiveness, analyze vulnerability trends, and measure progress within a specific assessment, ensuring every test leads to measurable security improvement.
 
-## Assessment Cards
 
-Each assessment is displayed as a card on the assessments page, providing immediate visibility into key information:
 
-### Card Information
-- **Assessment Name**: Clear title identifying the security project
-- **Date**: When the assessment was created or last modified
-- **Status**: Current state (Not Configured, Paused, Completed)
-- **Vulnerability Breakdown**: Count by severity (C=Critical, H=High, M=Medium, L=Low)
-- **Owner**: Assigned team member (shown as initials)
+<Columns cols={2}>
+  <Card title="Status & Progress" icon="gauge">
+    Snapshot of state chips and a progress bar (e.g., **Resolved 17 of 23**). Great for stand-ups and executive updates.
+  </Card>
+  <Card title="Trends & Quality" icon="chart-line">
+    Line/bar/donut charts show discovery vs. closure, open/close by severity, and overall severity distribution.
+  </Card>
+</Columns>
 
-### Example Assessment Cards
 
-```
-┌─────────────────────────────────────────┐
-│ API Security (API-SEC)                   │
-│ Oct 23, 2025                           │
-│ Status: Not Configured                  │
-│ Vulnerabilities: C:0 H:0 M:0 L:0      │
-│ Owner: FA                              │
-└─────────────────────────────────────────┘
 
-┌─────────────────────────────────────────┐
-│ Docker Scanning (trivy)                 │
-│ Sep 2, 2025                            │
-│ Status: Completed                       │
-│ Vulnerabilities: C:4 H:0 M:31 L:0      │
-│ Owner: FA                              │
-└─────────────────────────────────────────┘
-```
+---
 
-## Filter and Search
+## Managing Assessments
 
-The assessments page includes powerful filtering and search capabilities to help you quickly find specific assessments:
+The **Basic Details** tab allows you to edit key configuration details of your assessment and manage its overall lifecycle.  
+You can update the assessment name, modify category or scope, assign ticket owners, and manage collaborators — keeping your engagement organized and up to date.
 
-### Search Functionality
-- **Search Bar**: Located at the top of the page
-- **Real-time Search**: Results update as you type
-- **Search Fields**: Name, description, owner, and asset information
+---
 
-### Filter Options
-- **Status Filter**: Filter by Not Configured, Paused, Completed
-- **Date Range**: Filter by creation date or last modified
-- **Owner Filter**: Show assessments by specific team members
-- **Vulnerability Count**: Filter by severity levels
-- **Reset Filters**: Clear all applied filters with one click
+### Updating Name or Category
 
-### Use Cases for Filtering
-- **Find Active Assessments**: Filter by "Paused" to see ongoing work
-- **Review Completed Work**: Filter by "Completed" for finished assessments
-- **Team Workload**: Filter by owner to see individual assignments
-- **Critical Issues**: Filter by vulnerability count to find high-risk assessments
+<Frame caption="Add or remove collaborators from the assessment">
+  <img src="/images/vm/ass4.png" alt="Collaborators section showing team member management in the assessment panel" />
+</Frame>
 
-# Creating a New Assessment
+Edit the **Assessment Name**, **Date**, or **Category** fields directly from the form.  
+These updates automatically sync across related dashboards, ensuring consistent labeling and visibility for reports, trends, and performance metrics.
 
-Creating a new assessment is straightforward and follows a guided process:
+<Callout icon="info-circle" color="blue">
+Renaming an assessment does not affect linked vulnerabilities or reports — all associated data remains intact.
+</Callout>
 
-## Step 1: Access Creation
-1. Navigate to the **Assessments** page
-2. Click the **"Create Assessment"** button at the top of the page
-3. The assessment creation wizard will open
+---
 
-## Step 2: Basic Information
-Fill in the essential details:
-- **Assessment Name**: Choose a descriptive name (e.g., "Q4 Web Application Security Review")
-- **Description**: Provide context and scope details
-- **Assessment Type**: Select from predefined types or create custom
-- **Timeline**: Set start and end dates
+### Adding or Removing Collaborators
 
-## Step 3: Asset Selection
-- **Add Assets**: Select from your asset inventory
-- **Asset Groups**: Choose entire asset groups for bulk addition
-- **Custom Scope**: Define specific IP ranges or domains
 
-## Step 4: Team Assignment
-- **Primary Owner**: Assign main responsibility
-- **Collaborators**: Add team members who will work on the assessment
-- **Stakeholders**: Include people who need to be notified of progress
+<Frame caption="Add or remove collaborators from the assessment">
+  <img src="/images/vm/ass5.png" alt="Collaborators section showing team member management in the assessment panel" />
+</Frame>
 
-## Step 5: Configuration
-- **Scan Settings**: Configure automated scanning parameters
-- **Notification Preferences**: Set up alerts and updates
-- **Reporting Schedule**: Define when reports should be generated
+Use the **Collaborators** panel to invite or remove team members.  
+Collaborators can view vulnerabilities, upload evidence, and contribute to custom reports — enabling shared visibility and accountability.
 
-## Assessment Types
 
-### Automated Assessments
-- **Continuous Vulnerability Scanning**: Ongoing automated scans
-- **Docker Security Scanning**: Container vulnerability assessment
-- **Secret Scanning**: Code repository secret detection
-- **Infrastructure Scanning**: Server and network security evaluation
+---
 
-### Manual Assessments
-- **Penetration Testing**: Professional security testing
-- **Code Review**: Application security analysis
-- **Compliance Audits**: Regulatory requirement assessments
-- **Social Engineering**: Human factor security testing
+### Updating Assessment State
 
-# Searching Assessments
 
-The search functionality helps you quickly locate specific assessments from your growing list:
+<Frame caption="Add or remove collaborators from the assessment">
+  <img src="/images/vm/ass6.png" alt="Collaborators section showing team member management in the assessment panel" />
+</Frame>
 
-## Search Methods
+Control your assessment’s status through three lifecycle options:
 
-### Text Search
-- **Search Bar**: Type any part of the assessment name
-- **Partial Matches**: Find assessments with partial name matches
-- **Case Insensitive**: Search works regardless of capitalization
+<Columns cols={3}>
+  <Card title="Start Assessment" icon="play">
+    Begin active testing. Findings and evidence tracking start automatically.
+  </Card>
+  <Card title="Pause Assessment" icon="pause">
+    Temporarily stop testing while preserving current data and progress.
+  </Card>
+  <Card title="Complete Assessment" icon="check-circle">
+    Finalize your testing, generate reports, and mark the engagement as closed.
+  </Card>
+</Columns>
 
-### Advanced Search
-- **Owner Search**: Find assessments by team member initials
-- **Date Search**: Search by creation or modification dates
-- **Status Search**: Find assessments by current status
-- **Vulnerability Search**: Search by vulnerability count or severity
+<Banner>
+Keeping states updated ensures all team members — security, QA, and developers — stay synchronized on what’s currently being tested or finalized.
+</Banner>
 
-## Search Examples
 
-### Finding Specific Assessments
-```
-Search: "Docker" → Shows all Docker-related assessments
-Search: "Q4" → Shows all Q4 assessments
-Search: "API" → Shows API security assessments
-```
+---
 
-### Finding by Owner
-```
-Search: "FA" → Shows all assessments owned by FA
-Search: "MS" → Shows all assessments owned by MS
-```
+## CSV Import (optional)
 
-### Finding by Status
-```
-Filter: "Completed" → Shows all finished assessments
-Filter: "Paused" → Shows all ongoing assessments
-Filter: "Not Configured" → Shows assessments needing setup
-```
+<Frame caption="Import vulnerabilities from external scanners via CSV template">
+  <img src="/images/vm/ass7.png" alt="CSV Import modal with file upload and markdown-like mapping example" />
+</Frame>
 
-## Search Tips
+<Steps>
+  <Step title="Open Import">
+    Click **Import CSV** from the Basic Details actions.
+  </Step>
+  <Step title="Upload file">
+    Attach your scanner export (10MB max). Use our template headers to map title, summary, impact, etc.
+  </Step>
+  <Step title="Validate & Import">
+    Review the preview and confirm — findings are linked to this assessment automatically.
+  </Step>
+</Steps>
 
-1. **Use Partial Names**: You don't need to type the full assessment name
-2. **Combine Filters**: Use search text with status filters for precise results
-3. **Clear Search**: Click the X or reset button to clear search terms
-4. **Recent Searches**: The system remembers your recent search terms
+<Banner>Use adapters to normalize fields from tools like GitLab, Burp, or custom pipelines.</Banner>
 
-## Quick Actions from Search Results
+---
 
-Once you find the assessment you're looking for:
-- **Click the Card**: Open the assessment details
-- **View Vulnerabilities**: See discovered security issues
-- **Check Progress**: Review completion status
-- **Generate Reports**: Create assessment reports
-- **Edit Settings**: Modify assessment configuration
+## Assessment Evidences
+
+<Frame caption="Centralized repository for screenshots, logs, and proofs" >
+  <img src="/images/vm/ass8.png" alt="Empty evidences state with upload button and illustration" />
+</Frame>
+
+- Upload screenshots, PoCs, logs, and recordings.  
+- Tag evidence to **specific vulnerabilities** or keep it **assessment-level** for methodology and scope proofs.
+
+---
+
+## Custom Report tab
+
+<Frame caption="Generate executive-ready reports from structured fields" >
+  <img src="/images/vm/ass9.png" alt="Custom Report builder with fields for title, author, reviewers, executive summary, scope, methodology, conclusion" />
+</Frame>
+
+<Fields>
+  <Field name="Report Title">Display name of the report document.</Field>
+  <Field name="Author & Reviewer">Attribution and review trail for auditability.</Field>
+  <Field name="Executive Summary">High-level outcomes and risk posture.</Field>
+  <Field name="Custom Scope">Assets, endpoints, or exclusions for this engagement.</Field>
+  <Field name="Methodology">Tools, techniques, and test approaches used.</Field>
+  <Field name="Conclusion">Risk summary, next steps, and recommendations.</Field>
+</Fields>
+
+<Tabs>
+  <Tab title="Export">
+    Export to PDF/Doc as needed; the report stays linked to assessment evidence and findings.
+  </Tab>
+  <Tab title="Traceability">
+    Each section references **real findings** and **evidence**, ensuring end-to-end audit trails.
+  </Tab>
+</Tabs>
+
+---
+
+## Why this matters
+
+- **Single source of truth:** metrics → configuration → evidence → report, all in one place.  
+- **Speed with control:** import external scanner data, validate, and report without losing context.  
+- **Audit-ready:** collaborators, access levels, and report fields provide clear governance.
+
+## Next Steps
+
+<Card title="Create your first Assessment" icon="plus" href="/images/vm/assessments">
+  Use the Assessments list, then configure details, import findings, add evidence, and publish your report.
+</Card>
