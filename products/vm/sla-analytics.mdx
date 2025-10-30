@@ -1,0 +1,140 @@
+---
+title: "SLA Analytics"
+description: "Monitor and optimize vulnerability remediation performance with SLA tracking, team metrics, and automated compliance reporting."
+icon: "chart-line"
+mode: "wide"
+---
+
+<Frame caption="SLA Analytics Dashboard showing SLA overview and team performance">
+  <img src="/images/vm/sla1.png" alt="SLA Analytics Dashboard" />
+</Frame>
+
+## Overview
+
+The **SLA Analytics Dashboard** helps organizations measure how efficiently vulnerabilities are being remediated according to defined **Service Level Agreements (SLAs)**.  
+It tracks every vulnerability ticket’s progress, breach status, and compliance percentage across users, teams, and severity levels — ensuring that **no SLA breach goes unnoticed**.
+
+---
+
+## Value
+
+SLA Analytics empowers security and engineering leaders to:
+
+- **Monitor remediation timelines** for every severity category.
+- **Detect SLA breaches** early and prioritize critical fixes.
+- **Measure team performance** and compliance across departments.
+- **Generate executive-ready reports** for audit and governance.
+- **Optimize resources** by focusing on teams or assets lagging behind.
+
+<Columns cols={2}>
+  <Card title="Compliance Visibility" icon="shield-check">
+    Gain full visibility into SLA adherence across vulnerabilities and teams.
+  </Card>
+  <Card title="Automated Metrics" icon="bar-chart">
+    Track total tickets, breached SLAs, compliant issues, and pending risks in real-time.
+  </Card>
+</Columns>
+
+---
+
+## Setting up SLA
+
+
+<Frame caption="SLA Configuration Settings for severity and weekends">
+  <img src="/images/vm/sla4.png" alt="SLA Settings Configuration" />
+</Frame>
+
+
+Configuring your SLAs ensures that vulnerabilities are automatically tracked against organizational timelines.
+
+<Steps>
+  <Step title="Navigate to SLA → Settings">
+    Go to the **Settings** tab within the SLA Analytics module.
+  </Step>
+  <Step title="Define SLA Durations">
+    Set the number of days allowed for each severity level — Critical, High, Medium, and Low.
+  </Step>
+  <Step title="Adjust Weekend Configuration">
+    Include or exclude Fridays, Saturdays, or Sundays in SLA calculations based on your work week.
+  </Step>
+  <Step title="Add Holiday Exceptions">
+    Optionally, import your organization’s holiday calendar (iCal) to exclude those days from SLA timers.
+  </Step>
+  <Step title="Save Configuration">
+    Click **Save SLA Configuration** — all existing and new vulnerabilities will follow the new SLA policy.
+  </Step>
+</Steps>
+
+---
+
+## Violations
+
+<Frame caption="SLA Violations View — critical and medium issues by owner">
+  <img src="/images/vm/sla2.png" alt="SLA Violations List" />
+</Frame>
+
+The **Violations** tab lists all vulnerabilities that have **breached** or are **at risk** of breaching their SLA.  
+Each row shows severity, breach date, time overdue, and the assigned owner.
+
+
+
+### Features:
+- Filter by **severity**, **owner**, or **team**.
+- Track **time overdue** and **breach date** for each issue.
+- Identify **critical delays** that impact compliance metrics.
+- Assign or reassign owners directly to expedite resolution.
+
+---
+
+## Leaderboard
+
+<Frame caption="Leaderboard showing team SLA compliance percentage">
+  <img src="/images/vm/sla3.png" alt="SLA Leaderboard Table" />
+</Frame>
+
+The **Leaderboard** ranks users or teams based on SLA performance, giving clear insight into compliance and ownership quality.
+
+
+
+### Metrics Displayed:
+- **Total Vulnerabilities:** Count of assigned tickets.  
+- **Breached:** Number of issues past their SLA deadline.  
+- **At Risk:** Vulnerabilities close to SLA violation.  
+- **Total Violations:** Combined SLA breaches and risk count.  
+- **Compliance %:** Percentage of issues resolved within SLA timelines.
+
+---
+
+## Exporting CSV Report
+
+<Frame caption="Sample exported SLA compliance report in Excel format">
+  <img src="/images/vm/sla6.png" alt="Exported SLA Analytics Report" />
+</Frame>
+
+Export detailed SLA performance data for executive review or compliance audits.
+
+<Steps>
+  <Step title="Open the SLA Dashboard">
+    Navigate to the **SLA → Dashboard** section.
+  </Step>
+  <Step title="Click Export Report">
+    Use the **Export Report** button to download a structured Excel or CSV file.
+  </Step>
+  <Step title="Review Metrics">
+    The exported file includes:
+    - SLA Overview by Percentage
+    - Breakdown by Severity
+    - Team-wise and Department-level compliance
+    - Breached and Resolved ticket counts
+  </Step>
+</Steps>
+
+
+
+---
+
+## Next Steps
+
+<Card title="View Change Management Metrics" icon="arrow-right" href="/images/vm/change-management">
+  Connect SLA insights with change requests to measure security validation timelines across releases.
+</Card>

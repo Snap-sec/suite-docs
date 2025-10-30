@@ -1,0 +1,94 @@
+---
+title: "Global Search"
+description: "Search across all vulnerabilities, assets, endpoints, and reports — instantly and intelligently."
+icon: "search"
+mode: "wide"
+---
+
+<Frame caption="Search across all vulnerability reports, assets, and keywords">
+  <img src="/images/vm/search1.png" alt="Global search interface showing vulnerabilities and reports" />
+</Frame>
+
+## Overview
+
+**Global Search** provides a unified way to search across your entire vulnerability management ecosystem —  
+whether vulnerabilities come from **different scanners, assessments, or manual pentests**.
+
+You can instantly locate vulnerabilities, assets, endpoints, CWE identifiers, or even specific text within reports.  
+Global Search ensures you never lose visibility of any issue, regardless of its origin or assessment.
+
+---
+
+## Key Capabilities
+
+<Columns cols={2}>
+  <Card title="Search Everywhere" icon="globe">
+    Find vulnerabilities across all assessments, sources, and integrations in one place.
+  </Card>
+  <Card title="Deep Report Search" icon="book-search">
+    Search within full vulnerability reports — including summaries, impact, and reproduction steps.
+  </Card>
+  <Card title="Asset & Endpoint Discovery" icon="server">
+    Query assets, endpoints, or hostnames to identify where specific issues exist.
+  </Card>
+  <Card title="Smart Keyword Highlighting" icon="highlighter">
+    View highlighted matches for your keywords across multiple vulnerabilities.
+  </Card>
+</Columns>
+
+---
+
+## Using Global Search
+
+<Frame caption="Keyword-based results showing vulnerabilities and matching content">
+  <img src="/images/vm/search2.png" alt="Vulnerability search results with highlighted keywords" />
+</Frame>
+
+
+<Steps>
+  <Step title="Open Search">
+    Navigate to the **Search** tab under Vulnerability Management.
+  </Step>
+  <Step title="Enter a Query">
+    Type any keyword — such as a vulnerability title (*XSS*), asset name (*app.example.com*),  
+    endpoint path (*api/v1/user*), or specific CVE/CWE identifier.
+  </Step>
+  <Step title="View Results">
+    Instantly view results grouped by report, assessment, or source.  
+    Each entry expands to show summaries, steps to reproduce, and report context.
+  </Step>
+  <Step title="Open in Report">
+    Click a result to open its full vulnerability report in context, enabling deeper investigation or follow-up.
+  </Step>
+</Steps>
+
+
+
+---
+
+## Searchable Data Types
+
+| Type | Example Query | Description |
+|------|----------------|-------------|
+| Vulnerability Title | `API with No Versioning` | Finds matching vulnerabilities across all reports. |
+| Endpoint | `/api/v1/payment` | Returns vulnerabilities linked to that endpoint. |
+| Asset | `staging.example.com` | Shows all findings associated with that asset. |
+| Keyword in Report | `JWT`, `encryption` | Searches deep within summaries, impacts, or mitigation text. |
+| CWE or CVE ID | `CWE-79`, `CVE-2024-23950` | Locates findings associated with specific identifiers. |
+
+---
+
+## Benefits
+
+- **Faster triage:** Quickly locate and compare similar vulnerabilities across different systems.  
+- **Cross-source visibility:** Combines results from integrated scanners, assessments, and bug bounty imports.  
+- **Audit ready:** Retrieve historical findings and related metadata for compliance or reporting.  
+- **Team-wide clarity:** Ideal for security analysts, developers, and auditors reviewing large data sets.
+
+---
+
+## Next Steps
+
+<Card title="Explore Vulnerability Reports" icon="file-text" href="/images/vm/reports">
+  Learn how Global Search integrates with detailed vulnerability reports and evidence exports.
+</Card>
