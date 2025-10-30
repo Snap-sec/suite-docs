@@ -1,0 +1,112 @@
+---
+title: "Assets"
+description: "View, filter, and manage all discovered assets with live vulnerability correlation and risk scoring."
+icon: "server"
+mode: "wide"
+---
+
+<Frame caption="Overview of assets with type distribution, risk score, and vulnerability breakdown">
+  <img src="/images/vm/assets1.png" alt="Snapsec VM Assets dashboard showing charts, risk scores, and asset list" />
+</Frame>
+
+## Overview
+
+The **Assets** page consolidates every application, subdomain, IP, or certificate discovered across your environment.  
+It provides instant visibility into your attack surface with clear indicators for asset type, risk score, and remediation status.  
+Each asset dynamically correlates with vulnerabilities detected across your scans and assessments — helping teams prioritize what to fix first.
+
+Clicking any asset takes you directly to its **Vulnerability List**, showing all related findings, states, and remediation details.
+
+---
+
+## Filters
+
+Use filters at the top of the table to refine your asset view quickly.  
+You can filter assets by:
+
+- **Type** (Application, Subdomain, IP, Certificate, Port)  
+- **Owner** or assigned team  
+- **Has Vulnerabilities** toggle to view only affected assets  
+- **Risk score or remediation progress**  
+
+<Frame caption="Asset filters for refining search and sorting view">
+  <img src="/images/vm/assets2.png" alt="Asset filters bar for filtering by type, owner, and vulnerability status" />
+</Frame>
+
+---
+
+## How Assets Are Collected
+
+Snapsec automatically aggregates asset data through **Adapters** — connectors that integrate directly with your discovery and security tools.  
+Adapters continuously import and normalize data from:
+
+- External discovery scanners (ASM integrations)  
+- Cloud inventories and DNS records  
+- Continuous monitoring feeds from your **AIM (Asset Intelligence Management)** module  
+
+This unified asset catalog ensures your VM dashboard always reflects the latest and most accurate data.
+
+<Callout icon="link" color="blue">
+Adapters synchronize asset ownership, metadata, and discovery sources automatically — eliminating manual imports.
+</Callout>
+
+---
+
+## Vulnerability Data Correlation
+
+Every asset is continuously correlated with vulnerabilities identified across your **assessments** and **integrations**.  
+The system links each vulnerability to its originating asset and recalculates the **asset’s risk score** in real time.  
+
+This provides a complete picture of which assets pose the highest exposure and need urgent attention.
+
+<Frame caption="Linked vulnerability data displayed per asset row">
+  <img src="/images/vm/assets3.png" alt="Asset list showing risk score, open vulnerabilities, and remediation progress" />
+</Frame>
+
+---
+
+## Auto Risk Updates
+
+When new vulnerabilities are detected, or existing ones are resolved, the **Asset Risk Score** updates automatically.  
+This dynamic scoring ensures your dashboard always reflects the latest state of risk across your environment — no manual recalculation required.
+
+<Banner>
+Risk scoring adapts continuously based on severity, exploitability, and remediation progress.
+</Banner>
+
+---
+
+## Remediation Progress
+
+Each asset includes a **Remediation Progress Bar** showing the percentage of resolved vs. open vulnerabilities.  
+This metric allows teams to track closure rates and measure the impact of their ongoing fixes.
+
+<Frame caption="Remediation progress tracking for each asset">
+  <img src="/images/vm/assets4.png" alt="Progress bar showing remediation completion percentages for assets" />
+</Frame>
+
+You can also perform quick actions on any asset:
+
+<Columns cols={3}>
+  <Card title="Mark as Important" icon="star">
+    Pin assets that require constant monitoring or belong to critical systems.
+  </Card>
+  <Card title="Change Owner" icon="user">
+    Assign ownership to relevant teams for accountability.
+  </Card>
+  <Card title="Delete Asset" icon="trash">
+    Remove outdated or irrelevant assets from tracking.
+  </Card>
+</Columns>
+
+<Frame caption="Quick actions menu available for each asset entry">
+  <img src="/images/vm/assets5.png" alt="Context menu showing mark important, change owner, and delete asset options" />
+</Frame>
+
+---
+
+## Next Steps
+
+<Card title="Explore Vulnerability List" icon="arrow-right" href="/images/vm/vulnerabilities">
+  Click any asset to view its associated vulnerabilities and start remediation.
+</Card>

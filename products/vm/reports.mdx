@@ -1,0 +1,113 @@
+---
+title: "Reports"
+description: "Generate, manage, and download detailed vulnerability and executive reports for assessments, assets, and change requests."
+icon: "file-chart-column"
+mode: "wide"
+---
+
+<Frame caption="Reports dashboard showing generated vulnerability and executive reports">
+  <img src="/images/vm/reports1.png" alt="List of reports with types, states, and actions in Snapsec VM Reports page" />
+</Frame>
+
+## Overview
+
+The **Reports** page centralizes all report generation and management within Vulnerability Management.  
+From technical vulnerability exports to high-level executive summaries, this module allows you to create customized PDF reports tailored to your audience — from engineers to leadership.
+
+Each report is automatically linked to its source assessment, asset, or change request for full traceability.  
+You can generate, download, revalidate, or delete reports directly from this interface.
+
+---
+
+## Report Types
+
+<Frame caption="Report generation modal showing available report types">
+  <img src="/images/vm/reports4.png" alt="Report generation modal with options for Full Executive, Asset Specific, Assessment Specific, and Change Request reports" />
+</Frame>
+
+Snapsec supports multiple report types to meet different visibility needs:
+
+<Columns cols={2}>
+  <Card title="1. Assessment Specific Reports" icon="list-check">
+    Generate detailed reports for a single assessment or project.
+    <ul>
+      <li><strong>Vulnerability Report:</strong> Includes all vulnerabilities, details, and remediation data.</li>
+      <li><strong>Revalidation Report:</strong> Focuses on re-tested vulnerabilities and their evidences.</li>
+    </ul>
+  </Card>
+  <Card title="2. Asset Specific Reports" icon="server">
+    Create reports for specific asset types like subdomains, IPs, or ports, summarizing associated vulnerabilities and remediation progress.
+  </Card>
+  <Card title="3. Executive Reports" icon="chart-pie">
+    Executive-level summaries featuring charts, metrics, and trends — ideal for board or CISO-level presentations.
+  </Card>
+  <Card title="4. Change Request Reports" icon="arrows-rotate">
+    Reports dedicated to tracking vulnerabilities, test outcomes, and verification for approved change requests.
+  </Card>
+</Columns>
+
+---
+
+## Generating New Reports
+
+<Frame caption="Generate Report modal with dropdown to choose type">
+  <img src="/images/vm/reports2.png" alt="Generate Report modal displaying available report types and assessment selection" />
+</Frame>
+
+<Steps>
+  <Step title="Open Report Generator">
+    Click **Generate Report** at the top-right corner of the Reports page.
+  </Step>
+  <Step title="Select Report Type">
+    Choose your preferred report type — **Executive**, **Assessment Specific**, **Asset Specific**, or **Change Request**.
+  </Step>
+  <Step title="Select Data Source">
+    Depending on the type, select the corresponding **Assessment**, **Asset**, or **Change Request** from the dropdown.
+  </Step>
+  <Step title="Generate PDF">
+    Snapsec will compile all associated data — vulnerabilities, trends, or evidences — into a formatted PDF ready for download.
+  </Step>
+</Steps>
+
+<Banner>
+All generated reports are securely stored, timestamped, and versioned — ensuring repeatability and audit compliance.
+</Banner>
+
+---
+
+## Downloading and Deleting Reports
+
+<Frame caption="List of generated reports with status indicators and quick actions">
+  <img src="/images/vm/reports3.png" alt="Reports table showing different report types, states, and quick action buttons" />
+</Frame>
+
+Once reports are generated, you can perform key actions directly from the list view:
+
+<Columns cols={3}>
+  <Card title="Download" icon="download">
+    Instantly download PDF versions for internal sharing or submission.
+  </Card>
+  <Card title="Regenerate" icon="refresh-ccw">
+    Rebuild a report with updated data when vulnerabilities or remediation statuses change.
+  </Card>
+  <Card title="Delete" icon="trash">
+    Remove outdated or duplicate reports to keep your workspace organized.
+  </Card>
+</Columns>
+
+
+
+---
+
+## Value
+
+The **Reports** module bridges the gap between technical testing and business insight.  
+It automates report creation, ensures consistency across deliverables, and helps communicate progress effectively across teams — from engineers to executives.
+
+---
+
+## Next Steps
+
+<Card title="Generate Your First Report" icon="arrow-right" href="https://suite.snapsec.co/demo">
+  Try creating a new assessment or executive report to visualize your organization’s security progress.
+</Card>

@@ -1,0 +1,103 @@
+---
+title: "Vulnerability List"
+description: "Access, filter, and manage all discovered vulnerabilities from one unified view across assessments, assets, and teams."
+icon: "list-check"
+mode: "wide"
+---
+
+<Frame caption="Unified view of all vulnerabilities across assessments and assets">
+  <img src="/images/vm/vulnerabilities1.png" alt="Vulnerability Management list showing all vulnerabilities with filters and states" />
+</Frame>
+
+## Overview
+
+The **Centralized Vulnerability List** provides a single, comprehensive view of all vulnerabilities identified across your entire organization — from assessments, assets, and integrated scanners.  
+It enables teams to track, prioritize, and manage vulnerabilities efficiently, all from one place.
+
+With intelligent filters, real-time states, and ownership visibility, this unified view removes the need to navigate multiple reports or dashboards. Every vulnerability is synced automatically from assessments and integrations, ensuring complete and current visibility.
+
+---
+
+## Key Capabilities
+
+<Columns cols={2}>
+  <Card title="Unified View" icon="layers">
+    View all vulnerabilities from every source — assessments, integrations, and manual imports — in one consolidated table.
+  </Card>
+  <Card title="Real-Time Sync" icon="refresh-ccw">
+    Vulnerability data is continuously updated as new assessments complete or integrations refresh.
+  </Card>
+  <Card title="Advanced Filtering" icon="filter">
+    Use granular filters to find vulnerabilities by severity, assessment, state, team, or owner.
+  </Card>
+  <Card title="Ownership & Assignment" icon="user-check">
+    See who owns each vulnerability and its current remediation progress.
+  </Card>
+</Columns>
+
+---
+
+## Filtering and Search
+
+<Frame caption="Advanced filtering options for vulnerabilities">
+  <img src="/images/vm/vulnerabilities2.png" alt="Filtering toolbar with filters for severity, assessment, owner, state, and teams" />
+</Frame>
+
+Filters make it simple to pinpoint vulnerabilities of interest. You can filter and search using:
+
+- **Severity** – Critical, High, Medium, Low  
+- **Assessment** – Specific assessments or projects  
+- **Owners** – Filter by assigned remediation owners  
+- **State** – In review, In progress, Re-test, Resolved, etc.  
+- **Teams** – View vulnerabilities assigned to particular departments  
+
+The search bar supports keyword lookups across vulnerability titles, domains, and affected assets.
+
+<Callout icon="search" color="blue">
+Combine multiple filters for advanced queries — for example, *Critical vulnerabilities in Docker assessments assigned to Team A*.
+</Callout>
+
+---
+
+## Vulnerability States
+
+Each vulnerability moves through clear, trackable states — making it easy to monitor progress and identify bottlenecks in remediation:
+
+| State | Description |
+|--------|--------------|
+| **In Review** | Under review by analysts or awaiting validation. |
+| **In Progress** | Actively being worked on by developers or engineers. |
+| **Re-Test** | Undergoing validation after remediation. |
+| **Resolved** | Verified as fixed and no longer exploitable. |
+| **Unresolved** | Not yet addressed or awaiting confirmation. |
+| **False Positive / Not Applicable** | Marked as invalid or irrelevant to the environment. |
+
+<Banner>
+Every change in vulnerability state automatically syncs with reports and metrics dashboards.
+</Banner>
+
+---
+
+## Sorting and Prioritization
+
+Vulnerabilities can be sorted by **severity**, **state**, **owner**, or **date reported** — helping teams prioritize their response efficiently.  
+You can also group by assessments or filter by remediation responsibility.
+
+---
+
+## Linking to Context
+
+Each vulnerability record links directly to:
+- **The originating assessment** (for traceability)  
+- **Associated asset or endpoint** (for impact analysis)  
+- **Evidence and remediation notes**  
+
+This ensures every issue remains fully contextualized and actionable within your workflow.
+
+---
+
+## Next Steps
+
+<Card title="Explore Change Management" icon="arrow-right" href="/images/vm/change-management">
+  Learn how vulnerability state transitions are tracked and approved using Change Management.
+</Card>

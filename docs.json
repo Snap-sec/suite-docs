@@ -35,13 +35,9 @@
               "products/vm/change-management",
               "products/vm/integrations",
               "products/vm/reports",
-              "products/vm/evidences",
               "products/vm/search",
               "products/vm/sla-analytics",
-              "products/vm/permissions-roles",
-              "products/vm/global-settings",
-              "products/vm/navigation"
-            ]
+              "products/vm/permissions-roles"            ]
           }
         ]
       },

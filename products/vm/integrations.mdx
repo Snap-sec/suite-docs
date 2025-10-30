@@ -1,0 +1,118 @@
+---
+title: "Integrations"
+description: "Connect your external scanners, tools, and ticketing systems to automate data flow into and out of Vulnerability Management."
+icon: "hexagon-nodes"
+mode: "wide"
+---
+
+<Frame caption="Integrations dashboard showing connected scanners and tools">
+  <img src="/images/vm/integrations1.png" alt="Integrations page displaying connected apps like Qualys, Jira, AIM, Trivy, and Nuclei" />
+</Frame>
+
+## Overview
+
+Integrations act as the bridge between Snapsec VM and your existing security or DevOps ecosystem.  
+You can **import vulnerabilities**, **sync asset data**, or **push findings to external systems** like Jira or Qualys — ensuring your vulnerability management process remains seamless and automated.
+
+All integrations are managed through lightweight, configurable **Adapters**, which define how data flows between Snapsec and connected platforms.
+
+---
+
+## Integration Types
+
+Snapsec classifies integrations into two primary types — designed to make the flow of data simple and consistent:
+
+### 🔹 Data Ingestion Integrations
+These are sources that bring vulnerabilities, assets, or scan data **into Snapsec** from external systems.  
+Examples: **Qualys**, **Nuclei**, **Trivy**, **AIM**, or manual CSV uploads.
+
+Data Ingestion Integrations ensure your VM always has the latest vulnerability data from scanners and continuous monitoring sources.
+
+### 🔹 Data Synchronization Integrations
+These push vulnerability and remediation data **out of Snapsec** into third-party tools.  
+Example: **Jira**, **ServiceNow**, or any custom webhook.
+
+These integrations enable seamless collaboration between security and development teams — ensuring that findings automatically create or update tickets in your existing workflow.
+
+---
+
+## What Are Adapters?
+
+Adapters are modular connectors that define how data is **fetched, transformed, and synced** between Snapsec and an external solution.
+
+Each adapter handles:
+- Authentication and connection setup  
+- Data mapping (vulnerabilities, assets, owners, states)  
+- Automated sync cycles (default: every **24 hours**)  
+
+Adapters are flexible, meaning Snapsec can support **any commercial or open-source solution** with minimal setup.
+
+<Frame caption="Adapter connection modal example — integrating Qualys scanner">
+  <img src="/images/vm/integrations2.png" alt="Integration setup modal showing credentials and API connection for Qualys adapter" />
+</Frame>
+
+---
+
+## Supported Adapters
+
+Snapsec currently supports the following built-in adapters, with support for more being added continuously:
+
+| Adapter | Type | Description |
+|----------|------|-------------|
+| **Jira** | Sync | Send vulnerability tickets for remediation tracking. |
+| **Qualys** | Ingest | Import vulnerabilities from Qualys scans. |
+| **AIM** | Ingest | Auto-import discovered assets from Snapsec’s Asset Intelligence module. |
+| **Nuclei** | Ingest | Fetch Nuclei scan results directly into assessments. |
+| **Trivy** | Ingest | Import container and image scan vulnerabilities. |
+| **CSV Import** | Ingest | Manually import vulnerability lists via CSV uploads. |
+| **Manual Import** | Ingest | Add findings manually when API imports aren’t available. |
+
+---
+
+## Connecting an Adapter
+
+<Steps>
+  <Step title="Open Integrations Page">
+    Navigate to **Integrations** from the sidebar in Vulnerability Management.
+  </Step>
+  <Step title="Select an Adapter">
+    Choose the integration (e.g., Qualys, Jira, Trivy) you want to configure and click **Install**.
+  </Step>
+  <Step title="Provide Connection Details">
+    Enter the necessary fields — API key, credentials, endpoint URLs, or assessment mapping.  
+    Each integration may have specific requirements.
+  </Step>
+  <Step title="Click Integrate">
+    Once verified, Snapsec establishes a secure connection and fetches data immediately.
+  </Step>
+</Steps>
+
+---
+
+## Refreshing Adapters
+
+All adapters refresh automatically every **24 hours**, ensuring data stays current with your latest scan results or ticket updates.  
+You can also manually trigger a refresh anytime using the **Refresh** button beside the integration card.
+
+<Callout icon="refresh-ccw" color="blue">
+Manual refresh is ideal when you’ve just run a new scan or closed issues in your external system and want Snapsec to update instantly.
+</Callout>
+
+---
+
+## Why Integrate?
+
+Integrations unify your **AppSec** and **DevSecOps** workflows — helping you:
+
+- Avoid duplicate work by syncing vulnerability data automatically  
+- Keep vulnerability states consistent across tools  
+- Enable automatic ticket creation and closure  
+- Centralize your reporting and risk visibility  
+
+---
+
+## Next Steps
+
+<Card title="Connect Your First Integration" icon="arrow-right" href="https://suite.snapsec.co/demo">
+  Start by connecting your preferred scanner or issue tracker and automate your vulnerability lifecycle.
+</Card>
