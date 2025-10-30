@@ -1,0 +1,135 @@
+---
+title: "Change Management"
+description: "Track, assess, and validate all change or feature release requests through structured security review workflows."
+icon: "git-pull-request"
+mode: "wide"
+---
+
+<Frame caption="Change Management Dashboard showing request summary and vulnerability overview">
+  <img src="/images/vm/cm1.png" alt="Change Management dashboard view" />
+</Frame>
+
+## Overview
+
+The **Change Management** module allows organizations to securely track and assess changes introduced to their applications, infrastructure, or APIs.  
+It ensures that every new release or feature undergoes a controlled security review before production deployment.
+
+Whether you are performing internal change reviews or managing external pentest requests, this module provides a unified process for **security validation, approval tracking, and evidence management**.
+
+---
+
+## Purpose
+
+Every code deployment or configuration update can impact the security posture.  
+Change Management in Snapsec VM formalizes this process by:
+
+- Documenting change requests with relevant context (title, owner, timeline, dependencies).
+- Running targeted assessments on new or modified components.
+- Tracking vulnerabilities introduced or fixed through each release.
+- Maintaining traceability between changes, vulnerabilities, and pentest results.
+
+---
+
+## Value
+
+<Columns cols={2}>
+  <Card title="Security in Every Release" icon="shield-check">
+    Ensure each release or feature update goes through defined security checks before deployment.
+  </Card>
+  <Card title="Centralized Request Tracking" icon="list-checks">
+    Manage all change and pentest requests from a single interface with clear visibility on status and priority.
+  </Card>
+  <Card title="Evidence-based Validation" icon="file-certificate">
+    Attach supporting evidence, testing credentials, and API documentation for validation and audit.
+  </Card>
+  <Card title="Seamless Integration" icon="git-branch">
+    Link Jira or CI/CD releases with security verification and vulnerability results.
+  </Card>
+</Columns>
+
+---
+
+## Change Management Dashboard
+
+The **Dashboard** provides an overview of all pentests and change requests along with key metrics.
+
+<Frame caption="Dashboard view summarizing requests and vulnerability distribution">
+  <img src="/images/vm/cm2.png" alt="Change management request overview dashboard" />
+</Frame>
+
+### Dashboard Highlights
+
+- **Requests by Status** — Track running, paused, completed, or pending requests.  
+- **Recent Activities** — See recent submissions, updates, and completions.  
+- **Vulnerability Overview** — Visualize vulnerabilities associated with each change request, categorized by severity.  
+- **Top Priority Requests** — Quickly identify ongoing or urgent security validations.
+
+---
+
+## Creating a Change Request
+
+Creating a change request captures all necessary information for a release or update validation.
+
+<Steps>
+  <Step title="Navigate to Change Management → Change Requests">
+    Click **Create New Request** to open the change submission form.
+  </Step>
+  <Step title="Add Request Summary">
+    Include priority level, title, requester details, contact information, and a concise summary of the change.
+  </Step>
+  <Step title="Set Timeline">
+    Specify the request date, report deadline, and expected go-live window.
+  </Step>
+  <Step title="Add Technical Details">
+    Provide environment details, URLs, authentication credentials, and link any API documentation or files.
+  </Step>
+  <Step title="Submit for Review">
+    Click **Create Request** to trigger validation and assign reviewers.
+  </Step>
+</Steps>
+
+<Frame caption="Change Request creation form capturing summary and technical details">
+  <img src="/images/vm/cm3.png" alt="New change request creation form" />
+</Frame>
+
+---
+
+## Viewing and Managing Change Requests
+
+All existing requests are listed in the **Change Requests** tab, where you can view, search, and filter by state, priority, or update date.
+
+Each request includes linked vulnerabilities, associated evidence, and live metrics showing open/closed issues, severity breakdowns, and trends.
+
+<Frame caption="Change Request details with metrics and vulnerability insights">
+  <img src="/images/vm/cm4.png" alt="Change request details and vulnerability metrics" />
+</Frame>
+
+---
+
+## Adding Vulnerabilities to a Change Request
+
+During or after validation, vulnerabilities identified are automatically linked to their associated **Change Request**.
+
+<Steps>
+  <Step title="From the Assessment">
+    Select vulnerabilities discovered during the pentest and map them to the related change request.
+  </Step>
+  <Step title="Auto Link via Integration">
+    If connected with CI/CD or scanners, vulnerabilities are automatically assigned to their respective change ID.
+  </Step>
+  <Step title="Review and Track Progress">
+    Track each vulnerability’s lifecycle under the **Metrics** tab within the change request.
+  </Step>
+</Steps>
+
+<Frame caption="Metrics showing severity distribution and vulnerability progress within a change request">
+  <img src="/images/vm/cm5.png" alt="Change request vulnerability tracking metrics" />
+</Frame>
+
+---
+
+## Related
+
+<Card title="Assessments" icon="clipboard-list" href="/images/vm/assessments">
+  Managing change settings, naming conventions, and timelines is identical to **Assessments**. Learn more here.
+</Card>
