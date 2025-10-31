@@ -17,8 +17,7 @@
             "group": "Getting started",
             "pages": [
               "index",
-              "quickstart",
-              "development"
+              "deployments"
             ]
           },
           {
@@ -37,7 +36,7 @@
               "products/vm/reports",
               "products/vm/search",
               "products/vm/sla-analytics",
-              "products/vm/permissions-roles"            ]
+              "products/vm/ownership"            ]
           }
         ]
       },
