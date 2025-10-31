@@ -37,6 +37,18 @@
               "products/vm/search",
               "products/vm/sla-analytics",
               "products/vm/ownership"            ]
+          },
+          {
+            "group": "Attack Surface Management",
+            "pages": [
+              "products/asm/dashboard",
+              "products/asm/scans",
+              "products/asm/rules",
+              "products/asm/asset-catalog",
+              "products/asm/exposures",
+              "products/asm/integrations",
+              "products/asm/reports"
+            ]
           }
         ]
       },
