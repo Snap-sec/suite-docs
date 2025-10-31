@@ -1,0 +1,77 @@
+---
+title: "Exposures"
+description: "View, triage, and manage all security exposures automatically detected from your attack surface scans."
+icon: "triangle-exclamation"
+mode: "wide"
+---
+
+<Banner>
+The **Exposures page** provides a unified view of all issues identified by your exposure rules — covering subdomains, IPs, ports, DNS records, certificates, APIs, and technologies.  
+Every exposure is automatically created by your YAML-based detection policies.
+</Banner>
+
+<Frame caption="Exposure Overview">
+  <img src="/images/asm/exposures.png" alt="Exposure list page"/>
+</Frame>
+
+---
+
+## Overview
+
+Exposures represent **validated risks** automatically derived from your discovered assets.  
+Each entry contains:
+
+- **Asset & Type** – The resource impacted (e.g., IP, Subdomain, Certificate)
+- **Reason** – Why this asset was flagged (e.g., “Invalid SSL Cert”)
+- **Severity** – Criticality defined by your exposure rules or manual review
+- **State** – Workflow state (*In Review*, *Safe*, *Resolved*, *Not assigned*)
+- **Detected At** – Timestamp of when the exposure was first observed
+- **Action** – View, edit, or mark exposure as safe
+
+---
+
+## Key Capabilities
+
+<Columns cols={2}>
+
+<Card title="Automatic Exposure Generation" icon="sparkles">
+  All exposures are **created automatically** by your YAML-based rules during scans.  
+  Rules define which assets are risky and assign their severity and description.
+</Card>
+
+<Card title="Detailed Exposure Listing" icon="list-check">
+  View all exposures in a structured table with filters by asset type, state, and severity.
+</Card>
+
+<Card title="Modify & Review" icon="pen-to-square">
+  Analysts can manually edit the reason or change severity to refine classification accuracy.
+</Card>
+
+<Card title="Mark as Safe" icon="shield-check">
+  False positives can be marked as *Safe* to prevent recurrence in future scans.
+</Card>
+
+</Columns>
+
+---
+
+## Editing Exposures
+
+You can **edit** any exposure directly to adjust severity or reason text.
+
+<Frame caption="Editing an Exposure">
+  <img src="/images/asm/exposures2.png" alt="Edit Exposure popup" />
+</Frame>
+
+### Example Use
+- Adjust *Severity* from **Critical → Medium** when risk context is low.  
+- Update *Reason* to add notes like “Reviewed internally – no sensitive data.”
+
+```yaml
+# Example manual review log (stored internally)
+id: c15e1e8e
+asset: "*.bugcrowd.com"
+reason: "Exposing internal dashboard (non-sensitive)"
+severity: "Low"
+state: "In review"
+reviewed_by: "analyst@company.com"

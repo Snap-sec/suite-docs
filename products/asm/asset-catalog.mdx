@@ -1,0 +1,225 @@
+---
+title: "Asset Catalog"
+description: "Unified catalog of all assets automatically discovered and continuously monitored by the Attack Surface Management module."
+icon: "database"
+mode: "wide"
+---
+
+The **Asset Catalog** forms the core of **Attack Surface Management (ASM)** — a unified, continuously updated inventory of all internet-facing assets belonging to your organization.  
+Every discovered asset — from subdomains to technologies — is automatically analyzed, enriched, and correlated with exposures, providing a **single source of truth** for your external attack surface.
+
+<Frame caption="Overview of detected assets across subdomains, IPs, certificates, and ports">
+  <img src="/images/asm/catalog.png" alt="Attack Surface Asset Catalog Overview" />
+</Frame>
+
+---
+
+## Overview
+
+ASM continuously scans the internet and organizational namespaces (domains, IP ranges, ASN, certificates, etc.) to **discover every exposed asset**.  
+Each asset is categorized by type, automatically correlated with others, and enriched with metadata such as ownership, exposure state, and technology stack.
+
+This helps organizations:
+
+- Maintain **complete visibility** of their external infrastructure.  
+- Identify **unknown or forgotten assets** (“shadow IT”).  
+- Detect **risky configurations** or **expired certificates** before attackers do.  
+- Map **relationships** between subdomains, IPs, and services for faster incident triage.  
+
+---
+
+## Asset Types
+
+The Asset Catalog organizes data into structured views for each category of discovered assets.
+
+---
+
+### 🕸️ Subdomains
+
+Subdomains are the foundational layer of your external footprint. ASM automatically discovers and tracks all subdomains related to your domains using active enumeration, passive feeds, DNS analysis, and certificate transparency logs.
+
+<Frame caption="Subdomains table with live/dead status, HTTP fingerprints, and associated IPs">
+  <img src="/images/asm/subdomains.png" alt="ASM Subdomains View" />
+</Frame>
+
+**Key Features:**
+- Tracks subdomain status (**live / dead / redirecting**)  
+- Maps associated **IP addresses, technologies, and SSL certificates**  
+- Detects misconfigured or abandoned subdomains  
+- Highlights potential **takeover risks**  
+
+**Customer Value:**
+- Identify forgotten assets still resolving in DNS.  
+- Catch newly registered lookalike or malicious domains.  
+- Reduce the likelihood of subdomain takeovers and DNS hijacking.
+
+---
+
+### 🌐 Web Servers
+
+Web servers are automatically fingerprinted based on HTTP responses, banner data, and service fingerprints.
+
+<Frame caption="Web servers view showing discovered hosts, frameworks, and open endpoints">
+  <img src="/images/asm/webservers.png" alt="ASM Web Servers" />
+</Frame>
+
+**Key Features:**
+- Detects all HTTP(S) services across discovered assets  
+- Identifies **server type, framework, headers, and exposure**  
+- Correlates servers with **SSL certificates and IPs**  
+- Flags servers with **default or vulnerable configurations**
+
+**Customer Value:**
+- Gain a full map of all web-facing endpoints.  
+- Detect shadow applications or deprecated services.  
+- Support vulnerability prioritization in VM and AppSec workflows.
+
+---
+
+### 📡 IP Addresses
+
+Every discovered host or domain is linked to its active IP addresses — both IPv4 and IPv6.
+
+<Frame caption="IP address catalog showing associated domains, hosting providers, and geolocation">
+  <img src="/images/asm/ips.png" alt="ASM IP Address Catalog" />
+</Frame>
+
+**Key Features:**
+- Maps **domains ↔ IPs ↔ organizations**  
+- Identifies **hosting providers, cloud vendors, and geolocation**  
+- Detects **publicly accessible or misconfigured IPs**  
+- Tracks changes in ownership or assignment over time
+
+**Customer Value:**
+- Quickly identify which assets are hosted externally vs internally.  
+- Detect exposed cloud resources or test environments.  
+- Simplify asset ownership tracking across hybrid networks.
+
+---
+
+### 🔒 Certificates
+
+SSL/TLS certificates are automatically discovered across domains and IPs, providing full visibility into encryption posture and expiry risks.
+
+<Frame caption="Certificates view showing validity, issuer, and exposure state">
+  <img src="/images/asm/certificates.png" alt="ASM Certificates View" />
+</Frame>
+
+**Key Features:**
+- Lists **valid, expiring, and invalid certificates**  
+- Tracks **issuer, algorithm, and serial metadata**  
+- Correlates certificates with domains and IPs  
+- Flags certificates associated with **exposed or expired assets**
+
+**Customer Value:**
+- Prevent service downtime due to expired SSLs.  
+- Ensure encryption compliance across all external services.  
+- Identify weak or deprecated encryption algorithms early.
+
+---
+
+### ⚙️ Ports
+
+ASM actively monitors exposed network ports across all IPs to detect open, filtered, or closed states.
+
+<Frame caption="Port catalog with exposure analysis and service banners">
+  <img src="/images/asm/ports.png" alt="ASM Ports View" />
+</Frame>
+
+**Key Features:**
+- Lists all open ports and associated protocols  
+- Performs **banner grabbing** for service identification  
+- Detects **risky or non-standard ports** in production environments  
+- Maps ports to corresponding **domains, IPs, and services**
+
+**Customer Value:**
+- Identify unexpected open ports and network misconfigurations.  
+- Correlate exposed services with vulnerability scanners.  
+- Enforce least-exposure network policies.
+
+---
+
+### 🧩 Technologies
+
+ASM identifies and catalogs technologies used across your infrastructure using fingerprints and response signatures.
+
+<Frame caption="Technology stack overview showing detected frameworks and product versions">
+  <img src="/images/asm/technologies.png" alt="ASM Technology Detection" />
+</Frame>
+
+**Key Features:**
+- Detects **frameworks, CMS, server software, and libraries**  
+- Maps **technology usage per domain or web server**  
+- Flags outdated or vulnerable technology versions  
+- Links technologies to known CVEs or public exploits
+
+**Customer Value:**
+- Understand technology stack distribution across your org.  
+- Prioritize patching of vulnerable frameworks.  
+- Detect unauthorized or outdated software in production.
+
+---
+
+### 🧭 DNS Records
+
+ASM continuously collects and monitors DNS records for all tracked domains and subdomains.
+
+<Frame caption="DNS record breakdown showing A, CNAME, TXT, MX, and NS entries">
+  <img src="/images/asm/dns-records.png" alt="ASM DNS Records View" />
+</Frame>
+
+**Key Features:**
+- Monitors **A, AAAA, CNAME, MX, TXT, NS, and SRV** records  
+- Detects **dangling or misconfigured DNS entries**  
+- Tracks **record changes over time** for forensic and alerting use  
+- Correlates DNS with other discovered assets
+
+**Customer Value:**
+- Identify shadow DNS entries pointing to unowned infrastructure.  
+- Detect record changes that may indicate compromise.  
+- Maintain up-to-date DNS inventories for compliance and auditing.
+
+---
+
+## Unified Contextual Correlation
+
+All assets within the catalog are **deeply interconnected**. For example:
+- A **subdomain** links to an **IP**, which links to **open ports**, **technologies**, and **certificates**.  
+- These relationships create a **graph of your attack surface**, allowing better impact analysis and automated risk scoring.  
+
+This unified correlation enables:
+- Context-driven risk prioritization  
+- Root-cause analysis during incidents  
+- Smart automation for vulnerability management workflows  
+
+---
+
+## Continuous Refresh via Adapters
+
+ASM supports integrations with both **enterprise** and **open-source discovery tools** using its **Adapter Framework**.  
+Adapters continuously sync and enrich asset data from sources like Shodan, Censys, VirusTotal, and internal scanners.
+
+**Key Benefits:**
+- Keep asset inventory updated in real-time  
+- Reduce false positives through adaptive correlation  
+- Automate onboarding of new data sources without code changes  
+
+---
+
+## Business Value Summary
+
+| Objective | How ASM Helps |
+|------------|---------------|
+| **Visibility** | Centralized inventory of all external-facing assets |
+| **Risk Reduction** | Detect exposed, misconfigured, or outdated components |
+| **Compliance** | Maintain up-to-date asset documentation for audits |
+| **Efficiency** | Reduce manual discovery and correlation workload |
+| **Incident Response** | Rapidly trace relationships between assets during investigations |
+
+---
+
+## Next Steps
+
+<Card title="Explore Exposures" icon="alert-triangle" href="/images/asm/exposures">
+  Learn how detected assets are automatically analyzed for exposures and mapped to vulnerabilities.
+</Card>

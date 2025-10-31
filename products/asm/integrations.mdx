@@ -1,0 +1,88 @@
+---
+title: "Integrations"
+description: "Connect your Attack Surface Management findings with the Vulnerability Management (VM) module for unified remediation tracking."
+icon: "link"
+mode: "wide"
+---
+
+<Banner>
+Integrations bridge the **Attack Surface Management (ASM)** and **Vulnerability Management (VM)** modules.  
+They allow all detected exposures to be automatically synced into VM as tickets for centralized tracking and remediation.
+</Banner>
+
+<Frame caption="Vulnerability Synchronization Configuration">
+  <img src="/images/asm/integrations.png" alt="ASM Integrations Configuration"/>
+</Frame>
+
+---
+
+## Overview
+
+The **Integrations page** enables organizations to link their ASM findings to a specific **assessment** in VM.  
+Once linked, all detected exposures are sent as **tickets**, allowing unified monitoring and lifecycle tracking — from detection to closure.
+
+---
+
+## Key Capabilities
+
+<Columns cols={2}>
+
+<Card title="Assessment Selection" icon="list-tree">
+  Choose an active **VM assessment** where all ASM exposures should be sent.  
+  This could be a quarterly assessment, continuous scan, or any custom project.
+</Card>
+
+<Card title="One-Click Sync" icon="rotate">
+  Use the **Sync Vulns** button to immediately push all exposures into VM.  
+  Each exposure is converted into a ticket with its reason, severity, and asset context.
+</Card>
+
+<Card title="Auto Status Tracking" icon="arrows-rotate">
+  ASM automatically **tracks exposure resolution** back from VM.  
+  When an exposure ticket is marked as resolved in VM, the ASM status updates in real-time.
+</Card>
+
+<Card title="Centralized Visibility" icon="eye">
+  View your entire attack surface and remediation status across both products from one place.
+</Card>
+
+</Columns>
+
+---
+
+## Workflow Example
+
+1. Select your desired **assessment** (e.g., *Q1 - Attack Surface Management*).  
+2. Click **Sync Vulns** to export all ASM exposures to VM.  
+3. Each exposure becomes a ticket with full context (asset, reason, severity, etc.).  
+4. Once developers fix the issue and close the ticket in VM, ASM reflects the change automatically.
+
+---
+
+### Example Use Case
+
+- ASM detects several IPs with **open SSH ports (22)** and **expired SSL certificates**.  
+- You sync them to VM under *Continuous Vulnerability Scanning*.  
+- The VM team triages, assigns owners, and tracks SLAs.  
+- When tickets are closed, ASM marks those exposures as **Resolved** automatically.
+
+---
+
+## Benefits
+
+✅ Unified visibility between ASM discovery and VM remediation  
+✅ Automated exposure tracking and closure validation  
+✅ Reduced manual overhead in managing attack surface risks  
+✅ Cross-module consistency for reporting and compliance  
+
+---
+
+## Next Steps
+
+<Card title="Set Exposure Policies" icon="scroll" href="/products/asm/exposure-rules">
+  Define your detection logic using YAML-based exposure rules.
+</Card>
+
+<Card title="View Exposures in VM" icon="arrow-right-arrow-left" href="/products/vm/unified-vulnerability-dashboard">
+  Track synced exposures directly in the Vulnerability Dashboard.
+</Card>

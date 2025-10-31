@@ -1,0 +1,342 @@
+---
+title: "Exposure Rules"
+description: "Define your company’s exposure policy with YAML rules that classify risky assets automatically."
+icon: "shield-halved"
+mode: "wide"
+---
+
+<Banner>
+Exposure rules are **policy as code** for ASM. They evaluate discovered assets and tag what should be treated as an **exposure**—with the severity, labels, and notes you decide.
+</Banner>
+
+## Overview
+
+Exposure Rules use our YAML **Rule Engine** to translate human-readable policy into executable queries.  
+Each rule inspects asset metadata (subdomains, IPs, ports, tech, certs, DNS, screenshots, etc.) and, when matched, **marks the asset/exposure**, assigns **severity**, and optionally **sets attributes** (e.g., category, ownerHint, runbookLink).
+
+<Frame caption="Exposure Rules list and quick status">
+  <img src="/images/asm/rules.png" alt="Exposure Rules list"/>
+</Frame>
+
+- **Input:** Discovered assets from ASM scans (Subdomains, IPs, Web Servers, Ports, DNS, Certificates, Technologies…).
+- **Logic:** YAML rules (match + optional set).
+- **Output:** Standardized **Exposures** in the Exposures module, ready for triage, dashboards, and reporting.
+
+---
+
+## How it Works (Evaluation Cycle)
+
+1. **Scan completes** → assets are normalized & enriched.  
+2. **Rules execute** in order (you can reorder; most specific first is recommended).  
+3. If a rule’s `match` is satisfied:  
+   - An exposure is created/updated and **fields in `set` are applied** (severity/category/notes/etc.).  
+   - The asset keeps the exposure tag for history & trend charts.  
+4. **Conflicts:** If multiple rules match, we **merge `set` fields**; the **highest severity wins**.
+
+> The syntax and operators are the same as the **YAML Rule Engine** used across Suite. Full guide below.
+
+---
+
+## YAML Rule Guide (quick-start)
+
+Rules follow the same structure described in the Rule Engine docs you provided:
+
+```yaml
+name: "<policy title>"
+description: "<why this matters>"
+severity: <critical|high|medium|low>
+product: asm-exposures
+assetType: <subdomain|ip|web|port|dns|certificate|technology>
+match:   # field/operator/value conditions
+  - field: ...
+    operator: ...
+    value: ...
+set:     # optional: fields to set on the matched exposure
+  - field: category
+    value: "attack-surface"
+```
+
+
+
+## Exampe Rules
+
+```yaml
+#### 1. Expiring TLS Certificate (≤ 14 days)
+name: "Expiring TLS Certificate (≤ 14 days)"
+description: "Certificates expiring within 14 days increase outage & MiTM risk."
+severity: high
+product: asm-exposures
+assetType: certificate
+match:
+  - field: validTo
+    operator: "<="
+    value: 14days
+    transformer: Date
+set:
+  - field: category
+    value: "tls"
+  - field: title
+    value: "TLS certificate expiring soon"
+````
+---
+
+```yaml
+# 2. Expired TLS Certificate
+name: "Expired TLS Certificate"
+description: "Certificate already expired."
+severity: critical
+product: asm-exposures
+assetType: certificate
+match:
+  - field: validTo
+    operator: "<"
+    value: 0days
+    transformer: Date
+set:
+  - field: category
+    value: "tls"
+  - field: title
+    value: "TLS certificate expired"
+```
+---
+
+
+```yaml
+# 3. Self-Signed Certificate
+name: "Self-Signed Certificate"
+severity: high
+product: asm-exposures
+assetType: certificate
+match:
+  - field: issuer
+    operator: regex
+    value: "(?i)self[- ]?signed"
+set:
+  - field: category
+    value: "tls"
+  - field: title
+    value: "Self-signed certificate in use"
+```
+---
+
+
+```yaml
+# 4. Weak Certificate Algorithm
+name: "Weak Certificate Algorithm"
+severity: high
+product: asm-exposures
+assetType: certificate
+match:
+  - field: details.algorithm
+    operator: in
+    value: "md5,sha1,unknown"
+    transformer: List
+set:
+  - field: category
+    value: "tls"
+  - field: title
+    value: "Weak or unknown certificate algorithm"
+```
+
+---
+
+
+```yaml
+# 5. Exposed Admin Panel
+name: "Exposed Admin Panel"
+severity: high
+product: asm-exposures
+assetType: web
+match:
+  or:
+    - conditions:
+        - field: url
+          operator: regex
+          value: "(?i)/(admin|wp-admin|manage|dashboard|cms)(/|$)"
+    - conditions:
+        - field: technologies.name
+          operator: regex
+          value: "(?i)(jenkins|kibana|grafana|sonarqube|pgadmin|phpmyadmin)"
+          options: { matchType: elemMatch }
+set:
+  - field: category
+    value: "admin-surface"
+  - field: title
+    value: "Administrative surface exposed to the internet"
+```
+
+---
+
+
+```yaml
+# 6. Dangerous Management Port Exposed
+name: "Dangerous Management Port Exposed"
+description: "SSH/RDP/WinRM/VNC shouldn’t be internet-facing without proper controls."
+severity: high
+product: asm-exposures
+assetType: port
+match:
+  - field: port
+    operator: in
+    value: "22,3389,5985,5986,5900,2375,2376,3306,5432"
+    transformer: List
+set:
+  - field: category
+    value: "network"
+  - field: title
+    value: "High-risk management port exposed"
+
+```
+
+---
+
+```yaml
+# 7. Non-Prod Environment Exposed
+name: "Non-Prod Environment Exposed"
+severity: medium
+product: asm-exposures
+assetType: subdomain
+match:
+  or:
+    - conditions:
+        - field: value
+          operator: regex
+          value: "(?i)(dev|stg|stage|staging|qa|test)[.-]"
+    - conditions:
+        - field: value
+          operator: regex
+          value: "(?i)[.-](dev|stg|stage|staging|qa|test)(\\.|$)"
+set:
+  - field: category
+    value: "environment"
+  - field: title
+    value: "Non-production host reachable on the internet"
+
+```
+
+---
+
+```yaml
+# 8. Permissive CORS (Origin: *)
+name: "Permissive CORS (Origin: *)"
+severity: high
+product: asm-exposures
+assetType: web
+match:
+  - field: headers.access-control-allow-origin
+    operator: "=="
+    value: "*"
+set:
+  - field: category
+    value: "misconfiguration"
+  - field: title
+    value: "CORS allows any origin"
+
+```
+
+---
+
+
+```yaml
+# 9. SPF Missing
+name: "SPF Missing"
+severity: medium
+product: asm-exposures
+assetType: dns
+match:
+  - field: records.TXT
+    operator: not_contains
+    value: ["v=spf1"]
+set:
+  - field: category
+    value: "email-security"
+  - field: title
+    value: "SPF record missing"
+```
+
+---
+
+```yaml
+# 10. DMARC Missing
+name: "DMARC Missing"
+severity: high
+product: asm-exposures
+assetType: dns
+match:
+  - field: records.TXT
+    operator: not_contains
+    value: ["v=dmarc1"]
+set:
+  - field: category
+    value: "email-security"
+  - field: title
+    value: "DMARC record missing"
+```
+
+---
+
+
+```yaml
+# 11. No WAF Detected
+name: "No WAF Detected"
+severity: medium
+product: asm-exposures
+assetType: web
+match:
+  - field: technologies.name
+    operator: not_in
+    value: "Cloudflare,Akamai,WAF,Incapsula,Fastly"
+    transformer: List
+    options: { matchType: elemMatch }
+set:
+  - field: category
+    value: "edge-security"
+  - field: title
+    value: "Web endpoint without WAF protection"
+```
+---
+
+
+```yaml
+# 12. Default App Login Page Exposed
+name: "Default App Login Page Exposed"
+severity: low
+product: asm-exposures
+assetType: web
+match:
+  - field: page.title
+    operator: regex
+    value: "(?i)(Default Login|Welcome to nginx|It works|Apache2 Ubuntu Default Page)"
+set:
+  - field: category
+    value: "brand"
+  - field: title
+    value: "Default vendor login/landing page is publicly visible"
+```
+---
+
+
+```yaml
+# 13. Outdated Technology Fingerprint
+name: "Outdated Technology Fingerprint"
+severity: high
+product: asm-exposures
+assetType: technology
+match:
+  and:
+    - conditions:
+        - field: name
+          operator: in
+          value: "jQuery,OpenSSL,Apache,NGINX,Tomcat"
+          transformer: List
+    - conditions:
+        - field: version
+          operator: regex
+          value: "(?i)(1\\.x|0\\.|2\\.[0-4])"
+set:
+  - field: category
+    value: "technology"
+  - field: title
+    value: "Outdated/EOL software detected"
+
+```
