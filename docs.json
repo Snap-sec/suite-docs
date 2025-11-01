@@ -28,7 +28,6 @@
           {
             "group": "Vulnerability Management",
             "pages": [
-              "products/vm/introduction",
               "products/vm/dashboard",
               "products/vm/assessments",
               "products/vm/assessment-groups",
@@ -41,7 +40,8 @@
               "products/vm/reports",
               "products/vm/search",
               "products/vm/sla-analytics",
-              "products/vm/ownership"            ]
+              "products/vm/ownership"            
+            ]
           },
           {
             "group": "Attack Surface Management",
@@ -54,7 +54,27 @@
               "products/asm/integrations",
               "products/asm/reports"
             ]
+          },
+          {
+            "group": "Asset Inventory Management",
+            "pages": [
+              "products/aim/dashboard",
+              "products/aim/global-catalog",
+              "products/aim/subdomains",
+              "products/aim/apis",
+              "products/aim/ips",
+              "products/aim/dns",
+              "products/aim/repo",
+              "products/aim/adapters",
+              "products/aim/classifier",
+              "products/aim/tags",
+              "products/aim/groups",
+              "products/aim/exports",
+              "products/aim/decommisioning",
+              "products/aim/public-search"
+            ]
           }
+
         ]
       },
       {

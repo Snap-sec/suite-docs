@@ -1,0 +1,246 @@
+---
+title: "Subdomain Catalog"
+description: "Discover, categorize, and monitor all organizational subdomains — enriched with vulnerabilities, environments, ownership, and exposure visibility."
+icon: "sitemap"
+mode: "wide"
+---
+
+<Banner>
+The **Subdomain Catalog** in AIM provides a unified inventory of every subdomain discovered across your organization.  
+It helps you track vulnerability exposure, risk scores, ownership, and environment classification — all within one centralized view.
+</Banner>
+
+<Frame caption="Subdomain Catalog Overview">
+  <img src="/images/aim/subdomains1.png" alt="Subdomain Catalog in AIM" />
+</Frame>
+
+---
+
+## Overview
+
+The **Subdomain Catalog** lists every subdomain identified through integrations, scans, or adapters (like DNS, CRT, TechDetect, or VM).  
+It provides analytics-driven visualizations at the top — summarizing total subdomains, exposed assets, vulnerable entries, and environment distribution — followed by an interactive table of subdomain details.
+
+This page serves as the **primary discovery layer** before diving into each subdomain’s detailed profile page.
+
+---
+
+## Key Metrics and Analytics
+
+<Columns cols={3}>
+
+<Card title="Total Subdomains" icon="globe">
+  Displays the complete count of discovered subdomains within your organization.
+</Card>
+
+<Card title="Vulnerable Subdomains" icon="shield-halved">
+  Highlights subdomains linked to one or more vulnerabilities.
+</Card>
+
+<Card title="Exposed Subdomains" icon="fire-flame-simple">
+  Indicates subdomains that are publicly accessible and not behind protected environments.
+</Card>
+
+
+<Card title="Vulnerability Severity Distribution" icon="chart-pie">
+  Pie chart showing vulnerability breakdown by severity — Critical, High, Medium, and Low.
+</Card>
+
+<Card title="Vulnerability State Distribution" icon="chart-column">
+  Shows the ratio of open versus closed vulnerabilities, helping teams monitor remediation effectiveness.
+</Card>
+
+<Card title="Environment Distribution" icon="server">
+  Displays how subdomains are classified (Production, Staging, Dev, QA, etc.), giving quick visibility into operational spread.
+</Card>
+
+</Columns>
+
+---
+
+## Search, Filters, and Sorting
+
+The catalog offers advanced search and filter options to locate specific subdomains:
+
+| Filter | Description |
+|--------|--------------|
+| **Owners** | Filter by assigned owner or responsible user. |
+| **Risk** | Sort or filter by automatic risk score. |
+| **Exposure** | Show only subdomains marked as Exposed or Safe. |
+| **Environment** | Filter by environment tag such as `Prod`, `Staging`, or `Dev`. |
+| **Adapters** | Show subdomains discovered via specific adapters (e.g., DNS, CRT). |
+| **Tags** | Filter by applied business or technology tags. |
+| **Sources** | View which data source originated the discovery. |
+| **Date Range** | Filter by first or last detection date to focus on new findings. |
+
+All filters can be combined for granular search queries — ideal for analysts and security engineers managing large inventories.
+
+---
+
+## Subdomain Table Columns
+
+Each row in the catalog table displays detailed metadata:
+
+| Column | Description |
+|---------|-------------|
+| **Asset Value** | Subdomain name (with DNS resolver info). |
+| **Vuln Count** | Number of vulnerabilities linked with the subdomain. |
+| **Exposure** | Current exposure status (`Exposed`, `Safe`, `Shadowed`). |
+| **Auto Risk** | Auto-calculated score based on associated vulnerabilities and rules. |
+| **Environment** | Environment classification (`Production`, `Staging`, `Dev`). |
+| **Owner** | Assigned individual responsible for this subdomain. |
+| **Tags** | Labels like `TechDetect`, `jQuery`, or business-specific tags. |
+| **Associations** | Number of related assets or dependencies. |
+| **Detected On** | Timeline of when the asset was first and last found. |
+
+---
+
+
+# Subdomains Full View
+
+
+Each subdomain discovered by AIM is automatically enriched with contextual intelligence such as:
+- Vulnerability risk and trends over time  
+- Severity distribution (Critical, High, Medium, Low)  
+- Technology and service fingerprinting  
+- Open port visibility and relation mapping  
+- Tags, ownership details, and adapter discovery sources  
+
+This allows security teams to manage subdomains not just as data points — but as living assets that evolve across your organization’s digital footprint.
+
+---
+
+
+### Subdomain Summary
+
+At the top, you’ll find an overview of the subdomain, including:
+
+| Field | Description |
+|-------|--------------|
+| **Subdomain Name** | Fully qualified domain name (e.g., `email.forum.bugcrowd.com`). |
+| **Status** | Shows if the subdomain is Active, Decommissioned, or Deleted. |
+| **Source** | Indicates which adapter discovered it (e.g., CRTsh, DNS, VM). |
+| **Exposed** | Marks whether the subdomain is externally exposed. |
+| **Environment** | Classification such as `production`, `staging`, or `development`. |
+| **Risk Score** | Calculated automatically based on asset classifiers. |
+| **Managed By** | Owner or team responsible for maintaining this subdomain. |
+| **Detection History** | Displays “First Found” and “Last Found” timestamps. |
+
+---
+
+### Vulnerability Insights
+<Frame caption="Subdomain Details View">
+  <img src="/images/aim/subdomains4.png" alt="Subdomain Details in AIM" />
+</Frame>
+<Columns cols={2}>
+
+<Card title="Vulnerability Trends" icon="chart-line">
+  Displays how vulnerabilities have changed over time for this specific subdomain.  
+  It helps visualize the impact of remediation or new findings.
+</Card>
+
+<Card title="Severity Distribution" icon="circle-exclamation">
+  A breakdown of vulnerabilities by severity — Critical, High, Medium, and Low — giving instant insight into overall risk posture.
+</Card>
+
+</Columns>
+
+Below this chart, you’ll find the **Vulnerabilities Table**, showing:
+- Vulnerability title  
+- Assessment name  
+- Severity level  
+- Current remediation state (In Review, Resolved, Retest)  
+- Detection timeline  
+
+Each entry directly links to its respective vulnerability report inside the VM module.
+
+---
+
+### Tags and Technologies
+
+<Columns cols={2}>
+
+<Card title="Tags" icon="tags">
+  Tags help categorize assets by business unit, product, or technology.  
+  Examples: `email-server`, `google-cloud`, `smtp`, `production`.
+</Card>
+
+<Card title="Detected Technologies" icon="microchip">
+  Lists technologies identified via asset fingerprinting — including languages, frameworks, and services (e.g., NodeJS, React, HTTP/1.1, GitHub).
+</Card>
+
+</Columns>
+
+---
+
+### Open Ports & Asset Relations
+
+<Frame caption="Open Ports and Relations Graph">
+  <img src="/images/aim/subdomains5.png" alt="Subdomain Ports and Relation Graph" />
+</Frame>
+
+#### Open Ports
+Shows real-time visibility into network exposure:
+- Identifies open ports with status, service type, and security risk.
+- Helps network teams close unnecessary or unsafe ports.
+
+#### Asset Relations Graph
+Visualizes how this subdomain is connected to other assets like IP addresses or parent domains.  
+It allows easy tracing of asset lineage and network topology for impact analysis.
+
+---
+
+### Ownership & Management Actions
+<Frame caption="Subdomain Details View">
+  <img src="/images/aim/subdomains3.png" alt="Subdomain Details in AIM" />
+</Frame>
+
+
+Each subdomain includes clear management controls:
+- **Assign or Change Owner** – ensure accountability.  
+- **Decommission Asset** – mark a subdomain as inactive or migrated.  
+- **Delete Asset** – permanently remove deprecated entries.  
+
+Ownership and lifecycle states sync with other connected modules automatically.
+
+---
+
+## How Subdomains Are Discovered
+
+AIM continuously updates subdomain data using multiple adapters such as:
+- **CRTsh Adapter** – pulls SSL certificate records for domain enumeration.  
+- **DNS Adapter** – maps DNS record structures.  
+- **VM Adapter** – enriches assets with linked vulnerabilities.  
+- **TechDetect Adapter** – fingerprints technologies and open services.
+
+Each discovery updates the dashboard metrics, asset relations, and risk calculations automatically.
+
+---
+
+## Example Use Cases
+
+- **Security Analysts:** Track critical or high-risk subdomains and their associated vulnerabilities.  
+- **Asset Managers:** Assign ownership, tag business units, and ensure coverage across cloud and on-premises assets.  
+- **Developers:** Understand which staging or dev environments are publicly exposed.  
+- **Compliance Teams:** Validate that production domains have no unmanaged external exposure.
+
+---
+
+
+
+
+
+
+
+## Next Steps
+
+<Card title="View Subdomain Details" icon="circle-info" href="/products/aim/assets/subdomains/details">
+  Explore the full Subdomain Details page for deeper insights into each discovered asset.
+</Card>
+
+<Card title="Configure Adapters" icon="plug" href="/products/aim/adapters">
+  Connect additional sources like CRT, DNS, or VM to enhance subdomain discovery.
+</Card>
+
+
+

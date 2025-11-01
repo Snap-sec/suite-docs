@@ -1,0 +1,100 @@
+---
+title: "Public Asset Catalog"
+description: "Enable external users and team members to search, view, and update asset information securely without granting portal access."
+mode: "wide"
+icon: "globe"
+---
+
+## Overview
+
+The **Public Asset Catalog** allows companies to share controlled access to asset data outside the main Snapsec portal.  
+This enables teams, partners, or external auditors to view and search assets, vulnerabilities, or exposure data **without requiring platform login credentials**.
+
+It’s ideal for providing transparent visibility while maintaining strict edit permissions and audit trails.
+
+<Frame caption="Public Asset Search Interface">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/globalSearch1.png" />
+</Frame>
+
+---
+
+## Purpose
+
+The goal of the **Public Catalog** is to make asset intelligence accessible to distributed or external teams while retaining ownership and data security.
+
+- 🔍 **Search & View Assets** — Users can search by domain, IP, repository, or keyword to view relevant asset records.  
+- 📊 **Transparency** — Ideal for vendor assessments, audit reviews, and public collaboration.  
+- ✏️ **Controlled Edits** — Optionally enable external contributors to edit asset fields (like owner or environment) without full portal access.  
+- 🔐 **Secure Access** — Links are unique and permission-restricted, ensuring limited scope visibility.
+
+---
+
+## How to Set It Up
+
+<Frame caption="Settings Page for Public Asset Catalog Links">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/globalSearch3.png" />
+</Frame>
+
+
+<Steps>
+  <Step title="Open AIM Settings" icon="gear">
+    Go to **Settings** in the AIM sidebar.
+  </Step>
+  <Step title="Locate Global Asset Search" icon="magnifying-glass">
+    Under **Global Asset Search**, you’ll find a public URL link that allows external access.
+  </Step>
+  <Step title="Enable Edit Access (Optional)" icon="pen-to-square">
+    Copy the link under **Edit Asset**, which allows authorized users to update asset information.
+  </Step>
+  <Step title="Share the Link" icon="share-nodes">
+    Share the generated URLs with your organization, external teams, or partners for read or edit access.
+  </Step>
+</Steps>
+
+
+---
+
+## Using the Public Asset Catalog
+
+<Frame caption="Asset Detail View with Vulnerability and Relationship Graph">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/globalSearch2.png" />
+</Frame>
+
+Once the public link is opened, users can search by entering domains, IPs, or repository names.  
+The results show asset details like risk scores, vulnerabilities, relationships, tags, and associated owners.
+{/*
+<Frame caption="Searching and Viewing Assets in Public Catalog">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/globalSearch1.png" />
+</Frame>*/}
+
+
+
+---
+
+## Sharing with Team Members
+
+You can share either of the following links based on your use case:
+
+| Type | Description | Recommended For |
+|------|--------------|----------------|
+| **Global Asset Search** | Read-only view to explore assets and vulnerabilities. | Auditors, Viewers, Compliance Teams |
+| **Edit Asset Link** | Editable view to update metadata fields like Owner, Exposure, or Environment. | Internal Teams, Asset Managers |
+
+> ⚠️ **Tip:** Use the edit link cautiously — changes made here are directly reflected in the live AIM database.
+
+---
+
+## Best Practices
+
+- Limit public link sharing to trusted users or teams.  
+- Use the **read-only link** for transparency and reporting.  
+- Periodically regenerate or disable old links to maintain access control.  
+- Track edits through audit logs for accountability.  
+
+---
+
+## Next Steps
+
+<Card title="Explore Global Asset Search" icon="arrow-right" href="https://suite.snapsec.co/pages/public/686cb43487ab2b00122e12e7/search">
+  Try the public search experience to view and interact with asset data securely.
+</Card>

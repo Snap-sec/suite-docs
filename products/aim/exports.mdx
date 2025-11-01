@@ -1,0 +1,94 @@
+---
+title: "Export Catalog"
+description: "Easily export your complete or filtered asset inventory in AIM for offline analysis, compliance, and reporting."
+mode: "wide"
+icon: "file-export"
+---
+
+## Overview
+
+The **Export** feature in Asset Intelligence Management (AIM) allows you to extract your entire asset inventory or specific asset categories into a downloadable file format like CSV.  
+Exports help with offline audits, data sharing, and integration with BI or reporting tools.
+
+<Frame caption="Export Asset Data Dialog">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/export1.png" />
+</Frame>
+
+---
+
+## Export Options
+
+AIM offers two modes of export:
+
+<Columns cols={2}>
+  <Card title="Export Full Catalogue" icon="cloud-arrow-down">
+    Download a complete export of all assets across categories — ideal for backups, offline analysis, and compliance archives.
+  </Card>
+  <Card title="Export Specific Assets" icon="filter">
+    Choose an asset type (e.g., API, DNS, IP, Repository) and format to export only the relevant dataset.
+  </Card>
+</Columns>
+
+---
+
+## How to Export Data
+
+<Steps>
+  <Step title="Open the Export Panel" icon="folder-open">
+    From the sidebar, navigate to **Export** to open the export configuration window.
+  </Step>
+  <Step title="Select Export Mode" icon="list-check">
+    Click **Export Full Catalogue** to download the entire inventory, or proceed to select asset types manually.
+  </Step>
+  <Step title="Choose Asset Type" icon="network-wired">
+    Use the dropdown to pick specific categories like *API, DNS, Employee, IP,* or *Certificate.*
+  </Step>
+  <Step title="Select Format" icon="file-csv">
+    Currently, **CSV** is supported, making it easy to import into Excel, Google Sheets, or Power BI.
+  </Step>
+  <Step title="Export File" icon="download">
+    Click **Export Selected Asset** to generate and download the file.
+  </Step>
+</Steps>
+
+<Frame caption="Select Asset Type and Format">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/export2.png" />
+</Frame>
+
+---
+
+## Output Example
+
+After export, you’ll receive a CSV file containing detailed asset information, including:
+
+- Asset name or domain  
+- Associated risk score  
+- Number of vulnerabilities  
+- Tags and source adapter  
+- Discovery timestamps  
+
+<Frame caption="Exported CSV Data Example">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/export3.png" />
+</Frame>
+
+> Example columns:
+> - **Subdomain** – Asset identifier  
+> - **NoOfVuln** – Vulnerability count  
+> - **Risk** – Auto-calculated risk score  
+> - **Found On** – Date and time of asset discovery
+
+---
+
+## Best Practices
+
+- Regularly export your full catalog for archival and compliance reviews.  
+- Combine exports with filters in the Global Catalog for focused reports.  
+- Use spreadsheet tools to create pivot tables, track trends, and share progress with teams.
+
+---
+
+## Next Steps
+
+<Card title="Explore in Global Catalog" icon="arrow-right" href="/products/aim/gloabl-catalog">
+  Filter and refine your inventory before exporting specific asset segments.
+</Card>

@@ -1,0 +1,110 @@
+---
+title: "Groups"
+description: "Organize, manage, and analyze collections of related assets within AIM for easier tracking and contextual insights."
+mode: "wide"
+icon: "object-group"
+---
+
+## Overview
+
+Groups in **Asset Intelligence Management (AIM)** allow you to cluster similar assets together — such as *DNS-active subdomains*, *Cloudflare-reported assets*, or *API endpoints*.  
+This enables teams to manage related resources collectively, monitor them for changes, and apply consistent analysis or reporting.
+
+Groups can be static (manually created) or dynamic (auto-populated based on tags and rules).
+
+<Frame caption="Groups Overview">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/groups0.png" />
+</Frame>
+
+---
+
+## Creating a New Group
+
+You can create a group by defining its name, selecting tags, and providing a clear description of what the group represents.
+
+<Frame caption="Create Group Dialog">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/groups1.png" />
+</Frame>
+
+### Steps to Create a Group
+
+<Steps>
+  <Step title="Click on Groups in Sidebar" icon="rectangle-list">
+    Navigate to **Groups** under AIM’s left navigation menu.
+  </Step>
+  <Step title="Click + Create" icon="plus">
+    A modal will appear to define the new group.
+  </Step>
+  <Step title="Add Name, Tags, and Description" icon="pen-to-square">
+    For example, *All DNS Active Subdomains* can include assets tagged with `A` and `DNS`.
+  </Step>
+  <Step title="Save Group" icon="circle-check">
+    The new group will appear in the Groups list with its asset count.
+  </Step>
+</Steps>
+
+---
+
+## Managing Groups
+
+Each group card includes quick actions for:
+- ✏️ **Edit** — Modify name, tags, or description  
+- 🗑️ **Delete** — Permanently remove the group  
+- 🔗 **Manage assets** — View or edit assets associated with the group
+
+<Frame caption="Manage Group Actions">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/groups4.png" />
+</Frame>
+
+---
+
+## Viewing Group Assets
+
+Clicking on any group opens a filtered view in the **Global Catalog**, showing only assets belonging to that group.  
+You can see complete details — source, vulnerabilities, owners, risk scores, and tags.
+
+<Frame caption="Group Filter Applied in Global Catalog">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/groups2.png" />
+</Frame>
+
+> Example deep link pattern:  
+>
+> ```text
+> /products/aim/gloabl-catalog?filters=groupIds:{groupId}
+> ```
+
+---
+
+## Practical Use Cases
+
+<Columns cols={2}>
+  <Card title="Focused Investigations" icon="magnifying-glass-chart">
+    Group assets from specific adapters or environments to isolate investigation scope.
+  </Card>
+  <Card title="Security Coverage Tracking" icon="chart-line">
+    Monitor assets by type (e.g., Subdomains, APIs, IPs) to ensure visibility completeness.
+  </Card>
+  <Card title="Lifecycle Management" icon="recycle">
+    Easily identify which groups contain decommissioned or outdated assets.
+  </Card>
+  <Card title="Departmental Ownership" icon="user-group">
+    Create groups based on teams, business units, or product lines for accountability.
+  </Card>
+</Columns>
+
+---
+
+## Tips
+
+- Use clear naming conventions (e.g., `Production APIs`, `Decommissioned IPs`, `Active DNS Hosts`).  
+- Leverage **tags** to auto-populate dynamic groups.  
+- Regularly review group membership to maintain clean inventory boundaries.  
+- Share group-based links across modules like VM and ASM to maintain data consistency.
+
+---
+
+## Next Steps
+
+<Card title="Explore in Global Catalog" icon="arrow-right" href="/products/aim/gloabl-catalog">
+  View grouped assets, analyze their risks, and take actions directly from your inventory.
+</Card>

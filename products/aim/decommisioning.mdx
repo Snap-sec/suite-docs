@@ -1,0 +1,136 @@
+---
+title: "Asset Decommissioning"
+description: "Manage asset lifecycle by marking inactive or retired assets through manual or automatic decommissioning."
+mode: "wide"
+icon: "trash-arrow-up"
+---
+
+## Overview
+
+**Asset Decommissioning** helps you maintain an accurate and clean inventory by retiring assets that are no longer active or relevant.  
+AIM supports both **automatic** and **manual** decommissioning — ensuring minimal false positives and maintaining traceability for every change.
+
+<Frame caption="Decommissioning Workflow">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/decommission1.png" />
+</Frame>
+
+---
+
+## Automatic Decommissioning (Adapter-Driven)
+
+
+<Frame caption="Staged Decommissioned Assets">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/decommission5.png" />
+</Frame>
+
+Adapters continuously monitor external platforms like **Cloudflare**, **AWS**, or **GitHub** to detect when assets disappear or become inactive.  
+When such assets are found missing, AIM automatically moves them to a **Staged** state rather than directly decommissioning them.
+
+This two-step model reduces false positives and ensures human review before removal.
+
+
+### Workflow
+
+1. **Adapter Detection** — System identifies that an asset (e.g., DNS record, IP, or repo) no longer exists in the source.
+2. **Move to Staged Mode** — Asset is marked as *Staged for Decommission* for review.
+3. **Manual Review & Approval** — A user can later confirm decommissioning from the **Staged** section.
+
+> ⚙️ Example: If your DNS adapter previously detected `api.example.com` in Cloudflare, but the record was later removed, it will move to **Staged Decommission** automatically.
+
+---
+
+## Manual Decommissioning
+
+<Frame caption="Manual Decommission Action">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/decommission1.png" />
+</Frame>
+
+Manual decommissioning allows users to retire an asset directly from the **Assets** view.  
+This is typically done when teams know a resource is intentionally removed, outdated, or migrated.
+
+
+
+### Steps
+
+<Steps>
+  <Step title="Open the Asset Record" icon="file-lines">
+    Navigate to the asset you want to retire from the **Assets** section.
+  </Step>
+  <Step title="Click Decommission Asset" icon="trash">
+    The button appears on the asset’s detail card.
+  </Step>
+  <Step title="Provide a Reason" icon="comment-dots">
+    Enter a justification for why the asset is being decommissioned (e.g., “This domain is no longer needed and has been taken down.”)
+  </Step>
+  <Step title="Confirm the Action" icon="circle-check">
+    Once confirmed, the asset will be marked as **Decommissioned** and moved to the dedicated listing.
+  </Step>
+</Steps>
+
+<Frame caption="Decommission Confirmation Modal">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/decommission4.png" />
+</Frame>
+
+---
+
+## Viewing Decommissioned Assets
+
+The **Decommissioned** section provides a summary of all retired assets, along with reasons, responsible users, and source adapters.
+
+<Frame caption="Decommissioned Asset Summary">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/decommission3.png" />
+</Frame>
+
+### Columns Explained
+
+| Column | Description |
+|--------|--------------|
+| **Asset Value** | Name or identifier of the retired asset |
+| **Reason** | Explanation recorded at decommission time |
+| **Decommissioned By** | The user who confirmed the action |
+| **Source** | Adapter or discovery source of the asset |
+| **Action** | Option to Reactivate the asset if needed |
+
+---
+
+## Reactivation Of Decommissioned Assets
+
+
+<Frame caption="Reactivation Option">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/decommission6.png" />
+</Frame>
+
+<Steps>
+  <Step title="Navigate to Decommissioned Assets" icon="list">
+    Go to the **Decommissioned** section from the left sidebar under **Assets → Decommissioned**.
+  </Step>
+  <Step title="Locate the Asset" icon="search">
+    Find the asset you want to restore in the list. You can use filters like *Adapter*, *Risk*, or *Source* for quick lookup.
+  </Step>
+  <Step title="Click Reactivate Asset" icon="rotate-left">
+    Click the **Reactivate Asset** button on the right side of the asset row.
+  </Step>
+  <Step title="Asset Reactivated" icon="circle-check">
+    The asset will move back to the **Active** inventory and resume normal monitoring through adapters.
+  </Step>
+</Steps>
+<Frame caption="Reactivation Option">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/decommission7.png" />
+</Frame>
+
+---
+
+## Best Practices
+
+- Always review **Staged** assets before confirming decommissioning.  
+- Record clear reasons for every manual decommission to maintain audit trails.  
+- Periodically check if any decommissioned assets have resurfaced via integrations.  
+- Use adapter-driven automation to avoid stale inventory while reducing manual oversight.
+
+---
+
+## Next Steps
+
+<Card title="Review Staged Assets" icon="arrow-right" href="/products/aim/assets/decommissioned">
+  Verify staged assets and confirm which ones should be fully decommissioned.
+</Card>

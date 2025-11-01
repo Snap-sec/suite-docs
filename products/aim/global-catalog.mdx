@@ -1,0 +1,133 @@
+---
+title: "Global Asset List"
+description: "A unified, searchable inventory of every asset discovered across your organization — including subdomains, IPs, APIs, DNS records, and more."
+icon: "globe"
+mode: "wide"
+---
+
+<Banner>
+The **Global Asset Catalog** is the central hub of AIM — providing unified visibility into every discovered, imported, or manually created asset.  
+It brings together data from multiple adapters, allowing teams to search, filter, and manage their entire asset landscape in one place.
+</Banner>
+
+<Frame caption="Global Asset Catalog Overview">
+  <img src="/images/aim/assets2.png" alt="AIM Global Asset Catalog Overview" />
+</Frame>
+
+---
+
+## Overview
+
+The **Global Asset Catalog** acts as the master index for your organization's digital assets — combining insights from integrations, discovered inventories, and custom entries.  
+From domains to certificates, each asset is enriched with risk scores, ownership data, and vulnerability context.
+
+This page enables analysts, engineers, and security leads to easily navigate, search, and maintain accurate visibility into all active and decommissioned assets.
+
+---
+
+## Key Capabilities
+
+<Columns cols={2}>
+
+<Card title="Centralized Asset Repository" icon="database">
+  Access all assets — including subdomains, IP addresses, DNS records, APIs, applications, certificates, and more — from a single, searchable interface.
+</Card>
+
+<Card title="Smart Search & Filtering" icon="filter">
+  Use intelligent filters (e.g., `risk:high`, `type:subdomain`, `tech:python`) to pinpoint specific assets by domain, tag, exposure, or technology.
+</Card>
+
+<Card title="Asset Insights & Metrics" icon="chart-line">
+  View associated vulnerability counts, risk scores, tags, and detection timestamps for every asset at a glance.
+</Card>
+
+<Card title="Multi-Source Data Consolidation" icon="layer-group">
+  Automatically consolidate data from adapters like **SSL**, **DNS**, and **VM** to ensure your catalog reflects the latest intelligence.
+</Card>
+
+<Card title="Manual Asset Creation" icon="plus">
+  Add new assets individually or import them in bulk via CSV — ensuring that all enterprise assets are accounted for, even if discovered outside automated scans.
+</Card>
+
+<Card title="Ownership & Associations" icon="user-gear">
+  Track who owns each asset and see how assets are linked to others across environments and applications.
+</Card>
+
+</Columns>
+
+---
+
+## Using the Global Asset Catalog
+
+### 1. Searching Assets
+The search bar supports advanced query syntax for precise filtering.  
+You can combine filters such as:
+
+
+<Frame caption="Advanced Search Filters">
+  <img src="/images/aim/assets3.png" alt="Asset Filtering and Search in AIM" />
+</Frame>
+
+
+
+Supported filters include:
+| Filter | Description |
+|--------|--------------|
+| `domain:` | Filter by domain name (e.g., `domain:snapsec.co`) |
+| `risk:` | Filter assets by calculated risk level |
+| `exposure:` | Identify exposed or at-risk assets |
+| `tech:` | Find assets by technology (e.g., `tech:react`) |
+| `type:` | Filter by asset type (subdomain, repo, dns, etc.) |
+| `owner:` | Find assets by assigned owner |
+| `group:` | Filter assets by business or project grouping |
+| `hasVulns:` | Identify assets linked with known vulnerabilities |
+| `decommissioned:` | Show only decommissioned assets |
+
+---
+
+### 2. Creating and Importing Assets
+
+You can manually create assets or bulk import them via CSV.
+
+<Frame caption="Add New Asset Form">
+  <img src="/images/aim/assets1.png" alt="Add New Asset in AIM" />
+</Frame>
+
+**Options:**
+- Select asset type (e.g., Subdomain, API, IP, Application).  
+- Define the asset name and value.  
+- Upload a CSV file for bulk import.  
+- Automatically validate and enrich data using connected adapters.
+
+---
+
+### 3. Reviewing Asset Health
+
+Each asset entry includes:
+- **Auto Risk Score** – automatically calculated using defined classifiers.  
+- **Vulnerability Count** – number of linked vulnerabilities from VM.  
+- **Source** – where the asset was discovered (e.g., SSL Cert, DNS, Adapter).  
+- **Detection Timeline** – first and last discovery timestamps.  
+- **Tags and Associations** – asset classification and linked components.
+
+---
+
+## Value for Teams
+
+- Gain **complete visibility** into your organization’s attack surface.  
+- **Search and filter instantly** across thousands of assets.  
+- **Correlate assets** with vulnerabilities and risk posture.  
+- **Simplify ownership mapping** and lifecycle tracking.  
+- **Ensure inventory accuracy** through manual and automated synchronization.
+
+---
+
+## Next Steps
+
+<Card title="Explore Adapters" icon="plug" href="/products/aim/adapters">
+  Connect integrations to automatically import and update your asset data.
+</Card>
+
+<Card title="Classify Assets" icon="tags" href="/products/aim/classifiers">
+  Apply intelligent classification rules and risk scoring to your assets.
+</Card>

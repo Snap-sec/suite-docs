@@ -1,0 +1,195 @@
+---
+title: "Asset Classifier Engine"
+description: "Automate asset classification, ownership, and exposure tagging using AIM’s YAML-based rule engine."
+icon: "gears"
+mode: "wide"
+---
+
+<Banner>
+The **Asset Classifier Engine** in AIM allows teams to automate how assets are categorized, enriched, and tagged — using powerful, YAML-based rules.  
+It helps standardize how your organization detects environments, assigns ownership, and marks exposure, eliminating manual data management across large inventories.
+</Banner>
+
+<Frame caption="Asset Classifier Engine Overview">
+  <img src="/images/aim/classifiers1.png" alt="Asset Classifier Engine in AIM" />
+</Frame>
+
+---
+
+## What is the Asset Classifier Engine?
+
+The **Asset Classifier Engine** is an automation framework built into AIM that uses declarative YAML rules to classify and update asset properties.
+
+Each rule defines **conditions** (what to match) and **actions** (what to set) — enabling AIM to automatically:
+- Detect environments like *staging*, *production*, or *development*
+- Identify exposed or internal assets
+- Assign owners and departments
+- Apply technology or business tags
+- Enrich assets with metadata from integrations or risk data
+
+The engine runs continuously, ensuring every new or updated asset stays correctly labeled and ready for analysis.
+
+---
+
+## Use Cases
+
+<Columns cols={2}>
+
+<Card title="Automated Environment Detection" icon="server">
+  Classify assets into `staging`, `production`, or `development` environments based on name patterns or metadata.
+</Card>
+
+<Card title="Ownership Assignment" icon="user-check">
+  Automatically assign owners or teams to assets (e.g., assign subdomains to `imran@snapsec.co`).
+</Card>
+
+<Card title="Exposure Identification" icon="shield-halved">
+  Detect and flag assets that are exposed to the internet using IP or DNS-based conditions.
+</Card>
+
+<Card title="Security Tagging" icon="tags">
+  Apply tags like `critical-service`, `cloud`, or `internal` based on technology, region, or organization.
+</Card>
+
+<Card title="Compliance Readiness" icon="clipboard-check">
+  Enforce consistent metadata standards across your entire asset inventory for audits and compliance.
+</Card>
+
+<Card title="Dynamic Risk Categorization" icon="gauge">
+  Adjust risk levels automatically when new vulnerabilities or exposures are found.
+</Card>
+
+</Columns>
+
+---
+
+## How to Manage Rules
+
+<Frame caption="YAML Editor for Asset Rules">
+  <img src="/images/aim/classifiers2.png" alt="Rule Management Interface" />
+</Frame>
+
+Each rule in AIM is defined in YAML format and can be created, edited, deleted, or executed directly from the UI.
+
+### 1. Creating a New Rule
+
+1. Go to **Classifiers → Rules**.  
+2. Click **New Rule** to open the YAML editor.  
+3. Write your rule logic using the provided schema (see *Rule Writing Guide* below).  
+4. Click **Save** — your rule will now appear in the rule list.  
+
+Each rule can include:
+- **name** – Identifier for the rule  
+- **description** – Brief explanation of its purpose  
+- **product** – Module it applies to (e.g., `aim`)  
+- **assetType** – Asset type it targets (e.g., `subdomain`, `ip`)  
+- **match** – Conditions to check  
+- **set** – Fields and values to update when the match succeeds  
+
+---
+
+### 2. Editing a Rule
+
+1. Click the **Edit (✏️)** icon next to the rule you want to modify.  
+2. The YAML will open in the editor for updates.  
+3. Make your changes and click **Update** to save.
+
+Edits take effect immediately, and the rule will reapply during the next run cycle.
+
+---
+
+### 3. Deleting a Rule
+
+To remove an outdated or redundant rule:
+1. Click the **Delete (🗑️)** icon.  
+2. Confirm deletion — the rule will be permanently removed from the engine.
+
+---
+
+### 4. Running a Rule
+
+Individual rules can be executed on-demand to test or apply logic across your dataset.
+
+- Click the **Run (▶️)** icon next to the rule.  
+- AIM will apply the rule conditions and instantly update matching assets.  
+
+A success notification confirms how many assets were modified.
+
+---
+
+### 5. Running All Rules
+
+To execute all classification rules at once:
+1. Click **Execute All Rules** in the top right corner.  
+2. AIM will sequentially evaluate all rules across the active asset catalog.  
+3. Updated attributes (e.g., owners, environments, or tags) will appear in real time.
+
+This option is ideal after bulk imports or integrations.
+
+---
+
+## Example Rule Types
+
+<Columns cols={2}>
+
+<Card title="Detect Staging Subdomains" icon="globe">
+```yaml
+name: Detect Staging Subdomains
+description: Set environment to 'staging' if the subdomain contains 'stg', '-stg', or '.stg'
+severity: info
+product: aim
+assetType: subdomain
+match:
+  - field: value
+    operator: regex
+    value: "stg|\\.stg|-stg"
+set:
+  - field: environment
+    value: staging
+```
+
+</Card> 
+
+<Card title="Assign Owner to Subdomains" icon="user"> 
+```yaml
+name: Assign Owner to Subdomains
+description: Automatically assign ownership to Imran for all subdomain assets
+product: aim
+assetType: subdomain
+match:
+  - field: type
+    operator: "=="
+    value: subdomain
+set:
+  - field: owner
+    value: imran@snapsec.co
+```
+
+</Card> </Columns>
+
+
+#### Rule Writing Guide
+
+For a complete reference of supported operators, structure, and examples, refer to the official AIM Rule Guide below:
+
+[Snapsec AIM Rule Guide on GitHub](https://github.com/Snap-sec/Suite-Yaml-Rule-Guides/blob/main/rule-guides/aim.md)
+
+#### This guide includes:
+
+- YAML syntax reference
+- Match and Set operator definitions
+- Advanced examples (nested conditions, transformers, logical operators)
+- Best practices for writing scalable automation rules
+
+
+### Best Practices
+
+- Group rules by asset type (subdomain, ip, dns, etc.).
+- Use descriptive names and clear descriptions for maintainability.
+- Test new rules on a limited dataset before executing globally.
+- Schedule periodic Execute All Rules runs for data consistency.
+- Review rules quarterly to align with new assets or integrations.
+
+### Next Steps
+<Card title="View Rule Guide" icon="book" href="https://github.com/Snap-sec/Suite-Yaml-Rule-Guides/blob/main/rule-guides/aim.md"> Learn the YAML rule structure and write advanced classification rules for AIM. </Card> 
+

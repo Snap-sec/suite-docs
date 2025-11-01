@@ -1,0 +1,231 @@
+---
+title: "IP Address Catalog"
+description: "Gain full visibility into your network assets by tracking live IPs, their exposure levels, associated risks, and ownership details."
+icon: "network-wired"
+mode: "wide"
+---
+
+<Banner>
+The **IP Address Catalog** in AIM provides a centralized view of all live, internal, and external IPs across your organization.  
+It helps teams monitor exposure status, analyze vulnerability severity, and map asset ownership — all from one interactive dashboard.
+</Banner>
+
+<Frame caption="IP Address Catalog Overview">
+  <img src="/images/aim/ip1.png" alt="IP Address Catalog in AIM" />
+</Frame>
+
+---
+
+## Overview
+
+The **IP Catalog** aggregates all network IPs discovered via integrated adapters, vulnerability management systems, or external scanners.  
+It provides deep insights into risk, vulnerability severity, exposure classification, and network ownership.
+
+Each IP record represents a monitored endpoint within your ecosystem — whether internal, external, or shadowed — and is automatically correlated with vulnerabilities, ASN, and organization data.
+
+---
+
+## Key Metrics and Analytics
+
+<Columns cols={3}>
+
+<Card title="Total IPs" icon="globe">
+  Shows the total number of IP addresses discovered and tracked by AIM.
+</Card>
+
+<Card title="Vulnerable IPs" icon="shield-halved">
+  Displays IPs associated with one or more active vulnerabilities.
+</Card>
+
+<Card title="Internal IPs" icon="server">
+  Indicates assets classified as internal based on network segmentation rules.
+</Card>
+
+<Card title="Shadowed IPs" icon="eye-slash">
+  Highlights unregistered or unmanaged IPs detected through automated discovery.
+</Card>
+
+<Card title="Vulnerability Severity Distribution" icon="chart-pie">
+  Breakdown of all IP vulnerabilities by severity — Critical, High, Medium, and Low.
+</Card>
+
+<Card title="Exposure & ASN Distribution" icon="chart-bar">
+  Visualizes IP exposure (Exposed vs. Safe) and top Autonomous System Numbers (ASNs) for quick network-level analysis.
+</Card>
+
+</Columns>
+
+---
+
+## Search, Filters, and Sorting
+
+The IP catalog provides advanced filtering to help users narrow results and locate high-priority assets.
+
+| Filter | Description |
+|--------|--------------|
+| **Owners** | Filter by the person or team responsible for the IP. |
+| **Risk** | Filter or sort based on automated risk score. |
+| **Exposure** | Show IPs classified as `Exposed`, `Not Exposed`, or `Shadowed`. |
+| **Adapters** | Filter IPs discovered through specific integrations or scanners. |
+| **hasVulns** | Show only IPs linked to vulnerabilities. |
+| **Organisations** | Filter by organization name or ASN. |
+| **Date Range** | Filter by detection timeline (First/Last Found). |
+
+These filters can be combined for detailed analysis of network exposure and risk.
+
+---
+
+## IP Table Columns
+
+Each IP entry displays detailed asset metadata for precise tracking.
+
+| Column | Description |
+|---------|-------------|
+| **Asset Value** | The IP address and source details. |
+| **Location** | Country, city, and geolocation information. |
+| **Vuln Count** | Number of vulnerabilities tied to the IP. |
+| **Exposure** | Current exposure status (`Exposed`, `Not Exposed`, or `Shadowed`). |
+| **Auto Risk** | System-calculated risk score. |
+| **Organisation / ASN** | The associated organization or network provider. |
+| **Owner** | Assigned user or team responsible for this IP. |
+| **Tags** | Classification tags like `VM`, `IP`, or `Internal`. |
+| **Associations** | Connected assets or relationships within the inventory. |
+| **Detected On** | Timestamp showing first and most recent detection. |
+
+---
+
+# IP Full View
+
+Each IP record in AIM provides complete lifecycle visibility — from discovery to vulnerability correlation and risk scoring.
+
+<Frame caption="IP Full View">
+  <img src="/images/aim/ip2.png" alt="IP Address Details in AIM" />
+</Frame>
+
+---
+
+### IP Summary
+
+At the top of the page, the summary card displays key asset identifiers:
+
+| Field | Description |
+|-------|--------------|
+| **IP Address** | The specific IP being analyzed. |
+| **Status** | Indicates if the IP is active, inactive, or decommissioned. |
+| **Total Vulnerabilities** | Number of open issues discovered. |
+| **Risk Score** | Automatically generated score reflecting severity and exposure. |
+| **Exposure** | Marks whether the IP is safe, exposed, or unknown. |
+| **Environment** | Classified environment if detected (e.g., Internal, External). |
+| **Managed By** | User or owner assigned to manage the asset. |
+| **Detection Timeline** | “First Found” and “Last Found” dates for tracking changes. |
+
+---
+
+### Vulnerability Insights
+
+<Columns cols={2}>
+
+<Card title="Vulnerability Trends" icon="chart-line">
+  Displays how vulnerabilities have evolved over time for the specific IP.  
+  Useful for tracking the impact of patch management and mitigation efforts.
+</Card>
+
+<Card title="Severity Distribution" icon="circle-exclamation">
+  Shows vulnerability severity breakdown (Critical, High, Medium, Low) for quick prioritization.
+</Card>
+
+</Columns>
+
+The **Vulnerability Table** below lists each vulnerability linked to this IP, with details such as:
+- Title  
+- Severity  
+- State (Resolved / In Review)  
+- Detection history  
+
+Each entry can be cross-referenced directly within the VM module.
+
+---
+
+### Tags, Technologies, and Open Ports
+
+<Columns cols={2}>
+
+<Card title="Tags" icon="tags">
+  Tags categorize IPs based on business or technical context.  
+  Examples include: `VM`, `IP`, `External`, `Internal`.
+</Card>
+
+<Card title="Technologies" icon="microchip">
+  Displays any technologies identified from associated assets or scans (e.g., Apache, Nginx, SSH).
+</Card>
+
+</Columns>
+
+#### Open Ports
+Shows detected network ports, their protocol, and exposure state.  
+Used to assess services running on the IP and identify potential risks.
+
+---
+
+### Location Details
+
+The **Location Details** panel automatically enriches each IP with geolocation and organization intelligence, including:
+- **Organisation & ASN**
+- **Country, City, and Region**
+- **Timezone & Postal Code**
+- **Network Segment** (if internal classification applies)
+
+These details enable quick attribution and mapping for distributed infrastructures.
+
+---
+
+### Asset Relations
+
+<Frame caption="IP Asset Relations Graph">
+  <img src="/images/aim/ip3.png" alt="IP Relations Graph in AIM" />
+</Frame>
+
+The **Asset Relation Graph** maps relationships between IPs, domains, and associated assets, enabling analysts to visualize network context and dependencies.
+
+---
+
+### Ownership & Lifecycle Management
+
+Each IP asset includes full lifecycle controls:
+- **Assign Owner** – set or change responsible person/team.  
+- **Decommission Asset** – mark inactive or deprecated IPs.  
+- **Delete Asset** – permanently remove invalid or duplicate entries.  
+
+All updates synchronize across AIM and connected modules.
+
+---
+
+## How IPs Are Discovered
+
+AIM detects and updates IP assets using various adapters and integrations:
+- **VM Adapter** – imports IPs linked with vulnerabilities.  
+- **ASM Adapter** – discovers live and shadow IPs from external scans.  
+- **TechDetect Adapter** – identifies IP-level technologies and ports.  
+
+These integrations keep the IP inventory up to date with real-time exposure and risk insights.
+
+---
+
+## Example Use Cases
+
+- **Network Security Teams:** Identify and prioritize vulnerable or exposed IPs.  
+- **Asset Managers:** Maintain accurate internal vs. external IP segmentation.  
+- **Incident Responders:** Investigate IPs involved in breaches or suspicious activities.  
+- **Compliance Teams:** Audit all active IPs and verify that no shadow assets exist.
+
+---
+
+## Next Steps
+
+<Card title="View IP Details" icon="circle-info" href="/products/aim/assets/ip/details">
+  Explore detailed IP asset information, vulnerabilities, and relationships.
+</Card>
+
+<Card title="Integrate External Sources" icon="plug" href="/products/aim/adapters">
+  Connect external sources like ASM, VM, or TechDetect to enhance IP discovery and enrichment.
+</Card>

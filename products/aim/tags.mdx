@@ -1,0 +1,72 @@
+---
+title: "Tags"
+description: "Organize assets with tags, view distribution, and jump to filtered catalogs instantly."
+mode: "wide"
+icon: "tags"
+---
+
+## Overview
+
+Tags enable effortless organization and quick reference across your asset inventory.  
+They help categorize assets by source, type, ownership, or environment — making it easier to track, filter, and act on related groups.  
+Clicking any tag dynamically opens the **Global Catalog** filtered for that tag.
+
+<Frame caption="Asset Distribution by Tags">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/tags1.png" />
+</Frame>
+
+## Key Capabilities
+
+<Columns cols={2}>
+  <Card title="Comprehensive Distribution" icon="chart-column">
+    Visualize how assets are spread across tags like Cloudflare, GitLab, or Container Registry.
+  </Card>
+  <Card title="1-Click Catalog Navigation" icon="arrow-up-right-from-square">
+    Click a tag chip to jump straight into the Global Catalog with the tag filter pre-applied.
+  </Card>
+  <Card title="Smart Tagging System" icon="layer-group">
+    Supports tags for environment, repository, owner, or integration source.
+  </Card>
+  <Card title="Actionable Insights" icon="magnifying-glass-chart">
+    Identify tag-heavy areas to find redundant, shadowed, or decommissioned assets.
+  </Card>
+</Columns>
+
+## How It Works
+
+<Steps>
+  <Step title="View Tag Chart" icon="chart-simple">
+    The bar chart visualizes tag counts, showing which categories dominate your inventory.
+  </Step>
+  <Step title="Click Any Tag" icon="hand-pointer">
+    Select a tag chip to instantly filter the Global Catalog view for that tag.
+  </Step>
+  <Step title="Analyze & Export" icon="table-cells">
+    Explore filtered results, combine multiple tags, or export them for audit.
+  </Step>
+</Steps>
+
+## Deep Link Format
+
+```text
+/products/aim/gloabl-catalog?tag={tagName}
+```
+
+> Examples:  
+> `/products/aim/gloabl-catalog?tag=Cloudflare`  
+> `/products/aim/gloabl-catalog?tag=SSL`  
+> `/products/aim/gloabl-catalog?tag=Repository`
+
+## Best Practices
+
+- Use consistent prefixes like `env:`, `team:`, or `source:` for clean governance.  
+- Pair source tags (e.g., `GitLab`, `Cloudflare`) with functional ones (`API`, `Repo`) for richer filtering.  
+- Regularly review tags with high counts (`decommissioned`, `shadowed`) to track lifecycle maturity.
+
+## Next Steps
+
+<Card title="Open Global Catalog" icon="arrow-right" href="/products/aim/gloabl-catalog">
+  Explore all assets filtered by tag and continue your analysis.
+</Card>
+
+

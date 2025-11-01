@@ -1,0 +1,149 @@
+---
+title: "Adapters & Integrations"
+description: "Connect, sync, and automate data flow across external systems and sources using AIM Adapters."
+icon: "plug"
+mode: "wide"
+---
+
+<Banner>
+Adapters in AIM act as **data bridges** between your asset inventory and external platforms.  
+They automatically fetch, synchronize, and enrich asset data from connected systems — ensuring your inventory stays continuously updated without manual effort.
+</Banner>
+
+<Frame caption="Adapters Overview">
+  <img src="/images/aim/adapters1.png" alt="AIM Adapters Overview" />
+</Frame>
+
+---
+
+## What Are Adapters?
+
+Adapters are modular integrations that connect AIM with external data sources such as:
+
+- **Cloud Providers** – e.g., Oracle Cloud, Cloudflare  
+- **Security Tools** – e.g., Snapsec ASM, VM, TechDetect, Secret Scanner  
+- **Repositories & CI/CD** – e.g., GitHub, GitLab  
+- **API Platforms** – e.g., Postman, Swagger  
+- **Data Enrichment Sources** – e.g., IPinfo, CertGrabber, DNS Resolver  
+
+Each adapter has a specific function — such as importing subdomains, fetching IP data, syncing vulnerabilities, or identifying technologies.
+
+<Frame caption="Available Adapters in AIM">
+  <img src="/images/aim/adapters2.png" alt="Available Adapters in AIM" />
+</Frame>
+
+---
+
+## Connecting Adapters
+
+Connecting an adapter allows AIM to pull data automatically from that system into your asset inventory.
+
+1. Navigate to the **Adapters** tab.
+2. Click **Install** on the adapter you wish to connect (e.g., *Postman*, *Cloudflare*, *GitHub*).
+3. Enter the required credentials or API key in the connection form.
+4. Optionally, provide a description or context for the integration.
+5. Click **Install Now** to activate the adapter.
+
+Once installed, AIM begins fetching and enriching assets automatically based on that adapter’s capability.
+
+<Frame caption="Connecting a Postman Adapter">
+  <img src="/images/aim/adapters3.png" alt="Install Adapter Modal" />
+</Frame>
+
+---
+
+## Disconnecting Adapters
+
+If an integration is no longer required or needs replacement, it can be easily disconnected.
+
+1. Open the **Active Adapters** tab.  
+2. Locate the adapter you want to remove.  
+3. Click **Delete** — this will safely disconnect the adapter without removing previously fetched data.  
+
+Disconnected adapters can be reinstalled at any time.
+
+---
+
+## Active Adapters
+
+The **Active Adapters** tab lists all currently configured integrations.  
+Each card displays:
+
+- **Adapter Name** (e.g., `crt`, `vm`, `techdetect`)  
+- **Description** (e.g., *Fetching Subdomains for bugcrowd.com*)  
+- **Status** (`Installed`)  
+- **Last Sync Time** (e.g., “2 months ago”)  
+
+You can manually trigger a sync or remove an adapter from here using **Refresh** or **Delete** actions.
+
+<Frame caption="Active Adapters Management">
+  <img src="/images/aim/adapters4.png" alt="Active Adapters List" />
+</Frame>
+
+---
+
+## Refreshing Adapters
+
+Refreshing an adapter allows AIM to fetch the latest data from that integration on-demand.
+
+- Click the **Refresh** button on any active adapter card.  
+- AIM will initiate an immediate sync to pull updated assets or vulnerability data.  
+- The process is logged automatically under **Refresh Logs**.
+
+This is especially useful after major changes in external systems or new asset additions.
+
+---
+
+## Refresh Logs
+
+The **Refresh Logs** tab provides a complete audit trail of adapter activities.
+
+Each log entry includes:
+- Adapter name  
+- User who triggered the installation or refresh  
+- Action type (e.g., *installed*, *refreshed*)  
+- Timestamp of the action  
+
+This helps teams maintain transparency around data synchronization and integration changes.
+
+<Frame caption="Adapter Refresh Logs">
+  <img src="/images/aim/adapters5.png" alt="Adapter Refresh Logs in AIM" />
+</Frame>
+
+---
+
+## Adapter Lifecycle
+
+| Stage | Description |
+|--------|--------------|
+| **Install** | Adapter is connected and credentials validated. |
+| **Sync** | Data import begins automatically after installation. |
+| **Refresh** | Manually trigger new data pull anytime. |
+| **Disconnect** | Adapter removed without deleting existing data. |
+| **Reinstall** | Reconnect adapter using stored credentials or a new API key. |
+
+---
+
+## Example Use Cases
+
+- **Sync Subdomains:** Use CRT, DNS Resolver, or Snapsec ASM adapters to import discovered subdomains.  
+- **Fetch Vulnerabilities:** Integrate with the VM adapter to bring in risk data for associated assets.  
+- **Enrich IP Data:** Connect IPinfo to map IP locations, ASN data, and ownership.  
+- **Automate Technology Detection:** Use TechDetect to fingerprint technology stacks automatically.  
+- **Pull Repositories:** Link GitHub or GitLab adapters to track repositories as assets.  
+
+---
+
+## Next Steps
+
+<Card title="Install New Adapter" icon="plus" href="/products/aim/adapters">
+  Explore all available adapters and connect your external systems.
+</Card>
+
+<Card title="Manage Active Adapters" icon="circle-check" href="/products/aim/adapters/active">
+  Review connected integrations and trigger manual data refreshes.
+</Card>
+
+<Card title="View Refresh Logs" icon="clock-rotate-left" href="/products/aim/adapters/logs">
+  Audit adapter activity and integration history.
+</Card>

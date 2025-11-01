@@ -1,0 +1,237 @@
+---
+title: "API Catalog"
+description: "Monitor all organizational APIs and endpoints with full visibility into ownership, vulnerabilities, risk, and exposure posture."
+icon: "code"
+mode: "wide"
+---
+
+<Banner>
+The **API Catalog** in AIM provides centralized visibility into every API and endpoint discovered across your organization.  
+It combines analytics, exposure intelligence, and risk scoring to help teams understand their API landscape and mitigate risks proactively.
+</Banner>
+
+<Frame caption="API Catalog Overview">
+  <img src="/images/aim/api1.png" alt="API Catalog in AIM" />
+</Frame>
+
+---
+
+## Overview
+
+The **API Catalog** serves as a comprehensive inventory of all APIs identified through integrations, scanners, or adapters (such as Postman, VM, or TechDetect).  
+It consolidates discovery, vulnerability data, request method analytics, and exposure indicators into one unified interface.
+
+This catalog empowers teams to monitor shadow APIs, enforce ownership, and ensure complete coverage across internal, external, and partner APIs.
+
+---
+
+## Key Metrics and Analytics
+
+<Columns cols={3}>
+
+<Card title="Total APIs" icon="cubes">
+  Displays the total number of APIs discovered within your organization.
+</Card>
+
+<Card title="Total Endpoints" icon="list">
+  Shows the total number of individual endpoints across all APIs.
+</Card>
+
+<Card title="Shadowed APIs" icon="mask">
+  Highlights APIs discovered outside approved inventories, often representing untracked or unmanaged services.
+</Card>
+
+<Card title="Vulnerability Severity Distribution" icon="chart-pie">
+  Pie chart visualization of vulnerability severities across all APIs — Critical, High, Medium, and Low.
+</Card>
+
+<Card title="Vulnerability Distribution" icon="chart-column">
+  Bar chart displaying the number of open vs. resolved vulnerabilities for APIs.
+</Card>
+
+<Card title="Request Method Distribution" icon="network-wired">
+  Analyzes the distribution of HTTP request methods (GET, POST, PUT, PATCH, DELETE), helping teams understand usage and potential risks.
+</Card>
+
+</Columns>
+
+---
+
+## Search, Filters, and Sorting
+
+The API catalog supports multi-dimensional filtering for precise visibility and control:
+
+| Filter | Description |
+|--------|--------------|
+| **Owners** | Filter by assigned API owner or responsible workspace. |
+| **Risk** | Filter APIs based on calculated Auto Risk score. |
+| **Exposure** | Show APIs that are exposed or shadowed. |
+| **Adapters** | Filter APIs imported from specific adapters (e.g., Postman, VM, or TechDetect). |
+| **Tags** | Filter APIs by technology or business tags (e.g., `Postman`, `API`). |
+| **hasVulns** | Show APIs with linked vulnerabilities. |
+| **Date Range** | Filter by first or last discovery date. |
+
+These filters make it easy to pinpoint unowned APIs, newly discovered endpoints, or those with elevated risk.
+
+---
+
+## API Table Columns
+
+Each API record includes rich contextual data:
+
+| Column | Description |
+|---------|-------------|
+| **Asset Value** | API name or workspace identifier. |
+| **Vuln Count** | Number of vulnerabilities linked to the API. |
+| **Workspace** | The Postman or internal workspace where the API resides. |
+| **Auto Risk** | Automatically computed risk score based on vulnerabilities, exposure, and classification rules. |
+| **Total Endpoints** | Total number of active endpoints within the API. |
+| **Owner** | Assigned person or workspace responsible for the API. |
+| **Tags** | Technology or discovery tags (e.g., `Postman`, `API`). |
+| **Associations** | Related assets connected to the API. |
+| **Detected On** | Timestamp of last discovery and first identification. |
+
+---
+
+# API Full View
+
+Each API in AIM is automatically enriched with vulnerability data, ownership, tags, and endpoint-level analytics.  
+This detailed view enables continuous visibility into API health, endpoint exposure, and security posture.
+
+<Frame caption="API Full View">
+  <img src="/images/aim/api2.png" alt="API Detailed View in AIM" />
+</Frame>
+
+---
+
+### API Summary
+
+<Frame caption="API Full View">
+  <img src="/images/aim/api3.png" alt="API Detailed View in AIM" />
+</Frame>
+
+At the top of the page, the API summary provides quick access to its key attributes:
+
+| Field | Description |
+|-------|--------------|
+| **API Name** | Name of the API asset (e.g., `snapsec Control`). |
+| **Status** | Indicates if the API is Active or Decommissioned. |
+| **Source** | Displays which adapter or workspace provided the API (e.g., Postman). |
+| **Exposed** | Marks whether the API is exposed to public networks. |
+| **Environment** | Identifies the deployment environment (e.g., Production, Staging, Dev). |
+| **Risk Score** | Shows the calculated Auto Risk value. |
+| **Managed By** | Lists the assigned owner or team responsible for maintenance. |
+| **Detection History** | Shows first and last detection timestamps. |
+
+---
+
+### Vulnerability Insights
+<Frame caption="API Full View">
+  <img src="/images/aim/api4.png" alt="API Detailed View in AIM" />
+</Frame>
+
+<Columns cols={2}>
+
+<Card title="Vulnerability Trends" icon="chart-line">
+  Visual representation of vulnerabilities over time for the selected API, showing how remediation affects the trend line.
+</Card>
+
+<Card title="Severity Distribution" icon="circle-exclamation">
+  Distribution chart showing vulnerabilities categorized as Critical, High, Medium, or Low.
+</Card>
+
+</Columns>
+
+Below the trend charts, the **Vulnerabilities Table** lists all identified API-level issues, including:
+- Vulnerability title  
+- Assessment source  
+- Severity  
+- State (`Resolved`, `In Review`, `Retest`)  
+- Detection history  
+
+---
+
+### Tags, Technologies, and Relations
+
+<Frame caption="API Full View">
+  <img src="/images/aim/api5.png" alt="API Detailed View in AIM" />
+</Frame>
+
+<Columns cols={2}>
+
+<Card title="Tags" icon="tags">
+  Tags applied automatically from adapters or manually by teams (e.g., `Postman`, `API`, `Internal`).
+</Card>
+
+<Card title="Technologies" icon="microchip">
+  Lists backend technologies or services powering the API (e.g., Node.js, FastAPI, Flask).
+</Card>
+
+</Columns>
+
+
+The **Asset Relation Graph** maps API dependencies and associations (e.g., linked IPs, domains, or related endpoints), allowing teams to visualize API surface connectivity.
+
+---
+
+### Endpoints and Methods
+
+<Frame caption="API Full View">
+  <img src="/images/aim/api6.png" alt="API Detailed View in AIM" />
+</Frame>
+
+Each API includes a full list of associated endpoints, including:
+
+| Column | Description |
+|---------|-------------|
+| **Name** | Endpoint or request title. |
+| **Method** | HTTP method (GET, POST, PUT, PATCH, DELETE). |
+| **Path** | API route or path identifier. |
+| **URL** | Full request URL. |
+| **Collection** | Postman collection or internal group reference. |
+| **Workspace** | Workspace in which the API is registered. |
+
+This section enables analysts to trace vulnerabilities, analyze endpoint exposure, and audit HTTP method usage patterns.
+
+---
+
+### Ownership & Management Actions
+
+Each API asset supports lifecycle operations:
+- **Assign Owner** – designate an individual or workspace owner.  
+- **Decommission API** – mark outdated APIs for archival or removal.  
+- **Delete API** – remove from active inventory.  
+
+All ownership and lifecycle changes are synchronized across the AIM ecosystem.
+
+---
+
+## How APIs Are Discovered
+
+AIM continuously updates API data using connected adapters and integrations:
+- **Postman Adapter** – imports APIs and collections from workspaces.  
+- **TechDetect Adapter** – fingerprints API technologies and request methods.  
+- **VM Adapter** – enriches APIs with vulnerability data from security assessments.  
+
+Each discovery refreshes endpoint counts, exposure states, and vulnerability analytics automatically.
+
+---
+
+## Example Use Cases
+
+- **API Security Teams:** Identify shadow or unmanaged APIs.  
+- **Developers:** Track active endpoints and ensure alignment with environment policies.  
+- **Compliance Officers:** Audit exposed APIs for data sensitivity and regulatory controls.  
+- **Engineering Leads:** Measure API growth and assess operational risks.
+
+---
+
+## Next Steps
+
+<Card title="View API Details" icon="circle-info" href="/products/aim/assets/api/details">
+  Explore the detailed API profile, including vulnerabilities, endpoints, and relations.
+</Card>
+
+<Card title="Configure API Adapters" icon="plug" href="/products/aim/adapters">
+  Connect Postman or TechDetect adapters to enhance API discovery and tracking.
+</Card>
