@@ -2,6 +2,11 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "aspen",
   "name": "Snapsec Suite",
+  "integrations": {
+    "ga4": {
+        "measurementId": "G-6SZ8RSBNWP"
+    }
+},
   "colors": {
     "primary": "#3341FF",
     "light": "#3341FF",
