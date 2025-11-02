@@ -2,11 +2,16 @@
   "$schema": "https://mintlify.com/docs.json",
   "theme": "aspen",
   "name": "Snapsec Suite",
-  "integrations": {
-    "ga4": {
-        "measurementId": "G-6SZ8RSBNWP"
+  "head": [
+    {
+      "tag": "script",
+      "attributes": {
+        "defer": true,
+        "src": "https://cloud.umami.is/script.js",
+        "data-website-id": "25788169-ab6d-43d6-b365-7b6e97a13a6b"
+      }
     }
-},
+  ],
   "colors": {
     "primary": "#3341FF",
     "light": "#3341FF",
