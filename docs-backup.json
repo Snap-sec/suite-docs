@@ -42,8 +42,49 @@
               "products/vm/sla-analytics",
               "products/vm/ownership"            
             ]
+          },
+          {
+            "group": "Attack Surface Management",
+            "pages": [
+              "products/asm/dashboard",
+              "products/asm/scans",
+              "products/asm/rules",
+              "products/asm/asset-catalog",
+              "products/asm/exposures",
+              "products/asm/integrations",
+              "products/asm/reports"
+            ]
+          },
+          {
+            "group": "Asset Inventory Management",
+            "pages": [
+              "products/aim/dashboard",
+              "products/aim/global-catalog",
+              "products/aim/subdomains",
+              "products/aim/apis",
+              "products/aim/ips",
+              "products/aim/dns",
+              "products/aim/repo",
+              "products/aim/adapters",
+              "products/aim/classifier",
+              "products/aim/tags",
+              "products/aim/groups",
+              "products/aim/exports",
+              "products/aim/decommisioning",
+              "products/aim/public-search"
+            ]
+          },
+          {
+            "group": "API Threat Modeler",
+            "pages": [
+              "products/tm/introduction",
+              "products/tm/projects",
+              "products/tm/api-endpoints",
+              "products/tm/threats",
+              "products/tm/threat-management-workflow",
+              "products/tm/integrations"
+            ]
           }
-
 
         ]
       },
