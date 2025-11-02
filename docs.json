@@ -73,6 +73,17 @@
               "products/aim/decommisioning",
               "products/aim/public-search"
             ]
+          },
+          {
+            "group": "API Threat Modeler",
+            "pages": [
+              "products/tm/introduction",
+              "products/tm/projects",
+              "products/tm/api-endpoints",
+              "products/tm/threats",
+              "products/tm/threat-management-workflow",
+              "products/tm/integrations"
+            ]
           }
 
         ]

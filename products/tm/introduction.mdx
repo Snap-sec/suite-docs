@@ -1,0 +1,104 @@
+---
+title: "Introduction"
+description: "Automated API Threat Modeling powered by AI — identify, simulate, and resolve potential security threats directly from your API workflows."
+mode: "wide"
+icon: "shield-halved"
+---
+
+## Overview
+
+**Snapsec Threat Modeler** revolutionizes API security by automating the discovery of potential attack vectors — before they’re exploited.  
+By integrating seamlessly with tools like **Postman**, it analyzes API requests, detects insecure patterns, and automatically generates potential exploit scenarios.
+
+Whether it’s **IDOR**, **SQL Injection**, or **Authentication Bypass**, Threat Modeler uses AI-driven logic to simulate real-world threats and turn them into actionable insights for your security and development teams.
+
+<Frame caption="Threat Modeler Overview Dashboard">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/tm/dashboard.png" />
+</Frame>
+
+---
+
+## Why Threat Modeler?
+
+Traditional vulnerability scanners often detect issues after they’re introduced — **Threat Modeler** focuses on prevention and early prediction.
+
+<Columns cols={3}>
+  <Card title="AI-Powered Threat Generation" icon="robot">
+    Automatically generate potential attack payloads based on API request parameters and structure.
+  </Card>
+  <Card title="Seamless Postman Integration" icon="plug">
+    Import Postman collections and instantly model threat scenarios for each endpoint.
+  </Card>
+  <Card title="Collaborative Validation & Ticketing" icon="comments">
+    Assign, track, and resolve detected threat hypotheses across dev, QA, and security teams.
+  </Card>
+</Columns>
+
+---
+
+## Key Benefits
+
+<Columns cols={2}>
+  <Card title="Proactive Defense" icon="shield">
+    Predict and neutralize vulnerabilities before attackers find them.
+  </Card>
+  <Card title="Reduced False Positives" icon="filter-circle-xmark">
+    AI-driven contextual analysis minimizes noise and focuses on realistic exploit paths.
+  </Card>
+  <Card title="Developer-Friendly Workflows" icon="code">
+    Integrated ticketing ensures findings are assigned, tracked, and resolved efficiently.
+  </Card>
+  <Card title="Continuous Learning" icon="circle-nodes">
+    The model improves over time by learning from resolved and verified threat cases.
+  </Card>
+</Columns>
+
+---
+
+## How It Works
+
+<Steps>
+  <Step title="Connect Postman" icon="link">
+    Integrate your Postman workspace to fetch APIs and endpoints directly into Threat Modeler.
+  </Step>
+  <Step title="AI Threat Simulation" icon="brain">
+    The system automatically analyzes API request parameters and generates simulated attacks such as IDORs, SQLi, and command injections.
+  </Step>
+  <Step title="Validate & Assign" icon="circle-check">
+    Each generated threat becomes a ticket that teams can validate, confirm, or dismiss.
+  </Step>
+  <Step title="Remediate & Report" icon="chart-simple">
+    Track progress, export reports, and measure mitigation trends through rich dashboards.
+  </Step>
+</Steps>
+
+
+
+---
+
+
+
+## Example Use Case
+
+For a given API request:
+
+```text
+GET /api/users?id=1
+```
+
+Threat Modeler automatically simulates potential threats like:
+
+- **IDOR:** `/api/users?id=<other_user_id>`  
+- **SQL Injection:** `/api/users?id=1' OR '1'='1'--`  
+- **Command Injection:** `/api/users?id=;cat /etc/passwd`
+
+Each of these simulated payloads becomes an **AI-generated threat ticket**, ready for developer validation or retesting.
+
+
+---
+
+## Next Steps
+
+<Card title="Connect Postman to Start Modeling" icon="arrow-right" href="/products/tm/quickstart">
+  Set up your workspace and begin generating AI-driven threat simulations.
+</Card>
