@@ -30,10 +30,7 @@ Snapsec supports multiple report types to meet different visibility needs:
 <Columns cols={2}>
   <Card title="1. Assessment Specific Reports" icon="list-check">
     Generate detailed reports for a single assessment or project.
-    <ul>
-      <li><strong>Vulnerability Report:</strong> Includes all vulnerabilities, details, and remediation data.</li>
-      <li><strong>Revalidation Report:</strong> Focuses on re-tested vulnerabilities and their evidences.</li>
-    </ul>
+
   </Card>
   <Card title="2. Asset Specific Reports" icon="server">
     Create reports for specific asset types like subdomains, IPs, or ports, summarizing associated vulnerabilities and remediation progress.
@@ -44,33 +41,54 @@ Snapsec supports multiple report types to meet different visibility needs:
   <Card title="4. Change Request Reports" icon="arrows-rotate">
     Reports dedicated to tracking vulnerabilities, test outcomes, and verification for approved change requests.
   </Card>
+
+  <Card title="4. Revalidation Reports" icon="arrows-rotate">
+  Confirm whether previously reported vulnerabilities are fixed, with clear pass/fail results and updated evidence.  
+  </Card>
 </Columns>
 
 ---
 
 ## Generating New Reports
 
-<Frame caption="Generate Report modal with dropdown to choose type">
-  <img src="/images/vm/reports2.png" alt="Generate Report modal displaying available report types and assessment selection" />
+<Frame caption="Generate Report modal with all available report options">
+  <img src="/images/vm/reports2.png" alt="Generate Report modal showing report type and assessment selection" />
 </Frame>
 
 <Steps>
-  <Step title="Open Report Generator">
-    Click **Generate Report** at the top-right corner of the Reports page.
+  <Step title="Login to Your Account">
+    Sign in to your Snapsec account to access the reporting dashboard.
   </Step>
-  <Step title="Select Report Type">
-    Choose your preferred report type — **Executive**, **Assessment Specific**, **Asset Specific**, or **Change Request**.
+
+  <Step title="Navigate to the Reports Page">
+    Go to the **Reports** section — here you’ll find a list of all previously generated reports.
   </Step>
-  <Step title="Select Data Source">
-    Depending on the type, select the corresponding **Assessment**, **Asset**, or **Change Request** from the dropdown.
+
+  <Step title="Click on Generate Report">
+    Click the **Generate Report** button located at the top-right corner of the page.
   </Step>
-  <Step title="Generate PDF">
-    Snapsec will compile all associated data — vulnerabilities, trends, or evidences — into a formatted PDF ready for download.
+
+  <Step title="Choose Report Type">
+    Select the type of report you want to generate:<br/>
+    **Assessment Specific**, **Asset Specific**, **Executive Report**, **Revalidation Report**, or others.
+  </Step>
+
+  <Step title="Select Input Source">
+    Based on the selected report type, choose the required **Assessment**, **Asset**, or **Change Request** from the dropdown.
+  </Step>
+
+  <Step title="Generate Report">
+    Click **Generate** and wait for Snapsec to compile the PDF.  
+    The system will automatically collect all relevant data — vulnerabilities, metadata, summaries, and evidences.
+  </Step>
+
+  <Step title="Download the Report">
+    Once completed, click the **Download** icon next to the newly generated report to save the PDF.
   </Step>
 </Steps>
 
 <Banner>
-All generated reports are securely stored, timestamped, and versioned — ensuring repeatability and audit compliance.
+All generated reports are automatically stored, timestamped, and versioned — guaranteeing auditability, traceability, and consistent reporting.
 </Banner>
 
 ---
