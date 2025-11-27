@@ -1,0 +1,151 @@
+---
+title: "Intelligent Asset Classification"
+description: "Classify assets by environment, service type, ownership, and risk using policy-driven rules."
+mode: "wide"
+---
+
+<Tip>
+  Manual tagging doesn’t scale. Policy-driven classification ensures every asset is labeled correctly — automatically and consistently.
+</Tip>
+
+---
+
+## Why Intelligent Asset Classification Matters
+
+Organizations accumulate thousands of assets across cloud, applications, employees, APIs, certificates, DNS, and infrastructure.
+
+Without automated classification:
+
+<Check>
+  Assets remain untagged or miscategorized  
+</Check>
+
+<Check>
+  Ownership becomes unclear across teams  
+</Check>
+
+<Check>
+  Risk states (exposed, internal, shadowed) get missed  
+</Check>
+
+<Check>
+  Environments (prod/dev/stage) are inconsistent  
+</Check>
+
+Manual sorting breaks quickly. Snapsec AIM fixes this with **rule-based, intelligent classification** that keeps your entire inventory structured.
+
+---
+
+## How Snapsec Classifies Assets Automatically
+
+<Steps>
+  <Step title="Define Policy Rules">
+    Teams can write YAML-based rules matching fields such as DNS records, IP ranges, vulnerability counts, sources, asset types, or metadata patterns.
+  </Step>
+
+  <Step title="Match Assets to Conditions">
+    AIM evaluates each asset against rule criteria — environment, exposure, ownership, tags, technologies, and more.
+  </Step>
+
+  <Step title="Apply Labels, Tags & Enrichment">
+    Rules automatically assign environment (prod/dev/stage), risk status, custom tags, business units, and service types.
+  </Step>
+
+  <Step title="Continuously Re-Evaluate Assets">
+    As assets change, AIM automatically reclassifies them to maintain accurate, real-time organization.
+  </Step>
+</Steps>
+
+---
+
+## What Problems This Solves
+
+<CardGroup cols={3}>
+  <Card title="No More Manual Tagging" icon="tags">
+    Replace error-prone manual tagging with policy-driven automation.
+  </Card>
+
+  <Card title="Consistent Governance" icon="scale-balanced">
+    Enforce naming standards, environment grouping, and organizational structure automatically.
+  </Card>
+
+  <Card title="Smarter Prioritization" icon="signal">
+    Risk-aware classification helps security and VM teams prioritize the right assets instantly.
+  </Card>
+</CardGroup>
+
+---
+
+## Key Benefits for Your Security Team
+
+<Columns cols={2}>
+  <Card title="Environment Auto-Detection" icon="server">
+    Automatically identify production, development, staging, and test assets.
+  </Card>
+
+  <Card title="Ownership Classification" icon="user-group">
+    Assign teams, departments, or individuals based on metadata, naming, or patterns.
+  </Card>
+
+  <Card title="Risk-Based Labeling" icon="triangle-exclamation">
+    Mark assets as exposed, shadowed, internal, or safe using classification logic.
+  </Card>
+
+  <Card title="Consistent Asset Taxonomy" icon="list">
+    AIM ensures every asset follows the same structural format across the organization.
+  </Card>
+</Columns>
+
+---
+
+## Example Classification Scenarios
+
+<Danger>
+  Automatically tagging IPs in RFC1918 ranges as “Internal.”
+</Danger>
+
+<Danger>
+  Marking all subdomains fetched from crt.sh as “Shadowed” unless owned explicitly.
+</Danger>
+
+<Danger>
+  Categorizing APIs with more than 300 endpoints as “High-Impact Services.”
+</Danger>
+
+<Danger>
+  Tagging certificate assets nearing expiry with “Critical-Attention.”
+</Danger>
+
+<Danger>
+  Assigning owners to assets based on domain patterns or workspace attributes.
+</Danger>
+
+---
+
+## What Happens After Classification
+
+<Steps>
+  <Step title="Apply Tags & Labels">
+    AIM updates asset metadata instantly with new tags, risk levels, or environment classifications.
+  </Step>
+
+  <Step title="Trigger Policy Actions">
+    Classified assets can be routed to VM, ASM, or ticketing flows automatically.
+  </Step>
+
+  <Step title="Improve Visibility Across Teams">
+    Consistent classification enables faster filtering, grouping, and governance across AIM, ASM, and VM.
+  </Step>
+
+  <Step title="Refine Over Time">
+    Rules evolve with your infrastructure — AIM updates continuously as new requirements emerge.
+  </Step>
+</Steps>
+
+---
+
+## Next Steps
+
+<Card title="Explore Full AIM Capabilities" icon="arrow-right">
+  See how Snapsec AIM brings structure, intelligence, and automation to your entire asset inventory.
+</Card>
