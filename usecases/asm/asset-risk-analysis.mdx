@@ -1,0 +1,154 @@
+---
+title: "Asset Risk Analysis"
+description: "Analyze live, inactive, misconfigured, or risky assets across all environments with real-time context and exposure scoring."
+mode: "wide"
+---
+
+<Tip>
+  Understand which assets pose **real risk** — not just which ones exist.
+</Tip>
+
+---
+
+## Why Asset Risk Analysis Matters
+
+Not all assets carry the same risk. Some are inactive but still exposed, others are misconfigured, and many accumulate vulnerabilities over time.  
+Traditional inventories fail to evaluate **which assets need immediate attention**.
+
+Snapsec ASM solves this by:
+
+<Check>
+  Classifying assets as live, inactive, misconfigured, or high-risk based on continuous analysis  
+</Check>
+
+<Check>
+  Detecting risky configurations, outdated technologies, and unprotected services  
+</Check>
+
+<Check>
+  Prioritizing assets by severity, exposure type, and exploitation likelihood  
+</Check>
+
+<Check>
+  Enriching assets with ports, DNS, certificates, technologies, and cloud metadata  
+</Check>
+
+---
+
+## How Snapsec Performs Risk Analysis
+
+<Steps>
+  <Step title="Collect Environmental Context">
+    Every asset — subdomain, IP, port, server, or technology — is enriched with metadata like DNS, tags, cloud ownership, technologies, and historical behavior.
+  </Step>
+
+  <Step title="Evaluate Exposure & Misconfigurations">
+    ASM detects dangerous configurations including open ports, outdated software, missing WAF, expired certificates, and risky DNS setups.
+  </Step>
+
+  <Step title="Classify Asset Risk Level">
+    Assets are categorized into live, inactive, misconfigured, or high-risk groups using Snapsec’s risk engine.
+  </Step>
+
+  <Step title="Prioritize & Alert">
+    High-risk assets are escalated with severity scoring and pushed into VM workflows for rapid remediation.
+  </Step>
+</Steps>
+
+---
+
+## What Problems This Solves
+
+<CardGroup cols={3}>
+  <Card title="Risk-Based Prioritization" icon="bolt">
+    Identify which assets actually matter — enabling teams to focus on the highest-risk exposures first.
+  </Card>
+
+  <Card title="Misconfiguration Detection" icon="triangle-exclamation">
+    Automatically detect unsafe setups like open ports, missing WAF, invalid certificates, and insecure technologies.
+  </Card>
+
+  <Card title="Lifecycle Awareness" icon="eye">
+    Understand the true state of each asset: active, abandoned, shadow, misconfigured, or risky.
+  </Card>
+</CardGroup>
+
+---
+
+## Key Benefits for Your Security Team
+
+<Columns cols={2}>
+  <Card title="Prioritize What Matters" icon="circle-up">
+    Focus response efforts on assets that present the highest exposure risk.
+  </Card>
+
+  <Card title="Reduce Attack Surface" icon="shield-halved">
+    Find and resolve risky configurations before attackers exploit them.
+  </Card>
+
+  <Card title="Strengthen VM Programs" icon="list-check">
+    Feed high-risk assets directly into VM tickets for structured remediation.
+  </Card>
+
+  <Card title="Improve Operational Visibility" icon="chart-line">
+    Continuously track which assets go live, go offline, or become newly dangerous.
+  </Card>
+</Columns>
+
+---
+
+## Example High-Risk Conditions
+
+<Danger>
+  Active assets running outdated, vulnerable software versions.
+</Danger>
+
+<Danger>
+  Inactive subdomains still resolving with open ports.
+</Danger>
+
+<Danger>
+  Exposed IPs reachable without any access control.
+</Danger>
+
+<Danger>
+  Web servers without WAF protection.
+</Danger>
+
+<Danger>
+  Assets using expired or weak SSL/TLS certificates.
+</Danger>
+
+<Danger>
+  Technology stacks exposing sensitive debug or admin functionality.
+</Danger>
+
+---
+
+## What Happens After Risk Evaluation
+
+<Steps>
+  <Step title="Enrich the Risk Profile">
+    Each risky asset is paired with metadata like ports, DNS, technologies, certificate status, and cloud context.
+  </Step>
+
+  <Step title="Classify & Score">
+    ASM uses policy rules and AI analysis to generate a risk score based on severity, exposure type, and exploitation likelihood.
+  </Step>
+
+  <Step title="Generate AI Report">
+    ASM automatically produces a risk-focused report with impact, reasoning, and step-by-step remediation.
+  </Step>
+
+  <Step title="Send to VM Tickets">
+    High-risk assets are synced into Snapsec VM for tracking, assignment, and resolution.
+  </Step>
+</Steps>
+
+---
+
+## Next Steps
+
+<Card title="Explore Full ASM Capabilities" icon="arrow-right">
+  See how Snapsec ASM gives you a 360° view of your external risk posture.
+</Card>
