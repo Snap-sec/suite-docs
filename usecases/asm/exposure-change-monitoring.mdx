@@ -1,0 +1,142 @@
+---
+title: "Exposure Change Monitoring"
+description: "Track new ports, configuration changes, and emerging exposures in real time."
+mode: "wide"
+---
+
+<Tip>
+  Detect changes **as they happen**, not after attackers exploit them.
+</Tip>
+
+---
+
+## Why Exposure Change Monitoring Matters
+
+Attack surfaces evolve constantly. New services come online, old ones are misconfigured, and cloud teams push updates without notifying security.
+
+These small, unnoticed changes often introduce the highest-risk exposures.
+
+Snapsec ASM’s Change Monitoring ensures you never miss:
+
+<Check>
+  Newly opened or closed ports  
+</Check>
+
+<Check>
+  Configuration drift across production assets  
+</Check>
+
+<Check>
+  Sudden exposure of previously internal services  
+</Check>
+
+<Check>
+  Changes in certificates, DNS records, technologies, or WAF status  
+</Check>
+
+---
+
+## How Snapsec Detects Exposure Changes
+
+<Steps>
+  <Step title="Track Every Exposure Delta">
+    Each scan compares current asset state with historical data to identify new, removed, or modified exposures.
+  </Step>
+  <Step title="Detect Configuration Drift">
+    Snapsec captures changes in ports, WAF status, SSL certs, DNS changes, and cloud metadata to highlight risky deviations.
+  </Step>
+  <Step title="Flag Newly Risky Assets">
+    If an asset becomes exposed — new open ports, new IP mapping, or missing protections — it is immediately highlighted.
+  </Step>
+  <Step title="Trigger Early Alerts">
+    Snapsec notifies teams instantly when meaningful attack surface changes occur so remediation can begin right away.
+  </Step>
+</Steps>
+
+---
+
+## What Problems This Solves
+
+<CardGroup cols={3}>
+  <Card title="Prevent Silent Drift" icon="bolt">
+    Catch configuration drift before it evolves into a security incident.
+  </Card>
+  <Card title="Instant Change Detection" icon="clock">
+    Know immediately when new services appear, ports open, or protections disappear.
+  </Card>
+  <Card title="Reduced Attack Window" icon="shield">
+    Exposure changes are identified and triaged before attackers discover them.
+  </Card>
+</CardGroup>
+
+---
+
+## Key Benefits for Your Security Team
+
+<Columns cols={2}>
+  <Card title="Automatic Drift Monitoring" icon="eye">
+    Snapsec continuously checks for deviations in asset configuration, ports, IP mappings, and DNS records.
+  </Card>
+  <Card title="Real-Time Exposure Timeline" icon="timeline">
+    Visualize how your attack surface evolves over time, scan by scan.
+  </Card>
+  <Card title="Actionable Alerts" icon="bell">
+    Receive high-signal alerts the moment a new exposure or change is detected.
+  </Card>
+  <Card title="Faster Incident Response" icon="fire">
+    Rapid detection helps security teams respond before attackers exploit drift.
+  </Card>
+</Columns>
+
+---
+
+## Example Exposure Changes Detected
+
+These are typical high-impact changes Snapsec identifies:
+
+<Danger>
+  A safe port becomes exposed after a misconfigured deployment.
+</Danger>
+
+<Danger>
+  A previously internal development server becomes public due to DNS drift.
+</Danger>
+
+<Danger>
+  A WAF is disabled or stops protecting a critical subdomain.
+</Danger>
+
+<Danger>
+  SSL certificates suddenly become invalid or expire.
+</Danger>
+
+<Danger>
+  Cloud metadata changes expose unintended public endpoints.
+</Danger>
+
+---
+
+## What Happens After a Change is Detected
+
+<Steps>
+  <Step title="Analyze the Change">
+    Snapsec records the previous asset state and shows exactly what changed — port, DNS, certificate, or technology.
+  </Step>
+  <Step title="Classify with Policy Engine">
+    Changes are evaluated against your exposure policies to determine whether they are safe or risky.
+  </Step>
+  <Step title="Generate AI Report">
+    A detailed AI report is created explaining the change, its impact, and actionable remediation steps.
+  </Step>
+  <Step title="Send to VM Tickets">
+    Exposure change reports are pushed directly to the VM pipeline for tracking, assignment, and resolution.
+  </Step>
+</Steps>
+
+---
+
+## Next Steps
+
+<Card title="Explore All ASM Capabilities" icon="arrow-right">
+  Discover how Snapsec ASM gives you complete visibility and control over your external attack surface.
+</Card>
