@@ -1,0 +1,159 @@
+---
+title: External Asset Discovery
+description: Automatically discover every internet-facing asset tied to your organization — domains, subdomains, IPs, servers, APIs, cloud resources, and more.
+mode: wide
+---
+
+
+
+<Tip>
+Stay ahead of attackers by mapping your **real** external footprint — not the one in spreadsheets.
+</Tip>
+
+---
+
+## Why External Asset Discovery Matters
+
+Most security teams operate with incomplete visibility. New subdomains get deployed, forgotten assets stay online, and cloud teams spin up resources without notifying security.  
+These unnoticed assets become easy entry points.
+
+Snapsec ASM solves this by:
+
+<Check> Continuously scanning the internet for your organization’s footprint  </Check>
+<Check>Identifying domains, subdomains, IPs, servers, APIs, and cloud services  </Check>
+<Check>Building a real-time, unified view of all external-facing assets  </Check>
+<Check>Detecting shadow IT, stale systems, and high-risk exposures  </Check>
+
+---
+
+## How Snapsec Discovers Assets
+
+<Steps>
+  <Step title="Provide Your Starting Point">
+    Add your root domain, company name, or cloud identifiers — Snapsec automatically builds discovery pivots from it.
+  </Step>
+
+  <Step title="Map the Entire Surface">
+    Our discovery engine identifies all exposed domains, subdomains, IPs, APIs, ports, and services across the internet.
+  </Step>
+
+  <Step title="Enrich and Classify">
+    Every asset is enriched with ownership, environment, DNS records, tech stack, and risk scoring.
+  </Step>
+
+  <Step title="Monitor for New Exposures">
+    Snapsec continuously watches for new assets, changes, or high-risk exposures and alerts you instantly.
+  </Step>
+</Steps>
+
+
+---
+
+## What Problems This Solves
+
+<CardGroup cols={3}>
+  <Card title="Shadow IT Discovery" icon="eye">
+    Uncover forgotten domains, non-production subdomains, abandoned servers, and untracked cloud endpoints.
+  </Card>
+
+  <Card title="Attack Surface Coverage" icon="eye">
+    Build a complete, real-time inventory of everything attackers can see from the outside.
+  </Card>
+
+  <Card title="Risk Reduction" icon="bolt">
+    Identify open ports, exposed services, test environments, and internet-facing assets before attackers reach them.
+  </Card>
+</CardGroup>
+
+---
+
+## Key Benefits for Your Security Team
+
+<Columns cols={2}>
+  <Card title="Eliminate Blind Spots" icon="eye">
+    Automatically uncover shadow IT, forgotten domains, and hidden internet-facing assets.
+  </Card>
+
+  <Card title="Real-Time Inventory" icon="clock">
+    Maintain an always-updated map of your external footprint with continuous discovery.
+  </Card>
+
+  <Card title="Strengthen VM Workflow" icon="shield">
+    Feed discovered assets directly into VM and scanning workflows for faster triage.
+  </Card>
+
+  <Card title="Improve Cloud Visibility" icon="cloud">
+    Detect exposed cloud endpoints, misconfigurations, and unintended public services.
+  </Card>
+</Columns>
+
+
+
+---
+
+## Example Findings
+
+These are typical high-impact discoveries Snapsec ASM uncovers in organizations:
+
+
+<Danger>
+Forgotten staging or development environments exposed to the internet.
+</Danger>
+
+<Danger>
+Subdomains pointing to unused or publicly accessible cloud storage buckets.
+</Danger>
+
+<Danger>
+Unauthenticated API endpoints leaking sensitive data or internal functionality.
+</Danger>
+
+<Danger>
+Exposed admin panels or management interfaces without proper access controls.
+</Danger>
+
+<Danger>
+Legacy SaaS instances still mapped to company DNS with outdated configurations.
+</Danger>
+
+<Danger>
+Publicly reachable services or ports left open from old infrastructure deployments.
+</Danger>
+
+
+---
+
+
+
+## What Happens After Discovery
+
+<Steps>
+  <Step title="Enrich the Asset">
+    ASM enhances each discovered asset using multiple adapters — IP intelligence, DNS records, technology fingerprints, cloud metadata, Nmap scans, and more.
+  </Step>
+
+  <Step title="Classify with Policy Engine">
+    Using Snapsec’s policy engine, assets are classified across multiple dimensions: environment (prod/dev/stg), type (subdomain, IP, API, bucket), ownership, and risk context.
+  </Step>
+
+  <Step title="Evaluate Exposure">
+    ASM categorizes assets into <strong>good exposures</strong> (intended and safe) and <strong>bad exposures</strong> (misconfigured, risky, or unintended).
+  </Step>
+
+  <Step title="Generate AI Report">
+    For every bad exposure, ASM automatically creates an AI-generated report summarizing the issue, impact, and remediation guidance.
+  </Step>
+
+  <Step title="Send to VM Tickets">
+    Exposure reports are pushed directly into Snapsec VM’s ticket management system for seamless triage, tracking, and remediation.
+  </Step>
+</Steps>
+
+---
+
+## Next Steps
+
+<Card title="Explore Full ASM Capabilities" icon="arrow-right">
+Dive deeper into how Snapsec ASM protects your organization’s external perimeter.
+</Card>
+
