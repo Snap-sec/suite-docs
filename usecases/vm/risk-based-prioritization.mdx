@@ -1,0 +1,161 @@
+---
+title: "Risk-Based Prioritization"
+description: "Automatically prioritize vulnerabilities using asset context, exposure signals, and business impact."
+mode: "wide"
+---
+
+<Tip>
+  Not all vulnerabilities matter equally — Snapsec VM ensures teams fix what truly matters first.
+</Tip>
+
+---
+
+## Why Risk-Based Prioritization Matters
+
+Traditional vulnerability scoring (like CVSS) tells you *how dangerous a vulnerability could be*,  
+but not *how dangerous it is to your organization right now*.
+
+Security teams drown in thousands of low-context findings because:
+
+- Every issue looks equally important  
+- Business-critical assets don’t get special attention  
+- Cloud exposures and ASM signals aren’t considered  
+- High-risk internet-facing assets get treated the same as internal dev environments  
+
+Snapsec VM solves this by combining **asset context + exposure data + business impact** to rank vulnerabilities intelligently.
+
+<Check>
+  Evaluate vulnerabilities based on asset criticality and business unit importance  
+</Check>
+
+<Check>
+  Factor in exposure signals from ASM — open ports, public access, misconfigurations  
+</Check>
+
+<Check>
+  Identify attack paths, chained risks, and internet-facing severity boosts  
+</Check>
+
+<Check>
+  Classify issues dynamically as real risk, not just raw CVSS numbers  
+</Check>
+
+---
+
+## How Snapsec Prioritizes Risk
+
+<Steps>
+  <Step title="Enrich With Asset Context">
+    Every vulnerability is enriched with host type, environment (prod/dev), business unit, and application criticality.
+  </Step>
+
+  <Step title="Analyze Exposure Level">
+    Snapsec pulls exposure insights — open ports, public accessibility, shadow IT presence, cloud misconfigurations.
+  </Step>
+
+  <Step title="Evaluate Business Impact">
+    Vulnerabilities on regulated systems, revenue-generating apps, or critical business units get escalated automatically.
+  </Step>
+
+  <Step title="Recalculate Risk Dynamically">
+    Risk scores update as environments change — new exposures, moved hosts, resolved dependencies.
+  </Step>
+
+  <Step title="Prioritize the Remediation Queue">
+    Snapsec automatically ranks vulnerabilities by actual impact, not CVSS noise.
+  </Step>
+</Steps>
+
+---
+
+## What Problems This Solves
+
+<CardGroup cols={3}>
+  <Card title="Endless Vulnerability Backlogs" icon="inbox">
+    Cut through thousands of low-impact issues and focus on what matters.
+  </Card>
+
+  <Card title="Missing High-Risk Exposures" icon="shield-halved">
+    Boost severity automatically for assets exposed to the internet.
+  </Card>
+
+  <Card title="Slow Remediation Decisions" icon="bolt">
+    Give teams a clear, ranked list of what to fix first.
+  </Card>
+</CardGroup>
+
+---
+
+## Key Benefits for Your Security Team
+
+<Columns cols={2}>
+  <Card title="Fix What Matters First" icon="circle-check">
+    Rank vulnerabilities based on real organizational impact.
+  </Card>
+
+  <Card title="Context-Aware Prioritization" icon="chart-line">
+    Combine environment, asset type, business unit, and exposure data.
+  </Card>
+
+  <Card title="Reduce Noise Dramatically" icon="volume-off">
+    Eliminate thousands of irrelevant findings and false urgency.
+  </Card>
+
+  <Card title="Better Alignment With Engineering" icon="users-gear">
+    Provide dev teams clear reasoning for priority — no more guesswork.
+  </Card>
+</Columns>
+
+---
+
+## Example Prioritization Scenarios
+
+<Danger>
+  A medium-CVSS issue becomes **critical** because it affects an internet-facing API with open ports.
+</Danger>
+
+<Danger>
+  A high-severity issue is downgraded because it's on an internal dev environment with no exposure.
+</Danger>
+
+<Danger>
+  A low-severity misconfiguration is escalated because it impacts a regulated or financial application.
+</Danger>
+
+<Danger>
+  Vulnerabilities on shadow IT assets are boosted automatically due to unknown ownership and public exposure.
+</Danger>
+
+---
+
+## What Happens After Prioritization
+
+<Steps>
+  <Step title="Assign Severity Boosts">
+    Snapsec adjusts severity and SLA timers based on real-world risk.
+  </Step>
+
+  <Step title="Route High-Risk Issues First">
+    Critical and exposed vulnerabilities go to engineering immediately.
+  </Step>
+
+  <Step title="Track Progress With Dashboards">
+    Visual risk scores show reduction over time and team performance.
+  </Step>
+
+  <Step title="Feed Into Reporting">
+    Executives receive clear insights into top risks and remediation urgency.
+  </Step>
+
+  <Step title="Validate After Fix">
+    Automated retesting confirms the highest-risk issues are fully resolved.
+  </Step>
+</Steps>
+
+---
+
+## Next Steps
+
+<Card title="Explore Full VM Capabilities" icon="arrow-right">
+  See how Snapsec VM drives faster, smarter, and risk-aware remediation across your organization.
+</Card>
