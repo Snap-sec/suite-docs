@@ -5,7 +5,7 @@ mode: "wide"
 ---
 
 <Tip>
-  Most organizations discover assets <strong> after attackers do </strong>. Shadow IT is one of the largest and most dangerous contributors to breach events.
+  Most organizations discover assets <strong>after attackers do</strong>. Shadow IT is one of the biggest contributors to real-world breach events.
 </Tip>
 
 ---
@@ -26,7 +26,7 @@ Snapsec ASM eliminates this by:
 </Check>
 
 <Check>
-  Identifying risky assets with open ports, no WAF, or public exposure  
+  Identifying risky assets with open ports, missing WAF, or public exposure  
 </Check>
 
 <Check>
@@ -43,15 +43,15 @@ Snapsec ASM eliminates this by:
   </Step>
 
   <Step title="Identify Unapproved or Inactive Services">
-    Using activity signals, DNS analysis, hosting intelligence, and certificate data, ASM identifies assets that were created outside official workflows.
+    Using activity signals, DNS patterns, hosting intelligence, and certificate data, ASM identifies assets created outside official workflows.
   </Step>
 
   <Step title="Highlight Risky Exposures">
-    Shadow assets often have no WAF, outdated software, misconfigurations, or publicly exposed services — ASM flags all of these instantly.
+    Shadow assets often include missing WAF, outdated software, misconfigurations, or publicly exposed services — ASM flags all of these instantly.
   </Step>
 
   <Step title="Attribute Ownership Automatically">
-    ASM correlates assets with internal teams using email patterns, DNS roots, cloud metadata, and naming conventions.
+    ASM correlates assets with teams using DNS roots, cloud metadata, naming conventions, and email patterns.
   </Step>
 </Steps>
 
@@ -68,7 +68,7 @@ Snapsec ASM eliminates this by:
     Identify stale or abandoned servers and DNS records still reachable from the internet.
   </Card>
 
-  <Card title="Blind Spots in Cloud" icon="cloud">
+  <Card title="Cloud Blind Spots" icon="cloud">
     Reveal cloud buckets, worker endpoints, and API gateways deployed without governance.
   </Card>
 </CardGroup>
@@ -112,7 +112,7 @@ Snapsec ASM eliminates this by:
 </Danger>
 
 <Danger>
-  An old certificate still mapped to an unused domain.
+  An old certificate still mapped to a deprecated domain.
 </Danger>
 
 <Danger>
@@ -125,23 +125,23 @@ Snapsec ASM eliminates this by:
 
 <Steps>
   <Step title="Validate the Asset">
-    ASM verifies DNS, hosting signatures, and service activity to confirm it's a real asset.
+    ASM verifies DNS records, hosting signatures, and service activity to confirm the asset is legitimate.
   </Step>
 
   <Step title="Attribute Ownership">
-    Metadata and fingerprinting are used to map the asset to a probable internal team.
+    Metadata and fingerprinting are used to map the asset to a likely internal team.
   </Step>
 
   <Step title="Classify Risk Level">
-    Exposure type, ports, and technologies determine whether it's low-risk or high-risk.
+    Exposure type, ports, technologies, and history determine whether it's low-risk or high-risk.
   </Step>
 
   <Step title="Generate AI Exposure Report">
-    A detailed report is created explaining impact, severity, and remediation.
+    A detailed impact and remediation report is automatically generated.
   </Step>
 
   <Step title="Send to VM for Remediation">
-    The exposure is pushed into Snapsec VM for triage, ticketing, and assignment.
+    The exposure is pushed into Snapsec VM for triage, ticketing, and resolution.
   </Step>
 </Steps>
 
