@@ -1,0 +1,152 @@
+---
+title: "Asset-Risk Mapping"
+description: "Map vulnerabilities and exposures to each asset for faster, context-aware triage."
+mode: "wide"
+---
+
+<Tip>
+  Risk isn’t just about vulnerabilities — it’s about **which asset they belong to** and **how exposed** that asset is.
+</Tip>
+
+---
+
+## Why Asset-Risk Mapping Matters
+
+Security teams often have vulnerabilities scattered across scanners, CI/CD, ASM, cloud, and internal tooling.  
+But without knowing **which asset each risk belongs to**, triage becomes slow and disconnected.
+
+Asset-Risk Mapping solves that by:
+
+<Check>
+  Combining exposure, vulnerability, and ownership data into one asset profile  
+</Check>
+
+<Check>
+  Providing context on how critical or externally-facing an asset actually is  
+</Check>
+
+<Check>
+  Prioritizing risks based on business value and environment  
+</Check>
+
+<Check>
+  Showing how many risks affect each asset in real time  
+</Check>
+
+This creates a **true, end-to-end picture** of what’s at risk — not just what’s vulnerable.
+
+---
+
+## How Snapsec Maps Risk to Assets
+
+<Steps>
+  <Step title="Consolidate Risk Sources">
+    AIM ingests vulnerabilities, exposures, API misconfigurations, expired certificates, shadow assets, and more.
+  </Step>
+
+  <Step title="Attach Risk to the Correct Asset">
+    Each risk is automatically linked to DNS records, certificates, APIs, IPs, applications, and employee-linked objects.
+  </Step>
+
+  <Step title="Calculate Auto-Risk Score">
+    AIM uses exposure level, vulnerability severity, asset importance, and business context to compute an intelligent risk score.
+  </Step>
+
+  <Step title="Visualize Risk Distribution">
+    Every asset shows risk breakdowns, severity charts, environment impact, and exposure correlation.
+  </Step>
+</Steps>
+
+---
+
+## What Problems This Solves
+
+<CardGroup cols={3}>
+  <Card title="Context-Aware Triage" icon="bolt">
+    Teams instantly understand which assets are most at risk — not just which issues are severe.
+  </Card>
+
+  <Card title="Faster Prioritization" icon="chart-line">
+    Risk scoring and exposure correlations highlight what must be fixed first.
+  </Card>
+
+  <Card title="Unified Risk Visibility" icon="eye">
+    Eliminates fragmented vulnerability lists by attaching them directly to assets.
+  </Card>
+</CardGroup>
+
+---
+
+## Key Benefits for Your Security Team
+
+<Columns cols={2}>
+  <Card title="Exposure-Aware Risk" icon="shield-halved">
+    Risks on externally exposed assets are automatically prioritized higher.
+  </Card>
+
+  <Card title="Asset-Centric View" icon="server">
+    Every IP, API, domain, certificate, and application shows its complete risk footprint.
+  </Card>
+
+  <Card title="Centralized Insights" icon="layer-group">
+    Filter by environment, owner, source, vulnerability count, severity, and more.
+  </Card>
+
+  <Card title="Real-Time Monitoring" icon="clock">
+    Risk automatically updates as assets change, expire, or appear in new scans.
+  </Card>
+</Columns>
+
+---
+
+## Example Asset-Risk Scenarios
+
+<Danger>
+  A public-facing API with 300 endpoints and 2 medium vulnerabilities receives elevated auto-risk.
+</Danger>
+
+<Danger>
+  An exposed IP belonging to AWS with no owner and open ports increases risk weight instantly.
+</Danger>
+
+<Danger>
+  A certificate that expired 90 days ago contributes risk to all associated domains.
+</Danger>
+
+<Danger>
+  A shadowed subdomain with no WAF and outdated tech stack is flagged as high-risk.
+</Danger>
+
+<Danger>
+  An employee account tied to external apps shows suspicious inactivity and risk accumulation.
+</Danger>
+
+---
+
+## What Happens After Mapping
+
+<Steps>
+  <Step title="Risk Score Updated">
+    Auto-risk recalculates dynamically based on exposures, vulnerabilities, and business context.
+  </Step>
+
+  <Step title="Triage Becomes Faster">
+    Assets with the highest combined risk appear at the top of dashboards.
+  </Step>
+
+  <Step title="Routing to VM">
+    High-risk assets and vulnerabilities flow directly into Snapsec VM for remediation workflows.
+  </Step>
+
+  <Step title="Continuous Refinement">
+    As new assets appear or risks change, mapping updates immediately.
+  </Step>
+</Steps>
+
+---
+
+## Next Steps
+
+<Card title="Explore Full AIM Capabilities" icon="arrow-right">
+  See how Snapsec AIM brings intelligence and real-time mapping to every asset.
+</Card>
