@@ -1,0 +1,137 @@
+---
+title: "API Threat Intelligence"
+description: "Enrich endpoints with threat intelligence and identify high-risk API surfaces."
+mode: "wide"
+---
+
+<Tip>
+  APIs expose critical business logic — pairing them with real threat intelligence reveals where attackers will strike first.
+</Tip>
+
+---
+
+## Why API Threat Intelligence Matters
+
+Most API security tools detect vulnerabilities —  
+but they **don’t tell you which endpoints attackers actively target**.
+
+Modern attackers:
+
+<Check>Scan for known exploitable routes</Check>
+<Check>Target outdated frameworks and tech stacks</Check>
+<Check>Attack APIs exposing sensitive data patterns</Check>
+<Check>Prefer weakly authenticated or undocumented endpoints</Check>
+
+Snapsec automatically correlates your APIs with live threat intelligence to uncover **which endpoints present the highest real-world risk**.
+
+---
+
+## How Snapsec Applies Threat Intelligence
+
+<Steps>
+  <Step title="Fingerprint API Endpoints">
+    Snapsec analyzes technologies, paths, parameters, auth patterns, and data exposure signals.
+  </Step>
+
+  <Step title="Match With Global Threat Feeds">
+    Endpoint patterns are compared against known exploits, CVEs, CWE mappings, attacker TTPs, and API-specific IoCs.
+  </Step>
+
+  <Step title="Assign Intelligence-Based Risk">
+    Endpoints receive dynamic risk levels based on exploitability, exposure, tech stack age, and attacker behavior.
+  </Step>
+
+  <Step title="Highlight High-Risk Surfaces">
+    Snapsec flags endpoints likely to be targeted — sensitive object APIs, unprotected routes, legacy paths, and more.
+  </Step>
+</Steps>
+
+---
+
+## What Problems This Solves
+
+<CardGroup cols={3}>
+  <Card title="Blind Spot Reduction" icon="eye-slash">
+    Know which endpoints attackers focus on — not just which ones have vulnerabilities.
+  </Card>
+
+  <Card title="Real-World Prioritization" icon="bolt">
+    Fix issues that align with active exploit trends and threat actor behavior.
+  </Card>
+
+  <Card title="Exposed Attack Paths" icon="sitemap">
+    Understand how vulnerabilities map to business-critical API flows.
+  </Card>
+</CardGroup>
+
+---
+
+## Key Benefits
+
+<Columns cols={2}>
+  <Card title="Threat-Aware Risk Scores" icon="skull-crossbones">
+    Endpoints get risk boosted based on exploitability and threat feed data.
+  </Card>
+
+  <Card title="Smarter Prioritization" icon="chart-line">
+    High-risk APIs surface immediately for investigation and testing.
+  </Card>
+
+  <Card title="Faster Mitigation" icon="shield-halved">
+    Security teams focus efforts where attackers are most likely to strike.
+  </Card>
+
+  <Card title="Better Engineering Alignment" icon="users">
+    Developers understand which API surfaces represent true attack vectors.
+  </Card>
+</Columns>
+
+---
+
+## Example Intelligence-Driven Findings
+
+<Danger>
+  Endpoint matches pattern of a known exploit chain used against similar fintech APIs.
+</Danger>
+
+<Danger>
+  Legacy route leaking stack traces during threat-intel-based probing.
+</Danger>
+
+<Danger>
+  Sensitive object endpoint exposed without authentication — high attacker interest.
+</Danger>
+
+<Danger>
+  API using outdated framework version targeted in active CVE campaigns.
+</Danger>
+
+---
+
+## What Happens After Intelligence Mapping
+
+<Steps>
+  <Step title="Update Endpoint Risk">
+    Snapsec boosts risk dynamically based on real-world threat likelihood.
+  </Step>
+
+  <Step title="Trigger Focused Testing">
+    High-risk endpoints are automatically added to fuzzing, auth testing, and misconfiguration checks.
+  </Step>
+
+  <Step title="Feed Into Reporting & Dashboards">
+    Leadership and engineering get visibility into high-risk surfaces.
+  </Step>
+
+  <Step title="Monitor Continuously">
+    New intelligence is applied instantly as threat landscapes evolve.
+  </Step>
+</Steps>
+
+---
+
+## Next Steps
+
+<Card title="Explore Full API Security Capabilities" icon="arrow-right">
+  See how Snapsec protects your entire API ecosystem with intelligence-driven security.
+</Card>
