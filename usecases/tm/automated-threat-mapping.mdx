@@ -1,0 +1,149 @@
+---
+title: "Automated Threat Mapping"
+description: "Generate a visual threat map from system diagrams or API collections automatically."
+mode: "wide"
+---
+
+<Tip>
+  Stop manually translating architecture diagrams into attack scenarios — Snapsec generates a complete threat map instantly.
+</Tip>
+
+---
+
+## Why Automated Threat Mapping Matters
+
+Traditional threat modeling takes days or weeks because teams must manually:
+
+- Interpret architecture diagrams  
+- Review API collections  
+- Identify trust boundaries  
+- Map attack vectors  
+- Document threats  
+
+This slows down engineering cycles and makes threat modeling a bottleneck.
+
+Snapsec solves this by **automatically converting system architecture or API definitions into a full threat map** — in seconds.
+
+<Check>
+  Auto-detects components, data flows, trust boundaries, and interaction surfaces  
+</Check>
+
+<Check>
+  Generates relevant threats for each component or endpoint  
+</Check>
+
+<Check>
+  Provides a visual threat topology to improve developer understanding  
+</Check>
+
+<Check>
+  Ensures consistency across all threat modeling projects  
+</Check>
+
+---
+
+## How Snapsec Generates a Threat Map
+
+<Steps>
+  <Step title="Upload a Diagram or API Collection">
+    Start by adding a system diagram, sequence diagram, OpenAPI/Swagger spec, or Postman collection.
+  </Step>
+
+  <Step title="Parse Components & Data Flows">
+    Snapsec analyzes services, endpoints, trust boundaries, data stores, roles, and connections.
+  </Step>
+
+  <Step title="Generate Threat Candidates">
+    Using AI-powered models, Snapsec identifies threats aligned with STRIDE, OWASP API Top 10, and CWE.
+  </Step>
+
+  <Step title="Render the Visual Threat Map">
+    A complete threat graph is produced showing nodes (assets) and edges (attack paths), linked to real threats.
+  </Step>
+</Steps>
+
+---
+
+## What Problems This Solves
+
+<CardGroup cols={3}>
+  <Card title="Missing Threat Coverage" icon="triangle-exclamation">
+    Eliminates human oversight by ensuring every component and data flow is analyzed.
+  </Card>
+
+  <Card title="Slow Threat Modeling" icon="clock">
+    Reduce modeling time from days to minutes with automated mapping.
+  </Card>
+
+  <Card title="Inconsistent Analysis" icon="repeat">
+    Standardize threat generation across teams and applications.
+  </Card>
+</CardGroup>
+
+---
+
+## Key Benefits for Your Security Team
+
+<Columns cols={2}>
+  <Card title="Consistent Threat Models" icon="shield-halved">
+    Every project follows the same structured, automated threat generation logic.
+  </Card>
+
+  <Card title="Developer-Friendly Visuals" icon="diagram-project">
+    Visual threat paths make it easier for engineers to understand risk.
+  </Card>
+
+  <Card title="Immediate Threat Coverage" icon="bolt">
+    Snapsec produces threats instantly after parsing architecture and API definitions.
+  </Card>
+
+  <Card title="Deep Integration" icon="layer-group">
+    Works with diagrams, Swagger files, Postman collections, and service metadata.
+  </Card>
+</Columns>
+
+---
+
+## Example Outputs
+
+<Danger>
+  Threat paths showing how a compromised microservice can escalate into sensitive data access.
+</Danger>
+
+<Danger>
+  Threats mapped to endpoints lacking authentication or input validation.
+</Danger>
+
+<Danger>
+  Identified weak trust boundaries between public and internal components.
+</Danger>
+
+---
+
+## What Happens After Mapping
+
+<Steps>
+  <Step title="Review Threats">
+    All generated threats appear in the Threat Review Console with severity, references, and mitigation steps.
+  </Step>
+
+  <Step title="Assign Owners">
+    Each threat is assigned to relevant engineering or security teams for triage.
+  </Step>
+
+  <Step title="Integrate With Projects">
+    Threats are synced automatically to the associated threat modeling project.
+  </Step>
+
+  <Step title="Track Lifecycles">
+    Threats move through Pending → Acknowledged → In Progress → Fixed → Fix Verified.
+  </Step>
+</Steps>
+
+---
+
+## Next Steps
+
+<Card title="Explore Full Threat Modeling Capabilities" icon="arrow-right">
+  Learn how Snapsec accelerates, scales, and automates modern threat modeling workflows.
+</Card>
