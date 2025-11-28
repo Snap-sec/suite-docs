@@ -1,0 +1,112 @@
+---
+title: "Auth Weakness Detection"
+description: "Identify broken authentication and authorization issues across sensitive API endpoints."
+mode: "wide"
+---
+
+<Tip>
+  Authentication flaws are the fastest path to full system compromise — continuous detection is critical.
+</Tip>
+
+---
+
+## Why It Matters
+
+Broken authentication and authorization allow attackers to:
+
+<Check>Access user accounts without credentials</Check>
+<Check>Bypass role restrictions</Check>
+<Check>Perform actions as other users</Check>
+<Check>Exploit missing or weak token validation</Check>
+
+Snapsec API Security continuously evaluates your authentication surfaces to ensure no weak points are left behind.
+
+---
+
+## How Snapsec Detects Auth Weaknesses
+
+<Steps>
+  <Step title="Analyze Sensitive Endpoints">
+    Endpoints involving login, signup, sessions, tokens, or user identifiers are automatically flagged for deeper analysis.
+  </Step>
+
+  <Step title="Test Role & Permission Boundaries">
+    Snapsec attempts cross-role access, privilege escalation, and bypass patterns using multiple identity contexts.
+  </Step>
+
+  <Step title="Validate Token & Session Controls">
+    Expired tokens, missing signatures, weak sessions, and replay vulnerabilities are automatically detected.
+  </Step>
+
+  <Step title="Check for IDOR & Broken Access">
+    Object-level and function-level access checks validate whether users can perform unauthorized actions.
+  </Step>
+</Steps>
+
+---
+
+## What Problems This Solves
+
+<CardGroup cols={3}>
+  <Card title="Unauthorized Access" icon="unlock">
+    Prevent attackers from accessing protected endpoints or user accounts.
+  </Card>
+
+  <Card title="Privilege Escalation" icon="arrow-up">
+    Detect cases where lower-privileged users can perform admin-level actions.
+  </Card>
+
+  <Card title="Weak Token Validation" icon="key">
+    Identify insecure tokens, missing signatures, or broken session logic.
+  </Card>
+</CardGroup>
+
+---
+
+## Key Benefits for Your API Security
+
+<Columns cols={2}>
+  <Card title="Continuous Defense" icon="shield-halved">
+    Auth checks run automatically across all API changes and deployments.
+  </Card>
+
+  <Card title="Deep Role Awareness" icon="users">
+    Validate role boundaries using multiple user identities and permission sets.
+  </Card>
+
+  <Card title="Early Detection" icon="bolt">
+    Catch authentication flaws before attackers discover them.
+  </Card>
+
+  <Card title="Simplified Remediation" icon="wrench">
+    Actionable recommendations help developers fix auth issues quickly.
+  </Card>
+</Columns>
+
+---
+
+## Example Auth Weakness Findings
+
+<Danger>
+  User with role *basic* can access `/admin/users`.
+</Danger>
+
+<Danger>
+  Token missing signature validation allows forged tokens.
+</Danger>
+
+<Danger>
+  Session does not expire after logout.
+</Danger>
+
+<Danger>
+  User ID can be enumerated via predictable patterns.
+</Danger>
+
+---
+
+## Next Steps
+
+<Card title="Explore API Security Features" icon="arrow-right">
+  Strengthen your API authentication and authorization posture with Snapsec API Security.
+</Card>

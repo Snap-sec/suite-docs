@@ -1,0 +1,142 @@
+---
+title: "API Misconfiguration Testing"
+description: "Detect insecure CORS, excessive exposure, debug endpoints, and configuration flaws."
+mode: "wide"
+---
+
+<Tip>
+  Most API breaches happen due to simple misconfigurations — not complex exploits. Snapsec helps you catch them early.
+</Tip>
+
+---
+
+## Why API Misconfiguration Testing Matters
+
+APIs often expose more than intended.  
+A single incorrect header or open debug route can leak data or enable attacker pivoting.
+
+Common issues include:
+
+<Check>Overly permissive CORS policies</Check>
+<Check>Debug or admin endpoints exposed publicly</Check>
+<Check>Missing authentication on sensitive routes</Check>
+<Check>Verbose error responses leaking stack traces</Check>
+<Check>Misconfigured rate limits or payload validation</Check>
+
+Snapsec automatically identifies these weaknesses before attackers do.
+
+---
+
+## How Snapsec Detects API Misconfigurations
+
+<Steps>
+  <Step title="Analyze Response Headers">
+    Snapsec checks CORS, cache-control, content-type, and security headers for insecure or missing values.
+  </Step>
+
+  <Step title="Probe Debug & Hidden Endpoints">
+    The scanner identifies debug routes, admin paths, or undocumented endpoints leaking internal behavior.
+  </Step>
+
+  <Step title="Assess Access Control Configurations">
+    Snapsec verifies whether endpoints require authentication and flags sensitive routes left unprotected.
+  </Step>
+
+  <Step title="Validate Error Handling & Verbosity">
+    It monitors error messages for stack traces, technology leaks, or internal details useful to attackers.
+  </Step>
+
+  <Step title="Check for Over-Exposure">
+    Snapsec looks for excessive fields, unnecessary metadata, and misconfigured response structures.
+  </Step>
+</Steps>
+
+---
+
+## What Problems This Solves
+
+<CardGroup cols={3}>
+  <Card title="Insecure API Behavior" icon="triangle-exclamation">
+    Prevents APIs from exposing dangerous debug or admin functionality.
+  </Card>
+
+  <Card title="Incorrect CORS Policies" icon="arrow-right-arrow-left">
+    Identifies permissive origins, wildcard credentials, and unsafe header configurations.
+  </Card>
+
+  <Card title="Unintended Data Exposure" icon="file-shield">
+    Flags endpoints returning excessive or sensitive information.
+  </Card>
+</CardGroup>
+
+---
+
+## Key Benefits for Your Security Team
+
+<Columns cols={2}>
+  <Card title="Early Detection of Misconfigurations" icon="magnifying-glass">
+    Find weaknesses before attackers exploit them.
+  </Card>
+
+  <Card title="Reduce Public Exposure" icon="shield-halved">
+    Ensure only intended origins, headers, and routes are publicly accessible.
+  </Card>
+
+  <Card title="Hardening API Architecture" icon="wrench">
+    Enforce safer defaults across CORS, headers, and configuration policies.
+  </Card>
+
+  <Card title="Better Compliance & Governance" icon="clipboard-check">
+    Ensure APIs meet security baselines and industry best practices.
+  </Card>
+</Columns>
+
+---
+
+## Example Findings
+
+<Danger>
+  API allows <code>*</code> origin with credentialed requests — critical CORS bypass risk.
+</Danger>
+
+<Danger>
+  Debug endpoint <code>/internal/status</code> publicly exposed and leaking stack details.
+</Danger>
+
+<Danger>
+  Sensitive endpoint <code>/admin/export</code> allows requests without authentication.
+</Danger>
+
+<Danger>
+  API returns full internal user objects including unnecessary fields.
+</Danger>
+
+---
+
+## What Happens After Detection
+
+<Steps>
+  <Step title="Auto-Generate Exposure Report">
+    Snapsec produces a detailed summary with impact and mitigation guidance.
+  </Step>
+
+  <Step title="Send to VM">
+    Issues route directly to Snapsec VM for triage and developer assignment.
+  </Step>
+
+  <Step title="Re-Test After Fix">
+    Automated validation confirms whether the misconfiguration is resolved.
+  </Step>
+
+  <Step title="Continuously Monitor">
+    Snapsec checks future scans to ensure the issue doesn't reappear.
+  </Step>
+</Steps>
+
+---
+
+## Next Steps
+
+<Card title="Explore Full API Security Capabilities" icon="arrow-right">
+  See how Snapsec protects APIs from misconfigurations, logic flaws, and emerging threats.
+</Card>
