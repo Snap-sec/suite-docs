@@ -1,48 +1,67 @@
 ---
-title: "On-Demand Testing"
-description: "Trigger manual or CI/CD-driven scans for immediate vulnerability validation."
+title: "On-Demand Vulnerability Testing"
+description: "Trigger manual or CI/CD-based scans for instant, real-time security validation."
 mode: "wide"
 ---
 
-## On-Demand Testing
-
-Run **instant vulnerability scans** whenever needed — directly from the dashboard, via CI/CD pipelines, or through API triggers.
-
-<Check>
-  Launch ad-hoc scans for assets during development or after new deployments
-</Check>
-
-<Check>
-  Integrate with CI/CD to automatically scan every commit, build, or release
-</Check>
-
-<Check>
-  Validate fixes immediately by rescanning specific assets
-</Check>
-
-<Check>
-  Get near real-time visibility into security drift or newly introduced risks
-</Check>
+<Tip>
+  On-demand scans help teams validate security <strong>the moment code changes</strong>, without waiting for scheduled cycles.
+</Tip>
 
 ---
 
-## How It Works
+## Why On-Demand Scanning Matters
+
+Engineering teams deploy updates frequently — every change carries the risk of introducing new vulnerabilities.
+
+On-demand scanning ensures:
+
+<Check>Immediate validation before releases</Check>
+<Check>Security checks integrated directly into CI/CD</Check>
+<Check>Developers get instant feedback</Check>
+<Check>Critical assets can be tested anytime</Check>
+
+---
+
+## What Problem This Solves
+
+<CardGroup cols={3}>
+  <Card icon="bolt" title="Slow Manual Testing Cycles">
+    Traditional pentesting can't keep up with agile releases.
+  </Card>
+
+  <Card icon="code-commit" title="Unsafe Deployments">
+    Code changes go to production without security validation.
+  </Card>
+
+  <Card icon="house-fire" title="High Risk of Regression">
+    Fixes break, vulnerabilities reappear — on-demand scanning catches them instantly.
+  </Card>
+</CardGroup>
+
+---
+
+## How Snapsec Performs On-Demand Testing
 
 <Steps>
-  <Step title="Select Scan Target">
-    Choose an individual asset, asset group, or API collection.
+  <Step title="Select Asset or Group">
+    Choose a specific API, application, server, domain, or group to test instantly.
   </Step>
 
-  <Step title="Start Scan">
-    Trigger the scan manually or let CI/CD fire it automatically.
+  <Step title="Trigger Scan Manually or via CI/CD API">
+    Developers or security teams launch an immediate scan with one click or pipeline call.
   </Step>
 
-  <Step title="Processing">
-    The scanner analyzes technologies, services, misconfigurations, and vulnerabilities.
+  <Step title="Run Full/Quick/Targeted Tests">
+    Snapsec supports rapid tests or deep-dive vulnerability analysis based on need.
   </Step>
 
-  <Step title="Instant Results">
-    Findings appear immediately with severity, proof, and remediation insights.
+  <Step title="Detect & Classify Issues">
+    CVEs, OWASP issues, misconfigurations, missing headers, exposed services, and more are flagged.
+  </Step>
+
+  <Step title="Send Findings to VM or Ticketing">
+    Results flow into Snapsec VM (and Jira, Slack, Teams) for remediation.
   </Step>
 </Steps>
 
@@ -50,16 +69,52 @@ Run **instant vulnerability scans** whenever needed — directly from the dashbo
 
 ## Key Benefits
 
-<CardGroup cols={3}>
-  <Card title="Rapid Security Validation" icon="rocket">
-    Test new features, fixes, or changes instantly.
+<Columns cols={2}>
+  <Card icon="rocket" title="Supports Fast Release Cycles">
+    Perfect for agile, DevOps, and continuous deployment teams.
   </Card>
 
-  <Card title="Developer-Friendly CI/CD Integration" icon="code">
-    Catch vulnerabilities early—before they ever reach production.
+  <Card icon="wrench" title="Developer-Friendly">
+    Devs can trigger tests during feature development, before pushing code.
   </Card>
 
-  <Card title="High Agility" icon="arrows-rotate">
-    Adapt scanning to fast-moving development cycles.
+  <Card icon="box-open" title="Instant Validation">
+    Validate critical fixes, hot patches, and configuration updates immediately.
   </Card>
-</CardGroup>
+
+  <Card icon="bug-slash" title="Regression Prevention">
+    Prevent previously fixed issues from reappearing.
+  </Card>
+</Columns>
+
+---
+
+## Example On-Demand Findings
+
+<Danger>
+  Debug Mode Enabled in Production  
+  — Detected through on-demand scan before deployment.
+</Danger>
+
+<Danger>
+  Missing Authentication on a New Endpoint  
+  — CI/CD scan caught this before merge.
+</Danger>
+
+<Danger>
+  Misconfigured CORS Policy  
+  — Identified during developer-triggered test.
+</Danger>
+
+<Danger>
+  High-Risk Library Version Introduced  
+  — SCA check detects vulnerable dependency immediately.
+</Danger>
+
+---
+
+## Next Steps
+
+<Card icon="arrow-right" title="Integrate Snapsec Into Your CI/CD Pipeline">
+  Add security gates to GitHub, GitLab, Jenkins, Bitbucket, and more.
+</Card>
