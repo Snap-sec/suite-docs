@@ -1,0 +1,96 @@
+---
+title: "Logic Flaw Identification"
+description: "Detect risky logic patterns like IDOR, broken flows, or privilege bypass opportunities."
+mode: "wide"
+---
+
+<Tip>
+  Logic flaws break systems in ways scanners cannot detect — Snapsec identifies them automatically through behavioral analysis.
+</Tip>
+
+---
+
+## Why Logic Flaw Identification Matters
+
+Automated scanners catch technical issues — but **logic flaws** require understanding:
+
+- How flows work  
+- What assumptions developers made  
+- Where trust boundaries break  
+- How user roles interact  
+- How states change across requests  
+
+Snapsec detects these weaknesses using pattern analysis and request-flow intelligence.
+
+---
+
+## How Snapsec Detects Logic Flaws
+
+<Steps>
+  <Step title="Analyze API Flows">
+    Snapsec studies sequences of requests and responses, identifying weak assumptions.
+  </Step>
+
+  <Step title="Detect Broken Authorization">
+    Finds missing object-level checks, broken role policies, and lateral movement opportunities.
+  </Step>
+
+  <Step title="Evaluate State & Workflow Logic">
+    Identifies bypass opportunities in multi-step flows like payments, onboarding, or role escalations.
+  </Step>
+
+  <Step title="Map Logic Risks to Endpoints">
+    Each flaw is tied to the exact API route or component that creates the vulnerability.
+  </Step>
+</Steps>
+
+---
+
+## What Problems This Solves
+
+<CardGroup cols={3}>
+  <Card title="IDOR Risks" icon="key">
+    Detects unsafe object access and broken reference validation.
+  </Card>
+  <Card title="Privilege Bypass" icon="lock-open">
+    Highlights scenarios where users escalate roles or bypass steps.
+  </Card>
+  <Card title="Broken Multi-Step Flows" icon="shuffle">
+    Exposes flaws in sign-up, payment, workflow, and business logic paths.
+  </Card>
+</CardGroup>
+
+---
+
+## Key Benefits
+
+<Columns cols={2}>
+  <Card title="Catch What Scanners Miss" icon="magnifying-glass">
+    Logic flaws require real flow understanding — Snapsec models it.
+  </Card>
+  <Card title="High-Impact Detection" icon="explosion">
+    Logic flaws often lead to critical, business-impacting exploits.
+  </Card>
+  <Card title="Flow-Aware Analysis" icon="diagram-project">
+    Evaluate logic across sequences, not isolated endpoints.
+  </Card>
+  <Card title="Faster Security Reviews" icon="clock">
+    Reduce manual review time with pre-mapped logic threats.
+  </Card>
+</Columns>
+
+---
+
+## Example Logic Flaws Identified
+
+<Danger>An IDOR vulnerability across multiple user switching endpoints.</Danger>
+<Danger>A payment flow missing amount validation between steps.</Danger>
+<Danger>A multi-role escalation path created by inconsistent middleware logic.</Danger>
+
+---
+
+## Next Steps
+
+<Card title="Explore Logic Flaw Detection" icon="arrow-right">
+  See how Snapsec identifies high-impact design and workflow flaws.
+</Card>
