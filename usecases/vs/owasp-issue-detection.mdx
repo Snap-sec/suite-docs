@@ -1,0 +1,130 @@
+---
+title: "OWASP Issue Detection"
+description: "Detect OWASP Top-10 vulnerabilities with comprehensive signature and behavior-based tests."
+mode: "wide"
+---
+
+<Tip>
+  OWASP Top-10 issues remain the most common cause of breaches. Snapsec ensures they are detected early — across APIs, applications, and microservices.
+</Tip>
+
+---
+
+## Why OWASP Issue Detection Matters
+
+Most breaches come from the same recurring vulnerability classes — broken access controls, injections, insecure components, misconfigurations, weak authentication, and logic flaws.
+
+Traditional scanners often miss these because:
+
+<Check>
+  They rely only on static signatures  
+</Check>
+<Check>
+  They lack behavioral and multi-step test coverage  
+</Check>
+<Check>
+  They cannot validate vulnerable workflows end-to-end  
+</Check>
+<Check>
+  They miss business-logic and permission-based issues  
+</Check>
+
+Snapsec’s scanner solves this using **hybrid detection** — combining signatures, request tampering, context correlation, and multi-flow behavioral tests.
+
+---
+
+## How Snapsec Detects OWASP Issues
+
+<Steps>
+  <Step title="Analyze Endpoints & Parameters">
+    Snapsec inspects every API route, method, input field, header, cookie, and authentication boundary.
+  </Step>
+
+  <Step title="Run Signature-Based Tests">
+    Over 600+ curated checks for injection, SSRF, LFI/RFI, deserialization, leakage, misconfigurations, and more.
+  </Step>
+
+  <Step title="Perform Behavioral & Stateful Testing">
+    The scanner sends chained requests, permission swaps, replayed sessions, and cross-role tests to detect access control and logic vulnerabilities.
+  </Step>
+
+  <Step title="Validate Responses & Side-Effects">
+    Snapsec verifies whether the application responded abnormally — unauthorized access, unexpected data exposure, redirects, or dangerous server behavior.
+  </Step>
+
+  <Step title="Correlate Evidence Automatically">
+    Each detection is supported with request/response pairs, proof snippets, reproduction steps, and CWE + OWASP mapping.
+  </Step>
+</Steps>
+
+---
+
+## What Problems This Solves
+
+<CardGroup cols={3}>
+  <Card title="Missed Critical Vulnerabilities" icon="triangle-exclamation">
+    Detects high-impact issues that normal scanners skip — especially auth & logic flaws.
+  </Card>
+
+  <Card title="Incomplete Test Coverage" icon="layer-group">
+    Ensures every route, parameter, and method is tested for OWASP-aligned risks.
+  </Card>
+
+  <Card title="Slow Manual Pentesting" icon="clock">
+    Automates the repetitive OWASP checks pentesters normally run manually.
+  </Card>
+</CardGroup>
+
+---
+
+## Key Benefits for Your Security Team
+
+<Columns cols={2}>
+  <Card title="Strong OWASP Compliance" icon="shield-halved">
+    Full coverage of OWASP Top-10 categories with mapped evidence.
+  </Card>
+
+  <Card title="Behavior + Signature Hybrid Detection" icon="bolt">
+    Detects both technical and workflow-based vulnerabilities.
+  </Card>
+
+  <Card title="Developer-Friendly Findings" icon="circle-info">
+    Every issue includes clear evidence and actionable remediation guidance.
+  </Card>
+
+  <Card title="Consistent Validation Across Teams" icon="users">
+    Same test quality across pentesters, developers, and automation pipelines.
+  </Card>
+</Columns>
+
+---
+
+## Example OWASP Issues Detected
+
+<Danger>
+  Broken Access Control → Unauthorized access using role swapping.
+</Danger>
+
+<Danger>
+  SQL Injection → Database error leakage from crafted payloads.
+</Danger>
+
+<Danger>
+  Sensitive Data Exposure → Secrets or PII visible in JSON responses.
+</Danger>
+
+<Danger>
+  Server-Side Request Forgery (SSRF) → Internal metadata service access detected.
+</Danger>
+
+<Danger>
+  Insecure Direct Object Reference (IDOR) → Resource access without permission.
+</Danger>
+
+---
+
+## Next Steps
+
+<Card title="Explore Complete Scanner Features" icon="arrow-right">
+  See how Snapsec continuously validates applications against OWASP standards.
+</Card>
