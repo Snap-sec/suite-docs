@@ -1,0 +1,155 @@
+---
+title: "Continuous API Fuzzing"
+description: "Stress-test APIs continuously to uncover injection, validation, and parsing weaknesses."
+mode: "wide"
+---
+
+<Tip>
+  Traditional API testing misses edge cases — continuous fuzzing ensures your APIs are secure even under unpredictable real-world inputs.
+</Tip>
+
+---
+
+## Why Continuous API Fuzzing Matters
+
+Most API vulnerabilities appear **only when APIs receive malformed, unexpected, or extreme input values**.  
+These include:
+
+- Injection payload variants  
+- Broken validation logic  
+- Serialization & parser edge-case failures  
+- Crashes due to type confusion or oversized requests  
+
+Snapsec continuously fuzzes your APIs to detect issues **before attackers do**.
+
+<Check>
+  Identify high-risk injection and input-handling flaws missed by normal testing  
+</Check>
+
+<Check>
+  Detect crashes, unexpected responses, and hidden API behaviors  
+</Check>
+
+<Check>
+  Automatically generate malformed, random, and adversarial inputs  
+</Check>
+
+<Check>
+  Continuously run fuzzing campaigns across all API endpoints  
+</Check>
+
+---
+
+## How Snapsec Performs Continuous Fuzzing
+
+<Steps>
+  <Step title="Discover API Endpoints">
+    Snapsec maps all API routes, parameters, headers, and request bodies automatically.
+  </Step>
+
+  <Step title="Generate Adversarial Inputs">
+    AI-driven payload engines produce malformed, randomized, and mutation-based fuzz inputs tailored to each endpoint.
+  </Step>
+
+  <Step title="Execute Fuzzing Campaigns">
+    APIs are stress-tested with multiple request variations across methods, schemas, and parameter types.
+  </Step>
+
+  <Step title="Monitor Behavior & Failures">
+    Snapsec analyzes response codes, errors, latency spikes, crashes, and parser inconsistencies.
+  </Step>
+
+  <Step title="Report Weaknesses Automatically">
+    Any abnormal or risky behavior is converted into a vulnerability report with reproduction steps and fixes.
+  </Step>
+</Steps>
+
+---
+
+## What Problems This Solves
+
+<CardGroup cols={3}>
+  <Card title="Hidden Injection Paths" icon="bug">
+    Surface injection behaviors triggered only under malformed or edge-case inputs.
+  </Card>
+
+  <Card title="Validation Weaknesses" icon="filter">
+    Detect missing validation, weak type checks, and bypassable input rules.
+  </Card>
+
+  <Card title="Parser & Logic Crashes" icon="triangle-exclamation">
+    Identify API crashes caused by unexpected payload sizes, formats, or types.
+  </Card>
+</CardGroup>
+
+---
+
+## Key Benefits for Your Security Team
+
+<Columns cols={2}>
+  <Card title="Continuous Protection" icon="rotate">
+    Fuzzing runs automatically — catching regressions as soon as they are introduced.
+  </Card>
+
+  <Card title="Deep Input Coverage" icon="bullseye">
+    Explore request bodies, parameters, arrays, nested JSON, and HTTP behaviors.
+  </Card>
+
+  <Card title="Low False Positives" icon="circle-check">
+    Behavioral anomaly detection ensures issues are validated before reporting.
+  </Card>
+
+  <Card title="Developer-Ready Output" icon="code">
+    Detailed crash logs, reproduction payloads, and fix guidance for engineers.
+  </Card>
+</Columns>
+
+---
+
+## Example Findings
+
+<Danger>
+  API returns a 500 error when receiving oversized arrays in JSON payloads.
+</Danger>
+
+<Danger>
+  Login endpoint accepts raw object instead of expected string → validation bypass.
+</Danger>
+
+<Danger>
+  XML payloads cause parser crash exposing stack traces.
+</Danger>
+
+<Danger>
+  Unexpected characters in query params reveal hidden debug behavior.
+</Danger>
+
+---
+
+## What Happens After Detection
+
+<Steps>
+  <Step title="Capture Failure Evidence">
+    Snapsec stores full request/response logs, parser errors, and stack traces.
+  </Step>
+
+  <Step title="Classify Weakness Type">
+    Injection, crash, validation bypass, type confusion, or logic flaw.
+  </Step>
+
+  <Step title="Generate AI Fix Guidance">
+    A detailed remediation plan is generated automatically.
+  </Step>
+
+  <Step title="Send to VM for Tracking">
+    Issues are synced instantly to Snapsec VM for assignment and SLA handling.
+  </Step>
+</Steps>
+
+---
+
+## Next Steps
+
+<Card title="Explore Full API Security Capabilities" icon="arrow-right">
+  See how continuous fuzzing integrates into API scans, rules, and automated detection.
+</Card>
