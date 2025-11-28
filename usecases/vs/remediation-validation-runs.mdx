@@ -1,0 +1,149 @@
+---
+title: "Remediation Validation Runs"
+description: "Re-scan assets post-fix to confirm and verify vulnerability resolution."
+mode: "wide"
+---
+
+<Tip>
+  Fixing a vulnerability is only half the work — <strong>verifying the fix</strong> is what closes the loop.
+</Tip>
+
+---
+
+## Why Remediation Validation Matters
+
+Teams often mark vulnerabilities as *fixed* without confirming whether:
+
+- The patch actually applied  
+- The vulnerable behavior is fully removed  
+- The issue has reappeared due to rollback or misconfigurations  
+- The fix introduced new regressions  
+
+Without verification, security risks silently persist.
+
+Snapsec Vulnerability Scanner ensures every fix is validated automatically.
+
+<Check>
+  Validate fixes instantly after engineering deploys changes  
+</Check>
+
+<Check>
+  Confirm patch effectiveness using targeted re-tests  
+</Check>
+
+<Check>
+  Detect regressions or partial fixes early  
+</Check>
+
+<Check>
+  Provide clear evidence for SLA closure and compliance  
+</Check>
+
+---
+
+## How Snapsec Performs Validation Runs
+
+<Steps>
+  <Step title="Identify Fixed Issues">
+    Once a vulnerability is marked as fixed in VM, Snapsec queues the asset for re-testing.
+  </Step>
+
+  <Step title="Run Targeted Scans">
+    Only the affected endpoints, parameters, or assets are re-scanned to speed up validation.
+  </Step>
+
+  <Step title="Compare Results">
+    Snapsec automatically checks whether the vulnerability signature or behavior still exists.
+  </Step>
+
+  <Step title="Confirm or Reopen">
+    If resolved → marked as <strong>Fix Verified</strong>.  
+    If not → the finding automatically reopens with new evidence.
+  </Step>
+</Steps>
+
+---
+
+## What Problems This Solves
+
+<CardGroup cols={3}>
+  <Card title="False Closure" icon="ban">
+    Avoid closing vulnerabilities that were never properly fixed.
+  </Card>
+
+  <Card title="Regression Risks" icon="rotate-left">
+    Catch issues that reappear after deployments or rollbacks.
+  </Card>
+
+  <Card title="Slow Manual Validation" icon="clock">
+    Automate verification instead of spending hours re-testing findings by hand.
+  </Card>
+</CardGroup>
+
+---
+
+## Key Benefits for Your Security Team
+
+<Columns cols={2}>
+  <Card title="Automated Fix Confirmation" icon="circle-check">
+    No more manual verification — Snapsec confirms fixes instantly.
+  </Card>
+
+  <Card title="Evidence-Based Status Updates" icon="file">
+    Each validated fix includes logs, payloads, and signature checks.
+  </Card>
+
+  <Card title="Faster SLA Closure" icon="gauge">
+    Resolve findings without waiting on slow manual confirmations.
+  </Card>
+
+  <Card title="Zero Regression Gaps" icon="shield-halved">
+    Prevent reintroduced vulnerabilities from slipping through.
+  </Card>
+</Columns>
+
+---
+
+## Example Validation Findings
+
+<Danger>
+  A SQLi issue remains exploitable after patch → Snapsec reopens automatically.
+</Danger>
+
+<Danger>
+  A missing authentication header reappears due to rollback → flagged immediately.
+</Danger>
+
+<Danger>
+  A fixed XSS signature is fully removed → marked as Fix Verified with proof.
+</Danger>
+
+---
+
+## What Happens After Validation
+
+<Steps>
+  <Step title="Update VM Status">
+    Snapsec syncs results back into the VM for lifecycle accuracy.
+  </Step>
+
+  <Step title="Notify Teams">
+    Engineers and security receive instant success or failure alerts.
+  </Step>
+
+  <Step title="Generate Validation Evidence">
+    Full proof-of-fix is attached automatically.
+  </Step>
+
+  <Step title="Feed Into Reporting">
+    SLA charts, compliance evidence, and closure metrics update in real time.
+  </Step>
+</Steps>
+
+---
+
+## Next Steps
+
+<Card title="Explore Vulnerability Scanner Capabilities" icon="arrow-right">
+  Learn how Snapsec automates detection, validation, and continuous monitoring.
+</Card>
