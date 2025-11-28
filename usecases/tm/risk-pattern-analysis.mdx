@@ -1,0 +1,150 @@
+---
+title: "Risk Pattern Analysis"
+description: "Analyze system behavior and discover common attack patterns or weak controls across applications and APIs."
+mode: "wide"
+---
+
+<Tip>
+  Modern systems fail in predictable ways — identifying these patterns early prevents entire classes of vulnerabilities from ever reaching production.
+</Tip>
+
+---
+
+## Why Risk Pattern Analysis Matters
+
+Threats rarely occur in isolation.  
+They follow *patterns* — insecure API behaviors, missing validations, predictable authorization gaps, and repeated misconfigurations.
+
+Snapsec Threat Modeling identifies these patterns automatically by:
+
+<Check>
+  Analyzing threat data across APIs, services, and projects  
+</Check>
+
+<Check>
+  Detecting recurring weaknesses such as broken access control or improper error handling  
+</Check>
+
+<Check>
+  Identifying systemic control failures shared across multiple endpoints  
+</Check>
+
+<Check>
+  Highlighting risky design patterns before they propagate into new services  
+</Check>
+
+---
+
+## How Snapsec Performs Risk Pattern Analysis
+
+<Steps>
+  <Step title="Aggregate Threat Signals">
+    Snapsec gathers threats from all projects, correlating them by endpoint, CWE, severity, and impact patterns.
+  </Step>
+
+  <Step title="Detect Repeated Weak Controls">
+    The system identifies recurring gaps — such as missing authentication, improper object filtering, or unsafe HTTP methods.
+  </Step>
+
+  <Step title="Map Patterns to Architecture">
+    Weakness clusters are linked to architectural components, revealing flawed designs or unsafe development practices.
+  </Step>
+
+  <Step title="Generate Insights & Remediation">
+    Snapsec produces clear recommendations to eliminate systemic issues across the entire application ecosystem.
+  </Step>
+</Steps>
+
+---
+
+## What Problems This Solves
+
+<CardGroup cols={3}>
+  <Card title="Repeated Vulnerability Types" icon="arrows-rotate">
+    Identify APIs or teams repeatedly introducing similar issues like IDOR, XSS, or broken auth.
+  </Card>
+
+  <Card title="Weak Security Controls" icon="triangle-exclamation">
+    Detect systemic gaps such as missing input validation, unprotected endpoints, or inconsistent authorization checks.
+  </Card>
+
+  <Card title="Architectural Blind Spots" icon="diagram-project">
+    Reveal patterns that indicate deeper structural weaknesses in microservices or shared components.
+  </Card>
+</CardGroup>
+
+---
+
+## Key Benefits for Your Security Team
+
+<Columns cols={2}>
+  <Card title="Prevent Repeated Failures" icon="ban">
+    Fix entire classes of vulnerabilities instead of patching them one by one.
+  </Card>
+
+  <Card title="Improve Developer Guidance" icon="lightbulb">
+    Provide teams with concrete patterns to avoid in future development.
+  </Card>
+
+  <Card title="Strengthen Architecture" icon="building-shield">
+    Detect high-risk components or services that require redesign.
+  </Card>
+
+  <Card title="Boost Threat Modeling Accuracy" icon="chart-line">
+    Correlate patterns with severity and exposure to refine security prioritization.
+  </Card>
+</Columns>
+
+---
+
+## Example Risk Patterns Detected by Snapsec
+
+<Danger>
+  Multiple endpoints return sensitive user identifiers without filtering.
+</Danger>
+
+<Danger>
+  Repeated IDOR findings across user-related APIs due to missing authorization checks.
+</Danger>
+
+<Danger>
+  Consistent lack of validation in POST/PUT requests leading to mass-assignment vulnerabilities.
+</Danger>
+
+<Danger>
+  Common error-handling flaws exposing stack traces across microservices.
+</Danger>
+
+<Danger>
+  Several services using weak or inconsistent authentication methods.
+</Danger>
+
+---
+
+## What Happens After Pattern Identification
+
+<Steps>
+  <Step title="Correlate Across Systems">
+    Snapsec maps the detected pattern across all affected APIs and microservices.
+  </Step>
+
+  <Step title="Surface Root Cause">
+    Determines whether the issue originates from coding practices, frameworks, or architecture.
+  </Step>
+
+  <Step title="Recommend Strategic Fixes">
+    Generates actionable, system-wide mitigation guidance to prevent future recurrence.
+  </Step>
+
+  <Step title="Feed Into Threat Modeling & VM">
+    Patterns auto-integrate into Snapsec’s threat modeling and VM workflows for remediation and tracking.
+  </Step>
+</Steps>
+
+---
+
+## Next Steps
+
+<Card title="Explore Full Threat Modeling Suite" icon="arrow-right">
+  Learn how Snapsec automates end-to-end threat discovery, analysis, and remediation.
+</Card>
