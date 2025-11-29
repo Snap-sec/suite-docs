@@ -73,6 +73,17 @@
             ]
           }
         ]
+      },
+      {
+        "tab": "Use-cases",
+        "groups": [
+          {
+            "group": "Navigation",
+            "pages": [
+              "usecases/introduction"
+            ]
+          }
+        ]
       }
     ],
     "global": {
