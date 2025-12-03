@@ -4,3 +4,185 @@ description: "Gain full visibility into your network assets by tracking live IPs
 icon: "network-wired"
 mode: "wide"
 ---
+
+## Overview
+
+The **DNS Catalog** centralizes every DNS record discovered through adapters, scanners, and integrations.  
+AIM automatically enriches each DNS asset with metadata, exposure insights, ownership information, and associated risks.
+
+Each DNS entry represents an active, shadowed, or historical DNS record mapped to your environment.
+
+<Frame caption="DNS Catalog Overview">
+  <img src="/images/aim/dns/dns1.png" />
+</Frame>
+
+---
+
+## Key Metrics & Analytics
+
+- **Total DNS Records** — Number of DNS assets tracked across all zones and environments.  
+- **Vulnerable Records** — DNS assets associated with vulnerabilities or risky linked assets.  
+- **Shadowed DNS** — DNS records not registered or not managed inside official systems.  
+- **Record-Type Distribution** — Breakdown by A, AAAA, CNAME, TXT, MX, NS, SRV, etc.  
+- **Exposure Distribution** — DNS pointing to exposed or risky endpoints.  
+- **Zone/Provider Breakdown** — Top DNS zones, registrars, and providers.
+
+<Frame caption="DNS Analytics Visualization">
+  <img src="/images/aim/dns/dns2.png" />
+</Frame>
+
+---
+
+## Search, Filters & Sorting
+
+AIM provides advanced filtering to analyze DNS assets quickly.
+
+| Filter | Description |
+|--------|-------------|
+| **Record Type** | Filter A, AAAA, TXT, MX, CNAME, and other record types. |
+| **Exposure** | Identify DNS records pointing to exposed or shadowed assets. |
+| **Owners** | Filter based on assigned user/team owners. |
+| **Risk** | Sort or filter by automated AIM risk score. |
+| **Adapters** | Filter DNS discovered via Cloudflare, Route53, GitHub, ASM, etc. |
+| **hasVulns** | Show DNS records linked to vulnerable assets. |
+| **Organisations** | Filter by DNS zone or hosting provider. |
+| **Date Range** | Filter by detection timeline. |
+
+---
+
+## DNS Table Columns
+
+| Column | Description |
+|--------|-------------|
+| **Record Value** | The DNS name + record type (e.g., `api.example.com` – A). |
+| **Target** | IP, domain, or service the DNS record resolves to. |
+| **Record Type** | A, AAAA, CNAME, TXT, MX, SRV, etc. |
+| **Exposure** | Whether the target is exposed, internal, or shadowed. |
+| **Risk Score** | AIM risk score calculated from target exposure + vulnerabilities. |
+| **Zone / Provider** | DNS zone owner and DNS hosting provider. |
+| **Owner** | User or team responsible for the DNS record. |
+| **Tags** | Classification tags such as external, internal, risky, cloud. |
+| **Associations** | Linked assets (IP, subdomain, apps). |
+| **Detected On** | First/Last seen timestamps for tracking lifecycle. |
+
+---
+
+## DNS Full View
+
+<Frame caption="DNS Full View">
+  <img src="/images/aim/dns/dns3.png" />
+</Frame>
+
+### DNS Summary Panel
+
+| Field | Description |
+|-------|-------------|
+| **Record Name** | DNS name being analyzed. |
+| **Record Type** | A, CNAME, TXT, MX, etc. |
+| **Resolved Target** | IP, hostname, or service it maps to. |
+| **Exposure** | Whether the resolved target is exposed or safe. |
+| **Risk Score** | Auto-generated risk score. |
+| **Environment** | Prod, staging, dev — if classified. |
+| **Managed By** | Assigned owner or team. |
+| **Detection Timeline** | First and last detection timestamps. |
+
+---
+
+## Vulnerability & Exposure Insights
+
+DNS records inherit risk from the assets they point to.
+
+### What AIM Shows:
+
+- Vulnerabilities on linked IPs, domains, or applications  
+- Severity distribution  
+- Exposure state of the target (Exposed / Internal / Shadowed)  
+- Historical vulnerability trends  
+
+<Frame caption="DNS–Vulnerability Mapping">
+  <img src="/images/aim/dns/dns4.png" />
+</Frame>
+
+---
+
+## Tags, Technologies & Resolved Targets
+
+- **Tags** — internal, core-service, third-party, external, etc.  
+- **Technologies** — derived from the resolved IP/application.  
+- **Resolved Targets** — all IPs or domains the DNS record currently resolves to (supporting multi-value records).
+
+---
+
+## Zone & Provider Intelligence
+
+AIM enriches DNS assets automatically:
+
+- Zone (e.g., `example.com`)
+- Registrar (Cloudflare, AWS Route53, Google DNS)
+- TTL  
+- DNSSEC status  
+- Hosting provider metadata  
+
+This helps detect misconfigurations, shadowed DNS, or risky ownership gaps.
+
+---
+
+## Asset Relations
+
+<Frame caption="DNS Relation Graph">
+  <img src="/images/aim/dns/dns5.png" />
+</Frame>
+
+The relation graph reveals:
+
+- Linked IPs  
+- Applications  
+- Certificates  
+- Subdomains  
+- Associated technologies  
+
+Ideal for mapping spiderweb connections across your environment.
+
+---
+
+## Ownership & Lifecycle Management
+
+DNS assets support full lifecycle actions:
+
+- **Assign Owner**  
+- **Decommission Record**  
+- **Delete Asset**  
+- **Reactivate Asset**  
+
+All changes sync with AIM’s automation and adapters.
+
+---
+
+## How DNS Records Are Discovered
+
+AIM detects and updates DNS records via:
+
+- **ASM Adapter** — pulls DNS from external attack surface mapping  
+- **Cloudflare Adapter**  
+- **AWS Route53 Adapter**  
+- **GitHub / Repos** (for config-as-code DNS references)  
+- **TechDetect** — resolves DNS to IPs & technologies  
+
+Combined, these ensure real-time DNS inventory accuracy.
+
+---
+
+## Example Use Cases
+
+- **Security Teams** — detect DNS pointing to vulnerable servers.  
+- **IT & Networking** — track unmanaged or shadow DNS records.  
+- **Incident Response** — investigate DNS used in attacks.  
+- **Compliance** — ensure DNS inventory is complete and compliant.  
+
+---
+
+## Next Steps
+
+<Card title="View DNS Details" icon="arrow-right" href="/products/aim/assets/dns">
+  Explore full DNS insights, relations, and risk data.
+</Card>
