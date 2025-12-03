@@ -1,0 +1,193 @@
+---
+title: "Application Registry"
+description: "Catalog, monitor, and analyze all applications discovered across your environments."
+icon: "window-restore"
+mode: "wide"
+---
+
+## Overview
+
+The **Application Registry** provides a centralized view of all applications identified across your ecosystems — including web apps, internal tools, API services, and shadow applications.  
+AIM automatically classifies each application, correlates vulnerabilities, and tracks ownership, risk, and exposure.
+
+<Frame caption="Application Registry Overview">
+  <img src="/images/aim/apps1.png" />
+</Frame>
+
+---
+
+## Key Metrics
+
+<Columns cols={4}>
+  <Stat title="Total Applications" value="10" />
+  <Stat title="Vulnerable Applications" value="6" />
+  <Stat title="Exposed Applications" value="10" />
+  <Stat title="Shadowed Applications" value="5" />
+</Columns>
+
+These metrics help security and IT teams quickly assess exposure and prioritize remediation.
+
+---
+
+## Vulnerability Insights
+
+<Frame caption="Vulnerability Severity Breakdown">
+  <img src="/images/aim/apps-vulns.png" />
+</Frame>
+
+The Application Registry aggregates vulnerability data and displays:
+
+- **Critical**
+- **High**
+- **Medium**
+- **Low**
+
+Severity distributions help prioritize the most impactful fixes.
+
+---
+
+## Search, Filtering & Grouping
+
+Users can filter and sort applications using:
+
+| Filter | Purpose |
+|--------|---------|
+| **Owners** | Filter by application owner or responsible team |
+| **Risk Score** | Sort apps by automated risk scoring |
+| **Exposure** | Show exposed, safe, or shadow apps |
+| **Adapters** | View applications discovered via specific integrations |
+| **hasVulns** | Only display vulnerable applications |
+| **Last Seen** | Filter based on detection timeline |
+
+These controls ensure fast triage and navigation through complex inventories.
+
+---
+
+## Application Table Columns
+
+Each application entry displays structured metadata:
+
+| Column | Description |
+|--------|-------------|
+| **Application Name** | The registered or detected name |
+| **Source** | Adapter or input source (ASM, VM, API Sec, CSV) |
+| **Vulnerability Count** | Number of linked vulnerabilities |
+| **Risk Score** | Automatically computed risk value |
+| **Type** | Application type (Web, API, SaaS, Internal) |
+| **Owner** | Assigned user or team |
+| **Tags** | Labels like `vm`, `application`, `internal` |
+| **Associations** | Linked assets (domains, APIs, repos) |
+| **Detected On** | First and last detection timestamps |
+
+---
+
+## Full Application View
+
+Each application includes a detailed internal profile.
+
+### Application Summary
+
+A summary card displays:
+
+- Application Name  
+- Status (Active, Inactive, Unknown)  
+- Total Linked Vulnerabilities  
+- Risk Score  
+- Exposure (Exposed or Safe)  
+- Environment (Prod, Dev, Staging)  
+- Owner  
+- Detection Timeline  
+
+### Vulnerability Analysis
+
+<Frame caption="Application Vulnerability Trends">
+  <img src="/images/aim/apps-trends.png" />
+</Frame>
+
+Users can view:
+
+- Historical vulnerability trends  
+- Severity distribution  
+- Detailed vulnerability table with state & history  
+
+All findings link back to VM for deeper triage.
+
+---
+
+## Tags, Technologies & Components
+
+- **Tags:** Business labels or security classification  
+- **Technologies:** Libraries, frameworks, or platforms detected (e.g., Nginx, Node.js, Django)  
+- **Components:** Linked APIs, subdomains, containers, or cloud resources  
+
+This enables accurate dependency mapping and impact assessment.
+
+---
+
+## Asset Relations
+
+<Frame caption="Application Asset Graph">
+  <img src="/images/aim/app-relations.png" />
+</Frame>
+
+The relation graph maps relationships between:
+
+- Applications  
+- APIs  
+- Domains  
+- IPs  
+- Certificates  
+- Cloud components  
+
+This reveals attack paths and dependencies.
+
+---
+
+## Ownership & Lifecycle Controls
+
+Each application includes lifecycle management actions:
+
+- **Assign Owner**
+- **Update Metadata**
+- **Decommission Application**
+- **Delete Application**
+
+Changes synchronize across AIM and related modules.
+
+---
+
+## How Applications Are Discovered
+
+Applications are detected through:
+
+- **ASM Adapter** — external surface scans  
+- **VM Adapter** — vulnerability imports  
+- **API Sec Adapter** — request-based discovery  
+- **TechDetect Adapter** — technology fingerprinting  
+- **Manual Input / CSV Uploads**  
+
+This ensures a continuously accurate application inventory.
+
+---
+
+## Example Use Cases
+
+### Security Teams
+Identify vulnerable or exposed applications quickly.
+
+### Asset Managers
+Track application ownership and maintain accurate registries.
+
+### DevSecOps
+Monitor application posture and ensure compliance.
+
+### Incident Response
+Investigate affected applications during incidents.
+
+---
+
+## Next Steps
+
+<Card title="Open an Application Record" icon="arrow-right" href="/products/aim/apps/view">
+  Explore detailed application profiles, vulnerabilities, and relationships.
+</Card>
