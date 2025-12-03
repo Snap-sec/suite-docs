@@ -1,6 +1,193 @@
 ---
-title: "[REPO]"
-description: "Gain full visibility into your network assets by tracking live IPs, their exposure levels, associated risks, and ownership details."
-icon: "network-wired"
+title: "Repositories Catalog"
+description: "Track all code repositories across your organization with ownership, risk insights, activity history, and exposure intelligence."
+icon: "book-open"
 mode: "wide"
 ---
+
+## Overview
+
+The **Repositories Catalog** in AIM centralizes all Git repositories discovered through integrations such as GitHub, GitLab, Bitbucket, or internal SCM systems.
+
+It provides deep visibility into:
+
+- Repository ownership  
+- Risk levels  
+- Activity patterns  
+- Exposure risks  
+- Linked assets and vulnerabilities  
+
+AIM continuously syncs repository metadata, ensuring a **live, accurate, and enriched** inventory of your engineering ecosystem.
+
+<Frame caption="Repositories Catalog Overview">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/repositories/overview.png" />
+</Frame>
+
+---
+
+## Key Metrics and Analytics
+
+- **Total Repositories**  
+  Count of all repos detected and synced from integrations.
+
+- **Private vs Public**  
+  Distribution showing which repos are publicly visible, reducing shadow-exposure risks.
+
+- **Inactive Repositories**  
+  Repos with no commits or activity for long periods — a major source of security debt.
+
+- **Risk Classification**  
+  Repos enriched with auto-risk based on configurations, secrets, or linked vulnerabilities.
+
+- **Top Owners & Teams**  
+  Most active or responsible teams across repository inventory.
+
+---
+
+## Search, Filters, and Sorting
+
+Search and filters enable teams to quickly find high-priority repositories.
+
+**Filters available:**
+
+| Filter | Description |
+|--------|-------------|
+| **Owners** | Filter by repository owner, maintainer, or engineering team. |
+| **Risk** | Sort or filter by AIM risk score. |
+| **Visibility** | Public / Private / Internal repositories. |
+| **Adapters** | Source integration (GitHub, GitLab, Bitbucket, etc.). |
+| **hasVulns** | Filter repos linked to vulnerabilities or code issues. |
+| **Date Range** | Filter by creation, last activity, or last sync. |
+| **Tags** | Find repositories labeled with custom or automated tags. |
+
+---
+
+## Repository Table Columns
+
+Each repository entry displays critical metadata:
+
+| Column | Description |
+|--------|-------------|
+| **Repository Name** | Name + link to SCM provider. |
+| **Visibility** | Public / Private / Internal. |
+| **Owner** | Assigned maintainer or team. |
+| **Activity** | Last commit or update timestamp. |
+| **Risk Score** | Auto-calculated based on metadata or exposures. |
+| **Linked Assets** | Connections to APIs, services, domains, or IPs. |
+| **Vuln Count** | Vulnerabilities associated with the repo. |
+| **Tags** | Labels such as backend, frontend, sensitive, archived. |
+| **Adapter** | Source platform for synchronization. |
+| **Detected On** | First/last seen timestamps. |
+
+---
+
+## Repository Full View
+
+Each repository includes a rich, detailed view:
+
+<Frame caption="Repository Full View">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/repositories/details.png" />
+</Frame>
+
+### Repository Summary
+
+| Field | Description |
+|-------|-------------|
+| **Repository Name** | Full name with SCM provider reference. |
+| **Visibility** | Private, Public, or Internal. |
+| **Owner / Maintainer** | Person or team responsible for the repository. |
+| **Last Activity** | Last commit, push, or pull request. |
+| **Risk Score** | AIM-generated risk value. |
+| **Environment** | Production / Development / Sandbox classification (if detected). |
+| **Detection Timeline** | First sync and last sync timestamps. |
+
+---
+
+## Risk & Exposure Insights
+
+### **Risk Factors**
+- Public exposure  
+- Orphaned or unowned repositories  
+- Weak or missing access policies  
+- Secrets or credentials found via SCM integrations  
+- Linked high-severity vulnerabilities  
+
+### **Activity Breakdown**
+Shows commit frequency, contributors, and activity trends over time.
+
+### **Linked Vulnerabilities**
+If integrated with VM or scanning tools, vulnerabilities appear here with:
+
+- Severity  
+- State  
+- Detection history  
+- Affected dependencies  
+
+---
+
+## Tags, Technologies & Linked Assets
+
+### Tags
+Custom or classifier-driven labels such as:  
+**backend**, **frontend**, **internal**, **critical-service**, **archived**
+
+### Technologies
+Tech stack detected via linked deployments or metadata (e.g., Node.js, Python, Docker).
+
+### Asset Relations
+<Frame caption="Repository Relations Graph">
+  <img style={{ borderRadius: '0.5rem' }} src="/images/aim/repositories/relations.png" />
+</Frame>
+
+The relation graph shows connections to:
+
+- Services  
+- APIs  
+- Domain assets  
+- Employee accounts  
+- Infrastructure components  
+
+---
+
+## Ownership & Lifecycle Management
+
+Each repository includes lifecycle controls such as:
+
+- **Assign Owner**
+- **Change Maintainer**
+- **Tag Repository**
+- **Decommission Repository**
+- **Delete Repository**
+
+All changes propagate across all AIM modules.
+
+---
+
+## How Repositories Are Discovered
+
+AIM syncs repository data using:
+
+- **GitHub Adapter**
+- **GitLab Adapter**
+- **Bitbucket Adapter**
+- **Internal SCM integrations**
+- **ASM & VM correlations** (e.g., vulnerabilities linked to repository paths)
+
+This ensures continuous visibility into unmanaged or shadow repositories.
+
+---
+
+## Example Use Cases
+
+- **Engineering Managers:** Track repository ownership and inactive projects.  
+- **DevSecOps Teams:** Identify public repos, secrets risk, and code weaknesses.  
+- **Asset Managers:** Maintain accurate repository inventory across teams.  
+- **Compliance:** Ensure all code repositories meet visibility and governance rules.
+
+---
+
+## Next Steps
+
+<Card title="View Repository Details" icon="arrow-right" href="/products/aim/repositories/details">
+  Explore repository insights, risk data, and ownership information.
+</Card>
