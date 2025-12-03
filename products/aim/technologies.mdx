@@ -1,6 +1,159 @@
 ---
-title: "[technologies]"
-description: "Gain full visibility into your network assets by tracking live IPs, their exposure levels, associated risks, and ownership details."
-icon: "network-wired"
+title: "Technology Index"
+description: "Track and analyze all technologies used across your assets, including usage distribution, exposure insights, and dependency mapping."
+icon: "microchip"
 mode: "wide"
 ---
+
+## Overview
+
+The **Technology Index** provides a unified catalog of every technology detected across your infrastructure — including frameworks, libraries, languages, server technologies, and third-party components.
+
+AIM automatically correlates these technologies with assets, environments, and exposure levels to help teams understand where critical dependencies exist and what risks they introduce.
+
+<Frame caption="Technology Stack Overview">
+  <img src="/images/aim/tech/tech1.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+---
+
+## Key Metrics
+
+<Columns cols={3}>
+  <Card title="Total Technologies" icon="cube">
+    Total unique technologies detected across all assets.
+  </Card>
+  <Card title="Internal Technologies" icon="building-lock">
+    Technologies found exclusively in internal or private environments.
+  </Card>
+  <Card title="External Technologies" icon="globe">
+    Technologies detected on publicly exposed or internet-facing assets.
+  </Card>
+</Columns>
+
+---
+
+## Technology Usage Distribution
+
+<Frame caption="Technology Usage Chart">
+  <img src="/images/aim/tech/tech2.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+This visualization shows which technologies are most commonly used across your environment, helping teams quickly identify:
+
+- High-dependency frameworks  
+- Legacy or low-usage libraries  
+- Technology clusters that may require deeper risk analysis  
+
+---
+
+## Exposure Distribution
+
+<Frame caption="Internal vs External Technology Exposure">
+  <img src="/images/aim/tech/tech3.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+Exposure data highlights whether a technology is used on **external** or **internal** surfaces — critical for:
+
+- Prioritizing patching based on exposure  
+- Identifying externally-accessible components  
+- Understanding attack surface expansion  
+
+---
+
+## Environment Distribution
+
+<Frame caption="Environment Mapping">
+  <img src="/images/aim/tech/tech4.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+This section shows where technologies are deployed across environments like:
+
+- Production  
+- Staging  
+- Development  
+- Shadow environments  
+
+---
+
+## Technology Directory
+
+Below the analytics dashboard, AIM provides a searchable directory of all detected technologies.
+
+Each item includes:
+
+| Field | Description |
+|-------|-------------|
+| **Technology Name** | Framework, library, or component (e.g., React, Nginx, TLS). |
+| **Asset Count** | Number of assets using that technology. |
+| **Source** | Adapter or discovery method that detected it. |
+| **Tags** | Business or technical classification tags. |
+| **Associations** | Related assets, clusters, or dependencies. |
+
+<Frame caption="Technology Directory List">
+  <img src="/images/aim/tech/tech5.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+---
+
+## Technology Details (Full View)
+
+Each technology includes a dedicated detail page providing:
+
+### 🔹 Summary
+- Technology name  
+- Type (Framework, Server, Library, Protocol)  
+- Exposure level  
+- Total assets using it  
+
+### 🔹 Associated Assets  
+List of all assets (IPs, domains, applications, etc.) linked with this technology.
+
+### 🔹 Tags & Metadata  
+Automatic or manual tags applied for classification.
+
+### 🔹 Discovery Timeline  
+- First detection  
+- Last detection  
+- Associated adapters  
+
+---
+
+## How Technologies Are Detected
+
+AIM identifies technologies using a combination of:
+
+- ASM technology signatures  
+- VM vulnerability fingerprints  
+- Request/response pattern analysis  
+- Headers, banners, and server metadata  
+- Frontend technology detection  
+- API schema and response pattern identification  
+
+This ensures full-stack coverage across APIs, servers, web apps, and more.
+
+---
+
+## Example Use Cases
+
+<CardGroup cols={3}>
+  <Card title="Tech Stack Governance" icon="diagram-project">
+    Maintain visibility into all frameworks and libraries used across teams.
+  </Card>
+
+  <Card title="Dependency Risk Management" icon="triangle-exclamation">
+    Identify outdated or vulnerable technologies tied to critical assets.
+  </Card>
+
+  <Card title="External Exposure Analysis" icon="shield-halved">
+    Detect which technologies are publicly exposed and prioritize mitigation.
+  </Card>
+</CardGroup>
+
+---
+
+## Next Steps
+
+<Card title="View Technologies" icon="arrow-right" href="/products/aim/technologies">
+  Explore technology-level insights and linked assets.
+</Card>
