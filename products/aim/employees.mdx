@@ -1,0 +1,204 @@
+---
+title: "Employee Catalog"
+description: "Track employee-linked accounts, login activity, associated vendors, and identity-related risks across your organization."
+icon: "id-card"
+mode: "wide"
+---
+
+<Banner>
+The **Employee Catalog** centralizes all employee-associated digital identities — including email accounts, vendors, login activity, and exposure risk.
+It provides complete visibility into workforce accounts, ensuring identity hygiene, secure access, and audit readiness.
+</Banner>
+
+<Frame caption="Employee Inventory Overview">
+  <img src="/images/aim/employees1.png" />
+</Frame>
+
+---
+
+## Overview
+
+The Employee Catalog aggregates all employee-linked identities discovered from CSV imports, HR systems, SSO platforms, and external vendors.
+
+Each employee record contains:
+- Email identity  
+- Associated vendor/platform  
+- Login activity timelines  
+- Internal vs. external classification  
+- Exposure and risk scoring  
+- Asset associations across your organization  
+
+This enables security teams to track identity drift, unused accounts, shadow employee identities, and stale vendor accounts.
+
+---
+
+## Key Metrics & Analytics
+
+<Columns cols={3}>
+
+<Card title="Total Employees" icon="users">
+  Shows the total number of employees with active or historical accounts.
+</Card>
+
+<Card title="Internal vs External" icon="arrows-left-right">
+  Tracks whether an identity is internal (organization-managed) or external (vendor, contractor, or partner).
+</Card>
+
+<Card title="Vendor Distribution" icon="building">
+  Visualizes which vendors (e.g., Gmail, Outlook, GitHub) employees are associated with.
+</Card>
+
+</Columns>
+
+---
+
+## Vendor Distribution
+
+<Frame caption="Employee Vendor Breakdown">
+  <img src="/images/aim/employees2.png" />
+</Frame>
+
+This pie chart helps visualize where employee-linked accounts originate from — such as:
+- Corporate domains  
+- External providers  
+- SaaS platforms  
+- Partner organizations  
+
+---
+
+## User Activity
+
+<Frame caption="Employee Login Activity">
+  <img src="/images/aim/employees3.png" />
+</Frame>
+
+AIM tracks account activity by:
+- Last login  
+- Monthly usage trends  
+- Inactive or long-dormant accounts  
+
+This helps teams identify:
+- Accounts that should be disabled  
+- Unused or orphaned vendor identities  
+- Potential abandoned access points  
+
+---
+
+## Internal & External User Breakdown
+
+<Frame caption="Internal vs External Distribution">
+  <img src="/images/aim/employees4.png" />
+</Frame>
+
+Employees are classified as:
+- **Internal** — company-managed email/domain  
+- **External** — contractors, freelancers, partners, or vendor-associated accounts  
+
+This ensures accurate access governance.
+
+---
+
+## Search, Filters & Sorting
+
+A powerful filtering system allows analysts to quickly identify risky or unused identities.
+
+### Available Filters
+| Filter | Description |
+|--------|-------------|
+| **Type** | Internal or external identities |
+| **Last Seen** | Filters based on last login or activity |
+| **Vendors** | Email provider or authentication source |
+| **Risk** | Auto-generated risk score |
+| **Tags** | Assigned metadata or labels |
+
+Filters can be combined for deeper identity investigations.
+
+---
+
+## Employee Table Columns
+
+| Column | Description |
+|--------|-------------|
+| **Asset Value** | Employee email or identity |
+| **Source** | CSV, SSO, HR system, or vendor |
+| **Vuln Count** | Number of vulnerabilities or issues tied to this identity |
+| **Auto Risk** | Automated risk score |
+| **Owner** | Account owner or responsible manager |
+| **Tags** | Labels such as `employee`, `external`, `vendor` |
+| **Associations** | Linked assets such as domains, IPs, or repositories |
+| **Detected On** | First and most recent discovery timestamps |
+
+---
+
+## Employee Full View
+
+Each employee record allows full lifecycle inspection.
+
+<Frame caption="Employee Full View">
+  <img src="/images/aim/employees5.png" />
+</Frame>
+
+### Details Included
+- Identity information  
+- Exposure risk  
+- Vendor/platform association  
+- Detection timeline  
+- Activity history  
+- Asset associations  
+
+---
+
+## Ownership & Lifecycle Controls
+
+Each employee identity supports the following actions:
+
+- **Assign Owner** – designate who manages this identity  
+- **Deactivate Identity** – mark the user account as inactive  
+- **Delete Identity** – permanently remove deprecated or irrelevant entries  
+
+All lifecycle updates sync across AIM and other connected modules.
+
+---
+
+## How Employees Are Discovered
+
+AIM discovers employee identities using:
+- **CSV imports**
+- **SSO / IAM platforms**
+- **Vendor identity integrations**
+- **ASM or VM adapters**
+- **Email domain enumeration**
+
+This ensures up-to-date identity tracking.
+
+---
+
+## Example Use Cases
+
+<Columns cols={2}>
+
+<Card title="Identity Governance" icon="user-shield">
+  Detect stale or inactive employee accounts that require offboarding.
+</Card>
+
+<Card title="Access Review" icon="clipboard-check">
+  Validate which identities still have access to sensitive systems.
+</Card>
+
+<Card title="Vendor Account Tracking" icon="building">
+  Monitor external accounts used across SaaS and third-party platforms.
+</Card>
+
+<Card title="Incident Response" icon="triangle-exclamation">
+  Investigate compromised employee accounts or suspicious access activity.
+</Card>
+
+</Columns>
+
+---
+
+## Next Steps
+
+<Card title="View Employee Details" icon="arrow-right" href="/products/aim/employees/details">
+  Explore full employee identity records, activity, and linked assets.
+</Card>
