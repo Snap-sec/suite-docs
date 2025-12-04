@@ -1,193 +1,192 @@
 ---
 title: "Projects"
-description: "Organize, manage, and analyze threat modeling initiatives for APIs across teams and environments."
+description: "Manage, monitor, and collaborate on structured threat-modeling initiatives across your applications."
+icon: "diagram-project"
 mode: "wide"
-icon: "folder-tree"
+---
+
+<Banner>
+The **Projects** module gives teams a unified workspace to model threats across APIs, microservices, and applications.
+Each project consolidates endpoints, threat logs, collaborators, and progress analytics — allowing teams to perform
+systematic, repeatable, and collaborative threat modeling.
+</Banner>
+
+<Frame caption="Threat Modeling Projects Overview">
+  <img src="/images/tm/projects1.png" />
+</Frame>
+
 ---
 
 ## Overview
 
-The **Projects** section in Threat Modeler serves as your workspace for managing multiple API threat modeling initiatives.  
-Each project represents a collection of API endpoints imported from Postman or manually defined, where AI simulates potential threats, tracks validation, and monitors remediation progress.
+Threat Modeling **Projects** act as dedicated workspaces for analyzing application components, API endpoints, and security risks.
 
-<Frame caption="Project Dashboard Overview">
-  <img style={{ borderRadius: '0.5rem' }} src="/images/tm/projects1.png" />
-</Frame>
+Each project contains:
 
----
+- API endpoint inventory  
+- Automatically generated threat findings  
+- Threat severity & confidence analytics  
+- Project-level completion status  
+- Collaborators & permissions  
+- Workload distribution and ownership  
 
-## Creating a Project
-
-You can start a new threat modeling project by defining its name and description.  
-Each project can later sync with Postman collections or other API sources for automated endpoint ingestion.
-
-<Frame caption="Create Project Form">
-  <img style={{ borderRadius: '0.5rem' }} src="/images/tm/projects2.png" />
-</Frame>
-
-### Steps
-
-<Steps>
-  <Step title="Navigate to Projects" icon="rectangle-list">
-    Open **Threat Management → Projects** from the sidebar.
-  </Step>
-  <Step title="Click 'Create Project'" icon="plus">
-    A dialog appears allowing you to name and describe your new project.
-  </Step>
-  <Step title="Add API Sources" icon="link">
-    Once created, connect Postman or upload endpoint files for automated analysis.
-  </Step>
-  <Step title="Start Threat Modeling" icon="shield">
-    The system will begin generating AI-based attack simulations on your endpoints.
-  </Step>
-</Steps>
+Projects allow security teams to break large applications into manageable units and model each component efficiently.
 
 ---
 
-## Deleting a Project
+## Key Metrics & Insights
 
-If a project is no longer needed, you can safely delete it from your workspace.  
-Deleting a project will remove all related threat records and analysis results.
+<Columns cols={3}>
 
-<Steps>
-  <Step title="Locate Project" icon="search">
-    Go to the **Projects** page and find the project you want to delete.
-  </Step>
-  <Step title="Open Project Options" icon="ellipsis-vertical">
-    Click the three-dot menu (⋮) on the project card.
-  </Step>
-  <Step title="Select Delete Project" icon="trash">
-    Confirm the deletion when prompted. This action is irreversible.
-  </Step>
-</Steps>
+<Card title="Total Endpoints" icon="network-wired">
+  Total API endpoints included in the modeling scope of the project.
+</Card>
 
----
+<Card title="Total Threats" icon="shield-halved">
+  Count of all identified or generated threats across the project.
+</Card>
 
-## Exporting Threats in CSV
+<Card title="Progress Status" icon="chart-line">
+  Tracks how much threat analysis is completed for the project.
+</Card>
 
-Export threats from any project into a CSV file for further analysis, reporting, or sharing with external teams.
-
-<Steps>
-  <Step title="Open the Project" icon="folder-open">
-    Go to the **Threats** tab inside the desired project.
-  </Step>
-  <Step title="Click Export" icon="download">
-    Select **Export CSV** from the toolbar.
-  </Step>
-  <Step title="Choose Filters (Optional)" icon="filter">
-    You can filter threats by severity, status, or validation state before exporting.
-  </Step>
-  <Step title="Download the File" icon="file-csv">
-    The system generates and downloads a `.csv` file containing all selected threat data.
-  </Step>
-</Steps>
-
-<Frame caption="Single Project Metrics View">
-  <img style={{ borderRadius: '0.5rem' }} src="/images/tm/projects3.png" />
-</Frame>
-
----
-
-## Project Overview & Metrics
-
-Each project dashboard provides a full view of your threat modeling activity, including endpoint counts, identified threats, workload, and severity distribution.
-
-### Key Metrics
-
-| Metric | Description |
-|--------|-------------|
-| **Total Endpoints** | Number of API routes under analysis. |
-| **Total Threats** | Total number of AI-generated and manually validated threat hypotheses. |
-| **Pending / Acknowledged / Fixed** | Live breakdown of each threat’s resolution state. |
-| **Severity Distribution** | Criticality spread across identified vulnerabilities. |
-| **Workload** | Shows the current progress of threat validation tasks. |
-
----
-
-## Project Management Features
-
-<Columns cols={2}>
-  <Card title="Multi-Project Overview" icon="diagram-project">
-    Manage all API projects in one view — compare threats, progress, and assigned teams.
-  </Card>
-  <Card title="Collaborative Tracking" icon="users">
-    Each project supports team collaboration with integrated ticketing and ownership controls.
-  </Card>
-  <Card title="Customizable Settings" icon="sliders">
-    Modify threat scoring, severity classification, and risk acceptance thresholds per project.
-  </Card>
-  <Card title="Detailed Reporting" icon="file-chart-pie">
-    Export summary reports or integrate project insights into your security dashboard.
-  </Card>
 </Columns>
 
 ---
 
-## Best Practices
+## Project Workspace
 
-- Create one project per microservice, API group, or environment for cleaner analysis.  
-- Assign dedicated owners for each project to maintain accountability.  
-- Use metrics and severity charts to identify high-risk APIs early.  
-- Archive completed projects to retain visibility into historical threats.
+<Frame caption="Project Workspace View">
+  <img src="/images/tm/projects2.png" />
+</Frame>
+
+Each project card displays:
+
+- **Project title & description**  
+- **Total endpoints**  
+- **Total threats**  
+- **Collaborators**  
+- **Started date**  
+- **Progress bar showing modeling completion**  
+
+This allows stakeholders to triage and prioritize projects at a glance.
 
 ---
 
-## Project Settings: Collaborators & Ownership
+## Project Details
 
-Manage access and default assignment rules from the **Project Settings** tab.
+Inside each project, users gain access to multiple components:
 
-<Frame caption="Project Settings — Collaborators & Default Threat Owner">
-  <img style={{ borderRadius: '0.5rem' }} src="/images/tm/projectSettings1.png" />
+### 🔹 API Endpoints  
+A complete list of scanned or manually added endpoints including:  
+- Method  
+- Host  
+- Path  
+- Threat count  
+- Threat status  
+
+### 🔹 Threats  
+Auto-generated or manually added threats appear with:  
+- Severity  
+- Confidence  
+- Owners  
+- State (Pending, Acknowledged, In Progress, etc.)  
+
+### 🔹 Metrics  
+Charts summarizing threat severity distribution, status counts, and resolver workload.
+
+### 🔹 Collaborators  
+A view to manage project-level permissions and designate threat owners.
+
+<Frame caption="API Endpoints Overview">
+  <img src="/images/tm/projects3.png" />
 </Frame>
 
-### Inviting Collaborators to Project
+---
 
-<Steps>
-  <Step title="Open Project Settings" icon="gear">
-    Inside your project, click **Project Settings**.
-  </Step>
-  <Step title="Choose Collaborator" icon="user-plus">
-    In **Update Collaborators**, pick a user from the **Collaborators** dropdown (searchable) and select a **Role** (e.g., *Viewer*, *Triager*, *Owner*).
-  </Step>
-  <Step title="Update Collaborator" icon="circle-check">
-    Click **Update Collaborator** to grant access immediately.
-  </Step>
-</Steps>
+## Project Roles & Collaboration
 
-### Removing Collaborators
+Teams can add collaborators with specific roles:
 
-<Steps>
-  <Step title="Find Member" icon="users">
-    In **Project Settings**, locate the member in the collaborators table.
-  </Step>
-  <Step title="Change Role or Remove" icon="user-minus">
-    Use the action menu to **remove** the collaborator or downgrade their role.
-  </Step>
-  <Step title="Confirm" icon="shield">
-    Confirm the change. Access is revoked instantly and outstanding tickets remain assigned for auditability.
-  </Step>
-</Steps>
+- **Owner** — full access; responsible for all threat approvals  
+- **Manager** — can analyze threats, assign owners, and update states  
+- **Member** — can review and assist in threat analysis  
 
-### Setting a Default Threat Owner
+<Frame caption="Project Collaborator Controls">
+  <img src="/images/tm/projects4.png" />
+</Frame>
 
-Automatically route all **newly generated threats** to a default assignee for quicker triage.
+Roles help define clear responsibility boundaries across the team.
 
-<Steps>
-  <Step title="Open Default Threat Owner" icon="id-badge">
-    In **Project Settings**, scroll to **Default Threat Owner**.
-  </Step>
-  <Step title="Select a Member" icon="user-check">
-    Choose the teammate who should receive new threats by default (can be changed later per ticket).
-  </Step>
-  <Step title="Save" icon="floppy-disk">
-    Click **Save/Update** to apply routing. Existing threats remain unchanged.
-  </Step>
-</Steps>
+---
+
+## Threat Generation Workflow
+
+Each project integrates automated threat modeling:
+
+- AI analyzes API requests  
+- Threats are generated using structured rules  
+- Each threat includes:
+  - Title  
+  - Explanation  
+  - Severity  
+  - Confidence  
+  - Practical mitigations  
+  - OWASP & CWE mappings  
+  - References  
+
+<Frame caption="Threat Management Inside Project">
+  <img src="/images/tm/projects5.png" />
+</Frame>
+
+This ensures repeatable, consistent modeling without manual guesswork.
+
+---
+
+## Dashboard-Level Visibility
+
+The Threat Modeling **Dashboard** aggregates data from all projects:
+
+<Frame caption="Threat Modeling Dashboard Overview">
+  <img src="/images/tm/projects6.png" />
+</Frame>
+
+It provides global insights such as:
+
+- Total threats across all projects  
+- Pending vs In Progress vs Verified  
+- Severity distribution (Critical / High / Medium / Low)  
+- Per-project threat breakdown  
+- CWE classification across large datasets  
+
+---
+
+## Example Use Cases
+
+<Columns cols={2}>
+
+<Card title="API Threat Modeling" icon="code-branch">
+  Analyze microservices and endpoints to identify backend weaknesses.
+</Card>
+
+<Card title="Secure Design Review" icon="clipboard-list">
+  Evaluate system architecture and business logic flows.
+</Card>
+
+<Card title="Regulatory Compliance" icon="scale-balanced">
+  Maintain audit-ready threat modeling documentation.
+</Card>
+
+<Card title="Developer Collaboration" icon="users-gear">
+  Give developers visibility and ownership over threat mitigation.
+</Card>
+
+</Columns>
 
 ---
 
 ## Next Steps
 
-<Card title="Explore Threats Module" icon="arrow-right" href="/products/tm/threats">
-  View and validate threats generated for each project.
+<Card title="Explore API Endpoints" icon="arrow-right" href="/products/tm/api-endpoints">
+  Begin analyzing API paths, methods, and threat exposures inside each project.
 </Card>

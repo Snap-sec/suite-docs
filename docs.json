@@ -91,9 +91,9 @@
             "pages": [
               "products/tm/introduction",
               "products/tm/projects",
-              "products/tm/api-endpoints",
+              "products/tm/api-catalog",
               "products/tm/threats",
-              "products/tm/threat-management-workflow",
+              "products/tm/threat-mitigation",
               "products/tm/integrations"
             ]
           }
