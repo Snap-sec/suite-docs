@@ -1,6 +1,213 @@
 ---
-title: "Introduction"
-description: "Automated API Threat Modeling powered by AI — identify, simulate, and resolve potential security threats directly from your API workflows."
+title: "Threat Catalog"
+description: "Explore, analyze, and manage all generated threats across your Threat Modelling projects."
+icon: "skull-crossbones"
 mode: "wide"
-icon: "shield-halved"
 ---
+
+<Banner>
+The **Threat Catalog** centralizes all threats generated across your Threat Modelling projects.  
+It provides a complete view of severity, confidence, affected endpoints, lifecycle states, and project context — enabling deep analysis and faster triage.
+</Banner>
+
+<Frame caption="Threat Catalog Overview">
+  <img src="/images/tm/threats1.png" />
+</Frame>
+
+---
+
+## Overview
+
+The Threat Catalog aggregates all threats detected through:
+
+- Threat Generation Engine  
+- API-based threat extraction  
+- System modelling workflows  
+- Manual or AI-assisted submissions  
+
+Each threat includes:
+
+- Severity & confidence  
+- Affected endpoint or component  
+- Description & references  
+- Mitigation guidance  
+- Threat state (Pending → Verified)  
+- Associated project & owner  
+- Activity logs & audit trail  
+
+This gives your teams a complete, unified view of emerging risks across all applications.
+
+---
+
+## Key Metrics & Analytics
+
+<Columns cols={3}>
+
+<Card title="Total Threats" icon="list-ul">
+  Shows the total number of threats across all projects.
+</Card>
+
+<Card title="Severity Breakdown" icon="chart-column">
+  Visual distribution of Critical, High, Medium, and Low threats.
+</Card>
+
+<Card title="Lifecycle States" icon="arrows-rotate">
+  Tracks threats across states — Pending, Acknowledged, In Progress, Fixed, and Verified.
+</Card>
+
+</Columns>
+
+<Frame caption="Threat Severity & State Metrics">
+  <img src="/images/tm/threats2.png" />
+</Frame>
+
+---
+
+## Search, Filters & Sorting
+
+The Threat catalog includes powerful search and filtering:
+
+| Filter | Description |
+|--------|-------------|
+| **Project** | Filter threats by project or microservice |
+| **Severity** | Critical, High, Medium, Low |
+| **State** | Pending → Fix Verified |
+| **Confidence** | Level of certainty in the finding |
+| **Owner** | Assigned developer or analyst |
+| **Endpoint** | Filter by API route or component |
+| **Keywords** | Search within descriptions, references, or metadata |
+
+Combined filters support deep threat investigations.
+
+---
+
+## Threat Table Columns
+
+| Column | Description |
+|--------|-------------|
+| **Threat Title** | Name/short summary of the threat |
+| **Severity** | Critical / High / Medium / Low |
+| **State** | Current lifecycle state |
+| **Confidence** | AI or analyst confidence score |
+| **Endpoint** | Associated route or system component |
+| **Project** | The project the threat belongs to |
+| **Owner** | Assigned team member |
+| **Last Updated** | Timestamp of last activity |
+
+---
+
+## Threat Full View
+
+<Frame caption="Threat Full View">
+  <img src="/images/tm/threats3.png" />
+</Frame>
+
+Each threat includes:
+
+### 🛡 Threat Summary
+- Title  
+- Severity & confidence  
+- Associated endpoint  
+- Description & attack reasoning  
+- CVE/CWE mappings  
+- Impact analysis  
+- References  
+
+### 🧭 Lifecycle Tracking
+- Current state (Pending → Verified)  
+- Activity timeline  
+- Analyst/developer comments  
+- Change history  
+
+### 🧩 Evidence & Metadata
+- Request/response payloads  
+- Parameters and host  
+- Trace evidence  
+- Related vulnerabilities  
+
+---
+
+## Threat Lifecycle Management
+
+Threats move across a structured workflow:
+
+<Steps>
+  <Step title="Pending">
+    Threat has been generated and awaits initial triage.
+  </Step>
+  <Step title="Acknowledged">
+    Confirmed by analyst and assigned for remediation.
+  </Step>
+  <Step title="In Progress">
+    Developer or team begins fixing the threat.
+  </Step>
+  <Step title="Fixed">
+    Developer marks the threat as addressed.
+  </Step>
+  <Step title="Fix Verified">
+    Security validates the fix and closes the threat permanently.
+  </Step>
+</Steps>
+
+<Frame caption="Threat Lifecycle UI">
+  <img src="/images/tm/threats4.png" />
+</Frame>
+
+---
+
+## Ownership & Collaboration
+
+Each threat supports:
+
+- **Assign Owner** — map responsibility to a developer or analyst  
+- **Add Comments** — real-time collaboration between teams  
+- **Activity Logs** — complete audit history  
+- **Reassign or escalate** when necessary  
+
+This ensures clarity, accountability, and quick resolution.
+
+---
+
+## Example Threat Types
+
+<Columns cols={2}>
+
+<Card title="Privilege Escalation" icon="arrow-up">
+  Incorrect access control allowing unauthorized role elevation.
+</Card>
+
+<Card title="Broken Authentication" icon="user-xmark">
+  Weak session handling or missing authentication steps.
+</Card>
+
+<Card title="Injection Risks" icon="code">
+  SQL injection, command injection, or template injection possibilities.
+</Card>
+
+<Card title="Logic Flaws" icon="shuffle">
+  Broken flows like IDOR, bypassed checks, or missing verification.
+</Card>
+
+</Columns>
+
+---
+
+## Integrations
+
+<Frame caption="Threat Integration Settings">
+  <img src="/images/tm/threats-integrations.png" />
+</Frame>
+
+Threat Catalog integrates with:
+
+- **Snapsec VM** for vulnerability correlation  
+- **API Security Module** for endpoint mapping  
+- **Project Workspaces** for developer alignment  
+
+---
+
+## Next Steps
+
+<Card title="View Your Threats" icon="arrow-right" href="/products/tm/threats/list">
+  Explore all threats across your Threat Modelling projects.
+</Card>
