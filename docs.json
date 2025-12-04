@@ -94,7 +94,8 @@
               "products/tm/api-catalog",
               "products/tm/threats",
               "products/tm/threat-mitigation",
-              "products/tm/integrations"
+              "products/tm/integrations",
+              "products/tm/severity-distribution"
             ]
           }
 
