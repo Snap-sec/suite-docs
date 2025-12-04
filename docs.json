@@ -86,7 +86,7 @@
               "products/aim/public-search"
             ]
           },{
-            "group": "Vulnerability Scanner"
+            "group": "Vulnerability Scanner",
             "pages": [
               "products/vs/dashboard",
               "products/vs/scan-management",
