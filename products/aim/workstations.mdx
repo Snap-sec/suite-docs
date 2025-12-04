@@ -1,6 +1,141 @@
 ---
-title: "[workstation]"
-description: "Gain full visibility into your network assets by tracking live IPs, their exposure levels, associated risks, and ownership details."
-icon: "network-wired"
+title: "Workstation Directory"
+description: "Track employee devices, workstation risks, exposure levels, and lifecycle states across the organization."
+icon: "desktop"
 mode: "wide"
 ---
+
+## Overview
+
+The **Workstation Directory** provides full visibility into all employee-linked devices, including laptops, virtual machines, and decommissioned workstations.  
+AIM automatically aggregates workstation data from integrated adapters, correlates vulnerabilities, assigns risk scores, and tracks exposure over time.
+
+<Frame caption="Workstation Overview Dashboard">
+  <img src="/images/aim/workstations/workstations1.png" />
+</Frame>
+
+---
+
+## Key Metrics
+
+| Metric | Description |
+|--------|-------------|
+| **153 Workstations** | Total discovered devices in the environment. |
+| **138 Vulnerable Workstations** | Devices associated with at least one vulnerability. |
+| **15 Tested Workstations** | Systems assessed through active scanning integrations. |
+| **153 Shadowed** | Unmanaged or unassigned workstations discovered via adapters. |
+
+These metrics enable IT and security teams to quickly understand the scale, health, and risk posture of employee devices.
+
+---
+
+## Severity & Risk Distribution
+
+AIM categorizes workstation risk using multiple factors including vulnerability counts, exposure state, and workstation classification.
+
+<Frame caption="Severity & Risk Distribution">
+  <img src="/images/aim/workstations/workstations2.png" />
+</Frame>
+
+This helps teams immediately identify high-risk devices that require patching or remediation.
+
+---
+
+## Search, Filters & Sorting
+
+Powerful filters allow you to locate specific devices or isolate high-priority assets.
+
+| Filter | Purpose |
+|--------|---------|
+| **Owners** | Find devices tied to a specific employee. |
+| **Risk** | Sort by system-generated workstation risk score. |
+| **Exposure** | Identify exposed or decommissioned workstations. |
+| **Adapters** | Filter based on data source (CSV, VM, directory sync, etc.). |
+| **hasVulns** | Show devices with open vulnerabilities. |
+
+Filters can be combined for precise investigation workflows.
+
+---
+
+## Workstation Table Fields
+
+Each workstation entry includes complete metadata used for security, IT operations, and compliance.
+
+| Column | Description |
+|--------|-------------|
+| **Asset Value** | IP or identifier for the workstation. |
+| **Source** | Origin of discovery (e.g., CSV import, VM scan). |
+| **Vuln Count** | Number of vulnerabilities linked to the device. |
+| **Auto Risk** | AIM-generated workstation risk score. |
+| **Owner** | Associated employee or Unknown. |
+| **Tags** | Labels such as `VM`, `workstation`, `decommissioned`. |
+| **Associations** | Connected assets (e.g., repositories, certificates). |
+| **Detected On** | First and most recent discovery timestamps. |
+
+<Frame caption="Workstation Table in AIM">
+  <img src="/images/aim/workstations/workstations3.png" />
+</Frame>
+
+---
+
+## Workstation Full View
+
+Each workstation’s detail page offers a deep dive into risk and activity:
+
+### Summary Includes
+- Device status (active, shadowed, decommissioned)
+- Vulnerability totals
+- Exposure classification
+- Risk score
+- Owner or responsible team
+- Detection timeline
+
+### Additional Panels
+- **Vulnerability history & severity charts**
+- **Tags & metadata**
+- **Associations with other assets**
+- **Lifecycle actions (Assign Owner, Decommission, Delete)**
+
+These insights allow teams to track workstation behavior and exposure trends over time.
+
+---
+
+## Lifecycle Management
+
+AIM supports complete end-to-end workstation lifecycle operations:
+
+- **Assign Owner** — link the workstation to an employee  
+- **Decommission Device** — retire outdated or inactive systems  
+- **Delete Asset** — remove invalid or duplicate entries  
+
+All updates sync across AIM modules, enabling consistent asset management.
+
+---
+
+## How AIM Detects Workstations
+
+Workstation data is collected automatically from:
+
+- **Directory sync adapters** (employee device inventories)  
+- **Vulnerability scanners**  
+- **CSV imports**  
+- **Network discovery tools**  
+
+AIM continuously updates device metadata, risk scores, and exposure classifications.
+
+---
+
+## Example Use Cases
+
+- **Security Teams:** Identify vulnerable devices and prioritize remediation.  
+- **IT Teams:** Track device ownership, lifecycle status, and activity.  
+- **Compliance:** Ensure all employee devices are accounted for and monitored.  
+- **Incident Response:** Investigate compromised or suspicious workstations rapidly.  
+
+---
+
+## Next Steps
+
+<Card title="View Workstation Details" icon="arrow-right" href="/products/aim/assets/workstations">
+  Explore full workstation profiles, vulnerabilities, and lifecycle operations.
+</Card>
