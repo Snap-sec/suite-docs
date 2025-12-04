@@ -85,8 +85,7 @@
               "products/aim/decommisioning",
               "products/aim/public-search"
             ]
-          },
-          {
+          },{
             "group": "Vulnerability Scanner"
             "pages": [
               "products/vs/dashboard",
@@ -97,8 +96,7 @@
               "products/vs/vulnerability-catalogue",
               "products/vs/integrations"
             ]
-          },
-          {
+          },{
             "group": "Threat Modelling",
             "pages": [
               "products/tm/introduction",
@@ -109,7 +107,7 @@
               "products/tm/integrations",
               "products/tm/severity-distribution"
             ]
-          }
+          },
 
 
         ]
