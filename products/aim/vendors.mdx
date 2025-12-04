@@ -1,6 +1,99 @@
 ---
-title: "[vendors]"
-description: "Gain full visibility into your network assets by tracking live IPs, their exposure levels, associated risks, and ownership details."
-icon: "network-wired"
+title: "Vendor Directory"
+description: "Centralized view of third-party vendors, their associated users, and digital relationships within your ecosystem."
+icon: "building-user"
 mode: "wide"
 ---
+
+## Overview
+
+The **Vendor Directory** provides a complete overview of all external vendors connected to your organization.  
+AIM automatically aggregates vendors from integrations, employee accounts, and platform links — giving teams the visibility needed to monitor risk, ownership, and dependency footprint.
+
+<Frame caption="Vendor Inventory Overview">
+  <img src="/images/aim/vendors1.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+---
+
+## Key Metrics
+
+The Vendor Directory highlights essential insights:
+
+- **Total Vendors** – Count of all third-party vendors detected.
+- **Risk Level** – Shows which vendors have associated risks.
+- **Employee Associations** – Number of internal accounts linked to each vendor.
+- **Descriptions & Metadata** – Quick contextual details such as services, domains, and categories.
+
+---
+
+## Vendor Breakdown
+
+Each vendor card includes:
+
+### **1. Vendor Name & Logo**  
+Automatically fetched where available for visual clarity.
+
+### **2. Risk Status**  
+Indicates whether the vendor presents any associated risk signals.
+
+### **3. Associated Employees**  
+Shows how many internal users interact with or belong to the vendor (e.g., SSO integrations, linked emails).  
+Clicking the employee count opens a list of associated profiles.
+
+### **4. Details & Metadata**  
+Each vendor includes a *See more details* link for expanded insights.
+
+<Frame caption="Vendor Cards Example">
+  <img src="/images/aim/vendors2.png" style={{ borderRadius: '0.5rem' }} />
+</Frame>
+
+---
+
+## Use Cases
+
+<Columns cols={2}>
+  <Card title="Monitor Third-Party Risk" icon="shield-halved">
+    Track vendor exposure, identify integrations with sensitive access, and maintain a secure vendor ecosystem.
+  </Card>
+
+  <Card title="Understand Digital Dependencies" icon="diagram-project">
+    Visualize how employees and assets interact with external platforms like GitLab, SaaS tools, or payment providers.
+  </Card>
+
+  <Card title="Audit External Access" icon="clipboard-check">
+    Validate which employees are associated with which vendors for compliance and access reviews.
+  </Card>
+
+  <Card title="Centralize Vendor Intelligence" icon="circle-nodes">
+    Maintain a unified, always-updated directory of every vendor touching your organization.
+  </Card>
+</Columns>
+
+---
+
+## Example Vendors Found
+
+Below are examples of active vendors identified in your environment (based on the screenshot):
+
+- **IBM**
+- **snapseccashier.com**
+- **payment.com**
+- **inspirejo.com**
+- **sas.com**
+- **workrunner.io**
+- **datasec.sa**
+- **selectglobal.com**
+- **majorel.com**
+- **mjteleperformance.com**
+- **snapsec.com**
+
+Each vendor shows employee counts ranging from **1 to 500 users**, providing critical insights into organizational reliance.
+
+---
+
+## Next Steps
+
+<Card title="Review Vendor Details" icon="arrow-right" href="/products/aim/vendors/details">
+  Explore individual vendor profiles, associated employees, risks, and metadata.
+</Card>
