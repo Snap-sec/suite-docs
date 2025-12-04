@@ -1,6 +1,116 @@
 ---
-title: "[compartments]"
-description: "Gain full visibility into your network assets by tracking live IPs, their exposure levels, associated risks, and ownership details."
-icon: "network-wired"
+title: "Compartment Inventory"
+description: "Organize and track cloud compartments by environment, department, and ownership."
+icon: "folder-tree"
 mode: "wide"
 ---
+
+## Overview
+
+The **Compartment Inventory** provides a structured view of all OCI (Oracle Cloud Infrastructure) compartments within your organization.  
+It helps teams clearly differentiate **production**, **staging**, **development**, and **platform-specific** environments — ensuring accurate access control, asset association, and lifecycle oversight.
+
+<Frame caption="Compartment Inventory Overview">
+  <img src="/images/aim/compartments.png" />
+</Frame>
+
+---
+
+## Compartment Structure & Status
+
+Each compartment entry includes:
+
+- **Compartment Name** – such as *Systems-Production*, *OCMDevelopment*, or *Platform-Staging*  
+- **Lifecycle Status** – Active / Deleted, based on the OCI sync  
+- **ARN Identifier** – full OCI resource ID for traceability  
+- **Associated Assets** – number of assets mapped inside the compartment
+
+<Info>
+Active compartments represent live cloud environments. Deleted compartments indicate resources removed from OCI but retained in AIM for audit history.
+</Info>
+
+---
+
+## Key Features
+
+### 🔹 Environment Mapping  
+Compartments are automatically grouped by their purpose — such as:
+
+- **Production**
+- **Staging**
+- **Development**
+- **Platform**
+- **Security**
+
+This gives security and infra teams a real-time understanding of their cloud architecture.
+
+---
+
+### 🔹 Lifecycle Visibility  
+Every compartment shows whether it is:
+
+- **ACTIVE** — currently available in OCI  
+- **DELETED** — removed but retained for visibility  
+
+Deleted compartments help ensure no orphaned assets or IAM policies remain unnoticed.
+
+---
+
+### 🔹 Asset Association Insights  
+Each entry displays how many assets are tied to the compartment:
+
+<Frame>
+  <img src="/images/aim/compartments-assets.png" />
+</Frame>
+
+This is useful for identifying compartments that:
+
+- Should be cleaned up  
+- Are incorrectly empty  
+- Contain high-value or sensitive workloads  
+
+---
+
+## Example Compartment Types
+
+Some environments identified in your screenshot include:
+
+- **Systems-Production**  
+- **Security-Production**  
+- **Platform-Production / Platform-Staging**  
+- **OCM-Development / OCM-Production**  
+- **Payment-Development**  
+- **sysops-staging-bgqH5qLo** (Deleted)  
+- **sysops-production-haQ92vWN** (Deleted)
+
+AIM aggregates all these into a single unified monitoring interface.
+
+---
+
+## Use Cases
+
+<Columns cols={2}>
+  <Card title="Cloud Governance" icon="shield-halved">
+    Track compartment proliferation and enforce naming and environment standards.
+  </Card>
+
+  <Card title="Access Control Audits" icon="user-lock">
+    Review which teams and systems rely on which compartments.
+  </Card>
+
+  <Card title="Cost & Resource Management" icon="coins">
+    Identify unused or deprecated compartments to reduce spend.
+  </Card>
+
+  <Card title="Security Oversight" icon="eye">
+    Detect compartments with no assets or those marked deleted but still holding policies.
+  </Card>
+</Columns>
+
+---
+
+## Next Steps
+
+<Card title="Explore Associated Assets" icon="arrow-right" href="/products/aim/compartments/assets">
+  View all cloud assets grouped by their compartment.
+</Card>
