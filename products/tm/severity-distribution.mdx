@@ -1,0 +1,154 @@
+---
+title: "Severity Distribution"
+description: "Visualize the severity breakdown of all threats across your project to understand overall risk posture and prioritization needs."
+icon: "chart-column"
+mode: "wide"
+---
+
+<Banner>
+The **Severity Distribution** view helps teams instantly understand the threat landscape by categorizing findings into Critical, High, Medium, and Low severity levels.  
+This gives a clear snapshot of overall project risk and highlights where attention is needed most.
+</Banner>
+
+<Frame caption="Threat Severity Distribution Overview">
+  <img src="/images/tm/severity-distribution.png" />
+</Frame>
+
+---
+
+## Overview
+
+Severity Distribution provides a **project-wide risk snapshot**, showing how threats are distributed across severity categories.
+
+This allows teams to quickly identify:
+
+- Whether Critical or High severity threats dominate  
+- Which services or endpoints carry the highest impact  
+- How severity changes over time as threats are added, triaged, or resolved  
+- Imbalances pointing to systemic design flaws or weak areas  
+
+It is the fastest way to measure the **risk concentration** inside any system.
+
+---
+
+## What Severity Distribution Shows
+
+<Columns cols={2}>
+
+<Card title="Threat Severity Breakdown" icon="skull-crossbones">
+  View counts of Critical, High, Medium, and Low severity threats across your project.
+</Card>
+
+<Card title="Endpoint & Service Hotspots" icon="sitemap">
+  Understand which APIs or services hold most of the high-severity threats.
+</Card>
+
+<Card title="Trend Insights" icon="chart-line">
+  Track severity changes over time as threats are generated or mitigated.
+</Card>
+
+<Card title="Prioritization Signals" icon="flag">
+  Identify areas that require immediate security engineering focus.
+</Card>
+
+</Columns>
+
+---
+
+## Why Severity Distribution Matters
+
+<Check>
+  Ensures teams prioritize high-impact threats first  
+</Check>
+
+<Check>
+  Helps engineering estimate workload and remediation timelines  
+</Check>
+
+<Check>
+  Surfaces systemic weaknesses in architecture  
+</Check>
+
+<Check>
+  Offers leadership a clear, data-driven view of project risk posture  
+</Check>
+
+Severity is one of the strongest indicators of where **security debt** is accumulating.
+
+---
+
+## How Snapsec Calculates Severity
+
+<Steps>
+  <Step title="Analyze Threat Metadata" icon="magnifying-glass">
+    Severity is determined based on exploitability, impact, environment, and system context.
+  </Step>
+
+  <Step title="Apply CWE & OWASP Mappings" icon="book">
+    Severity levels align with industry standards mapped to CWE and OWASP categories.
+  </Step>
+
+  <Step title="Account for Exposure" icon="shield-halved">
+    Threats affecting exposed or public-facing endpoints may be bumped to higher severity.
+  </Step>
+
+  <Step title="Continuous Recalculation" icon="arrows-rotate">
+    Severity updates as endpoints, conditions, or system behavior changes.
+  </Step>
+</Steps>
+
+---
+
+## What Problems This Solves
+
+<CardGroup cols={3}>
+
+<Card title="Unclear Priorities" icon="circle-exclamation">
+  Teams know exactly which threats require immediate triage.
+</Card>
+
+<Card title="Overloaded Engineering Teams" icon="gauge-high">
+  Helps distribute tasks based on severity-driven workload.
+</Card>
+
+<Card title="Invisible High-Risk Areas" icon="eye">
+  Highlights endpoints or flows with concentrated critical threats.
+</Card>
+
+</CardGroup>
+
+---
+
+## Use Cases
+
+<Columns cols={2}>
+
+<Card title="Sprint Planning" icon="calendar">
+  Use severity data to plan security engineering tasks and remediation cycles.
+</Card>
+
+<Card title="Leadership Reporting" icon="chart-pie">
+  Deliver executive summaries of threat severity trends and project posture.
+</Card>
+
+<Card title="Architecture Review" icon="diagram-project">
+  Identify weak system components that attract recurring high-severity issues.
+</Card>
+
+<Card title="Continuous Threat Monitoring" icon="clock">
+  Track how fast high-severity threats are being resolved or discovered.
+</Card>
+
+</Columns>
+
+---
+
+## Next Steps
+
+<Card
+  title="View Full Threat Insights"
+  icon="arrow-right"
+  href="/products/tm/threats"
+>
+  Explore all threats, filters, and severity-based prioritization workflows.
+</Card>
