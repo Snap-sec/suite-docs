@@ -1,6 +1,198 @@
 ---
-title: "Introduction"
-description: "Automated API Threat Modeling powered by AI — identify, simulate, and resolve potential security threats directly from your API workflows."
+title: "API Catalog"
+description: "Centralize all API endpoints, request metadata, threat associations, and behavioral insights across your organization."
+icon: "code"
 mode: "wide"
-icon: "shield-halved"
 ---
+
+<Banner>
+The **API Catalog** provides a unified registry of every API endpoint discovered across your applications and services.
+It enables complete visibility into routes, methods, linked threats, metadata, and real-time behavioral insights — powering accurate threat modelling and secure API development.
+</Banner>
+
+<Frame caption="API Catalog Overview">
+  <img src="/images/tm/api1.png" />
+</Frame>
+
+---
+
+## Overview
+
+The API Catalog aggregates all endpoints detected through:
+- Postman collections  
+- Swagger/OpenAPI specifications  
+- Threat-generation scans  
+- Application imports  
+- Live traffic datasets (where applicable)
+
+Each API entry contains:
+- **Route path**  
+- **HTTP method**  
+- **Host/service association**  
+- **Threat count & severity**  
+- **Generation state**  
+- **Metadata & parameters**  
+- **Linked project**  
+
+This catalog acts as the **source of truth** for API attack surface discovery and threat modelling.
+
+---
+
+## Key Metrics & Analytics
+
+<Columns cols={3}>
+
+<Card title="Total Endpoints" icon="list">
+  Shows the complete number of API endpoints discovered across all projects.
+</Card>
+
+<Card title="Endpoints With Threats" icon="skull-crossbones">
+  Highlights endpoints that have one or more threats associated with them.
+</Card>
+
+<Card title="High-Risk Routes" icon="triangle-exclamation">
+  Shows the number of endpoints linked to Critical or High-severity threat patterns.
+</Card>
+
+</Columns>
+
+---
+
+## Endpoint Distribution
+
+<Frame caption="API Endpoint Distribution">
+  <img src="/images/tm/api2.png" />
+</Frame>
+
+Visual breakdown of:
+- HTTP method usage  
+- Project grouping  
+- Endpoint complexity levels  
+- Threat density across routes  
+
+---
+
+## Search, Filters & Sorting
+
+The powerful API filtering system lets analysts narrow down endpoints by:
+
+| Filter | Description |
+|--------|-------------|
+| **Method** | GET, POST, PUT, DELETE, etc. |
+| **Threats** | Filter by severity or count |
+| **Owner** | Assigned engineering team |
+| **Path Contains** | Partial route matching |
+| **Generation State** | Generated, Pending, Failed |
+| **Tags** | Custom metadata |
+| **Project** | Associated application or service |
+
+Filters can be combined for deep investigation.
+
+---
+
+## API Table Columns
+
+| Column | Description |
+|--------|-------------|
+| **Route** | API path including dynamic parameters |
+| **Method** | HTTP verb for the endpoint |
+| **Host / Service** | Linked backend service |
+| **Threat Count** | Total threats mapped to this endpoint |
+| **State** | Generation status (Generated, Pending, Skipped) |
+| **Owner** | Assigned team or engineer |
+| **Tags** | API-specific metadata |
+| **Detected On** | First and last discovery timestamps |
+
+---
+
+## API Full View
+
+<Frame caption="API Endpoint Full View">
+  <img src="/images/tm/api3.png" />
+</Frame>
+
+Each endpoint includes:
+
+### API Summary
+- Method  
+- Route path  
+- Host/service  
+- Threat count & severity breakdown  
+- Environment  
+- Status (active, deprecated)  
+
+### Threat Insights
+- Threat severity distribution  
+- Linked threat details  
+- State progression  
+- References & audit log  
+
+### Parameters & Payloads
+- Query parameters  
+- Path parameters  
+- Body schemas  
+- Expected inputs  
+
+### Associations
+- Linked services  
+- Related endpoints  
+- Shared components  
+
+---
+
+## API Lifecycle Controls
+
+Each endpoint supports:
+
+- **Assign Owner** — map route to responsible service team  
+- **Regenerate Threats** — refresh threat modelling logic  
+- **Archive Endpoint** — mark route as deprecated  
+- **Delete Endpoint** — remove invalid or outdated entries  
+
+All actions synchronize across the Threat Modelling module.
+
+---
+
+## How API Endpoints Are Discovered
+
+Snapsec identifies API endpoints using:
+
+- **Postman Adapter** — imports and syncs Postman collections  
+- **Swagger / OpenAPI Adapter** — parses API definitions  
+- **Threat Generator** — discovers new routes through modelling  
+- **App Imports** — APIs linked from projects  
+- **Manual additions** — user-created endpoints  
+
+Endpoints are continuously updated as APIs evolve.
+
+---
+
+## Example Use Cases
+
+<Columns cols={2}>
+
+<Card title="Threat Modelling" icon="diagram-project">
+  Map threats to endpoints and visualize high-risk routes.
+</Card>
+
+<Card title="API Security Testing" icon="shield">
+  Use endpoint catalog to drive automated scans and fuzzing.
+</Card>
+
+<Card title="Service Ownership" icon="users">
+  Assign owners to routes and track accountability.
+</Card>
+
+<Card title="API Governance" icon="gavel">
+  Maintain a clean, structured, and up-to-date API inventory.
+</Card>
+
+</Columns>
+
+---
+
+## Next Steps
+
+<Card title="View API Details" icon="arrow-right" href="/products/tm/api/details">
+  Explore complete API metadata, threats, and relationships.
+</Card>
