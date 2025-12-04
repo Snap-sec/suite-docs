@@ -1,0 +1,188 @@
+---
+title: CodeQL
+description: Step-by-step guide to run CodeQL in CI and push results into Snapsec VM via webhook.
+mode: wide
+---
+
+## CodeQL CI/CD integration with Snapsec VM
+
+Use **CodeQL** in your CI pipeline to statically analyze your code for security issues and then push the findings into Snapsec VM using a simple webhook.
+
+This guide shows you, step by step, how to:
+
+1. Run CodeQL in your **CI pipeline** (GitHub Actions or GitLab CI example).  
+2. Generate a SARIF/JSON report with CodeQL results.  
+3. Send that report directly to **Snapsec VM** using a webhook.
+
+You do **not** need to be a CI/CD expert to follow this guide.
+
+> If you need pipeline examples for other CI systems (Jenkins, Azure Pipelines, CircleCI, TravisCI, AWS CodeBuild, DroneCI, etc.), you can refer to the sample configurations in the CodeQL team’s repository [`advanced-security/sample-codeql-pipeline-config`](https://github.com/advanced-security/sample-codeql-pipeline-config).
+
+### 1. Prerequisites
+
+- A repository with source code you want to analyze.  
+- CodeQL CLI / CodeQL bundle available in your CI environment (see GitHub’s CodeQL docs or the sample pipeline repo above).  
+- Snapsec:
+  - An **Assessment** in Snapsec VM where CodeQL findings will be stored.
+  - **Assessment ID** (`<assessment-id>`)
+  - **API key** (`<your-api-key>`)
+- CI environment with `curl` available.
+
+### 2. Create an assessment in Snapsec VM
+
+Before you send any results, create a dedicated assessment in Snapsec VM that will hold the CodeQL findings:
+
+1. Log in to the Snapsec UI.  
+2. Go to the **VM / Assessments** section.  
+3. Click **New Assessment** and give it a clear name, for example:  
+   - `CodeQL - Monolith`  
+4. Save the assessment and copy its **Assessment ID** value.  
+
+You will use this **Assessment ID** in the webhook URL in the next steps.
+
+### 3. Generate a CodeQL SARIF/JSON report (locally or in CI)
+
+The exact commands depend on your language and setup, but a typical flow with the CodeQL CLI looks like this:
+
+```bash
+# 1. Create a CodeQL database for your project
+codeql database create codeql-db \
+  --language=javascript \
+  --source-root=.
+
+# 2. Analyze the database with the standard security-and-quality queries
+codeql database analyze codeql-db \
+  codeql/javascript-security-and-quality.qls \
+  --format=sarifv2.1.0 \
+  --output=codeql.sarif
+```
+
+This will produce a `codeql.sarif` file (which is JSON-formatted SARIF) containing the CodeQL findings.
+
+You can try these commands locally first to confirm everything works before wiring them into CI.
+
+## 4. Push CodeQL SARIF/JSON directly to Snapsec VM via webhook
+
+Snapsec can parse SARIF/JSON output from CodeQL, so you can send the file directly to an import endpoint.
+
+```bash
+curl -X POST "https://suite.snapsec.co/csm/api/import/<assessment-id>/nuclei-scanning" \
+     -H "x-api-key: <your-api-key>" \
+     -H "Content-Type: application/json" \
+     -d @codeql.sarif \
+     -k
+```
+
+> **Important:** Replace `<assessment-id>` with your actual Assessment ID and `<your-api-key>` with your API key.  
+>  
+> **Note on the `-k` flag:** This flag tells `curl` to perform an "insecure" SSL transfer, which bypasses certificate validation. You may need this for local or development environments. Remove it if your endpoint has a valid SSL certificate.
+
+Below are ready-to-use examples for **GitHub Actions** and **GitLab CI**.
+
+## 5. GitHub Actions example (CodeQL CLI)
+
+The example below uses the CodeQL CLI bundle in a GitHub Actions workflow to generate `codeql.sarif` and then push it to Snapsec.
+
+```yaml
+name: CodeQL to Snapsec
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  codeql-snapsec:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Download CodeQL bundle
+        run: |
+          curl -sSL -o codeql-bundle.tar.gz https://github.com/github/codeql-action/releases/latest/download/codeql-bundle-linux64.tar.gz
+          mkdir codeql
+          tar -xzf codeql-bundle.tar.gz -C codeql --strip-components=1
+          echo "$PWD/codeql" >> "$GITHUB_PATH"
+
+      - name: Create CodeQL database
+        run: |
+          codeql database create codeql-db \
+            --language=javascript \
+            --source-root=.
+
+      - name: Analyze with CodeQL
+        run: |
+          codeql database analyze codeql-db \
+            codeql/javascript-security-and-quality.qls \
+            --format=sarifv2.1.0 \
+            --output=codeql.sarif
+
+      - name: Push CodeQL results to Snapsec
+        env:
+          SNAPSEC_ASSESSMENT_ID: ${{ secrets.SNAPSEC_ASSESSMENT_ID }}
+          SNAPSEC_API_KEY: ${{ secrets.SNAPSEC_API_KEY }}
+        run: |
+          curl -X POST "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning" \
+               -H "x-api-key: ${SNAPSEC_API_KEY}" \
+               -H "Content-Type: application/json" \
+               -d @codeql.sarif \
+               -k
+```
+
+**How to use this:**
+
+1. Create `.github/workflows/codeql-to-snapsec.yml` in your repository.  
+2. Copy the YAML above into that file.  
+3. In your GitHub repository settings, create secrets:
+   - `SNAPSEC_ASSESSMENT_ID`
+   - `SNAPSEC_API_KEY`
+4. Adjust the CodeQL language and query suite for your stack (for example, use `--language=python` and the Python query suite).  
+5. Push your changes. GitHub Actions will run the workflow on each push or pull request.
+
+> For more advanced CodeQL configurations or other CI systems, see the templates in  
+> [`advanced-security/sample-codeql-pipeline-config`](https://github.com/advanced-security/sample-codeql-pipeline-config).
+
+## 6. GitLab CI example (CodeQL CLI)
+
+If you use GitLab, you can run the CodeQL CLI in a GitLab CI job and then post the SARIF file to Snapsec:
+
+```yaml
+codeql_to_snapsec:
+  image: ghcr.io/github/codeql/codeql-cli:v2.19.4
+  stage: test
+  script:
+    - codeql database create codeql-db --language=javascript --source-root=.
+    - codeql database analyze codeql-db codeql/javascript-security-and-quality.qls --format=sarifv2.1.0 --output=codeql.sarif
+    - >
+      curl -X POST
+      "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning"
+      -H "x-api-key: ${SNAPSEC_API_KEY}"
+      -H "Content-Type: application/json"
+      -d @codeql.sarif
+      -k
+  variables:
+    SNAPSEC_ASSESSMENT_ID: "$SNAPSEC_ASSESSMENT_ID"
+    SNAPSEC_API_KEY: "$SNAPSEC_API_KEY"
+  only:
+    - merge_requests
+    - main
+```
+
+**How to use this:**
+
+1. Create or edit `.gitlab-ci.yml` in the root of your repository.  
+2. Add the `codeql_to_snapsec` job shown above.  
+3. In your GitLab project, go to **Settings → CI/CD → Variables** and add:
+   - `SNAPSEC_ASSESSMENT_ID`
+   - `SNAPSEC_API_KEY`
+4. Adjust the CodeQL language and query suite to match your project.  
+5. Commit and push your changes. GitLab will run the job on merge requests and on the `main` branch.
+
+With these examples, even if you are new to CI/CD, you can:
+
+1. Run CodeQL automatically in your pipeline.  
+2. Upload the `codeql.sarif` report directly to Snapsec VM using the provided webhook.  
+
+

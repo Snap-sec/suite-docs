@@ -1,0 +1,99 @@
+---
+title: Google Sheet Import
+description: Import vulnerabilities from a shared Google Sheet into a Snapsec VM assessment using a markdown-based report template.
+mode: wide
+---
+
+## Google Sheet integration with Snapsec VM
+
+Use the **Google Sheet Import** integration to pull vulnerabilities from a Google Sheet into a Snapsec VM assessment.  
+You share a sheet, choose the target assessment, and define how each row should be turned into a readable report using a simple markdown template.
+
+### 1. Prerequisites
+
+- A **Google Sheet** that contains your vulnerability data in tabular form (one row per vulnerability).  
+- Access to share the sheet with the Snapsec Google service account (your admin will provide the address if required).  
+- In Snapsec VM:
+  - An **Assessment** where the imported vulnerabilities will be stored.
+
+### 2. Prepare your Google Sheet
+
+1. Create or open a Google Sheet.  
+2. Use the **first row** for column headers, for example:
+   - `title`
+   - `impact`
+   - `severity`
+   - `asset`
+   - `steps_to_reproduce`  
+3. Add one vulnerability per row, filling in each column with the relevant details.
+
+> The column names in the header row will be used as placeholders in your markdown report template.
+
+### 3. Share the Google Sheet
+
+1. In Google Sheets, click **Share**.  
+2. Share the sheet with the Snapsec service account email (or follow the instructions from your Snapsec administrator).  
+3. Make sure it has at least **Viewer** access so Snapsec can read the data.
+
+Copy the **shareable link** to use in the integration.
+
+### 4. Configure Google Sheet Import in Snapsec VM
+
+1. In Snapsec, go to **VM → Integrations**.  
+2. Click the **Google Sheet Import** / **CSV Import** tile.  
+3. In the **Google Sheet Import** dialog, fill in:
+   - **Adapter Instance Name**: A friendly name for this integration (for example, `Google Sheet - Bug Bounty`).  
+   - **Enter Google Sheet URL...**: Paste the shareable link to your Google Sheet.  
+   - **Select assessment**: Choose the Snapsec **Assessment** where vulnerabilities from this sheet should be created.
+
+### 5. Write the markdown report template
+
+In the large text area, you define how each row in the sheet should be turned into a vulnerability report using **markdown**.  
+You can reference any column from the sheet using `{columnName}` placeholders.
+
+For example:
+
+```md
+## {title}
+
+### Summary
+{impact}
+
+### Severity
+{severity}
+
+### Affected Asset
+{asset}
+
+### Steps to Reproduce
+{steps_to_reproduce}
+```
+
+- `{title}`, `{impact}`, `{severity}`, `{asset}`, and `{steps_to_reproduce}` will be replaced by values from each row.  
+- One vulnerability will be created in Snapsec VM **per row** in the sheet, with the report body generated from this template.
+
+When you are done, click **Install**.
+
+### 6. How the import works
+
+After installation:
+
+- Snapsec reads the shared Google Sheet.  
+- For each row:
+  - It substitutes the `{columnName}` placeholders in your markdown template with the actual cell values.
+  - It creates a vulnerability in the **selected assessment** using the rendered markdown as the report body.  
+- Any future syncs (if enabled by your admin) will continue to pull new or updated rows into the same assessment.
+
+### 7. Tips and troubleshooting
+
+- **Placeholders not working**:
+  - Ensure the placeholder matches the **exact header text** in the sheet (for example, `{title}` for a column named `title`).  
+- **No vulnerabilities created**:
+  - Confirm the sheet is shared correctly and the URL is valid.  
+  - Make sure there is at least one data row under the header.  
+- **Wrong assessment**:
+  - Edit the integration and select the correct assessment before running the next import.
+
+If you need more control over how columns map to Snapsec fields, contact your Snapsec administrator to discuss advanced adapter configuration.
+
+

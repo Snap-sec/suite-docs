@@ -1,0 +1,162 @@
+---
+title: TruffleHog
+description: Step-by-step guide to run TruffleHog in GitHub or GitLab CI and push findings into Snapsec VM via webhook.
+mode: wide
+---
+
+## TruffleHog CI/CD integration with Snapsec VM
+
+Use **TruffleHog** in your CI pipeline to scan your repositories for secrets (API keys, tokens, passwords, etc.) and then push the findings into Snapsec VM using a simple webhook.
+
+This guide shows you, step by step, how to:
+
+1. Run `trufflehog` in your **GitHub Actions** or **GitLab CI** pipeline.  
+2. Generate a JSON report.  
+3. Send that JSON report directly to **Snapsec VM** using a webhook.
+
+You do **not** need to be a CI/CD expert to follow this guide.
+
+### 1. Prerequisites
+
+- A Git repository you want to scan for secrets.  
+- TruffleHog installed in your CI environment (we’ll show how below).  
+- Snapsec:
+  - An **Assessment** in Snapsec VM where TruffleHog findings will be stored.
+  - **Assessment ID** (`<assessment-id>`)
+  - **API key** (`<your-api-key>`)
+- CI environment with `curl` available.
+
+### 2. Create an assessment in Snapsec VM
+
+Before you send any results, create a dedicated assessment in Snapsec VM that will hold the TruffleHog findings:
+
+1. Log in to the Snapsec UI.  
+2. Go to the **VM / Assessments** section.  
+3. Click **New Assessment** and give it a clear name, for example:  
+   - `TruffleHog - Secrets Scan`  
+4. Save the assessment and copy its **Assessment ID** value.  
+
+You will use this **Assessment ID** in the webhook URL in the next steps.
+
+### 3. Generate TruffleHog JSON report (locally or in CI)
+
+To scan the current repository and output JSON:
+
+```bash
+trufflehog git file://. --json > trufflehog.json
+```
+
+This command:
+
+- Scans the local Git repository in the current directory.  
+- Writes findings as JSON lines to `trufflehog.json`.  
+
+You can try this locally first to confirm it works before adding it to your CI.
+
+## 4. Push TruffleHog JSON directly to Snapsec VM via webhook
+
+Snapsec already knows how to parse TruffleHog JSON output, so you can send the file directly to an import endpoint.
+
+```bash
+curl -X POST "https://suite.snapsec.co/csm/api/import/<assessment-id>/nuclei-scanning" \
+     -H "x-api-key: <your-api-key>" \
+     -H "Content-Type: application/json" \
+     -d @trufflehog.json \
+     -k
+```
+
+> **Important:** Replace `<assessment-id>` with your actual Assessment ID and `<your-api-key>` with your API key.  
+>  
+> **Note on the `-k` flag:** This flag tells `curl` to perform an "insecure" SSL transfer, which bypasses certificate validation. You may need this for local or development environments. Remove it if your endpoint has a valid SSL certificate.
+
+Below are ready-to-use examples for **GitHub Actions** and **GitLab CI**.
+
+## 5. GitHub Actions example
+
+```yaml
+name: TruffleHog to Snapsec
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  trufflehog-snapsec:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install TruffleHog
+        run: pip install trufflehog
+
+      - name: Run TruffleHog
+        run: trufflehog git file://. --json > trufflehog.json
+
+      - name: Push to Snapsec
+        env:
+          SNAPSEC_ASSESSMENT_ID: ${{ secrets.SNAPSEC_ASSESSMENT_ID }}
+          SNAPSEC_API_KEY: ${{ secrets.SNAPSEC_API_KEY }}
+        run: |
+          curl -X POST "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning" \
+               -H "x-api-key: ${SNAPSEC_API_KEY}" \
+               -H "Content-Type: application/json" \
+               -d @trufflehog.json \
+               -k
+```
+
+**How to use this:**
+
+1. Create `.github/workflows/trufflehog-to-snapsec.yml` in your repository.  
+2. Copy the YAML above into that file.  
+3. In your GitHub repository settings, create secrets:
+   - `SNAPSEC_ASSESSMENT_ID`
+   - `SNAPSEC_API_KEY`
+4. Adjust any TruffleHog options (rules, allowlists, etc.) as needed.  
+5. Push your changes. GitHub Actions will run the workflow on each push or pull request.
+
+## 6. GitLab CI example
+
+If you use GitLab, add a job like this to your `.gitlab-ci.yml`:
+
+```yaml
+trufflehog_to_snapsec:
+  image: python:3.12
+  stage: test
+  script:
+    - pip install trufflehog
+    - trufflehog git file://. --json > trufflehog.json
+    - >
+      curl -X POST
+      "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning"
+      -H "x-api-key: ${SNAPSEC_API_KEY}"
+      -H "Content-Type: application/json"
+      -d @trufflehog.json
+      -k
+  variables:
+    SNAPSEC_ASSESSMENT_ID: "$SNAPSEC_ASSESSMENT_ID"
+    SNAPSEC_API_KEY: "$SNAPSEC_API_KEY"
+  only:
+    - merge_requests
+    - main
+```
+
+**How to use this:**
+
+1. Create or edit `.gitlab-ci.yml` in the root of your repository.  
+2. Add the `trufflehog_to_snapsec` job shown above.  
+3. In your GitLab project, go to **Settings → CI/CD → Variables** and add:
+   - `SNAPSEC_ASSESSMENT_ID`
+   - `SNAPSEC_API_KEY`
+4. Commit and push your changes. GitLab will run the job on merge requests and on the `main` branch.
+
+With these examples, even if you are new to CI/CD, you can:
+
+1. Run TruffleHog automatically in your pipeline.  
+2. Upload the `trufflehog.json` report directly to Snapsec VM using the provided webhook.
+
+

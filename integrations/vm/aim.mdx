@@ -1,0 +1,78 @@
+---
+title: AIM
+description: Connect Snapsec AIM asset inventory with Snapsec VM to sync assets and link vulnerabilities automatically.
+mode: wide
+---
+
+## AIM asset inventory integration with Snapsec VM
+
+Use the **AIM** (Asset Inventory Management) integration to sync your asset catalog into Snapsec VM.  
+Once connected, all assets from AIM will appear in the VM asset catalog, and vulnerability data will automatically be linked to the right assets.
+
+### 1. What this integration does
+
+- **Fetches assets from AIM** into Snapsec VM.  
+- Populates the **full asset catalog** in **`/vm/assets`**.  
+- Ensures that **vulnerabilities discovered in Snapsec VM are automatically associated** with the correct assets from AIM (based on identifiers such as hostname, IP, or other internal mappings).  
+
+This gives you a single, unified view of assets and their vulnerabilities inside Snapsec VM.
+
+### 2. Prerequisites
+
+- Access to **Snapsec AIM** with a valid **API key**.  
+- Permissions in AIM to read asset information.  
+- Permissions in Snapsec VM to manage integrations.
+
+If you do not have an AIM API key yet, contact your Snapsec administrator to generate one.
+
+### 3. Open the AIM integration in Snapsec VM
+
+1. In Snapsec, go to **VM → Integrations**.  
+2. Find the **AIM** tile (Asset Inventory Management Software).  
+3. Click **Install** (or **Configure** if you are editing an existing connection).  
+4. A dialog like **Integrate AIM** will open with the fields:
+   - **Description**
+   - **API Key**
+
+### 4. Fill in AIM connection details
+
+In the **Integrate AIM** dialog:
+
+- **Description**: Add a short, meaningful description for this connection, for example:  
+  - `AIM - Production Assets`  
+  - `AIM - Corporate Endpoints`  
+- **API Key**: Paste the **API key** you generated in AIM for Snapsec VM to use.
+
+Click **Install Now** to save and validate the connection.
+
+If the details are correct, the integration status will show as **Connected**.
+
+### 5. What happens after integration
+
+Once the AIM integration is active:
+
+- Snapsec VM **pulls assets from AIM** and populates the asset catalog at **`/vm/assets`**.  
+- New or updated assets in AIM will appear in Snapsec VM according to your workspace sync configuration.  
+- When vulnerabilities are imported into Snapsec VM (for example, from scanners like Nuclei, Trivy, Qualys, etc.), they will be **automatically associated with the correct assets** from AIM whenever a matching identifier is found.
+
+This allows you to:
+
+- See **all assets** in one place.  
+- Filter and prioritize vulnerabilities by **asset** (e.g. critical servers, production services).  
+- Drive remediation workflows using accurate, up‑to‑date inventory data.
+
+### 6. Troubleshooting
+
+- **Authentication errors**:
+  - Double‑check that the API key is correct and has not expired or been revoked.  
+  - Ensure the key has permission to read assets in AIM.  
+- **No assets appearing in `/vm/assets`**:
+  - Confirm the integration status is **Connected**.  
+  - Verify there are assets present in AIM and that your account can see them.  
+- **Vulnerabilities not linked to assets**:
+  - Check that the identifiers used by scanners (hostnames, IPs, IDs) match those stored in AIM.  
+  - Contact your Snapsec administrator if custom mapping rules are needed.
+
+If issues persist, share the integration configuration and any error messages with your Snapsec support contact for further assistance.
+
+

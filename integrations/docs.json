@@ -1,0 +1,199 @@
+{
+  "$schema": "https://mintlify.com/docs.json",
+  "theme": "aspen",
+  "name": "Snapsec Suite",
+  "head": [
+    {
+      "tag": "script",
+      "attributes": {
+        "defer": true,
+        "src": "https://cloud.umami.is/script.js",
+        "data-website-id": "25788169-ab6d-43d6-b365-7b6e97a13a6b"
+      }
+    }
+  ],
+  "colors": {
+    "primary": "#3341FF",
+    "light": "#3341FF",
+    "dark": "#4D58FF"
+  },
+  "favicon": "/favicon.svg",
+  "navigation": {
+    "tabs": [
+      {
+        "tab": "Documentation",
+        "groups": [
+          {
+            "group": "Getting started",
+            "pages": [
+              "index",
+              "deployments"
+            ]
+          },
+          {
+            "group": "Vulnerability Management",
+            "pages": [
+              "products/vm/dashboard",
+              "products/vm/assessments",
+              "products/vm/assessment-groups",
+              "products/vm/assets",
+              "products/vm/vulnerabilities",
+              "products/vm/vulnerability-groups",
+              "products/vm/blockers",
+              "products/vm/change-management",
+              "products/vm/integrations",
+              "products/vm/reports",
+              "products/vm/search",
+              "products/vm/sla-analytics",
+              "products/vm/ownership"            
+            ]
+          },{
+            "group": "Attack Surface Management",
+            "pages": [
+              "products/asm/dashboard",
+              "products/asm/scans",
+              "products/asm/rules",
+              "products/asm/asset-catalog",
+              "products/asm/exposures",
+              "products/asm/integrations",
+              "products/asm/reports"
+            ]
+          },{
+            "group": "Asset Inventory Management",
+            "pages": [
+              "products/aim/dashboard",
+              "products/aim/global-catalog",
+              "products/aim/subdomains",
+              "products/aim/apis",
+              "products/aim/ips",
+              "products/aim/dns",
+              "products/aim/repo",
+              "products/aim/certs",
+              "products/aim/employees",
+              "products/aim/apps",
+              "products/aim/technologies",
+              "products/aim/compartments",
+              "products/aim/workstations",
+              "products/aim/registries",
+              "products/aim/objects",
+              "products/aim/vendors",
+              "products/aim/adapters",
+              "products/aim/classifier",
+              "products/aim/tags",
+              "products/aim/groups",
+              "products/aim/exports",
+              "products/aim/decommisioning",
+              "products/aim/public-search"
+            ]
+          },{
+            "group": "Vulnerability Scanner",
+            "pages": [
+                "products/vs/dashboard",
+                "products/vs/scan-management",
+                "products/vs/asset-catalogue",
+                "prpducts/vs/group-management",
+                "products/vs/scanner-configuration",
+                "products/vs/vulnerability-catalogue",
+                "products/vs/integrations"
+              ]
+            },{
+            "group": "Threat Modelling",
+            "pages": [
+              "products/tm/introduction",
+              "products/tm/projects",
+              "products/tm/api-catalog",
+              "products/tm/threats",
+              "products/tm/threat-mitigation",
+              "products/tm/integrations",
+              "products/tm/severity-distribution"
+            ]
+          }
+
+
+        ]
+      },
+      {
+        "tab": "Features",
+        "groups": [
+          {
+            "group": "Navigation",
+            "pages": [
+              "features/introduction"
+            ]
+          }
+        ]
+      },
+      {
+        "tab": "Use-cases",
+        "groups": [
+          {
+            "group": "Navigation",
+            "pages": [
+              "usecases/introduction"
+            ]
+          }
+        ]
+      }
+    ],
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Website",
+          "href": "https://snapsec.co",
+          "icon": "book-open-cover"
+        },
+        {
+          "anchor": "Blog",
+          "href": "https://blog.snapsec.co",
+          "icon": "square-rss"
+        },
+        {
+          "anchor": "Features",
+          "href": "https://docs.snapsec.co/features/introduction",
+          "icon": "wand-magic-sparkles"
+        },
+        {
+          "anchor": "Live Demo",
+          "href": "https://suite.snapsec.co/demo",
+          "icon": "laptop"
+        }
+      ]
+    }
+  },
+  "logo": {
+    "light": "/logo/light.svg",
+    "dark": "/logo/dark.svg"
+  },
+  "navbar": {
+    "links": [
+      {
+        "label": "Support",
+        "href": "mailto:support@snapsec.co"
+      }
+    ],
+    "primary": {
+      "type": "button",
+      "label": "Live Demo",
+      "href": "https://suite.snapsec.co/demo"
+    }
+  },
+  "contextual": {
+    "options": [
+     "copy",
+     "view",
+     "chatgpt",
+     "claude",
+     "perplexity",
+     "mcp",
+     "cursor",
+     "vscode"
+   ]
+  },
+  "footer": {
+    "socials": {
+      "x": "https://x.com/snap_sec",
+      "github": "https://github.com/snap-sec",
+      "linkedin": "https://linkedin.com/company/snapsec"
+    }
+  }
+}

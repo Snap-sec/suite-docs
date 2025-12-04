@@ -1,0 +1,160 @@
+---
+title: Trivy
+description: Step-by-step guide to run Trivy in GitHub or GitLab CI and push vulnerabilities into Snapsec VM via webhook.
+mode: wide
+---
+
+## Trivy CI/CD integration with Snapsec VM
+
+This guide shows you, step by step, how to:
+
+1. Run `trivy` in your **GitHub Actions** or **GitLab CI** pipeline.
+2. Generate a JSON report.
+3. Send that JSON report directly to **Snapsec VM** using a webhook.
+
+You do **not** need to be a CI/CD expert to follow this guide.
+
+### 1. Prerequisites
+
+- A container image, filesystem, or repository you want to scan with Trivy.  
+- Trivy installed in your CI environment (we’ll show how below).  
+- Snapsec:
+  - An **Assessment** in Snapsec VM where Trivy vulnerabilities will be stored.
+  - **Assessment ID** (`<assessment-id>`)
+  - **API key** (`<your-api-key>`)
+- CI environment with `curl` available.
+
+### 2. Create an assessment in Snapsec VM
+
+Before you send any results, create a dedicated assessment in Snapsec VM that will hold the Trivy findings:
+
+1. Log in to the Snapsec UI.  
+2. Go to the **VM / Assessments** section.  
+3. Click **New Assessment** and give it a clear name, for example:  
+   - `Trivy - MyService`  
+4. Save the assessment and copy its **Assessment ID** value.  
+
+You will use this **Assessment ID** in the webhook URL in the next steps.
+
+### 3. Generate Trivy JSON report (locally or in CI)
+
+To scan a container image (example: `my-registry/my-image:latest`) and save the results as JSON:
+
+```bash
+trivy image --format json --output trivy.json my-registry/my-image:latest
+```
+
+To scan the current directory (filesystem / source code):
+
+```bash
+trivy fs --format json --output trivy.json .
+```
+
+These commands write a machine-readable report to `trivy.json`.
+
+You can try this locally first to confirm it works before adding it to your CI.
+
+## 4. Push Trivy JSON directly to Snapsec VM via webhook
+
+Snapsec already knows how to parse Trivy JSON output, so you can send the file directly to an import endpoint.
+
+```bash
+curl -X POST "https://suite.snapsec.co/csm/api/import/<assessment-id>/nuclei-scanning" \
+     -H "x-api-key: <your-api-key>" \
+     -H "Content-Type: application/json" \
+     -d @trivy.json \
+     -k
+```
+
+> **Important:** Replace `<assessment-id>` with your actual Assessment ID and `<your-api-key>` with your API key.  
+>  
+> **Note on the `-k` flag:** This flag tells `curl` to perform an "insecure" SSL transfer, which bypasses certificate validation. You may need this for local or development environments. Remove it if your endpoint has a valid SSL certificate.
+
+Below are ready-to-use examples for **GitHub Actions** and **GitLab CI**.
+
+## 5. GitHub Actions example
+
+```yaml
+name: Trivy to Snapsec
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  trivy-snapsec:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Trivy and scan filesystem
+        uses: aquasecurity/trivy-action@v0.24.0
+        with:
+          scan-type: "fs"
+          format: "json"
+          output: "trivy.json"
+
+      - name: Push to Snapsec
+        env:
+          SNAPSEC_ASSESSMENT_ID: ${{ secrets.SNAPSEC_ASSESSMENT_ID }}
+          SNAPSEC_API_KEY: ${{ secrets.SNAPSEC_API_KEY }}
+        run: |
+          curl -X POST "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning" \
+               -H "x-api-key: ${SNAPSEC_API_KEY}" \
+               -H "Content-Type: application/json" \
+               -d @trivy.json \
+               -k
+```
+
+**How to use this:**
+
+1. Create `.github/workflows/trivy-to-snapsec.yml` in your repository.
+2. Copy the YAML above into that file.
+3. In your GitHub repository settings, create secrets:
+   - `SNAPSEC_ASSESSMENT_ID`
+   - `SNAPSEC_API_KEY`
+4. Adjust the Trivy configuration (scan type, target, etc.) as needed.  
+5. Push your changes. GitHub Actions will run the workflow on each push or pull request.
+
+## 6. GitLab CI example
+
+If you use GitLab, add a job like this to your `.gitlab-ci.yml`:
+
+```yaml
+trivy_to_snapsec:
+  image: aquasec/trivy:latest
+  stage: test
+  script:
+    - trivy fs --format json --output trivy.json .
+    - >
+      curl -X POST
+      "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning"
+      -H "x-api-key: ${SNAPSEC_API_KEY}"
+      -H "Content-Type: application/json"
+      -d @trivy.json
+      -k
+  variables:
+    SNAPSEC_ASSESSMENT_ID: "$SNAPSEC_ASSESSMENT_ID"
+    SNAPSEC_API_KEY: "$SNAPSEC_API_KEY"
+  only:
+    - merge_requests
+    - main
+```
+
+**How to use this:**
+
+1. Create or edit `.gitlab-ci.yml` in the root of your repository.
+2. Add the `trivy_to_snapsec` job shown above.
+3. In your GitLab project, go to **Settings → CI/CD → Variables** and add:
+   - `SNAPSEC_ASSESSMENT_ID`
+   - `SNAPSEC_API_KEY`
+4. Commit and push your changes. GitLab will run the job on merge requests and on the `main` branch.
+
+With these examples, even if you are new to CI/CD, you can:
+
+1. Run Trivy automatically in your pipeline.  
+2. Upload the `trivy.json` report directly to Snapsec VM using the provided webhook.
+

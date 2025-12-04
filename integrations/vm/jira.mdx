@@ -1,0 +1,86 @@
+---
+title: Jira
+description: Connect Jira as a ticketing integration for Snapsec VM.
+mode: wide
+---
+
+## Jira ticketing integration with Snapsec VM
+
+Use the Jira integration to automatically create and sync tickets from Snapsec VM findings into your existing Jira projects.
+
+### 1. Prerequisites
+
+- An active **Jira Cloud** account.  
+- A Jira user with permission to:
+  - Browse the target project.
+  - Create and edit issues.
+- Your:
+  - **Email** (Jira account email).
+  - **Domain** (e.g. `your-company.atlassian.net`).
+  - **API token** for Jira (created from your Atlassian account).
+
+#### Create a Jira API token
+
+1. Log in to Atlassian at `https://id.atlassian.com/`.  
+2. Go to **Security → API tokens**.  
+3. Click **Create API token**, give it a descriptive label (for example, `Snapsec VM`), and click **Create**.  
+4. Copy the generated token and keep it somewhere safe (you will paste it into Snapsec).  
+
+> The API token acts like a password for integrations. Keep it secret and rotate it periodically.
+
+### 2. Open the Jira integration in Snapsec VM
+
+1. In Snapsec, go to **VM → Integrations**.  
+2. Find the **Jira** tile and click **Install** (or **Configure** if you are editing an existing connection).  
+3. A dialog like **Integrate Jira** will open with the fields:
+   - **Email**
+   - **Domain**
+   - **API Token**
+
+### 3. Fill in Jira connection details
+
+In the **Integrate Jira** dialog:
+
+- **Email**: Enter your Jira account email (the same one used to create the API token).  
+- **Domain**: Enter your Jira site domain, for example:  
+  - `your-company.atlassian.net`  
+  (Do **not** include `https://` or trailing slashes.)  
+- **API Token**: Paste the API token you generated in Atlassian.  
+
+Click **Install Now** (or **Save**) to validate the credentials and connect Jira with Snapsec VM.
+
+If the details are correct, the integration status will show as **Connected**.
+
+### 4. How tickets are created from Snapsec VM
+
+Once Jira is connected, you can create tickets directly from Snapsec VM findings:
+
+1. Open a finding in Snapsec VM.  
+2. Choose **Create Jira ticket** (or the equivalent action such as **Create Issue**).  
+3. Select:
+   - The **Jira project** where you want the issue to be created.  
+   - The **issue type** (for example, `Bug` or `Task`).  
+4. Review and adjust the title and description if needed, then confirm.
+
+Snapsec VM will create a Jira issue containing key details about the vulnerability (severity, description, affected asset, and remediation notes) and store the Jira issue key/link on the finding.
+
+### 5. Keeping Jira tickets and findings in sync
+
+- When a Jira ticket created from Snapsec VM is updated (for example, status changed to **Done**), Snapsec can reflect this in the associated finding, depending on your synchronization settings.  
+- When a finding is marked as **Resolved** in Snapsec, you can optionally transition or comment on the linked Jira ticket to keep engineering teams up to date.
+
+> Exact sync behavior (status mappings, comments, etc.) may depend on your workspace configuration. Contact your Snapsec administrator if you need custom mappings.
+
+### 6. Troubleshooting
+
+- **Authentication errors**:
+  - Double‑check the email, domain, and API token.
+  - Ensure the token has not been revoked in Atlassian.  
+- **Cannot see projects or create issues**:
+  - Confirm the Jira user associated with the token has permission to browse and create issues in the target project.  
+- **Network / SSL issues**:
+  - Ensure your network allows outbound HTTPS connections to your Jira domain.  
+
+If problems persist, share the error message and request ID (if shown) with your Snapsec support contact for further help.
+
+

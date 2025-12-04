@@ -1,0 +1,156 @@
+---
+title: Bandit
+description: Step-by-step guide to run Bandit in GitHub or GitLab CI and push findings into Snapsec VM via webhook.
+mode: wide
+---
+
+## Bandit CI/CD integration with Snapsec VM
+
+This guide shows you, step by step, how to:
+
+1. Run `bandit` in your **GitHub Actions** or **GitLab CI** pipeline.
+2. Generate a JSON report.
+3. Send that JSON report directly to **Snapsec VM** using a webhook.
+
+You do **not** need to be a CI/CD expert to follow this guide.
+
+### 1. Prerequisites
+
+- A Python project you want to scan with Bandit.  
+- Bandit installed in your CI environment (we’ll show how below).  
+- Snapsec:
+  - An **Assessment** in Snapsec VM where Bandit findings will be stored.
+  - **Assessment ID** (`<assessment-id>`)
+  - **API key** (`<your-api-key>`)
+- CI environment with `curl` available.
+
+### 2. Create an assessment in Snapsec VM
+
+Before you send any results, create a dedicated assessment in Snapsec VM that will hold the Bandit findings:
+
+1. Log in to the Snapsec UI.  
+2. Go to the **VM / Assessments** section.  
+3. Click **New Assessment** and give it a clear name, for example:  
+   - `Bandit - MyService`  
+4. Save the assessment and copy its **Assessment ID** value.  
+
+You will use this **Assessment ID** in the webhook URL in the next steps.
+
+### 3. Generate Bandit JSON report (locally or in CI)
+
+To run Bandit recursively on your codebase and output JSON:
+
+```bash
+bandit -r . -f json -o bandit.json
+```
+
+You can try this locally first to confirm it works before adding it to your CI.
+
+## 4. Push Bandit JSON directly to Snapsec VM via webhook
+
+Snapsec already knows how to parse Bandit JSON output, so you can send the file directly to an import endpoint.
+
+```bash
+curl -X POST "https://suite.snapsec.co/csm/api/import/<assessment-id>/nuclei-scanning" \
+     -H "x-api-key: <your-api-key>" \
+     -H "Content-Type: application/json" \
+     -d @bandit.json \
+     -k
+```
+
+> **Important:** Replace `<assessment-id>` with your actual Assessment ID and `<your-api-key>` with your API key.  
+>  
+> **Note on the `-k` flag:** This flag tells `curl` to perform an "insecure" SSL transfer, which bypasses certificate validation. You may need this for local or development environments. Remove it if your endpoint has a valid SSL certificate.
+
+Below are ready-to-use examples for **GitHub Actions** and **GitLab CI**.
+
+## 5. GitHub Actions example
+
+```yaml
+name: Bandit to Snapsec
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  bandit-snapsec:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.x"
+
+      - name: Install Bandit
+        run: pip install bandit
+
+      - name: Run Bandit
+        run: bandit -r . -f json -o bandit.json
+
+      - name: Push to Snapsec
+        env:
+          SNAPSEC_ASSESSMENT_ID: ${{ secrets.SNAPSEC_ASSESSMENT_ID }}
+          SNAPSEC_API_KEY: ${{ secrets.SNAPSEC_API_KEY }}
+        run: |
+          curl -X POST "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning" \
+               -H "x-api-key: ${SNAPSEC_API_KEY}" \
+               -H "Content-Type: application/json" \
+               -d @bandit.json \
+               -k
+```
+
+**How to use this:**
+
+1. Create `.github/workflows/bandit-to-snapsec.yml` in your repository.
+2. Copy the YAML above into that file.
+3. In your GitHub repository settings, create secrets:
+   - `SNAPSEC_ASSESSMENT_ID`
+   - `SNAPSEC_API_KEY`
+4. Adjust any Bandit options (paths, skips, etc.) as needed.  
+5. Push your changes. GitHub Actions will run the workflow on each push or pull request.
+
+## 6. GitLab CI example
+
+If you use GitLab, add a job like this to your `.gitlab-ci.yml`:
+
+```yaml
+bandit_to_snapsec:
+  image: python:3.12
+  stage: test
+  script:
+    - pip install bandit
+    - bandit -r . -f json -o bandit.json
+    - >
+      curl -X POST
+      "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning"
+      -H "x-api-key: ${SNAPSEC_API_KEY}"
+      -H "Content-Type: application/json"
+      -d @bandit.json
+      -k
+  variables:
+    SNAPSEC_ASSESSMENT_ID: "$SNAPSEC_ASSESSMENT_ID"
+    SNAPSEC_API_KEY: "$SNAPSEC_API_KEY"
+  only:
+    - merge_requests
+    - main
+```
+
+**How to use this:**
+
+1. Create or edit `.gitlab-ci.yml` in the root of your repository.
+2. Add the `bandit_to_snapsec` job shown above.
+3. In your GitLab project, go to **Settings → CI/CD → Variables** and add:
+   - `SNAPSEC_ASSESSMENT_ID`
+   - `SNAPSEC_API_KEY`
+4. Commit and push your changes. GitLab will run the job on merge requests and on the `main` branch.
+
+With these examples, even if you are new to CI/CD, you can:
+
+1. Run Bandit automatically in your pipeline.  
+2. Upload the `bandit.json` report directly to Snapsec VM using the provided webhook.

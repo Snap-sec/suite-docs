@@ -1,0 +1,673 @@
+---
+title: OWASP Dependency-Check
+description: Step-by-step guide to run OWASP Dependency-Check in GitHub or GitLab CI and push findings into Snapsec VM via webhook.
+mode: wide
+---
+
+## OWASP Dependency-Check CI/CD integration with Snapsec VM
+
+Use **OWASP Dependency-Check** in your CI pipeline to scan application dependencies for known vulnerabilities and then push the findings into Snapsec VM using a simple webhook.
+
+This guide shows you, step by step, how to:
+
+1. Run Dependency-Check in your **GitHub Actions** or **GitLab CI** pipeline.  
+2. Generate a JSON report.  
+3. Send that JSON report directly to **Snapsec VM** using a webhook.
+
+You do **not** need to be a CI/CD expert to follow this guide.
+
+### 1. Prerequisites
+
+- A project with dependencies you want to scan (Maven, Gradle, npm, etc.).  
+- Dependency-Check installed in your CI environment (CLI or Docker image).  
+- Snapsec:
+  - An **Assessment** in Snapsec VM where Dependency-Check findings will be stored.
+  - **Assessment ID** (`<assessment-id>`)
+  - **API key** (`<your-api-key>`)
+- CI environment with `curl` available.
+
+### 2. Create an assessment in Snapsec VM
+
+1. Log in to the Snapsec UI.  
+2. Go to **VM / Assessments**.  
+3. Click **New Assessment**, name it (for example, `Dependency-Check - Services`), save it, and copy its **Assessment ID**.
+
+You will use this **Assessment ID** in the webhook URL.
+
+### 3. Generate Dependency-Check JSON report (locally or in CI)
+
+For a basic CLI run that outputs JSON:
+
+```bash
+dependency-check.sh --project "MyProject" \
+  --format JSON \
+  --out . \
+  --scan .
+```
+
+This creates a JSON report file such as `dependency-check-report.json` in the current directory.
+
+You can try this locally first to confirm it works before adding it to your CI.
+
+## 4. Push Dependency-Check JSON directly to Snapsec VM via webhook
+
+```bash
+curl -X POST "https://suite.snapsec.co/csm/api/import/<assessment-id>/nuclei-scanning" \
+     -H "x-api-key: <your-api-key>" \
+     -H "Content-Type: application/json" \
+     -d @dependency-check-report.json \
+     -k
+```
+
+> **Important:** Replace `<assessment-id>` with your actual Assessment ID and `<your-api-key>` with your API key.  
+>  
+> **Note on the `-k` flag:** This flag tells `curl` to perform an "insecure" SSL transfer, which bypasses certificate validation. You may need this for local or development environments. Remove it if your endpoint has a valid SSL certificate.
+
+Below are ready-to-use examples for **GitHub Actions** and **GitLab CI**.
+
+## 5. GitHub Actions example
+
+```yaml
+name: Dependency-Check to Snapsec
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  dependency-check-snapsec:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run OWASP Dependency-Check
+        uses: dependency-check/Dependency-Check_Action@v8
+        with:
+          format: "JSON"
+          project: "MyProject"
+          out: "."
+
+      - name: Push to Snapsec
+        env:
+          SNAPSEC_ASSESSMENT_ID: ${{ secrets.SNAPSEC_ASSESSMENT_ID }}
+          SNAPSEC_API_KEY: ${{ secrets.SNAPSEC_API_KEY }}
+        run: |
+          curl -X POST "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning" \
+               -H "x-api-key: ${SNAPSEC_API_KEY}" \
+               -H "Content-Type: application/json" \
+               -d @dependency-check-report.json \
+               -k
+```
+
+**How to use this:**
+
+1. Create `.github/workflows/dependency-check-to-snapsec.yml`.  
+2. Copy the YAML above.  
+3. Add `SNAPSEC_ASSESSMENT_ID` and `SNAPSEC_API_KEY` as GitHub secrets.  
+4. Adjust paths and options as needed, then push your changes.
+
+## 6. GitLab CI example
+
+```yaml
+dependency_check_to_snapsec:
+  image: owasp/dependency-check:latest
+  stage: test
+  script:
+    - dependency-check.sh --project "MyProject" --format JSON --out . --scan .
+    - >
+      curl -X POST
+      "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning"
+      -H "x-api-key: ${SNAPSEC_API_KEY}"
+      -H "Content-Type: application/json"
+      -d @dependency-check-report.json
+      -k
+  variables:
+    SNAPSEC_ASSESSMENT_ID: "$SNAPSEC_ASSESSMENT_ID"
+    SNAPSEC_API_KEY: "$SNAPSEC_API_KEY"
+  only:
+    - merge_requests
+    - main
+```
+
+With these examples, even if you are new to CI/CD, you can:
+
+1. Run OWASP Dependency-Check automatically in your pipeline.  
+2. Upload the JSON report directly to Snapsec VM using the provided webhook.
+
+*** Add File: /Users/imran/Desktop/suite-docs/integrations/vm/kube-bench.mdx
+---
+title: kube-bench
+description: Step-by-step guide to run kube-bench in GitHub or GitLab CI and push findings into Snapsec VM via webhook.
+mode: wide
+---
+
+## kube-bench CI/CD integration with Snapsec VM
+
+Use **kube-bench** in your CI pipeline (or as part of your cluster security checks) to run Kubernetes CIS benchmark tests and then push the findings into Snapsec VM using a simple webhook.
+
+### 1. Prerequisites
+
+- Access to a Kubernetes cluster or node where kube-bench can run.  
+- kube-bench available in your CI or cluster environment (container image or binary).  
+- Snapsec:
+  - An **Assessment** in Snapsec VM where kube-bench findings will be stored.
+  - **Assessment ID** (`<assessment-id>`)
+  - **API key** (`<your-api-key>`)
+- `curl` available in the environment running kube-bench.
+
+### 2. Create an assessment in Snapsec VM
+
+Create an assessment (for example, `kube-bench - Cluster A`) in **VM / Assessments**, then copy its **Assessment ID**.
+
+### 3. Generate kube-bench JSON report
+
+On a node (or in CI) where Kubernetes config is available:
+
+```bash
+kube-bench --json > kube-bench.json
+```
+
+This writes the CIS benchmark results as JSON to `kube-bench.json`.
+
+## 4. Push kube-bench JSON directly to Snapsec VM via webhook
+
+```bash
+curl -X POST "https://suite.snapsec.co/csm/api/import/<assessment-id>/nuclei-scanning" \
+     -H "x-api-key: <your-api-key>" \
+     -H "Content-Type: application/json" \
+     -d @kube-bench.json \
+     -k
+```
+
+> **Important:** Replace `<assessment-id>` with your actual Assessment ID and `<your-api-key>` with your API key.  
+>  
+> **Note on the `-k` flag:** This flag tells `curl` to perform an "insecure" SSL transfer, which bypasses certificate validation. You may need this for local or development environments. Remove it if your endpoint has a valid SSL certificate.
+
+Below are example CI configurations.
+
+## 5. GitHub Actions example
+
+```yaml
+name: kube-bench to Snapsec
+
+on:
+  workflow_dispatch:
+
+jobs:
+  kube-bench-snapsec:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Run kube-bench
+        uses: aquasecurity/kube-bench-action@v0.1.0
+        with:
+          json: true
+          output-file: kube-bench.json
+
+      - name: Push to Snapsec
+        env:
+          SNAPSEC_ASSESSMENT_ID: ${{ secrets.SNAPSEC_ASSESSMENT_ID }}
+          SNAPSEC_API_KEY: ${{ secrets.SNAPSEC_API_KEY }}
+        run: |
+          curl -X POST "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning" \
+               -H "x-api-key: ${SNAPSEC_API_KEY}" \
+               -H "Content-Type: application/json" \
+               -d @kube-bench.json \
+               -k
+```
+
+## 6. GitLab CI example
+
+```yaml
+kube_bench_to_snapsec:
+  image: aquasec/kube-bench:latest
+  stage: test
+  script:
+    - kube-bench --json > kube-bench.json
+    - >
+      curl -X POST
+      "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning"
+      -H "x-api-key: ${SNAPSEC_API_KEY}"
+      -H "Content-Type: application/json"
+      -d @kube-bench.json
+      -k
+  variables:
+    SNAPSEC_ASSESSMENT_ID: "$SNAPSEC_ASSESSMENT_ID"
+    SNAPSEC_API_KEY: "$SNAPSEC_API_KEY"
+  only:
+    - merge_requests
+    - main
+```
+
+With these examples, kube-bench results from CIS checks can be uploaded straight into Snapsec VM.
+
+*** Add File: /Users/imran/Desktop/suite-docs/integrations/vm/cloudsploit.mdx
+---
+title: CloudSploit
+description: Step-by-step guide to run CloudSploit in GitHub or GitLab CI and push findings into Snapsec VM via webhook.
+mode: wide
+---
+
+## CloudSploit CI/CD integration with Snapsec VM
+
+Use **CloudSploit** to scan your cloud accounts for misconfigurations and then push the findings into Snapsec VM using a webhook.
+
+### 1. Prerequisites
+
+- CloudSploit CLI (or Docker image) available in your CI environment.  
+- Cloud provider credentials configured for CloudSploit (AWS, Azure, GCP, etc.).  
+- Snapsec:
+  - An **Assessment** in Snapsec VM where CloudSploit findings will be stored.
+  - **Assessment ID** (`<assessment-id>`)
+  - **API key** (`<your-api-key>`)
+- `curl` available.
+
+### 2. Create an assessment in Snapsec VM
+
+Create an assessment such as `CloudSploit - Cloud Posture` and copy its **Assessment ID**.
+
+### 3. Generate CloudSploit JSON report
+
+Example using the CloudSploit CLI:
+
+```bash
+cloudsploit scan --json > cloudsploit.json
+```
+
+You can pass additional flags for account, regions, or plugins as needed.
+
+## 4. Push CloudSploit JSON directly to Snapsec VM via webhook
+
+```bash
+curl -X POST "https://suite.snapsec.co/csm/api/import/<assessment-id>/nuclei-scanning" \
+     -H "x-api-key: <your-api-key>" \
+     -H "Content-Type: application/json" \
+     -d @cloudsploit.json \
+     -k
+```
+
+> **Important:** Replace `<assessment-id>` and `<your-api-key>` with real values.  
+> The `-k` flag allows insecure SSL in dev; remove it for production.
+
+### 5. GitHub Actions example
+
+```yaml
+name: CloudSploit to Snapsec
+
+on:
+  schedule:
+    - cron: "0 2 * * *"
+
+jobs:
+  cloudsploit-snapsec:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install CloudSploit
+        run: npm install -g @cloudsploit/scan
+
+      - name: Run CloudSploit
+        run: cloudsploit scan --json > cloudsploit.json
+
+      - name: Push to Snapsec
+        env:
+          SNAPSEC_ASSESSMENT_ID: ${{ secrets.SNAPSEC_ASSESSMENT_ID }}
+          SNAPSEC_API_KEY: ${{ secrets.SNAPSEC_API_KEY }}
+        run: |
+          curl -X POST "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning" \
+               -H "x-api-key: ${SNAPSEC_API_KEY}" \
+               -H "Content-Type: application/json" \
+               -d @cloudsploit.json \
+               -k
+```
+
+### 6. GitLab CI example
+
+```yaml
+cloudsploit_to_snapsec:
+  image: node:20
+  stage: test
+  script:
+    - npm install -g @cloudsploit/scan
+    - cloudsploit scan --json > cloudsploit.json
+    - >
+      curl -X POST
+      "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning"
+      -H "x-api-key: ${SNAPSEC_API_KEY}"
+      -H "Content-Type: application/json"
+      -d @cloudsploit.json
+      -k
+  variables:
+    SNAPSEC_ASSESSMENT_ID: "$SNAPSEC_ASSESSMENT_ID"
+    SNAPSEC_API_KEY: "$SNAPSEC_API_KEY"
+  only:
+    - merge_requests
+    - main
+```
+
+*** Add File: /Users/imran/Desktop/suite-docs/integrations/vm/kics.mdx
+---
+title: KICS
+description: Step-by-step guide to run KICS in GitHub or GitLab CI and push findings into Snapsec VM via webhook.
+mode: wide
+---
+
+## KICS CI/CD integration with Snapsec VM
+
+Use **KICS** (Keeping Infrastructure as Code Secure) to scan Terraform, Kubernetes, Docker, and other IaC files, then push the findings into Snapsec VM.
+
+### 1. Prerequisites
+
+- Repositories containing IaC files (Terraform, CloudFormation, Kubernetes manifests, etc.).  
+- KICS available in CI (Docker image or binary).  
+- Snapsec:
+  - An **Assessment** in Snapsec VM where KICS findings will be stored.
+  - **Assessment ID** (`<assessment-id>`)
+  - **API key** (`<your-api-key>`)
+- `curl` available.
+
+### 2. Create an assessment in Snapsec VM
+
+Create an assessment like `KICS - IaC` and copy its **Assessment ID**.
+
+### 3. Generate KICS JSON report
+
+Example using the official KICS Docker image scanning the current repo:
+
+```bash
+docker run --rm -v "$PWD":/workspace checkmarx/kics:latest scan \
+  -p /workspace \
+  -o /workspace \
+  -f json \
+  --output-name kics
+```
+
+This writes a JSON report named `kics.json` in the current directory.
+
+## 4. Push KICS JSON directly to Snapsec VM via webhook
+
+```bash
+curl -X POST "https://suite.snapsec.co/csm/api/import/<assessment-id>/nuclei-scanning" \
+     -H "x-api-key: <your-api-key>" \
+     -H "Content-Type: application/json" \
+     -d @kics.json \
+     -k
+```
+
+> Replace `<assessment-id>` / `<your-api-key>` and remove `-k` once SSL is properly configured.
+
+### 5. GitHub Actions example
+
+```yaml
+name: KICS to Snapsec
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  kics-snapsec:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run KICS
+        run: |
+          docker run --rm -v "$PWD":/workspace checkmarx/kics:latest scan \
+            -p /workspace \
+            -o /workspace \
+            -f json \
+            --output-name kics
+
+      - name: Push to Snapsec
+        env:
+          SNAPSEC_ASSESSMENT_ID: ${{ secrets.SNAPSEC_ASSESSMENT_ID }}
+          SNAPSEC_API_KEY: ${{ secrets.SNAPSEC_API_KEY }}
+        run: |
+          curl -X POST "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning" \
+               -H "x-api-key: ${SNAPSEC_API_KEY}" \
+               -H "Content-Type: application/json" \
+               -d @kics.json \
+               -k
+```
+
+### 6. GitLab CI example
+
+```yaml
+kics_to_snapsec:
+  image: docker:24
+  stage: test
+  services:
+    - docker:24-dind
+  script:
+    - docker run --rm -v "$PWD":/workspace checkmarx/kics:latest scan -p /workspace -o /workspace -f json --output-name kics
+    - >
+      curl -X POST
+      "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning"
+      -H "x-api-key: ${SNAPSEC_API_KEY}"
+      -H "Content-Type: application/json"
+      -d @kics.json
+      -k
+  variables:
+    SNAPSEC_ASSESSMENT_ID: "$SNAPSEC_ASSESSMENT_ID"
+    SNAPSEC_API_KEY: "$SNAPSEC_API_KEY"
+  only:
+    - merge_requests
+    - main
+```
+
+*** Add File: /Users/imran/Desktop/suite-docs/integrations/vm/tfsec.mdx
+---
+title: TFSec
+description: Step-by-step guide to run TFSec in GitHub or GitLab CI and push findings into Snapsec VM via webhook.
+mode: wide
+---
+
+## TFSec CI/CD integration with Snapsec VM
+
+Use **TFSec** to statically analyze Terraform code for security misconfigurations and then push findings into Snapsec VM.
+
+### 1. Prerequisites
+
+- Terraform code in your repository.  
+- TFSec installed (CLI or Docker image).  
+- Snapsec:
+  - An **Assessment** in Snapsec VM where TFSec findings will be stored.
+  - **Assessment ID** (`<assessment-id>`)
+  - **API key** (`<your-api-key>`)
+- `curl` available.
+
+### 2. Create an assessment in Snapsec VM
+
+Create an assessment like `TFSec - Terraform` and copy its **Assessment ID**.
+
+### 3. Generate TFSec JSON report
+
+```bash
+tfsec . --format json --out tfsec.json
+```
+
+## 4. Push TFSec JSON directly to Snapsec VM via webhook
+
+```bash
+curl -X POST "https://suite.snapsec.co/csm/api/import/<assessment-id>/nuclei-scanning" \
+     -H "x-api-key: <your-api-key>" \
+     -H "Content-Type: application/json" \
+     -d @tfsec.json \
+     -k
+```
+
+> Replace placeholders and remove `-k` once SSL is fully trusted.
+
+### 5. GitHub Actions example
+
+```yaml
+name: TFSec to Snapsec
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  tfsec-snapsec:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run TFSec
+        uses: aquasecurity/tfsec-action@v1
+        with:
+          format: "json"
+          out: "tfsec.json"
+
+      - name: Push to Snapsec
+        env:
+          SNAPSEC_ASSESSMENT_ID: ${{ secrets.SNAPSEC_ASSESSMENT_ID }}
+          SNAPSEC_API_KEY: ${{ secrets.SNAPSEC_API_KEY }}
+        run: |
+          curl -X POST "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning" \
+               -H "x-api-key: ${SNAPSEC_API_KEY}" \
+               -H "Content-Type: application/json" \
+               -d @tfsec.json \
+               -k
+```
+
+### 6. GitLab CI example
+
+```yaml
+tfsec_to_snapsec:
+  image: aquasec/tfsec:latest
+  stage: test
+  script:
+    - tfsec . --format json --out tfsec.json
+    - >
+      curl -X POST
+      "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning"
+      -H "x-api-key: ${SNAPSEC_API_KEY}"
+      -H "Content-Type: application/json"
+      -d @tfsec.json
+      -k
+  variables:
+    SNAPSEC_ASSESSMENT_ID: "$SNAPSEC_ASSESSMENT_ID"
+    SNAPSEC_API_KEY: "$SNAPSEC_API_KEY"
+  only:
+    - merge_requests
+    - main
+```
+
+*** Add File: /Users/imran/Desktop/suite-docs/integrations/vm/checkov.mdx
+---
+title: Checkov
+description: Step-by-step guide to run Checkov in GitHub or GitLab CI and push findings into Snapsec VM via webhook.
+mode: wide
+---
+
+## Checkov CI/CD integration with Snapsec VM
+
+Use **Checkov** to scan Terraform, CloudFormation, Kubernetes, Helm and other IaC frameworks, then push the findings into Snapsec VM.
+
+### 1. Prerequisites
+
+- An IaC repository you want to scan with Checkov.  
+- Checkov installed in CI (Python package or Docker image).  
+- Snapsec:
+  - An **Assessment** in Snapsec VM where Checkov findings will be stored.
+  - **Assessment ID** (`<assessment-id>`)
+  - **API key** (`<your-api-key>`)
+- `curl` available.
+
+### 2. Create an assessment in Snapsec VM
+
+Create an assessment such as `Checkov - IaC` and copy its **Assessment ID**.
+
+### 3. Generate Checkov JSON report
+
+```bash
+checkov -d . -o json > checkov.json
+```
+
+## 4. Push Checkov JSON directly to Snapsec VM via webhook
+
+```bash
+curl -X POST "https://suite.snapsec.co/csm/api/import/<assessment-id>/nuclei-scanning" \
+     -H "x-api-key: <your-api-key>" \
+     -H "Content-Type: application/json" \
+     -d @checkov.json \
+     -k
+```
+
+> Replace placeholders with real values; remove `-k` once SSL is trusted.
+
+### 5. GitHub Actions example
+
+```yaml
+name: Checkov to Snapsec
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  checkov-snapsec:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Checkov
+        run: pip install checkov
+
+      - name: Run Checkov
+        run: checkov -d . -o json > checkov.json
+
+      - name: Push to Snapsec
+        env:
+          SNAPSEC_ASSESSMENT_ID: ${{ secrets.SNAPSEC_ASSESSMENT_ID }}
+          SNAPSEC_API_KEY: ${{ secrets.SNAPSEC_API_KEY }}
+        run: |
+          curl -X POST "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning" \
+               -H "x-api-key: ${SNAPSEC_API_KEY}" \
+               -H "Content-Type: application/json" \
+               -d @checkov.json \
+               -k
+```
+
+### 6. GitLab CI example
+
+```yaml
+checkov_to_snapsec:
+  image: python:3.12
+  stage: test
+  script:
+    - pip install checkov
+    - checkov -d . -o json > checkov.json
+    - >
+      curl -X POST
+      "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning"
+      -H "x-api-key: ${SNAPSEC_API_KEY}"
+      -H "Content-Type: application/json"
+      -d @checkov.json
+      -k
+  variables:
+    SNAPSEC_ASSESSMENT_ID: "$SNAPSEC_ASSESSMENT_ID"
+    SNAPSEC_API_KEY: "$SNAPSEC_API_KEY"
+  only:
+    - merge_requests
+    - main
+```
+
+

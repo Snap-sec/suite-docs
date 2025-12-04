@@ -1,0 +1,92 @@
+---
+title: Qualys
+description: Connect Qualys to automatically import vulnerabilities into a Snapsec VM assessment.
+mode: wide
+---
+
+## Qualys integration with Snapsec VM
+
+Use the Qualys integration to automatically pull vulnerabilities from Qualys into Snapsec VM, so you can manage and track them inside a specific assessment.
+
+Once the integration is configured, Snapsec will **fetch vulnerabilities from Qualys** and show them under the **Assessment ID** you specify during setup.
+
+### 1. Prerequisites
+
+- An active **Qualys** subscription with access to vulnerability data.  
+- Qualys account credentials with permission to read scan results:
+  - **User Name**
+  - **Password**
+- Your Qualys **API URL** (for example, `https://qualysapi.qualys.com` or your regional endpoint).  
+- In Snapsec VM:
+  - An **Assessment** where imported Qualys vulnerabilities will be stored.
+  - The **Assessment ID** of that assessment.
+
+### 2. Create or select an assessment in Snapsec VM
+
+1. Log in to the Snapsec UI.  
+2. Go to the **VM / Assessments** section.  
+3. Either:
+   - **Create a new assessment** (for example, `Qualys - Production`), or  
+   - Choose an existing assessment that should hold Qualys vulnerabilities.  
+4. Open the assessment details and copy its **Assessment ID**.
+
+You will use this **Assessment ID** during the Qualys integration so Snapsec knows where to place the imported findings.
+
+### 3. Open the Qualys integration in Snapsec VM
+
+1. In Snapsec, go to **VM → Integrations**.  
+2. Find the **Qualys** tile.  
+3. Click **Integrate** (or **Configure** if you are editing an existing connection).  
+4. A dialog like **Integrate Qualys** will open with the fields:
+   - **Name**
+   - **User Name**
+   - **Password**
+   - **Assessment ID**
+   - **API URL**
+   - **Description**
+
+### 4. Fill in Qualys connection details
+
+In the **Integrate Qualys** dialog:
+
+- **Name**: A friendly name for this integration (for example, `Qualys - Prod` or `Qualys - EU Region`).  
+- **User Name**: Your Qualys API username.  
+- **Password**: Your Qualys API password.  
+- **Assessment ID**: Paste the Snapsec **Assessment ID** where you want Qualys vulnerabilities to appear.  
+- **API URL**: Enter your Qualys API endpoint, for example:  
+  - `https://qualysapi.qualys.com` (global)  
+  - Or your region-specific URL from the Qualys documentation.  
+- **Description** (optional): Any notes to help you remember what this integration is for (environment, scope, etc.).
+
+Click **Integrate** to save and validate the connection.
+
+If the details are correct, the integration status will show as **Connected**.
+
+### 5. How vulnerability import works
+
+After the integration is successfully configured:
+
+- Snapsec VM will **fetch vulnerabilities from Qualys** using the credentials and API URL you provided.  
+- All imported Qualys findings will be **attached to the Assessment** whose **Assessment ID** you entered during setup.  
+- You can then:
+  - View Qualys vulnerabilities in that assessment in Snapsec VM.  
+  - Triage, assign, and track remediation using Snapsec workflows.  
+  - Optionally link findings to ticketing systems (like Jira) if configured.
+
+> The exact import schedule and scope (which scans or assets are pulled) may depend on your workspace configuration. Contact your Snapsec administrator if you need to adjust how often data is synced or which Qualys data is imported.
+
+### 6. Troubleshooting
+
+- **Authentication errors**:
+  - Confirm your **User Name** and **Password** are correct and that the account is not locked.  
+  - Ensure API access is enabled for your Qualys account.  
+- **API URL issues**:
+  - Verify you are using the correct **Qualys API endpoint** for your region.  
+  - Make sure there are no extra spaces or trailing slashes.  
+- **No vulnerabilities showing in the assessment**:
+  - Check that the **Assessment ID** matches the one you intended in Snapsec VM.  
+  - Confirm that your Qualys account has recent vulnerability data.  
+
+If problems persist, share the error details and time of failure with your Snapsec support contact so they can investigate further.
+
+

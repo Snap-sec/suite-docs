@@ -1,0 +1,234 @@
+---
+title: SonarQube
+description: Step-by-step guide to run SonarQube analysis in CI and push vulnerability findings into Snapsec VM via webhook.
+mode: wide
+---
+
+## SonarQube CI/CD integration with Snapsec VM
+
+Use **SonarQube** in your CI/CD pipeline to analyze code quality and security, then push **vulnerability** findings into Snapsec VM using a simple webhook.
+
+This guide is inspired by modern SonarQube best practices for 2025-style CI integration and alerting, and adapts them so that:
+
+1. Your CI pipeline runs **SonarQube analysis** on every change.  
+2. Vulnerabilities are fetched from SonarQube via its Web API as JSON.  
+3. That JSON is sent directly to **Snapsec VM** using a webhook.
+
+You do **not** need to be a CI/CD expert to follow this guide.
+
+### 1. Prerequisites
+
+- A running **SonarQube** server (self‑hosted or cloud) reachable from your CI environment.  
+- A **SonarQube project** configured for your repository.  
+- A **SonarQube token** with permission to run analysis and query issues.  
+- Snapsec:
+  - An **Assessment** in Snapsec VM where SonarQube vulnerabilities will be stored.
+  - **Assessment ID** (`<assessment-id>`)
+  - **API key** (`<your-api-key>`)
+- CI environment (GitHub Actions or GitLab CI) with:
+  - `sonar-scanner` (or SonarQube build plugins, e.g. Maven/Gradle)  
+  - `curl` available.
+
+### 2. Create an assessment in Snapsec VM
+
+Before you send any results, create a dedicated assessment in Snapsec VM that will hold the SonarQube findings:
+
+1. Log in to the Snapsec UI.  
+2. Go to the **VM / Assessments** section.  
+3. Click **New Assessment** and give it a clear name, for example:  
+   - `SonarQube - Backend Service`  
+4. Save the assessment and copy its **Assessment ID** value.  
+
+You will use this **Assessment ID** in the webhook URL in later steps.
+
+### 3. Run SonarQube analysis in CI
+
+There are multiple ways to run SonarQube (Maven plugin, Gradle, `sonar-scanner`).  
+Here is a generic example using the standalone scanner:
+
+```bash
+sonar-scanner \
+  -Dsonar.projectKey=my-project-key \
+  -Dsonar.sources=. \
+  -Dsonar.host.url=https://sonarqube.my-company.com \
+  -Dsonar.login=$SONAR_TOKEN
+```
+
+This uploads analysis results to your SonarQube server, updating the project’s issues, quality gate, and measures.
+
+You can test this locally first (with `SONAR_TOKEN` exported) before wiring it into CI.
+
+### 4. Export SonarQube vulnerabilities as JSON
+
+After analysis completes in CI, use the **SonarQube Web API** to fetch vulnerability issues for your project and save them as JSON.
+
+Example:
+
+```bash
+SONAR_HOST_URL="https://sonarqube.my-company.com"
+SONAR_PROJECT_KEY="my-project-key"
+
+curl -u "$SONAR_TOKEN:" \
+  "$SONAR_HOST_URL/api/issues/search?componentKeys=$SONAR_PROJECT_KEY&types=VULNERABILITY&ps=500" \
+  -o sonarqube-vulnerabilities.json
+```
+
+This command:
+
+- Calls the `/api/issues/search` endpoint.  
+- Filters **only vulnerability‑type issues** (`types=VULNERABILITY`).  
+- Saves the response as `sonarqube-vulnerabilities.json`.
+
+> Adjust parameters (e.g. `severities=MAJOR,CRITICAL,BLOCKER`, pagination, branch/pull request keys) to match your workflow.
+
+## 5. Push SonarQube JSON directly to Snapsec VM via webhook
+
+Snapsec knows how to parse SonarQube JSON output, so you can send the file directly to an import endpoint.
+
+```bash
+curl -X POST "https://suite.snapsec.co/csm/api/import/<assessment-id>/nuclei-scanning" \
+     -H "x-api-key: <your-api-key>" \
+     -H "Content-Type: application/json" \
+     -d @sonarqube-vulnerabilities.json \
+     -k
+```
+
+> **Important:** Replace `<assessment-id>` with your actual Assessment ID and `<your-api-key>` with your API key.  
+>  
+> **Note on the `-k` flag:** This flag tells `curl` to perform an "insecure" SSL transfer, which bypasses certificate validation. You may need this for local or development environments. Remove it if your endpoint has a valid SSL certificate.
+
+Below are ready-to-use examples for **GitHub Actions** and **GitLab CI**.
+
+## 6. GitHub Actions example
+
+```yaml
+name: SonarQube to Snapsec
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  sonarqube-snapsec:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up JDK (if using Java)
+        uses: actions/setup-java@v4
+        with:
+          distribution: "temurin"
+          java-version: "17"
+
+      - name: Install SonarScanner CLI
+        run: |
+          curl -sSL -o sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-6.2.1.4610-linux.zip
+          unzip sonar-scanner.zip
+          echo "$PWD/sonar-scanner-6.2.1.4610-linux/bin" >> "$GITHUB_PATH"
+
+      - name: Run SonarQube analysis
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+        run: |
+          sonar-scanner \
+            -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }} \
+            -Dsonar.sources=. \
+            -Dsonar.host.url=${{ secrets.SONAR_HOST_URL }} \
+            -Dsonar.login=$SONAR_TOKEN
+
+      - name: Export SonarQube vulnerabilities as JSON
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
+          SONAR_PROJECT_KEY: ${{ secrets.SONAR_PROJECT_KEY }}
+        run: |
+          curl -u "$SONAR_TOKEN:" \
+            "$SONAR_HOST_URL/api/issues/search?componentKeys=$SONAR_PROJECT_KEY&types=VULNERABILITY&ps=500" \
+            -o sonarqube-vulnerabilities.json
+
+      - name: Push SonarQube results to Snapsec
+        env:
+          SNAPSEC_ASSESSMENT_ID: ${{ secrets.SNAPSEC_ASSESSMENT_ID }}
+          SNAPSEC_API_KEY: ${{ secrets.SNAPSEC_API_KEY }}
+        run: |
+          curl -X POST "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning" \
+               -H "x-api-key: ${SNAPSEC_API_KEY}" \
+               -H "Content-Type: application/json" \
+               -d @sonarqube-vulnerabilities.json \
+               -k
+```
+
+**How to use this:**
+
+1. Create `.github/workflows/sonarqube-to-snapsec.yml` in your repository.  
+2. Copy the YAML above into that file.  
+3. In your GitHub repository settings, create secrets:
+   - `SONAR_HOST_URL` (e.g. `https://sonarqube.my-company.com`)  
+   - `SONAR_PROJECT_KEY`  
+   - `SONAR_TOKEN`  
+   - `SNAPSEC_ASSESSMENT_ID`  
+   - `SNAPSEC_API_KEY`  
+4. Adjust build/analysis steps for your language and project.  
+5. Push your changes. GitHub Actions will run the workflow on each push or pull request.
+
+## 7. GitLab CI example
+
+```yaml
+sonarqube_to_snapsec:
+  image: eclipse-temurin:17-jdk
+  stage: test
+  variables:
+    SONAR_HOST_URL: "$SONAR_HOST_URL"
+    SONAR_PROJECT_KEY: "$SONAR_PROJECT_KEY"
+  script:
+    - apt-get update && apt-get install -y unzip curl
+    - curl -sSL -o sonar-scanner.zip https://binaries.sonarsource.com/Distribution/sonar-scanner-cli/sonar-scanner-cli-6.2.1.4610-linux.zip
+    - unzip sonar-scanner.zip
+    - export PATH="$PWD/sonar-scanner-6.2.1.4610-linux/bin:$PATH"
+    - |
+      sonar-scanner \
+        -Dsonar.projectKey=$SONAR_PROJECT_KEY \
+        -Dsonar.sources=. \
+        -Dsonar.host.url=$SONAR_HOST_URL \
+        -Dsonar.login=$SONAR_TOKEN
+    - |
+      curl -u "$SONAR_TOKEN:" \
+        "$SONAR_HOST_URL/api/issues/search?componentKeys=$SONAR_PROJECT_KEY&types=VULNERABILITY&ps=500" \
+        -o sonarqube-vulnerabilities.json
+    - >
+      curl -X POST
+      "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning"
+      -H "x-api-key: ${SNAPSEC_API_KEY}"
+      -H "Content-Type: application/json"
+      -d @sonarqube-vulnerabilities.json
+      -k
+  variables:
+    SNAPSEC_ASSESSMENT_ID: "$SNAPSEC_ASSESSMENT_ID"
+    SNAPSEC_API_KEY: "$SNAPSEC_API_KEY"
+  only:
+    - merge_requests
+    - main
+```
+
+**How to use this:**
+
+1. Create or edit `.gitlab-ci.yml` in the root of your repository.  
+2. Add the `sonarqube_to_snapsec` job shown above.  
+3. In your GitLab project, go to **Settings → CI/CD → Variables** and add:
+   - `SONAR_HOST_URL`  
+   - `SONAR_PROJECT_KEY`  
+   - `SONAR_TOKEN`  
+   - `SNAPSEC_ASSESSMENT_ID`  
+   - `SNAPSEC_API_KEY`  
+4. Commit and push your changes. GitLab will run the job on merge requests and on the `main` branch.
+
+With these examples, even if you are new to CI/CD, you can:
+
+1. Run SonarQube analysis automatically in your pipeline.  
+2. Export vulnerability issues via the SonarQube Web API.  
+3. Upload the resulting JSON directly to Snapsec VM using the provided webhook.
+
+

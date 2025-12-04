@@ -1,0 +1,189 @@
+---
+title: OWASP ZAP
+description: Step-by-step guide to run OWASP ZAP in GitHub or GitLab CI and push vulnerabilities into Snapsec VM via webhook.
+mode: wide
+---
+
+## OWASP ZAP CI/CD integration with Snapsec VM
+
+Use **OWASP ZAP** in your CI/CD pipeline to perform dynamic application security testing (DAST) against your web application and then push the discovered vulnerabilities into Snapsec VM using a simple webhook.
+
+This guide shows you, step by step, how to:
+
+1. Run OWASP ZAP in your **GitHub Actions** or **GitLab CI** pipeline.  
+2. Generate a JSON report.  
+3. Send that JSON report directly to **Snapsec VM** using a webhook.
+
+You do **not** need to be a CI/CD expert to follow this guide.
+
+### 1. Prerequisites
+
+- A running **test/staging instance** of your web application that OWASP ZAP can scan (HTTP/HTTPS URL).  
+- Basic understanding of which endpoints and environments are safe to scan.  
+- Snapsec:
+  - An **Assessment** in Snapsec VM where ZAP findings will be stored.
+  - **Assessment ID** (`<assessment-id>`)
+  - **API key** (`<your-api-key>`)
+- CI environment with:
+  - Docker (for the ZAP Docker image), and  
+  - `curl` available.
+
+> **Important:** Run ZAP against **non-production** environments unless you are confident your app and infrastructure can handle active scanning.
+
+### 2. Create an assessment in Snapsec VM
+
+Before you send any results, create a dedicated assessment in Snapsec VM that will hold the ZAP findings:
+
+1. Log in to the Snapsec UI.  
+2. Go to the **VM / Assessments** section.  
+3. Click **New Assessment** and give it a clear name, for example:  
+   - `OWASP ZAP - Staging`  
+4. Save the assessment and copy its **Assessment ID** value.  
+
+You will use this **Assessment ID** in the webhook URL in the next steps.
+
+### 3. Generate OWASP ZAP JSON report (locally or in CI)
+
+You can use the official ZAP Docker image in **baseline** or **full** scan mode.  
+Here is an example baseline scan that outputs JSON:
+
+```bash
+docker run --rm -t owasp/zap2docker-stable zap-baseline.py \
+  -t https://staging.example.com \
+  -J zap-report.json
+```
+
+This command:
+
+- Runs a passive + lightweight active scan against `https://staging.example.com`.  
+- Produces a JSON report file called `zap-report.json` in the container.  
+
+To keep the report on the host, mount the current directory:
+
+```bash
+docker run --rm -t \
+  -v "$PWD":/zap/wrk \
+  owasp/zap2docker-stable zap-baseline.py \
+  -t https://staging.example.com \
+  -J zap-report.json
+```
+
+The file `zap-report.json` will then appear in the current directory on your machine/CI runner.
+
+You can test this locally first before wiring it into CI.
+
+## 4. Push OWASP ZAP JSON directly to Snapsec VM via webhook
+
+Once you have `zap-report.json`, post it to Snapsec VM:
+
+```bash
+curl -X POST "https://suite.snapsec.co/csm/api/import/<assessment-id>/nuclei-scanning" \
+     -H "x-api-key: <your-api-key>" \
+     -H "Content-Type: application/json" \
+     -d @zap-report.json \
+     -k
+```
+
+> **Important:** Replace `<assessment-id>` with your actual Assessment ID and `<your-api-key>` with your API key.  
+>  
+> **Note on the `-k` flag:** This flag tells `curl` to perform an "insecure" SSL transfer, which bypasses certificate validation. You may need this for local or development environments. Remove it if your endpoint has a valid SSL certificate.
+
+Below are ready-to-use examples for **GitHub Actions** and **GitLab CI**.
+
+## 5. GitHub Actions example
+
+```yaml
+name: OWASP ZAP to Snapsec
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  zap-snapsec:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Run OWASP ZAP baseline scan
+        env:
+          TARGET_URL: ${{ secrets.ZAP_TARGET_URL }}
+        run: |
+          docker run --rm -t \
+            -v "$PWD":/zap/wrk \
+            owasp/zap2docker-stable zap-baseline.py \
+              -t "$TARGET_URL" \
+              -J zap-report.json
+
+      - name: Push ZAP results to Snapsec
+        env:
+          SNAPSEC_ASSESSMENT_ID: ${{ secrets.SNAPSEC_ASSESSMENT_ID }}
+          SNAPSEC_API_KEY: ${{ secrets.SNAPSEC_API_KEY }}
+        run: |
+          curl -X POST "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning" \
+               -H "x-api-key: ${SNAPSEC_API_KEY}" \
+               -H "Content-Type: application/json" \
+               -d @zap-report.json \
+               -k
+```
+
+**How to use this:**
+
+1. Create `.github/workflows/zap-to-snapsec.yml` in your repository.  
+2. Copy the YAML above into that file.  
+3. In your GitHub repository settings, create secrets:
+   - `ZAP_TARGET_URL` (e.g. `https://staging.example.com`)  
+   - `SNAPSEC_ASSESSMENT_ID`  
+   - `SNAPSEC_API_KEY`  
+4. Push your changes. GitHub Actions will run the workflow on each push or pull request.
+
+## 6. GitLab CI example
+
+```yaml
+zap_to_snapsec:
+  image: docker:24
+  stage: test
+  services:
+    - docker:24-dind
+  variables:
+    TARGET_URL: "$ZAP_TARGET_URL"
+  script:
+    - docker run --rm -t \
+        -v "$PWD":/zap/wrk \
+        owasp/zap2docker-stable zap-baseline.py \
+          -t "$TARGET_URL" \
+          -J zap-report.json
+    - >
+      curl -X POST
+      "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning"
+      -H "x-api-key: ${SNAPSEC_API_KEY}"
+      -H "Content-Type: application/json"
+      -d @zap-report.json
+      -k
+  variables:
+    SNAPSEC_ASSESSMENT_ID: "$SNAPSEC_ASSESSMENT_ID"
+    SNAPSEC_API_KEY: "$SNAPSEC_API_KEY"
+  only:
+    - merge_requests
+    - main
+```
+
+**How to use this:**
+
+1. Create or edit `.gitlab-ci.yml` in the root of your repository.  
+2. Add the `zap_to_snapsec` job shown above.  
+3. In your GitLab project, go to **Settings → CI/CD → Variables** and add:
+   - `ZAP_TARGET_URL`  
+   - `SNAPSEC_ASSESSMENT_ID`  
+   - `SNAPSEC_API_KEY`  
+4. Commit and push your changes. GitLab will run the job on merge requests and on the `main` branch.
+
+With these examples, even if you are new to CI/CD, you can:
+
+1. Run OWASP ZAP scans automatically in your pipeline.  
+2. Upload the `zap-report.json` vulnerability report directly to Snapsec VM using the provided webhook.
+
+

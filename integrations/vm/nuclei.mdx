@@ -1,0 +1,171 @@
+---
+title: Nuclei
+description: Step-by-step guide to run Nuclei in GitHub or GitLab CI and push vulnerabilities into Snapsec VM via webhook.
+mode: wide
+---
+
+## Nuclei CI/CD integration with Snapsec VM
+
+This guide shows you, step by step, how to:
+
+1. Run `nuclei` in your **GitHub Actions** or **GitLab CI** pipeline.
+2. Generate a JSON report.
+3. Send that JSON report directly to **Snapsec VM** using a webhook.
+
+You do **not** need to be a CI/CD expert to follow this guide.
+
+### 1. Prerequisites
+
+- A target or list of targets for Nuclei (for example, URLs in a `targets.txt` file).  
+- Nuclei installed in your CI environment (we’ll show how below).  
+- Snapsec:
+  - An **Assessment** in Snapsec VM where Nuclei vulnerabilities will be stored.
+  - **Assessment ID** (`<assessment-id>`)
+  - **API key** (`<your-api-key>`)
+- CI environment with `curl` available.
+
+### 2. Create an assessment in Snapsec VM
+
+Before you send any results, create a dedicated assessment in Snapsec VM that will hold the Nuclei findings:
+
+1. Log in to the Snapsec UI.  
+2. Go to the **VM / Assessments** section.  
+3. Click **New Assessment** (or the equivalent button) and give it a clear name, for example:  
+   - `Nuclei - MyService`  
+4. Save the assessment and copy its **Assessment ID** value.  
+
+You will use this **Assessment ID** in the webhook URL in the next steps.
+
+### 3. Generate Nuclei JSON report (locally or in CI)
+
+First, make sure you can run Nuclei and produce JSON output.
+
+For example, with a `targets.txt` file containing one URL per line:
+
+```bash
+nuclei -l targets.txt -severity low,medium,high,critical -json -o nuclei.json
+```
+
+This command:
+
+- Reads targets from `targets.txt`.  
+- Runs Nuclei with selected severities.  
+- Writes a machine-readable report to `nuclei.json`.  
+
+You can try this locally first to confirm it works before adding it to your CI.
+
+## 4. Push Nuclei JSON directly to Snapsec VM via webhook
+
+Snapsec already knows how to parse Nuclei JSON output, so you can send the file directly to an import endpoint.
+
+```bash
+curl -X POST "https://suite.snapsec.co/csm/api/import/<assessment-id>/nuclei-scanning" \
+     -H "x-api-key: <your-api-key>" \
+     -H "Content-Type: application/json" \
+     -d @nuclei.json \
+     -k
+```
+
+> **Important:** Replace `<assessment-id>` with your actual Assessment ID and `<your-api-key>` with your API key.  
+>  
+> **Note on the `-k` flag:** This flag tells `curl` to perform an "insecure" SSL transfer, which bypasses certificate validation. You may need this for local or development environments. Remove it if your endpoint has a valid SSL certificate.
+
+Below are ready-to-use examples for **GitHub Actions** and **GitLab CI**.
+
+## 5. GitHub Actions example
+
+```yaml
+name: Nuclei to Snapsec
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  nuclei-snapsec:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Nuclei
+        run: |
+          curl -sSfL https://github.com/projectdiscovery/nuclei/releases/latest/download/nuclei_$(uname -s | tr '[:upper:]' '[:lower:]')_amd64.tar.gz -o nuclei.tar.gz
+          tar -xzf nuclei.tar.gz nuclei
+          sudo mv nuclei /usr/local/bin/
+
+      - name: Prepare targets
+        run: echo "https://example.com" > targets.txt
+
+      - name: Run Nuclei
+        run: nuclei -l targets.txt -severity low,medium,high,critical -json -o nuclei.json
+
+      - name: Push to Snapsec
+        env:
+          SNAPSEC_ASSESSMENT_ID: ${{ secrets.SNAPSEC_ASSESSMENT_ID }}
+          SNAPSEC_API_KEY: ${{ secrets.SNAPSEC_API_KEY }}
+        run: |
+          curl -X POST "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning" \
+               -H "x-api-key: ${SNAPSEC_API_KEY}" \
+               -H "Content-Type: application/json" \
+               -d @nuclei.json \
+               -k
+```
+
+**How to use this:**
+
+1. Create `.github/workflows/nuclei-to-snapsec.yml` in your repository.
+2. Copy the YAML above into that file.
+3. In your GitHub repository settings, create secrets:
+   - `SNAPSEC_ASSESSMENT_ID`
+   - `SNAPSEC_API_KEY`
+4. Adjust the **Install Nuclei** and **Prepare targets** steps to match how you want to run Nuclei.  
+5. Push your changes. GitHub Actions will run the workflow on each push or pull request.
+
+## 6. GitLab CI example
+
+If you use GitLab, add a job like this to your `.gitlab-ci.yml`:
+
+```yaml
+nuclei_to_snapsec:
+  image: golang:1.22
+  stage: test
+  before_script:
+    - go install -v github.com/projectdiscovery/nuclei/v3/cmd/nuclei@latest
+    - export PATH="$PATH:/root/go/bin"
+  script:
+    - echo "https://example.com" > targets.txt
+    - nuclei -l targets.txt -severity low,medium,high,critical -json -o nuclei.json
+    - >
+      curl -X POST
+      "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/nuclei-scanning"
+      -H "x-api-key: ${SNAPSEC_API_KEY}"
+      -H "Content-Type: application/json"
+      -d @nuclei.json
+      -k
+  variables:
+    SNAPSEC_ASSESSMENT_ID: "$SNAPSEC_ASSESSMENT_ID"
+    SNAPSEC_API_KEY: "$SNAPSEC_API_KEY"
+  only:
+    - merge_requests
+    - main
+```
+
+**How to use this:**
+
+1. Create or edit `.gitlab-ci.yml` in the root of your repository.
+2. Add the `nuclei_to_snapsec` job shown above.
+3. In your GitLab project, go to **Settings → CI/CD → Variables** and add:
+   - `SNAPSEC_ASSESSMENT_ID`
+   - `SNAPSEC_API_KEY`
+4. Adjust the targets and Nuclei command as needed for your environment.  
+5. Commit and push your changes. GitLab will run the job on merge requests and on the `main` branch.
+
+With these examples, even if you are new to CI/CD, you can:
+
+1. Run Nuclei automatically in your pipeline.  
+2. Upload the `nuclei.json` report directly to Snapsec VM using the provided webhook.
+
+

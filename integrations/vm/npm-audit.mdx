@@ -1,0 +1,156 @@
+---
+title: npm audit
+description: Step-by-step guide to run npm audit in GitHub or GitLab CI and push vulnerabilities into Snapsec VM via webhook.
+mode: wide
+---
+
+## npm audit CI/CD integration with Snapsec VM
+
+This guide shows you, step by step, how to:
+
+1. Run `npm audit` in your **GitHub Actions** or **GitLab CI** pipeline.
+2. Generate a JSON report.
+3. Send that JSON report directly to **Snapsec VM** using a webhook.
+
+You do **not** need to be a CI/CD expert to follow this guide.
+
+### 1. Prerequisites
+
+- A Node.js project with a `package.json` and `package-lock.json`.
+- Snapsec:
+  - An **Assessment** in Snapsec VM where npm audit vulnerabilities will be stored.
+  - **Assessment ID** (`<assessment-id>`)
+  - **API key** (`<your-api-key>`)
+- CI environment with `curl` available.
+
+### 2. Create an assessment in Snapsec VM
+
+Before you send any results, create a dedicated assessment in Snapsec VM that will hold the `npm audit` findings:
+
+1. Log in to the Snapsec UI.  
+2. Go to the **VM / Assessments** section.  
+3. Click **New Assessment** (or the equivalent button) and give it a clear name, for example:  
+   - `npm audit - MyService`  
+4. Save the assessment and copy its **Assessment ID** value.  
+
+You will use this **Assessment ID** in the webhook URL in the next steps.
+
+### 3. Generate npm audit JSON report (locally or in CI)
+
+First, make sure your Node.js dependencies are installed and then run `npm audit` with JSON output.
+
+```bash
+npm install
+npm audit --json > npm-audit.json
+```
+
+This command installs your dependencies and generates a machine-readable report at `npm-audit.json`.
+
+You can try this locally first to confirm it works before adding it to your CI.
+
+## 4. Push npm audit JSON directly to Snapsec VM via webhook
+
+Snapsec already knows how to parse the `npm audit` JSON format, so you can send the file directly to a dedicated `npm-audit` import endpoint.
+
+```bash
+curl -X POST "https://suite.snapsec.co/csm/api/import/<assessment-id>/npm-audit" \
+     -H "x-api-key: <your-api-key>" \
+     -H "Content-Type: application/json" \
+     -d @npm-audit.json \
+     -k
+```
+
+> **Important:** Replace `<assessment-id>` with your actual Assessment ID and `<your-api-key>` with your API key.  
+>  
+> **Note on the `-k` flag:** This flag tells `curl` to perform an "insecure" SSL transfer, which bypasses certificate validation. You may need this for local or development environments. Remove it if your endpoint has a valid SSL certificate.
+
+Below are ready-to-use examples for **GitHub Actions** and **GitLab CI**.
+
+## 5. GitHub Actions example
+
+```yaml
+name: npm audit to Snapsec
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  npm-audit-snapsec:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Run npm audit
+        run: npm audit --json > npm-audit.json
+      - name: Push to Snapsec
+        env:
+          SNAPSEC_ASSESSMENT_ID: ${{ secrets.SNAPSEC_ASSESSMENT_ID }}
+          SNAPSEC_API_KEY: ${{ secrets.SNAPSEC_API_KEY }}
+        run: |
+          curl -X POST "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/npm-audit" \
+               -H "x-api-key: ${SNAPSEC_API_KEY}" \
+               -H "Content-Type: application/json" \
+               -d @npm-audit.json \
+               -k
+```
+
+**How to use this:**
+
+1. Create `.github/workflows/npm-audit-to-snapsec.yml` in your repository.
+2. Copy the YAML above into that file.
+3. In your GitHub repository settings, create secrets:
+   - `SNAPSEC_ASSESSMENT_ID`
+   - `SNAPSEC_API_KEY`
+4. Push your changes. GitHub Actions will run the workflow on each push or pull request.
+
+## 6. GitLab CI example
+
+If you use GitLab, add a job like this to your `.gitlab-ci.yml`:
+
+```yaml
+npm_audit_to_snapsec:
+  image: node:20
+  stage: test
+  script:
+    - npm install
+    - npm audit --json > npm-audit.json
+    - >
+      curl -X POST
+      "https://suite.snapsec.co/csm/api/import/${SNAPSEC_ASSESSMENT_ID}/npm-audit"
+      -H "x-api-key: ${SNAPSEC_API_KEY}"
+      -H "Content-Type: application/json"
+      -d @npm-audit.json
+      -k
+  variables:
+    SNAPSEC_ASSESSMENT_ID: "$SNAPSEC_ASSESSMENT_ID"
+    SNAPSEC_API_KEY: "$SNAPSEC_API_KEY"
+  only:
+    - merge_requests
+    - main
+```
+
+**How to use this:**
+
+1. Create or edit `.gitlab-ci.yml` in the root of your repository.
+2. Add the `npm_audit_to_snapsec` job shown above.
+3. In your GitLab project, go to **Settings → CI/CD → Variables** and add:
+   - `SNAPSEC_ASSESSMENT_ID`
+   - `SNAPSEC_API_KEY`
+4. Commit and push your changes. GitLab will run the job on merge requests and on the `main` branch.
+
+With these examples, even if you are new to CI/CD, you can:
+
+1. Run `npm audit` automatically in your pipeline.  
+2. Upload the `npm-audit.json` report directly to Snapsec VM using the provided webhook.
