@@ -85,18 +85,18 @@
               "products/aim/decommisioning",
               "products/aim/public-search"
             ]
-          },{
-            "group": "Vulnerability Scanner",
-            "pages": [
-              "products/vs/dashboard",
-              "products/vs/scan-management",
-              "products/vs/asset-catalogue",
-              "products/vs/group-management",
-              "products/vs/scanner-configuration",
-              "products/vs/vulnerability-catalogue",
-              "products/vs/integrations"
-            ]
-          },{
+             },{
+              "group": "Vulnerability Scanner",
+              "pages": [
+                "products/vs/dashboard",
+                "products/vs/scan-management",
+                "products/vs/asset-catalogue",
+                "prpducts/vs/group-management",
+                "products/vs/scanner-configuration",
+                "products/vs/vulnerability-catalogue",
+                "products/vs/integrations"
+              ]
+            },{
             "group": "Threat Modelling",
             "pages": [
               "products/tm/introduction",
