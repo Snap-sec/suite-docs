@@ -1,6 +1,147 @@
 ---
-title: "[Repositories]"
-description: "Track all code repositories across your organization with ownership, risk insights, activity history, and exposure intelligence."
-icon: "book-open"
+title: "Repositories Catalog"
+description: "Track Git repositories, monitor activity, detect vulnerabilities, and maintain secure code assets across your organization."
+icon: "code-branch"
 mode: "wide"
 ---
+
+## Overview
+
+The **Repositories Catalog** provides complete visibility into all code repositories detected across your organization — including GitLab, GitHub, Bitbucket, or any connected developer platform.  
+AIM automatically aggregates repository data, identifies vulnerable or archived repos, and correlates each repo with associated assets, owners, and risk levels.
+
+<Frame caption="Repositories Catalog Overview">
+  <img src="/images/aim/repositories1.png" />
+</Frame>
+
+---
+
+## Key Metrics & Analytics
+
+The top analytics panel gives teams an instant understanding of repository health and security posture.
+
+### **Metrics Displayed**
+- **Total Repositories** — Total number of repositories discovered across integrations.
+- **Vulnerable Repositories** — Repos associated with security issues or detected weaknesses.
+- **Private Repositories** — Internal or restricted-access repos (0 in screenshot).
+- **Public Repositories** — Repos exposed publicly (0 in screenshot).
+
+---
+
+## Activity Dashboard
+
+<Frame caption="Repository Activity Distribution">
+  <img src="/images/aim/repositories-activity.png" />
+</Frame>
+
+The **Activity Chart** shows commit and update frequency across timelines (Last Week, Last Month, Last 3 Months, etc.).  
+This helps identify stagnant codebases, abandoned services, or actively developed projects.
+
+---
+
+## Archive Status
+
+<Frame caption="Repository Archive Classification">
+  <img src="/images/aim/repositories-archive.png" />
+</Frame>
+
+AIM detects whether a repository is:
+- **Archived** — No longer maintained  
+- **Active** — Still in use or being updated  
+
+Archived repos often contain legacy code and may still expose risks if dependencies or secrets remain.
+
+---
+
+## Technology Distribution
+
+Shows programming languages or tech stacks used across detected repositories.  
+(Empty in screenshot → will populate when tech metadata is available.)
+
+---
+
+## Search, Filters & Sorting
+
+To support deep analysis, users can filter repositories by:
+
+| Filter | Description |
+|--------|-------------|
+| **Owners** | Filter repos by assigned owners or contributors. |
+| **Risk** | Sort or filter via automated repository risk scoring. |
+| **Exposure** | Identify repos linked with exposed assets. |
+| **Adapters** | Filter by the integration source (e.g., GitLab adapter). |
+| **hasVulns** | Show only repos containing vulnerabilities. |
+| **Associations** | Filter repositories connected to other AIM assets. |
+
+These filters help analysts quickly identify risky or abandoned codebases.
+
+---
+
+## Repository Table Details
+
+Each repository entry includes:
+
+| Column | Description |
+|--------|-------------|
+| **Asset Value** | Repository URL or identifier. |
+| **Source** | Detection method (e.g., gitlab). |
+| **Vuln Count** | Total vulnerabilities linked with the repo. |
+| **Auto Risk** | Automated risk score. |
+| **Owner** | Team or user responsible for maintaining the repository. |
+| **Language** | Primary programming language (if detected). |
+| **Associations** | Number of linked assets (apps, services, domains, etc.). |
+| **Pushed At** | Last code push timestamp. |
+| **Created At** | Repository creation timestamp. |
+
+---
+
+## Full Repository View
+
+Each repository page contains:
+
+### **Summary**
+- Repository link  
+- Ownership  
+- Risk score  
+- Activity timeline  
+- Exposure / associations  
+
+### **Vulnerability Insights**
+If repositories are linked with VM or SAST findings, they appear here:
+- Severity breakdown  
+- Discovery timeline  
+- State and remediation history  
+
+### **Metadata & Language Detection**
+Programming language, frameworks, and package insights (when available).
+
+### **Associations**
+Shows related applications, APIs, certificates, or IPs.
+
+---
+
+## How Repositories Are Discovered
+
+AIM detects repositories using:
+- **GitLab Adapter** — Syncs repos, metadata, and activity logs.  
+- **CI/CD Integrations** — Detects repos referenced in pipelines.  
+- **VM adapter** — Maps vulnerabilities back to their source repos.  
+
+This ensures AIM maintains a real-time inventory of your entire code ecosystem.
+
+---
+
+## Example Use Cases
+
+- **Security Teams:** Identify vulnerable or abandoned repos.  
+- **Developers:** Track ownership and risk of application code.  
+- **Compliance Teams:** Ensure all repositories meet governance requirements.  
+- **Engineering Leaders:** Monitor development activity trends.
+
+---
+
+## Next Steps
+
+<Card title="View Repository Details" icon="arrow-right" href="/products/aim/repositories/details">
+  Explore repository-level insights, vulnerabilities, and activity timelines.
+</Card>
