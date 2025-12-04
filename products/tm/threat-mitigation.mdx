@@ -1,6 +1,196 @@
 ---
-title: "Introduction"
-description: "Automated API Threat Modeling powered by AI — identify, simulate, and resolve potential security threats directly from your API workflows."
+title: "Threat Mitigation"
+description: "Review, verify, and resolve discovered threats using structured workflows, evidence, and remediation guidance."
+icon: "shield-check"
 mode: "wide"
-icon: "shield-halved"
 ---
+
+<Banner>
+The **Threat Mitigation** workspace helps teams validate, remediate, and verify threats effectively.  
+It centralizes exploitation evidence, remediation steps, replayable request data, and lifecycle tracking — ensuring no threat is overlooked during mitigation.
+</Banner>
+
+<Frame caption="Threat Mitigation Overview">
+  <img src="/images/tm/mitigation1.png" />
+</Frame>
+
+---
+
+## Overview
+
+Threat Mitigation provides a full-resolution workflow for each identified threat, combining:
+
+- Technical analysis  
+- Reproduction steps  
+- Remediation guidance  
+- Team ownership & collaboration  
+- Evidence attachments  
+- Lifecycle and activity history  
+
+This ensures developers and security teams work together efficiently to eliminate risks.
+
+---
+
+## Mitigation Workflow
+
+<Frame caption="Threat Mitigation Workflow">
+  <img src="/images/tm/mitigation2.png" />
+</Frame>
+
+<Steps>
+  <Step title="Review Threat Details" icon="magnifying-glass">
+    Analyze the threat description, impacted endpoints, severity, CWE category, and attack scenario.
+  </Step>
+
+  <Step title="Verify Evidence" icon="file-shield">
+    Inspect captured requests, payloads, parameters, and attached proof to validate the risk.
+  </Step>
+
+  <Step title="Apply Fix or Patch" icon="wrench">
+    Developers apply backend, permission, validation, or logic fixes to remove the vulnerability.
+  </Step>
+
+  <Step title="Mark as Ready for Verification" icon="clipboard-check">
+    Once developers push the fix, the threat moves to **Fix Verified** for security review.
+  </Step>
+
+  <Step title="Re-Test Automatically" icon="rotate-right">
+    Snapsec automatically replays the threat scenario to validate the fix.
+  </Step>
+
+  <Step title="Close the Threat" icon="circle-check">
+    If validation passes, the threat is marked **Resolved** with a complete audit trail.
+  </Step>
+</Steps>
+
+---
+
+## Key Features
+
+<Columns cols={2}>
+
+<Card title="Replayable Attack Evidence" icon="play">
+  Snapsec stores full request/response pairs so teams can reproduce attacks instantly.
+</Card>
+
+<Card title="AI-Assisted Remediation Guidance" icon="robot">
+  Receive system-specific, endpoint-aware guidance on how to eliminate the threat.
+</Card>
+
+<Card title="Lifecycle Tracking" icon="arrows-rotate">
+  Every threat moves through states: Pending → Acknowledged → In Progress → Fixed → Verified.
+</Card>
+
+<Card title="Developer Collaboration" icon="users">
+  Add comments, attach files, assign owners, and track activity in a shared workspace.
+</Card>
+
+<Card title="Automatic Fix Verification" icon="check-double">
+  Automated re-testing ensures that patches correctly remove the vulnerability.
+</Card>
+
+<Card title="Audit & Compliance Ready" icon="folder">
+  Full history of who fixed what, when, and how — ideal for audits and compliance.
+</Card>
+
+</Columns>
+
+---
+
+## Example Mitigation Insights
+
+<Danger>
+  Injection payloads replayed against the patched endpoint showing sanitized responses.
+</Danger>
+
+<Danger>
+  Logic-flaw threat marked fixed after re-testing validates authorization checks.
+</Danger>
+
+<Danger>
+  Broken authentication threat closed after password-reset flow was redesigned.
+</Danger>
+
+<Danger>
+  CWE-639 (IDOR) threat resolved after implementing object-level access validation.
+</Danger>
+
+---
+
+## Search, Filtering & Sorting
+
+Threat Mitigation supports advanced investigation controls:
+
+| Filter | Description |
+|--------|-------------|
+| **Severity** | Critical, High, Medium, or Low threats |
+| **State** | Acknowledged, In Progress, Fixed, Verified |
+| **Owner** | Filter by responsible developer or analyst |
+| **Endpoint** | API route or functionality impacted |
+| **CWE** | Common Weakness Enumeration category |
+| **Confidence** | Confidence level of the threat detection |
+
+These filters help teams quickly locate unresolved or high-risk issues.
+
+---
+
+## Full Threat View
+
+<Frame caption="Threat Full View">
+  <img src="/images/tm/mitigation3.png" />
+</Frame>
+
+Each threat page includes:
+
+- Threat impact & explanation  
+- Request/response evidence  
+- CWE & severity  
+- Confidence score  
+- Endpoint details  
+- Owner & assigned team  
+- Activity history  
+- Comments & attachments  
+- Fix verification logs  
+
+---
+
+## Integrations
+
+Snapsec Threat Mitigation integrates with:
+
+- **VM** for ticket syncing  
+- **CI/CD** for auto-verification  
+- **GitHub / GitLab** for linked pull requests  
+- **Jira** for task creation and tracking  
+
+---
+
+## Example Use Cases
+
+<Columns cols={2}>
+
+<Card title="Developer Fix Validation" icon="laptop-code">
+  Automatically validate whether a code fix truly removes the threat.
+</Card>
+
+<Card title="Security Review Workflows" icon="shield-halved">
+  Analysts confirm correctness, attach evidence, and move threats to Verified.
+</Card>
+
+<Card title="Team-Based Remediation" icon="user-group">
+  Assign threats to backend, frontend, or API teams with clear ownership.
+</Card>
+
+<Card title="Compliance Evidence" icon="scroll">
+  Export complete mitigation trails for SOC2, PCI, and internal audits.
+</Card>
+
+</Columns>
+
+---
+
+## Next Steps
+
+<Card title="Explore Threat Resolution" icon="arrow-right" href="/products/tm/threats">
+  Dive deeper into how Snapsec manages discovery, tracking, and remediation.
+</Card>
