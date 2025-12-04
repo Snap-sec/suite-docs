@@ -1,6 +1,156 @@
 ---
-title: "Introduction"
-description: "Automated API Threat Modeling powered by AI — identify, simulate, and resolve potential security threats directly from your API workflows."
+title: "Integrations"
+description: "Connect Swagger and Postman through adapters to automate API discovery and accelerate threat modeling."
+icon: "plug"
 mode: "wide"
-icon: "shield-halved"
 ---
+
+<Banner>
+Snapsec's Threat Modeling module integrates seamlessly with **Swagger** and **Postman** through dedicated adapters.  
+These integrations automate endpoint discovery, reduce manual effort, and keep threat models continuously updated as APIs evolve.
+</Banner>
+
+---
+
+## Overview
+
+Threat Modeling becomes significantly more accurate and efficient when API schemas and request collections flow into the system automatically.
+
+Snapsec supports two primary adapter-driven integrations:
+
+<Check> **Swagger Integration (via Adapter)** </Check>  
+<Check> **Postman Integration (via Adapter)** </Check>
+
+These adapters import, sync, and refresh API routes — ensuring your threat models always reflect the latest system behavior.
+
+---
+
+## Swagger Integration (Adapter-Driven)
+
+<Frame caption="Swagger Integration Overview">
+  <img src="/images/tm/integrations-swagger.png" />
+</Frame>
+
+Swagger/OpenAPI files help identify:
+- Endpoints  
+- HTTP methods  
+- Request/response schemas  
+- Parameter and authentication details  
+
+### What the Adapter Does
+
+- Imports OpenAPI/Swagger specs directly into Snapsec  
+- Discovers all API paths, parameters, and operations  
+- Syncs updated swagger files without manual re-upload  
+- Auto-generates threat scenarios for newly detected endpoints  
+- Flags outdated or missing Swagger definitions  
+
+### Ideal For  
+Teams using OpenAPI-first or schema-driven API development.
+
+---
+
+## Postman Integration (Adapter-Driven)
+
+<Frame caption="Postman Integration Overview">
+  <img src="/images/tm/integrations-postman.png" />
+</Frame>
+
+Postman collections represent real-world API behavior and testing flows.
+
+### What the Adapter Does
+
+- Syncs Postman collections into the Threat Modeling workspace  
+- Extracts endpoints, variables, headers, and authentication  
+- Detects dynamic request flows and chained operations  
+- Auto-maps threats to each Postman-defined request  
+- Tracks changes in collections over time  
+
+### Ideal For  
+Teams that manage APIs through Postman or use it for internal testing.
+
+---
+
+## Key Benefits
+
+<Columns cols={2}>
+
+<Card title="Automatic Endpoint Discovery" icon="sitemap">
+  Import and sync API endpoints directly from Swagger or Postman — no manual entry needed.
+</Card>
+
+<Card title="Continuous Updates" icon="rotate">
+  Adapters refresh endpoints automatically when collections or specs change.
+</Card>
+
+<Card title="Stronger Threat Coverage" icon="shield-halved">
+  More accurate threat modeling thanks to real, up-to-date API definitions.
+</Card>
+
+<Card title="Reduced Manual Work" icon="wand-sparkles">
+  Eliminates the need to rebuild threat models whenever APIs evolve.
+</Card>
+
+</Columns>
+
+---
+
+## How Integration Sync Works
+
+<Steps>
+  <Step title="Connect the Adapter" icon="plug">
+    Install the Swagger or Postman adapter from the integrations panel.
+  </Step>
+
+  <Step title="Authorize or Upload Spec" icon="key">
+    Connect Postman via API key or upload/URL-link your Swagger file.
+  </Step>
+
+  <Step title="Auto-Import API Endpoints" icon="download">
+    Endpoints, collections, and schema definitions are imported automatically.
+  </Step>
+
+  <Step title="Threat Generation" icon="bolt">
+    Snapsec analyzes each endpoint and generates OWASP/CWE-aligned threat scenarios.
+  </Step>
+
+  <Step title="Continuous Sync" icon="arrows-rotate">
+    Whenever the source updates, Snapsec re-syncs and updates the threat model.
+  </Step>
+</Steps>
+
+---
+
+## Example Use Cases
+
+<Columns cols={2}>
+
+<Card title="Schema-Driven Threat Modeling" icon="diagram-project">
+  Generate complete threat models from structured Swagger/OpenAPI definitions.
+</Card>
+
+<Card title="Runtime-Based Threat Mapping" icon="rocket">
+  Build threat models from real-world Postman traffic and request flows.
+</Card>
+
+<Card title="API Change Detection" icon="bell">
+  Detect added, removed, or modified endpoints through continuous synchronization.
+</Card>
+
+<Card title="Developer-Synced Security" icon="people-group">
+  Keep security models aligned with engineering changes automatically.
+</Card>
+
+</Columns>
+
+---
+
+## Next Steps
+
+<Card
+  title="Connect Swagger or Postman"
+  icon="arrow-right"
+  href="/products/tm/integrations/setup"
+>
+  Enable adapter-driven integrations and start automated threat discovery.
+</Card>
