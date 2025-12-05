@@ -1,0 +1,95 @@
+---
+title: Slack
+description: Send real-time vulnerability, exposure, and system alerts from Snapsec into Slack channels.
+mode: wide
+---
+
+## Slack Integration with Snapsec
+
+Snapsec supports **native Slack integration** to deliver instant notifications for vulnerabilities, exposures, scan results, threat updates, and workflow events — directly into your team’s Slack channels.
+
+This guide walks you through:
+
+1. Creating a Slack App for incoming webhooks  
+2. Connecting Slack to Snapsec  
+3. Choosing what alerts you want delivered  
+4. Testing and validating the integration  
+
+You do **not** need prior experience with Slack app setup — everything is step-by-step.
+
+---
+
+## 1. Prerequisites
+
+Before integrating Slack with Snapsec, ensure you have:
+
+- A Slack workspace  
+- Permission to create a Slack App or Incoming Webhook  
+- A Snapsec account with admin access  
+- The Slack **Webhook URL** for the channel you want notifications sent to  
+
+---
+
+## 2. Create a Slack Incoming Webhook
+
+Follow these steps to create the webhook Slack will use to receive alerts:
+
+1. Visit: https://api.slack.com/messaging/webhooks  
+2. Click **Create an App** → “From scratch”  
+3. Name the app (example: `Snapsec Alerts`)  
+4. Choose your workspace  
+5. Under **Incoming Webhooks**, enable *Activate Incoming Webhooks*  
+6. Click **Add New Webhook**  
+7. Select a channel (example: `#security-alerts`)  
+8. Copy the generated **Webhook URL**
+
+You will paste this URL into Snapsec.
+
+---
+
+## 3. Configure Slack Integration in Snapsec
+
+1. Go to **Snapsec → Settings → Integrations → Slack**  
+2. Click **Add Slack Webhook**  
+3. Paste the **Webhook URL** you copied earlier  
+4. Choose the event types you want Slack to receive:
+
+### Supported Event Types
+
+- 🔥 **New Vulnerability Detected**  
+- 🛠️ **Remediation Completed**  
+- ⚠️ **Critical Exposure Found**  
+- 🧪 **Scan Completed**  
+- 🧵 **Threat Model Updated**  
+- 👤 **Owner Assigned / Changed**  
+- 📉 **SLA Breach Alerts**  
+
+5. Save the integration
+
+Snapsec will immediately begin sending alerts for the selected categories.
+
+---
+
+## 4. Test the Slack Integration
+
+In Snapsec:
+
+1. Click **Test Connection**  
+2. Snapsec sends a sample alert to your Slack channel  
+3. You should see a message like:
+
+> **Snapsec Alert Test**  
+> Your Slack integration is working correctly.
+
+If nothing appears:
+
+- Recheck the webhook URL  
+- Ensure the Slack channel permissions allow bot messages  
+- Validate internet restrictions or firewall rules
+
+---
+
+## 5. Example Slack Message
+
+Here’s how a vulnerability alert appears in Slack:
+
