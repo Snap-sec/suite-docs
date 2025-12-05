@@ -1,0 +1,161 @@
+---
+title: Postman
+description: Import Postman API collections into Snapsec API Security for automated scanning, fuzzing, and threat detection.
+mode: wide
+---
+
+## Postman Integration with Snapsec API Security
+
+Use **Postman Collections** as a source of truth for your API definitions and automatically sync them into Snapsec API Security (APIGuard).  
+This enables continuous API scanning, fuzzing, and threat analysis — without manually rebuilding your API catalog.
+
+This guide shows you, step by step, how to:
+
+1. Export a Postman Collection  
+2. Import it into Snapsec via the **Postman Adapter**  
+3. Enable automatic syncing for continuous API discovery  
+4. Start API scans and fuzz testing from the imported collection  
+
+---
+
+## 1. Why Integrate Postman?
+
+Most engineering teams rely on Postman for:
+
+- API documentation  
+- Test collections  
+- Environment management  
+- Collaboration between backend & frontend teams  
+
+Snapsec extends these workflows by:
+
+- Converting Postman requests into structured API endpoints  
+- Automatically mapping methods, auth, headers, and parameters  
+- Generating threats, test cases, and fuzz scenarios  
+- Continuously monitoring the API for weaknesses  
+
+---
+
+## 2. Export Your Postman Collection
+
+In Postman:
+
+1. Open the Collection  
+2. Click **… (options)**  
+3. Select **Export**  
+4. Choose **Collection v2.1**  
+5. Download the `.json` file  
+
+You will upload this file to Snapsec in the next step.
+
+---
+
+## 3. Import Postman Collection into Snapsec
+
+Snapsec supports two ways to import:
+
+### **A. Manual Upload**
+
+1. Navigate to **API Security → Integrations → Postman**  
+2. Click **Upload Collection**  
+3. Select your exported `.json` file  
+4. Choose the project where APIs will be stored  
+5. Confirm import  
+
+Snapsec automatically extracts:
+
+- Endpoints  
+- Methods  
+- Headers  
+- Auth tokens  
+- Path & query parameters  
+- Collections → Groups mapping  
+
+---
+
+### **B. Automatic Sync (Recommended)**
+
+If you store Postman collections on:
+
+- Postman Cloud  
+- GitHub  
+- GitLab  
+- Bitbucket  
+
+Snapsec can **auto-sync** the collection using a webhook or integration token.
+
+Supported auto-sync modes:
+
+- On file change (Git repo)
+- On Postman Collection update
+- Scheduled sync (hourly / daily)
+
+---
+
+## 4. Start API Scanning From Imported Endpoints
+
+Once imported, APIs appear in your **API Catalog**.
+
+From here, you can:
+
+- Run **Active Scans**
+- Enable **Continuous Fuzzing**
+- Generate **Threat Scenarios**
+- Perform **Auth Weakness Detection**
+- Detect **Misconfigurations**  
+- Map **API relationships** and **risk scores**
+
+Each imported API is automatically normalized and enriched with:
+
+- Auth profiles  
+- Environment variables  
+- Execution history  
+- Parameter typing  
+- Vulnerability findings  
+
+---
+
+## 5. Example: Using Postman Environments
+
+Snapsec supports variable injection similar to Postman.
+
+Your Postman environment values will be mapped into:
+
+- Snapsec **Environment Variables**  
+- Snapsec **Scan Profiles**  
+
+This enables environment-specific scanning like:
+
+- `dev.api.example.com`
+- `staging.api.example.com`
+- `prod.api.example.com`
+
+---
+
+## 6. API Security Automation Workflow
+
+Once Postman is integrated:
+
+### Snapsec automatically:
+
+- Converts requests → standardized endpoints  
+- Detects new endpoints added to the collection  
+- Flags deleted/changed endpoints  
+- Identifies sensitive endpoints  
+- Generates threat models  
+- Runs security tests continuously  
+
+Your Postman collection becomes your **API source of truth**, and Snapsec becomes your **security engine**.
+
+---
+
+## Example Webhook for Auto-Sync
+
+If using GitHub or Postman Cloud:
+
+```bash
+POST https://suite.snapsec.co/apiguard/import/postman/<project-id>
+Headers:
+  x-api-key: <your-api-key>
+Body:
+  <JSON collection>
