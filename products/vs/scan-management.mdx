@@ -1,0 +1,142 @@
+---
+title: "Scan Management"
+description: "Create, schedule, organize, and control vulnerability scans across all assets."
+icon: "folder-gear"
+mode: "wide"
+---
+
+<Banner>
+The **Scan Management** module centralizes all scanning operations — enabling teams to launch on-demand scans, manage recurring schedules, organize scans into groups, and monitor execution results in real time.
+It acts as the operational hub for continuous vulnerability assessment.
+</Banner>
+
+<Frame caption="Scan Management Overview">
+  <img src="/images/vs/scan-management.png" />
+</Frame>
+
+---
+
+## Overview
+
+Scan Management provides full lifecycle control over every scan performed by Snapsec’s Vulnerability Scanner.  
+From this module, you can:
+
+- Launch manual or automated scans  
+- Group related scans for organized workflows  
+- Schedule recurring weekly or monthly scans  
+- Track scan progress and completion  
+- Review historical executions and statuses  
+
+This ensures consistent and repeatable vulnerability coverage across all assets.
+
+---
+
+## Scan Actions
+
+<Columns cols={2}>
+
+<Card title="Create New Scan" icon="plus">
+  Define scan name, asset scope, scanner engine, and configuration settings to launch a new test instantly.
+</Card>
+
+<Card title="Run On-Demand Scans" icon="bolt">
+  Trigger immediate scans whenever new deployments or suspicious activity occurs.
+</Card>
+
+<Card title="Schedule Recurring Scans" icon="calendar-days">
+  Automate weekly, monthly, or custom scan intervals across specific assets or groups.
+</Card>
+
+<Card title="Group-Based Scanning" icon="layer-group">
+  Organize related scan tasks into logical groups (e.g., Production APIs, Internal Apps).
+</Card>
+
+</Columns>
+
+---
+
+## Scan Table & Insights
+
+<Frame caption="Scan Table View">
+  <img src="/images/vs/scans-table.png" />
+</Frame>
+
+Each scan entry provides important metadata for operational clarity:
+
+| Column | Description |
+|--------|-------------|
+| **Scan Name** | Title assigned to the scan |
+| **Assets** | Number of assets included in the scan |
+| **Scanner** | Scanner engine used (API, Web, Network, etc.) |
+| **Created On** | Timestamp when the scan was created |
+| **Last Executed** | Last time the scan was run |
+| **Runs** | Total number of executions |
+| **Actions** | Options to Run, Edit, or Delete |
+
+---
+
+## Scheduling & Automation
+
+<Frame caption="Scan Scheduling Panel">
+  <img src="/images/vs/scan-schedule.png" />
+</Frame>
+
+A powerful scheduler allows you to automate scan cycles:
+
+### Supported Frequencies
+- **Daily**
+- **Weekly**
+- **Monthly**
+- **Custom intervals**
+
+Scheduling scans ensures continuous security checks without manual intervention.
+
+---
+
+## Scan Runs (Execution History)
+
+<Frame caption="Scan Runs Overview">
+  <img src="/images/vs/scan-runs.png" />
+</Frame>
+
+The **Scan Runs** tab shows execution history for each scan, including:
+
+- Execution status (Success, Failed, In Progress)
+- Total vulnerabilities found
+- Severity distribution
+- Duration & timestamps
+- Linked assets and scanner types
+
+This timeline helps analysts track improvement or regression across repeated assessments.
+
+---
+
+## Key Benefits
+
+<Columns cols={2}>
+
+<Card title="Operational Consistency" icon="repeat">
+  Automated and recurring scans ensure continuous visibility across changing environments.
+</Card>
+
+<Card title="Faster Response" icon="clock">
+  On-demand scans validate new deployments or investigate emerging threats instantly.
+</Card>
+
+<Card title="Reduced Complexity" icon="cubes">
+  Scan groups simplify management for large organizations with many assets.
+</Card>
+
+<Card title="Historical Tracking" icon="clock-rotate-left">
+  Review past runs to measure remediation effectiveness and long-term trends.
+</Card>
+
+</Columns>
+
+---
+
+## Next Steps
+
+<Card title="Configure Scanners" icon="arrow-right" href="/products/vs/scanner-configuration">
+  Set up scanner engines, adapters, and integrations.
+</Card>
