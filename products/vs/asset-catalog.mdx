@@ -1,0 +1,152 @@
+---
+title: "Asset Catalogue"
+description: "View and manage all assets scanned by the Vulnerability Scanner, including their risk, coverage, and vulnerability associations."
+icon: "rectangle-list"
+mode: "wide"
+---
+
+<Banner>
+The **Asset Catalogue** provides a unified list of all assets monitored by the Vulnerability Scanner.  
+It shows their exposure, vulnerability counts, scanning status, and risk posture — helping teams prioritize what matters most.
+</Banner>
+
+<Frame caption="Asset Catalogue Overview">
+  <img src="/images/vs/assets.png" />
+</Frame>
+
+---
+
+## Overview
+
+The Asset Catalogue aggregates all assets discovered or imported into the Vulnerability Scanner.  
+Each entry includes:
+
+- Asset value (domain, IP, URL, or application)  
+- Vulnerability count  
+- Last scan status  
+- Exposure level  
+- Associated scanner  
+- Automated risk score  
+
+This centralized view helps identify unscanned assets, high-risk systems, or resources repeatedly flagged in tests.
+
+---
+
+## Key Metrics
+
+<Columns cols={3}>
+
+<Card title="Total Assets" icon="server">
+  Total number of assets detected across all scans and integrations.
+</Card>
+
+<Card title="Assets With Vulnerabilities" icon="triangle-exclamation">
+  Shows how many assets contain one or more active vulnerabilities.
+</Card>
+
+<Card title="Scan Coverage" icon="chart-line">
+  Indicates how many assets have been scanned recently vs. pending.
+</Card>
+
+</Columns>
+
+---
+
+## Search, Filters & Sorting
+
+The catalogue includes powerful filtering for fast investigation.
+
+### Available Filters
+
+| Filter | Description |
+|--------|-------------|
+| **Scanner** | Filter assets by the scanner that detected them. |
+| **Exposure** | Identify exposed, internal, shadow, or unverified assets. |
+| **Risk Score** | Sort by automated risk evaluation. |
+| **hasVulns** | Show only assets with active vulnerabilities. |
+| **Date Range** | Filter by detection or last scanned timeline. |
+
+These filters allow analysts to focus on urgent or high-risk targets efficiently.
+
+---
+
+## Asset Table Columns
+
+Each asset includes detailed metadata:
+
+| Column | Description |
+|--------|-------------|
+| **Asset Value** | URL, domain, or IP representing the scanned target |
+| **Scanner** | The scanner engine used to test the asset |
+| **Vuln Count** | Number of vulnerabilities detected |
+| **Exposure** | Whether the asset is external, internal, or unknown |
+| **Auto Risk** | System-generated risk score |
+| **Last Scan** | Timestamp of the most recent scan |
+| **Tags** | Labels for categorization and governance |
+| **Detected On** | First time the asset was discovered |
+
+---
+
+## Asset Detail View
+
+<Frame caption="Asset Detail View">
+  <img src="/images/vs/asset-details.png" />
+</Frame>
+
+Each asset includes a full detail page showing:
+
+- Summary information  
+- Vulnerability list  
+- Scan history  
+- Technologies detected  
+- Exposure reasoning  
+- Risk insights  
+- Evidence linkage  
+
+This allows deep investigation of a specific system.
+
+---
+
+## How Assets Are Discovered
+
+Assets may be added to the catalogue through:
+
+- Manual submission during scan creation  
+- CI/CD pipelines  
+- Scheduled scans  
+- Integrations with ASM, VM, or AIM  
+- API-based imports  
+
+The catalogue automatically updates as new assets appear in your environment.
+
+---
+
+## Example Use Cases
+
+<Columns cols={2}>
+
+<Card title="Prioritize High-Risk Assets" icon="fire">
+  Identify assets with critical vulnerabilities or high exposure.
+</Card>
+
+<Card title="Improve Asset Coverage" icon="arrow-trend-up">
+  Detect assets that have not been scanned recently and schedule tests.
+</Card>
+
+<Card title="Track Asset Lifecycle" icon="arrows-rotate">
+  Monitor first-found, last-seen, and scan activity over time.
+</Card>
+
+<Card title="Support Incident Response" icon="shield">
+  Pull up vulnerabilities and scan history for an affected asset instantly.
+</Card>
+
+</Columns>
+
+---
+
+## Next Steps
+
+<Card title="Open Vulnerability Catalogue" icon="arrow-right" href="/products/vs/vulnerability-catalogue">
+  Explore all vulnerabilities linked with your scanned assets.
+</Card>
