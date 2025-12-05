@@ -27,34 +27,37 @@ This page serves as the **primary discovery layer** before diving into each subd
 
 ## Key Metrics and Analytics
 
+
 <Columns cols={3}>
 
-<Card title="Total Subdomains" icon="globe">
-  Displays the complete count of discovered subdomains within your organization.
-</Card>
+<Frame caption="Displays the complete count of discovered subdomains within your organization.">
+  <img src="/images/aim/graphs/1.png" alt="Total Subdomains graph" />
+</Frame>
 
-<Card title="Vulnerable Subdomains" icon="shield-halved">
-  Highlights subdomains linked to one or more vulnerabilities.
-</Card>
+<Frame caption="Highlights subdomains linked to one or more vulnerabilities.">
+  <img src="/images/aim/graphs/2.png" alt="Vulnerable Subdomains graph" />
+</Frame>
 
-<Card title="Exposed Subdomains" icon="fire-flame-simple">
-  Indicates subdomains that are publicly accessible and not behind protected environments.
-</Card>
+<Frame caption="Indicates subdomains that are publicly accessible and not behind protected environments.">
+  <img src="/images/aim/graphs/3.png" alt="Exposed Subdomains graph" />
+</Frame>
 
+<Frame caption="Pie chart showing vulnerability breakdown by severity — Critical, High, Medium, and Low.">
+  <img src="/images/aim/graphs/4.png" alt="Vulnerability Severity Distribution" />
+</Frame>
 
-<Card title="Vulnerability Severity Distribution" icon="chart-pie">
-  Pie chart showing vulnerability breakdown by severity — Critical, High, Medium, and Low.
-</Card>
+<Frame caption="Shows the ratio of open versus closed vulnerabilities, helping teams monitor remediation effectiveness.">
+  <img src="/images/aim/graphs/5.png" alt="Vulnerability State Distribution" />
+</Frame>
 
-<Card title="Vulnerability State Distribution" icon="chart-column">
-  Shows the ratio of open versus closed vulnerabilities, helping teams monitor remediation effectiveness.
-</Card>
-
-<Card title="Environment Distribution" icon="server">
-  Displays how subdomains are classified (Production, Staging, Dev, QA, etc.), giving quick visibility into operational spread.
-</Card>
+<Frame caption="Displays how subdomains are classified (Production, Staging, Dev, QA, etc.), giving quick visibility into operational spread.">
+  <img src="/images/aim/graphs/6.png" alt="Environment Distribution" />
+</Frame>
 
 </Columns>
+
+
+
 
 ---
 
@@ -79,6 +82,10 @@ All filters can be combined for granular search queries — ideal for analysts a
 
 ## Subdomain Table Columns
 
+<Frame >
+  <img src="/images/aim/subdomains6.png" alt="Subdomain Ports and Relation Graph" />
+</Frame>
+
 Each row in the catalog table displays detailed metadata:
 
 | Column | Description |
@@ -97,7 +104,9 @@ Each row in the catalog table displays detailed metadata:
 
 
 # Subdomains Full View
-
+<Frame >
+  <img src="/images/aim/subdomains7.png" alt="Subdomain Ports and Relation Graph" />
+</Frame>
 
 Each subdomain discovered by AIM is automatically enriched with contextual intelligence such as:
 - Vulnerability risk and trends over time  
@@ -226,21 +235,10 @@ Each discovery updates the dashboard metrics, asset relations, and risk calculat
 
 ---
 
+## Explore Live Demo
 
-
-
-
-
-
-## Next Steps
-
-<Card title="View Subdomain Details" icon="circle-info" href="/products/aim/assets/subdomains/details">
-  Explore the full Subdomain Details page for deeper insights into each discovered asset.
+<Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
+  Instantly explore how Snapsec AIM discovers, enriches, and tracks every asset in real time — all without creating an account.
 </Card>
-
-<Card title="Configure Adapters" icon="plug" href="/products/aim/adapters">
-  Connect additional sources like CRT, DNS, or VM to enhance subdomain discovery.
-</Card>
-
 
 
