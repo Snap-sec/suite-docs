@@ -1,0 +1,177 @@
+---
+title: "Integrations"
+description: "Connect external scanners, CI/CD pipelines, and asset sources to enhance vulnerability detection and automation."
+icon: "plug"
+mode: "wide"
+---
+
+<Banner>
+Snapsec’s **Vulnerability Scanner Integrations** allow you to enrich scanning coverage, import external findings, automate CI/CD workflows, and centralize results from third-party tools — all into one unified vulnerability pipeline.
+</Banner>
+
+<Frame caption="Vulnerability Scanner Integrations Overview">
+  <img src="/images/vs/integrations.png" />
+</Frame>
+
+---
+
+## Overview
+
+Integrations expand the capability of the Vulnerability Scanner by enabling:
+
+- **Import of scan results** from external scanners  
+- **Triggering scans via CI/CD** systems  
+- **Pulling asset inventories** from external platforms  
+- **Syncing vulnerability metadata** between systems  
+- **Automated enrichment** using threat and technology intelligence  
+
+This ensures a single source of truth for all vulnerabilities detected across your ecosystem.
+
+---
+
+## Supported Integration Types
+
+<Columns cols={3}>
+
+<Card title="CI/CD Integration" icon="code-branch">
+  Run scans automatically during push, merge, or deployment workflows.
+</Card>
+
+<Card title="External Scanners" icon="shield">
+  Import findings from tools like Nuclei, Trivy, or custom scanners.
+</Card>
+
+<Card title="Asset Sources" icon="database">
+  Sync assets from ASM, cloud adapters, or repositories.
+</Card>
+
+</Columns>
+
+---
+
+## CI/CD Integrations
+
+<Frame caption="Pipeline-Based Scanning">
+  <img src="/images/vs/integrations-cicd.png" />
+</Frame>
+
+### Supported Workflows
+- GitHub Actions  
+- GitLab CI  
+- Jenkins  
+- Bitbucket Pipelines  
+- Custom webhook-based pipelines  
+
+### Capabilities
+- Trigger API, host, or web scans on deployment  
+- Fail builds if severity thresholds are exceeded  
+- Upload scan data back into VS automatically  
+
+<Check>Ideal for DevSecOps teams enforcing shift-left security.</Check>
+
+---
+
+## External Scanner Integrations
+
+<Frame caption="Third-Party Scanner Imports">
+  <img src="/images/vs/integrations-external.png" />
+</Frame>
+
+### Examples Supported
+- **Nuclei** (YAML-based scanning)  
+- **Trivy** (Container & IaC scanning)  
+- **ZAP / Burp** via exports  
+- **OpenVAS** or custom scanner outputs  
+
+### What Gets Imported
+- Severity  
+- Description & metadata  
+- Affected assets  
+- Timestamps  
+- Evidence (if provided)  
+
+This enables centralized triage inside Snapsec VM and VS.
+
+---
+
+## Asset Integrations
+
+<Frame caption="ASM / Cloud Asset Sync">
+  <img src="/images/vs/integrations-assets.png" />
+</Frame>
+
+VS can pull assets from:
+- Snapsec ASM  
+- Cloud adapters (AWS, GCP, Azure)  
+- Networking systems  
+- Repositories (URLs, targets, APIs)  
+
+This ensures the scanner always has a complete inventory for coverage.
+
+---
+
+## Integration Management
+
+### Add an Integration
+1. Go to **Integrations → Add New Integration**  
+2. Select provider  
+3. Configure credentials / keys  
+4. Test connection  
+5. Save  
+
+### Monitor Integration Health
+The integrator dashboard shows:
+- Connection status  
+- Last sync  
+- Assets imported  
+- Errors or misconfigurations  
+
+Always maintain green-state for uninterrupted scanning.
+
+---
+
+## What Problems This Solves
+
+<CardGroup cols={3}>
+  <Card title="Fragmented Tools" icon="circle-exclamation">
+    Unifies results from multiple scanners into one consistent vulnerability catalog.
+  </Card>
+
+  <Card title="CI/CD Blind Spots" icon="bolt">
+    Ensures every deployment is tested before reaching production.
+  </Card>
+
+  <Card title="Incomplete Asset Coverage" icon="eye">
+    Pulls assets from multiple sources to maintain full visibility.
+  </Card>
+</CardGroup>
+
+---
+
+## Key Benefits
+
+<Columns cols={2}>
+  <Card title="Single Source of Truth" icon="layer-group">
+    Consolidate vulnerabilities from VS + external scanners in one place.
+  </Card>
+
+  <Card title="Automation Ready" icon="robot">
+    Automate scans, imports, and syncing without manual effort.
+  </Card>
+
+  <Card title="Improved Accuracy" icon="circle-check">
+    Cross-verification across scanners improves detection reliability.
+  </Card>
+
+  <Card title="Better Workflow Integration" icon="arrows-left-right">
+    Integrates deeply with VM, ASM, AIM, and CI/CD pipelines.
+  </Card>
+</Columns>
+
+---
+
+## Next Steps
+
+<Card title="Configure Your First Integration" icon="arrow-right" href="/products/vs/integrations/setup">
+  Connect CI/CD or external scanners to enhance detection coverage.
+</Card>
