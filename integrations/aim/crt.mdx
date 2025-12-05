@@ -1,0 +1,133 @@
+---
+title: CRT
+description: Integrate Certificate Transparency monitoring with Snapsec AIM to automatically discover and track newly issued certificates.
+mode: wide
+---
+
+## CRT Integration with Snapsec AIM
+
+**CRT (Certificate Transparency)** integration allows Snapsec AIM to automatically detect newly issued SSL/TLS certificates for your domains in real time.  
+This helps security teams uncover:
+
+- Newly registered subdomains  
+- Shadow infrastructure  
+- Suspicious or malicious certificate issuance  
+- Certificate lifecycle & expiration gaps  
+
+Snapsec continuously monitors CRT logs and imports certificate records directly into the **Certificate Catalog** and **Subdomain Catalog** in AIM.
+
+---
+
+## 1. What This Integration Does
+
+Once CRT integration is enabled:
+
+<Check> Automatically monitors global Certificate Transparency logs </Check>  
+<Check> Detects certificates issued for your domains or wildcard domains </Check>  
+<Check> Extracts SAN entries, issuer, validity period, and fingerprints </Check>  
+<Check> Creates or updates certificates inside AIM’s **Certificate Catalog** </Check>  
+<Check> Automatically discovers new subdomains found inside certificates </Check>  
+
+CRT acts as an external discovery mechanism for detecting assets **before attackers do**.
+
+---
+
+## 2. Prerequisites
+
+You only need:
+
+- One or more **root domains** added in AIM  
+- CRT monitoring enabled (AIM → Integrations → CRT)  
+- No API key or external configuration required — CRT is a public data source  
+
+AIM will begin polling certificate logs automatically.
+
+---
+
+## 3. How CRT Discovery Works
+
+<Steps>
+  <Step title="Monitor Transparency Logs" icon="eye">
+    AIM monitors global CT logs (Google, Cloudflare, DigiCert, Let’s Encrypt, etc.) continuously.
+  </Step>
+
+  <Step title="Match Detected Certificates" icon="link">
+    Any certificate containing your domain (e.g., `*.example.com`, `api.example.com`) is captured.
+  </Step>
+
+  <Step title="Parse SAN & Metadata" icon="magnifying-glass">
+    AIM extracts SAN records, issuer, validity dates, fingerprints, and signatures.
+  </Step>
+
+  <Step title="Create or Update Assets" icon="plus">
+    Certificates are added to the Certificate Catalog, and new subdomains are auto-created.
+  </Step>
+</Steps>
+
+---
+
+## 4. Example CRT Output Imported by AIM
+
+A typical certificate imported from CT logs includes:
+
+- **Common Name:** `api.example.com`  
+- **SANs:** `api.example.com`, `internal-api.example.com`  
+- **Issuer:** Let’s Encrypt  
+- **Valid From / To:** 2025-01-01 → 2025-03-31  
+- **Fingerprint:** SHA256 hash  
+- **Auto-Discovered Subdomains:** `internal-api.example.com`
+
+AIM automatically associates these with the correct domain and risk profile.
+
+---
+
+## 5. Use Cases
+
+<Columns cols={2}>
+
+<Card title="Shadow Subdomain Detection" icon="triangle-exclamation">
+  Find unknown subdomains created by developers or external vendors.
+</Card>
+
+<Card title="Certificate Lifecycle Tracking" icon="clock">
+  Monitor expiration dates and avoid downtime or security violations.
+</Card>
+
+<Card title="Mis-issuance Detection" icon="shield-halved">
+  Detect certificates issued by unauthorized Certificate Authorities.
+</Card>
+
+<Card title="Attack Surface Expansion Monitoring" icon="radar">
+  Track sudden increases in certificate or subdomain activity.
+</Card>
+
+</Columns>
+
+---
+
+## 6. Data Flow Diagram
+
+<Frame caption="CRT → Snapsec AIM Certificate Catalog">
+  <img src="/images/aim/certs-crt-flow.png" />
+</Frame>
+
+---
+
+## 7. No Webhook or CI Needed
+
+Unlike scanners or code analysis tools, CRT does **not** require:
+
+- CI/CD steps  
+- API keys  
+- Repo access  
+- Webhooks  
+
+AIM handles everything automatically.
+
+---
+
+## Next Steps
+
+<Card title="View Certificate Catalog" icon="arrow-right" href="/products/aim/certs">
+  Explore all certificates discovered via CRT and other integrations.
+</Card>
