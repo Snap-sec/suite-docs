@@ -1,104 +1,90 @@
 ---
-title: Vulnerability Management
-description: Integrate Snapsec VM with AIM to sync vulnerability context and asset associations.
-icon: "shield-halved"
+title: Snapsec Secret Scanner
+description: Integrate Snapsec Secret Scanner to import secret-related findings from your code repositories into AIM.
 mode: wide
+icon: key
 ---
 
-## Overview
+## Snapsec Secret Scanner Integration with AIM
 
-The **Vulnerability Management Integration** allows AIM to automatically sync vulnerability information from Snapsec VM and enrich asset records with live security context.
+The **Snapsec Secret Scanner** integration allows AIM to ingest secrets, exposed credentials, tokens, and other sensitive findings detected inside your code repositories.
 
-Once enabled, assets inside AIM — such as IPs, domains, APIs, repositories, and applications — are automatically correlated with vulnerabilities discovered inside Snapsec VM.
+This integration helps centralize **secret exposure risks** inside your asset inventory, linking each detected secret back to:
 
-<Frame caption="Vulnerability Management Integration Overview">
-  <img src="/images/aim/integrations/vm1.png" />
-</Frame>
+- The repository  
+- File path  
+- Commit or branch  
+- Secret type  
+- Risk score  
 
----
-
-## What This Integration Does
-
-- Pulls vulnerability metadata from Snapsec VM into AIM  
-- Links vulnerabilities with corresponding assets (IP, domain, repository, API, etc.)  
-- Updates severity counts, risk scores, and exposure status in real time  
-- Ensures asset records remain consistent with the VM module  
-- Enables unified investigation across asset and vulnerability views  
-
-AIM does not modify vulnerabilities — it **consumes** VM data to keep your asset inventory enriched and accurate.
+AIM then enriches these results with ownership, environment classification, and exposure context.
 
 ---
 
-## How to Enable the Integration
+## 1. Prerequisites
 
-1. Go to **AIM → Integrations**  
-2. Locate **Vulnerability Management**  
-3. Click **Install / Configure**  
-4. Enter your **Snapsec API Key**  
-5. Save and enable the integration  
+Before enabling this integration, ensure you have:
 
-AIM will immediately begin syncing vulnerability information associated with any asset.
-
-<Frame caption="Enable Vulnerability Management Integration">
-  <img src="/images/aim/integrations/vm2.png" />
-</Frame>
+- Access to **Snapsec Secret Scanner**.  
+- A valid **API key** for secret-scan exports.  
+- Code repositories already scanned by Snapsec Secret Scanner (GitHub / GitLab / other repo sources).  
+- AIM workspace permissions that allow integration installation.
 
 ---
 
-## Synced Data
+## 2. Enable the Integration
 
-AIM automatically retrieves:
+1. Go to **AIM → Integrations**.  
+2. Locate **Snapsec Secret Scanner** in the integrations list.  
+3. Click **Install**.  
+4. Enter:
+   - **API Key** from Snapsec Secret Scanner  
+   - (Optional) Repository identifiers or any workspace-specific config  
+5. Click **Save & Connect**.
 
-- Vulnerability titles & descriptions  
-- Severity (Critical / High / Medium / Low / Info)  
-- Detection timestamps  
-- Affected assets  
-- Source scanner  
-- VM lifecycle state (Open, In Review, Resolved, etc.)  
-
-This enables AIM to compute accurate **asset-level risk**, **exposure**, and **security score**.
-
----
-
-## Viewing Vulnerabilities in AIM
-
-Once the integration is active, each asset page includes:
-
-- Vulnerability count  
-- Severity breakdown  
-- Linked vulnerability list  
-- Quick navigation to the VM module  
-
-<Frame caption="Asset Page With Vulnerability Data">
-  <img src="/images/aim/integrations/vm3.png" />
-</Frame>
+Once connected, AIM will begin receiving secret exposure results.
 
 ---
 
-## Sync Behavior
+## 3. What This Integration Imports
 
-- Sync is **continuous** and automatically updates when:
-  - New vulnerabilities appear in VM  
-  - Vulnerabilities change state  
-  - Resolved vulnerabilities are closed  
-- No manual refresh is required  
-- AIM only reads data — it does not modify VM records  
+AIM will import and map:
+
+- Secret type (API keys, tokens, credentials, service keys, etc.)  
+- Repository details (name, owner, provider)  
+- Affected file paths  
+- Commit metadata  
+- Risk scoring and classification  
+- Detection timelines  
+
+Each imported secret becomes an **asset-linked risk record** inside AIM.
 
 ---
 
-## Troubleshooting
+## 4. Sync Behavior
 
-- **No vulnerabilities appearing:**  
-  Ensure the same assets exist in both AIM and VM.
-- **API key invalid:**  
-  Regenerate and re-enter your Snapsec VM API key.
-- **Stale data:**  
-  Check integration status under **AIM → Integrations → Vulnerability Management**.
+- AIM checks Snapsec Secret Scanner periodically for new findings.  
+- Newly detected secrets are added automatically.  
+- Fixed / removed secrets can be marked as resolved.  
+- Repository ownership is auto-linked using AIM’s classifier engine.  
+
+---
+
+## 5. Troubleshooting
+
+### Invalid API Key  
+Ensure the API key is active and correctly copied.
+
+### No Data Appearing  
+Confirm your repositories were successfully scanned in **Snapsec Secret Scanner**.
+
+### Mapping Issues  
+Check classifier rules for repository ownership or tagging.
 
 ---
 
 ## Next Steps
 
-<Card title="View Vulnerabilities in AIM" icon="arrow-right" href="/products/aim/ips">
-  Explore asset-level vulnerability context inside AIM.
+<Card title="View Secret Findings in AIM" icon="arrow-right" href="/products/aim/global-catalog">
+  Review imported secret exposures and link them to assets and teams.
 </Card>
