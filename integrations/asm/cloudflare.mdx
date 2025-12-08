@@ -1,5 +1,112 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: Cloudflare
+description: Integrate Cloudflare with Snapsec AIM to automatically fetch DNS, assets, zones, and metadata from your Cloudflare account.
+mode: wide
 ---
 
+## Cloudflare Integration with Snapsec AIM
+
+The **Cloudflare integration** allows Snapsec AIM to automatically ingest DNS records, zones, subdomains, assets, and metadata directly from your Cloudflare account.  
+Once connected, AIM continuously syncs Cloudflare-managed assets, ensuring your inventory stays up to date without manual imports.
+
+This guide walks you through configuring Cloudflare API credentials and enabling the adapter in Snapsec AIM.
+
+---
+
+## 1. Prerequisites
+
+Before enabling the integration, ensure you have:
+
+- A **Cloudflare account** with access to the DNS zones you want to sync.
+- A **Cloudflare API Token** with permissions:
+  - Zone → Read
+  - DNS → Read
+- Your Cloudflare:
+  - **Account ID**
+  - **API Token**
+
+> ⚠️ API **Keys** (global keys) are not recommended. Always use **API Tokens**.
+
+---
+
+## 2. Create a Cloudflare API Token
+
+Follow these steps to generate a scoped API token:
+
+1. Log in to Cloudflare Dashboard  
+2. Go to **My Profile → API Tokens**  
+3. Click **Create Token**  
+4. Use the template: **Read all Zone DNS** or create a custom token  
+5. Ensure the following permissions are included:
+
+   - **Zone → Zone → Read**  
+   - **Zone → DNS → Read**
+
+6. Select the specific zones you want AIM to access  
+7. Generate the token and copy it securely  
+
+You will paste this token into Snapsec AIM.
+
+---
+
+## 3. Configure Cloudflare in Snapsec AIM
+
+1. Open **Snapsec Suite → AIM → Adapters**  
+2. Locate **Cloudflare** and click **Install**  
+3. You will see fields for:
+
+   - **Account ID**  
+   - **API Token**
+
+4. Paste the values you copied from Cloudflare  
+5. Click **Install Now**
+
+If authentication is successful, the status will change to **Connected**.
+
+---
+
+## 4. What AIM Fetches from Cloudflare
+
+Once configured, AIM automatically imports:
+
+- DNS Records (A, AAAA, CNAME, MX, TXT, etc.)
+- Cloudflare-managed subdomains  
+- Associated IPs
+- Cloudflare metadata  
+- Zone information  
+- Exposure insights (e.g., proxied vs non-proxied)
+
+AIM also correlates Cloudflare DNS data with your other assets such as subdomains, IPs, certificates, and applications.
+
+---
+
+## 5. Sync Behavior
+
+After installation:
+
+- AIM performs an **initial sync** to fetch all zones and DNS records  
+- AIM runs **periodic refresh cycles** in the background  
+- You can trigger manual refresh using **Refresh Logs** or the **Run Adapter** button
+
+No additional configuration is required.
+
+---
+
+## 6. Troubleshooting
+
+| Issue | Possible Cause | Fix |
+|-------|----------------|-----|
+| Authentication failed | Wrong token or expired token | Create a new API Token |
+| Missing DNS records | Token lacks proper permissions | Ensure DNS → Read is enabled |
+| No zones detected | Wrong Account ID | Verify Cloudflare Account ID |
+| Sync stops unexpectedly | Token revoked | Regenerate token |
+
+If issues continue, collect the error message displayed in Snapsec AIM and share it with Snapsec support.
+
+---
+
+## Next Steps
+
+<Card title="View Cloudflare Assets in AIM" icon="arrow-right" href="/products/aim/dns">
+  Explore DNS, subdomains, and related assets imported from Cloudflare.
+</Card>

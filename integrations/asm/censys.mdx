@@ -1,5 +1,98 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: Censys
+description: Integrate Censys with Snapsec ASM to fetch internet-wide asset intelligence, exposures, and IP/domain discovery.
+mode: wide
 ---
 
+## Censys Integration with Snapsec ASM
+
+The **Censys integration** allows Snapsec ASM to automatically fetch internet-wide discovery data, including exposed IPs, open ports, services, certificates, and domain assets associated with your organization.
+
+This integration enhances your external attack surface visibility using one of the most trusted OSINT platforms.
+
+---
+
+## 1. Prerequisites
+
+Before enabling Censys in Snapsec ASM, ensure you have:
+
+- A **Censys account**  
+- **API ID**  
+- **API Secret**  
+- Optional: An ASM project already created in Snapsec
+
+You can obtain your Censys API keys here:  
+`https://search.censys.io/account/api`
+
+---
+
+## 2. Configure Censys in Snapsec ASM
+
+1. Navigate to **ASM → Integrations**.  
+2. Locate **Censys** from the list of available integrations.  
+3. Click **Install** or **Configure**.  
+4. A dialog will appear requesting:
+   - **API ID**
+   - **API Secret**
+
+Enter your credentials and click **Install Now**.
+
+If the credentials are valid, Snapsec will show the integration as **Connected**.
+
+---
+
+## 3. What Censys Fetches Into Snapsec ASM
+
+Once connected, the Censys adapter automatically enriches and discovers:
+
+### **Asset Discovery**
+- IP addresses associated with your organization
+- Domains and subdomains
+- Hostnames found from certificates, banners, or DNS records
+
+### **Exposure Intelligence**
+- Open ports and running services  
+- Service banners and fingerprints  
+- TLS/SSL certificate metadata  
+- Detected technologies  
+- ASN and geolocation details  
+
+### **Risk Signals**
+- Exposed services with known vulnerabilities  
+- Misconfigurations (e.g., open databases, debug ports)  
+- Weak certificates or expired SSL  
+- Unmanaged or unknown assets (“shadow assets”)  
+
+Snapsec normalizes this data and adds it to your **Asset Inventory**, **Exposure Catalog**, and **Graph View**.
+
+---
+
+## 4. Sync Frequency
+
+Censys data is periodically refreshed based on your workspace settings.  
+You can also trigger a manual refresh by clicking:
+
+**Integrations → Censys → Refresh**
+
+---
+
+## 5. Troubleshooting
+
+**Invalid Credentials**  
+- Ensure your API ID and Secret match exactly from your Censys account.
+
+**No Assets Detected**  
+- Confirm your organization domains/IP ranges are configured in ASM.  
+- Censys may take time to index newly observed hosts.
+
+**Rate Limits**  
+- Free Censys accounts have strict rate and quota limits.  
+- Upgrade your Censys tier if needed.
+
+---
+
+## Next Steps
+
+<Card title="View ASM Exposures" icon="arrow-right" href="/products/asm/exposures">
+  Explore exposures and service-level risks discovered from Censys data.
+</Card>
