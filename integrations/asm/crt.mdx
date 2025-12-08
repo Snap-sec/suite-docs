@@ -1,5 +1,70 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: CRT 
+description: Fetch subdomains from certificate transparency logs through crt.sh into Snapsec ASM.
+mode: wide
 ---
 
+## CRT Integration with Snapsec ASM
+
+The **CRT adapter** enables Snapsec ASM to discover subdomains by querying public certificate transparency logs from **crt**.
+
+This provides fast and reliable external asset discovery for any domain with issued TLS certificates.
+
+---
+
+## 1. What CRT Integration Does
+
+ASM uses CRT to automatically:
+
+- Discover newly issued subdomains  
+- Identify wildcard certificate expansions  
+- Track certificate-based exposure  
+- Reveal forgotten or legacy domains  
+- Add all discovered assets into the ASM inventory  
+
+This is one of the primary sources of external surface expansion detection.
+
+---
+
+## 2. Prerequisites
+
+No API key is required.
+
+CRT integration works using public CT log queries.
+
+---
+
+## 3. How to Install
+
+1. Go to **ASM → Integrations**  
+2. Select **CRT**  
+3. Click **Install**
+
+ASM immediately begins querying certificate transparency logs.
+
+---
+
+## 4. What Data Gets Imported
+
+- Subdomains  
+- Certificate CN / SAN entries  
+- Certificate issuance metadata  
+- Historical and newly issued CT records  
+
+Assets are automatically enriched and added to the ASM **Asset Catalog**.
+
+---
+
+## 5. Sync Behavior
+
+- **Frequent automatic refreshes** pull new CT log entries  
+- Each newly discovered certificate results in new asset detection  
+- You may run **Manual Refresh** anytime  
+
+---
+
+## Next Steps
+
+<Card title="View Discovered Subdomains" icon="arrow-right" href="/products/asm/asset-catalog">
+  Explore subdomains discovered via CRT and other ASM adapters.
+</Card>
