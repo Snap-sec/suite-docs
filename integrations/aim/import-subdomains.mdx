@@ -1,0 +1,76 @@
+---
+title: "Import Subdomains"
+description: "Import subdomain assets into Snapsec AIM using CSV uploads."
+mode: wide
+---
+
+## Import Subdomains into AIM
+
+The **Import Subdomains** integration allows you to upload a CSV file containing subdomain records and instantly populate your Asset Inventory.  
+This is useful when migrating from legacy systems, importing recon data, or manually maintaining internal inventories.
+
+---
+
+##  Prerequisites
+
+Before importing:
+
+- Prepare a valid **CSV file** containing subdomains.
+- Ensure each row includes at least the **subdomain value**.
+- Optional fields may include:
+  - Tags  
+  - Owner  
+  - Environment  
+  - Notes  
+
+---
+
+##  Access the Import Interface
+
+1. Open Snapsec Suite.  
+2. Navigate to: **AIM → Integrations**.  
+3. Locate **Import Subdomains**.  
+4. Click **Import** to open the upload dialog.
+
+---
+
+##  Upload Your CSV
+
+You will see a modal with an upload field.
+
+- Click **Upload File** and select your CSV.
+- AIM will parse and validate the structure.
+- Any formatting issues will be shown before import.
+
+Once validated, click **Import Now**.
+
+---
+
+##  How AIM Processes the Import
+
+After uploading:
+
+- AIM creates or updates subdomain assets automatically.
+- Each imported asset is enriched by:
+  - Classifier rules
+  - Ownership mappings
+  - Environment detection
+  - Exposure analysis (if adapters are active)
+
+Imported assets immediately appear in the **Subdomains Catalog**.
+
+---
+
+##  Troubleshooting
+
+- **Incorrect CSV format** → Ensure headers are correct.  
+- **Duplicates not updating** → Existing subdomains are matched by value.  
+- **Ownership not applied** → Check classifier rules in AIM.  
+
+---
+
+## Next Steps
+
+<Card title="View Subdomains" icon="arrow-right" href="/products/aim/subdomains">
+  Explore imported subdomain assets in your inventory.
+</Card>

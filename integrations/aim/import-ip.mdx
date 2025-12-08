@@ -1,0 +1,49 @@
+---
+title: "Import IP Addresses"
+description: "Import IP assets into AIM using CSV upload for bulk onboarding and inventory enrichment."
+icon: "file-arrow-up"
+mode: "wide"
+---
+
+## Overview
+
+The **Import IP Addresses** integration allows teams to bring large sets of IP assets into AIM using a simple CSV upload.  
+This is useful when migrating from legacy systems, CMDB exports, scanner outputs, or manually maintained spreadsheets.
+
+<Frame caption="Import IP Addresses">
+  <img src="/images/aim/integrations/import-ip.png" />
+</Frame>
+
+---
+
+## How It Works
+
+AIM accepts a structured CSV file containing IP-related metadata.  
+Once uploaded, AIM automatically:
+
+- Creates new IP asset records  
+- Enriches each IP using adapters (IpInfo, TechGrabber, ASM, VM, etc.)  
+- Assigns exposure, risk, and classification  
+- Correlates IPs with existing assets where possible  
+
+This ensures newly imported IPs instantly become part of the unified inventory.
+
+---
+
+## CSV Format Requirements
+
+Your CSV must contain at least:
+
+| Column | Description |
+|--------|-------------|
+| **ip** | The IP address to import (mandatory) |
+| **owner** | Optional owner/team attribution |
+| **tags** | Optional comma-separated tags |
+| **source** | Optional description of where the IP came from |
+
+Example:
+
+```csv
+ip,owner,tags,source
+192.168.1.10,network-team,internal,legacy-cmdb
+34.112.55.20,cloud-team,production,aws-export

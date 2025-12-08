@@ -1,0 +1,92 @@
+---
+title: "IP Info"
+description: "Integrate IPinfo to enrich IP assets with geolocation, ASN, and network intelligence."
+mode: "wide"
+icon: "globe"
+---
+
+## Overview
+
+The **IP Info** connects AIM with **IPinfo**, enriching discovered IP assets with detailed network intelligence.  
+This integration enhances asset context by adding ASN data, geolocation, hosting information, and network ownership attributes.
+
+<Frame caption="IP Info Integration in AIM">
+  <img src="/images/aim/integrations/ipinfo.png" />
+</Frame>
+
+---
+
+## What This Integration Does
+
+Once enabled, the IP Info automatically:
+
+- Enriches every discovered IP with **ASN number, organization, and network block**  
+- Adds **geolocation data** such as country, region, and city  
+- Identifies **hosting providers, cloud networks, and ISP details**  
+- Improves **risk scoring** with exposure-aware metadata  
+- Helps classify external vs internal IP behavior  
+
+This enrichment is applied continuously as new IPs appear in AIM.
+
+---
+
+## Prerequisites
+
+To enable the IP Info adapter, you need:
+
+- An active **IPinfo API token**  
+- AIM workspace admin or integration permissions  
+
+---
+
+## How to Set Up
+
+<Steps>
+  <Step title="Open Integrations" icon="plug">
+    Navigate to **AIM → Integrations** and select the **IP Info** tile.
+  </Step>
+
+  <Step title="Enter API Token" icon="key">
+    Paste your IPinfo API token into the configuration modal.
+  </Step>
+
+  <Step title="Install Adapter" icon="circle-check">
+    Click **Install** to connect IP Info with AIM.
+  </Step>
+</Steps>
+
+---
+
+## What Gets Enriched
+
+When an IP is found via ASM, VM, scanners, or CSV import, IP Info adds:
+
+| Field | Description |
+|-------|-------------|
+| **ASN** | Autonomous System Number associated with the IP |
+| **Organisation** | The ISP or hosting provider |
+| **City / Region / Country** | Geolocation data |
+| **Latitude / Longitude** | Approximate mapping |
+| **Network Range** | CIDR block the IP belongs to |
+| **Hosting Provider** | Cloud vendor or ISP |
+| **Risk Context** | Exposure-aware classification |
+
+These details appear instantly in the **IP Full View** panel.
+
+---
+
+## Verification & Logs
+
+After setup:
+
+- A green **Connected** badge appears on the integration tile  
+- AIM begins enriching IPs automatically  
+- You can review logs under **Integrations → Refresh Logs**  
+
+---
+
+## Next Steps
+
+<Card title="Explore IP Catalogue" icon="arrow-right" href="/products/aim/ips">
+  View enriched IP assets and see IPinfo-powered intelligence in action.
+</Card>
