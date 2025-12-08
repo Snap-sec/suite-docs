@@ -1,0 +1,104 @@
+---
+title: Vulnerability Management
+description: Integrate Snapsec VM with AIM to sync vulnerability context and asset associations.
+icon: "shield-halved"
+mode: wide
+---
+
+## Overview
+
+The **Vulnerability Management Integration** allows AIM to automatically sync vulnerability information from Snapsec VM and enrich asset records with live security context.
+
+Once enabled, assets inside AIM — such as IPs, domains, APIs, repositories, and applications — are automatically correlated with vulnerabilities discovered inside Snapsec VM.
+
+<Frame caption="Vulnerability Management Integration Overview">
+  <img src="/images/aim/integrations/vm1.png" />
+</Frame>
+
+---
+
+## What This Integration Does
+
+- Pulls vulnerability metadata from Snapsec VM into AIM  
+- Links vulnerabilities with corresponding assets (IP, domain, repository, API, etc.)  
+- Updates severity counts, risk scores, and exposure status in real time  
+- Ensures asset records remain consistent with the VM module  
+- Enables unified investigation across asset and vulnerability views  
+
+AIM does not modify vulnerabilities — it **consumes** VM data to keep your asset inventory enriched and accurate.
+
+---
+
+## How to Enable the Integration
+
+1. Go to **AIM → Integrations**  
+2. Locate **Vulnerability Management**  
+3. Click **Install / Configure**  
+4. Enter your **Snapsec API Key**  
+5. Save and enable the integration  
+
+AIM will immediately begin syncing vulnerability information associated with any asset.
+
+<Frame caption="Enable Vulnerability Management Integration">
+  <img src="/images/aim/integrations/vm2.png" />
+</Frame>
+
+---
+
+## Synced Data
+
+AIM automatically retrieves:
+
+- Vulnerability titles & descriptions  
+- Severity (Critical / High / Medium / Low / Info)  
+- Detection timestamps  
+- Affected assets  
+- Source scanner  
+- VM lifecycle state (Open, In Review, Resolved, etc.)  
+
+This enables AIM to compute accurate **asset-level risk**, **exposure**, and **security score**.
+
+---
+
+## Viewing Vulnerabilities in AIM
+
+Once the integration is active, each asset page includes:
+
+- Vulnerability count  
+- Severity breakdown  
+- Linked vulnerability list  
+- Quick navigation to the VM module  
+
+<Frame caption="Asset Page With Vulnerability Data">
+  <img src="/images/aim/integrations/vm3.png" />
+</Frame>
+
+---
+
+## Sync Behavior
+
+- Sync is **continuous** and automatically updates when:
+  - New vulnerabilities appear in VM  
+  - Vulnerabilities change state  
+  - Resolved vulnerabilities are closed  
+- No manual refresh is required  
+- AIM only reads data — it does not modify VM records  
+
+---
+
+## Troubleshooting
+
+- **No vulnerabilities appearing:**  
+  Ensure the same assets exist in both AIM and VM.
+- **API key invalid:**  
+  Regenerate and re-enter your Snapsec VM API key.
+- **Stale data:**  
+  Check integration status under **AIM → Integrations → Vulnerability Management**.
+
+---
+
+## Next Steps
+
+<Card title="View Vulnerabilities in AIM" icon="arrow-right" href="/products/aim/ips">
+  Explore asset-level vulnerability context inside AIM.
+</Card>
