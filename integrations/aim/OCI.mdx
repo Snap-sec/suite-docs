@@ -1,0 +1,149 @@
+---
+title: Oracle Cloud Infrastructure (OCI)
+description: Integrate OCI with AIM to automatically fetch cloud assets, network resources, and infrastructure metadata.
+icon: "cloud"
+mode: "wide"
+---
+
+## Oracle Cloud Infrastructure Integration for AIM
+
+The **OCI integration** allows Asset Inventory Management (AIM) to automatically ingest cloud assets directly from your Oracle Cloud Infrastructure account.  
+This ensures your cloud inventory stays complete, enriched, and continuously updated.
+
+With OCI connected, AIM can fetch:
+
+- Compute instances  
+- Virtual networks (VCNs)  
+- Subnets & IP addresses  
+- Object storage buckets  
+- Load balancers  
+- DNS zones  
+- Attached public resources  
+- Network metadata & tags  
+
+This eliminates manual exports and keeps your cloud asset footprint always accurate.
+
+---
+
+## 1. Prerequisites
+
+Before configuring OCI in AIM, ensure you have:
+
+- An **OCI account** with permissions to read cloud resources  
+- **Tenancy OCID**  
+- **User OCID**  
+- **Compartment OCID** (root or specific compartment)  
+- **API private key** + **Fingerprint**  
+- **Region** (e.g., `us-ashburn-1`)  
+
+AIM uses these credentials only to fetch read-only metadata.
+
+---
+
+## 2. Add OCI Integration in AIM
+
+1. Navigate to **AIM → Integrations**  
+2. Find **Oracle Cloud Infrastructure** in the adapter list  
+3. Click **Install**  
+4. A configuration modal will appear asking for:
+
+   - Tenancy OCID  
+   - User OCID  
+   - Compartment OCID  
+   - Fingerprint  
+   - Private Key  
+   - Region  
+
+<Frame caption="OCI Integration Setup">
+  <img src="/images/aim/integrations/oci1.png" />
+</Frame>
+
+After submitting, AIM will validate the credentials and begin syncing resources.
+
+---
+
+## 3. What AIM Collects from OCI
+
+Once installed, AIM will automatically ingest and classify assets such as:
+
+### **Compute Resources**
+- VM Instances  
+- Public / Private IPs  
+- Instance states & tags  
+
+### **Networking**
+- VCNs  
+- Subnets  
+- Route tables  
+- Security lists  
+- Load Balancers  
+
+### **Storage**
+- Object storage buckets (public/private)  
+- Bucket policies  
+
+### **DNS**
+- DNS zones  
+- Records  
+- Configurations  
+
+<Frame caption="OCI Asset Overview">
+  <img src="/images/aim/integrations/oci2.png" />
+</Frame>
+
+---
+
+## 4. Refreshing & Updating OCI Data
+
+AIM periodically refreshes OCI data automatically, but you can also:
+
+- **Run manual resync**
+- **Check Adapter Logs**
+- **View recently added cloud assets**
+
+All updates are visible in the **Adapter Activity Log**.
+
+---
+
+## 5. Common Use Cases
+
+<Columns cols={2}>
+
+<Card title="Cloud Asset Inventory" icon="database">
+  Build a unified inventory of OCI assets across compartments and regions.
+</Card>
+
+<Card title="Shadow Cloud Detection" icon="triangle-exclamation">
+  Identify unmanaged or forgotten cloud resources.
+</Card>
+
+<Card title="Exposure Analysis" icon="shield-halved">
+  Detect public buckets, exposed IPs, and misconfigured networking resources.
+</Card>
+
+<Card title="Ownership Mapping" icon="user-check">
+  Attribute cloud assets to teams automatically using tags and compartments.
+</Card>
+
+</Columns>
+
+---
+
+## 6. Troubleshooting
+
+### **Invalid Credentials**
+- Verify OCIDs, fingerprint, and private key  
+- Ensure correct region  
+- Ensure required IAM permissions
+
+### **Missing Resources**
+- Check if AIM has access to your selected compartment  
+- Include root compartment to fetch all child compartments  
+
+---
+
+## Next Steps
+
+<Card title="View Cloud Assets" icon="arrow-right" href="/products/aim/global-catalog">
+  Explore OCI assets inside your unified inventory.
+</Card>
