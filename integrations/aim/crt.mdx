@@ -1,133 +1,127 @@
 ---
-title: CRT
-description: Integrate Certificate Transparency monitoring with Snapsec AIM to automatically discover and track newly issued certificates.
+title: CRT.sh
+description: Fetch subdomains automatically from crt.sh certificate transparency logs into Snapsec AIM.
 mode: wide
+icon: magnifying-glass
 ---
 
-## CRT Integration with Snapsec AIM
+## CRT.sh Integration with Snapsec AIM
 
-**CRT (Certificate Transparency)** integration allows Snapsec AIM to automatically detect newly issued SSL/TLS certificates for your domains in real time.  
-This helps security teams uncover:
+The **CRT.sh integration** allows Snapsec AIM to automatically fetch **subdomains** discovered through global Certificate Transparency (CT) logs.  
+This helps identify hidden, forgotten, or shadow domains that appear in SSL certificates but are not tracked internally.
 
-- Newly registered subdomains  
-- Shadow infrastructure  
-- Suspicious or malicious certificate issuance  
-- Certificate lifecycle & expiration gaps  
+This guide explains how to:
 
-Snapsec continuously monitors CRT logs and imports certificate records directly into the **Certificate Catalog** and **Subdomain Catalog** in AIM.
-
----
-
-## 1. What This Integration Does
-
-Once CRT integration is enabled:
-
-<Check> Automatically monitors global Certificate Transparency logs </Check>  
-<Check> Detects certificates issued for your domains or wildcard domains </Check>  
-<Check> Extracts SAN entries, issuer, validity period, and fingerprints </Check>  
-<Check> Creates or updates certificates inside AIM’s **Certificate Catalog** </Check>  
-<Check> Automatically discovers new subdomains found inside certificates </Check>  
-
-CRT acts as an external discovery mechanism for detecting assets **before attackers do**.
+1. Enable CRT integration in AIM  
+2. Automatically import subdomains from CT logs  
+3. Use the fetched data for inventory, threat analysis, and discovery  
 
 ---
 
-## 2. Prerequisites
+## 1. Prerequisites
 
-You only need:
+CRT.sh does **not require API keys** — only a domain or organization keyword to search.
 
-- One or more **root domains** added in AIM  
-- CRT monitoring enabled (AIM → Integrations → CRT)  
-- No API key or external configuration required — CRT is a public data source  
+You will need:
 
-AIM will begin polling certificate logs automatically.
-
----
-
-## 3. How CRT Discovery Works
-
-<Steps>
-  <Step title="Monitor Transparency Logs" icon="eye">
-    AIM monitors global CT logs (Google, Cloudflare, DigiCert, Let’s Encrypt, etc.) continuously.
-  </Step>
-
-  <Step title="Match Detected Certificates" icon="link">
-    Any certificate containing your domain (e.g., `*.example.com`, `api.example.com`) is captured.
-  </Step>
-
-  <Step title="Parse SAN & Metadata" icon="magnifying-glass">
-    AIM extracts SAN records, issuer, validity dates, fingerprints, and signatures.
-  </Step>
-
-  <Step title="Create or Update Assets" icon="plus">
-    Certificates are added to the Certificate Catalog, and new subdomains are auto-created.
-  </Step>
-</Steps>
+- A registered domain (e.g., `example.com`)  
+- Permission to manage AIM adapters  
+- (Optional) Asset classification rules to tag imported assets  
 
 ---
 
-## 4. Example CRT Output Imported by AIM
+## 2. Installing the CRT Integration
 
-A typical certificate imported from CT logs includes:
+1. Go to **AIM → Integrations**  
+2. Find **CRT** in the integrations list  
+3. Click **Install**  
 
-- **Common Name:** `api.example.com`  
-- **SANs:** `api.example.com`, `internal-api.example.com`  
-- **Issuer:** Let’s Encrypt  
-- **Valid From / To:** 2025-01-01 → 2025-03-31  
-- **Fingerprint:** SHA256 hash  
-- **Auto-Discovered Subdomains:** `internal-api.example.com`
+A dialog will appear prompting you to configure:
 
-AIM automatically associates these with the correct domain and risk profile.
+- **Domain / Root Domain** (required)  
+- **Polling Interval** (optional, default daily)  
 
----
+Click **Save** once complete.
 
-## 5. Use Cases
-
-<Columns cols={2}>
-
-<Card title="Shadow Subdomain Detection" icon="triangle-exclamation">
-  Find unknown subdomains created by developers or external vendors.
-</Card>
-
-<Card title="Certificate Lifecycle Tracking" icon="clock">
-  Monitor expiration dates and avoid downtime or security violations.
-</Card>
-
-<Card title="Mis-issuance Detection" icon="shield-halved">
-  Detect certificates issued by unauthorized Certificate Authorities.
-</Card>
-
-<Card title="Attack Surface Expansion Monitoring" icon="radar">
-  Track sudden increases in certificate or subdomain activity.
-</Card>
-
-</Columns>
-
----
-
-## 6. Data Flow Diagram
-
-<Frame caption="CRT → Snapsec AIM Certificate Catalog">
-  <img src="/images/aim/certs-crt-flow.png" />
+<Frame caption="CRT Integration Setup">
+  <img src="/images/aim/integrations/crt.png" />
 </Frame>
 
 ---
 
-## 7. No Webhook or CI Needed
+## 3. How CRT.sh Discovery Works
 
-Unlike scanners or code analysis tools, CRT does **not** require:
+Once enabled, Snapsec AIM will:
 
-- CI/CD steps  
-- API keys  
-- Repo access  
-- Webhooks  
+### 🔍 Query CT Logs
+Search CRT.sh for any certificate containing:
 
-AIM handles everything automatically.
+- Your domain  
+- Subdomains  
+- Wildcard certificates  
+- Historical certificates  
+
+### 🧩 Parse Certificate Records
+AIM processes certificate CN/SAN entries to extract:
+
+- Subdomain names  
+- Wildcard domain variants  
+- Past domains still visible in public logs  
+
+### 🔗 Add New Assets to Inventory
+Imported subdomains appear in:
+
+- **Subdomains Catalog**  
+- **Global Asset Inventory**  
+- Asset Relations Graph  
+- Exposure analysis workflows  
+
+Each subdomain is enriched with:
+
+- DNS lookups  
+- Technologies  
+- IP mapping  
+- Risk Indicators  
+
+---
+
+## 4. How AIM Uses CRT Data
+
+CRT integration helps solve several real problems:
+
+### ✔ Identify Shadow Subdomains  
+Discover subdomains created without security approval but exposed publicly.
+
+### ✔ Detect Legacy or Forgotten Environments  
+Old certificates reveal deprecated services still reachable online.
+
+### ✔ Strengthen Surface Monitoring  
+New certificate issuance immediately alerts AIM to newly exposed assets.
+
+### ✔ Enhance ASM + VM + TM Workflows  
+CRT-derived domains automatically flow into:
+
+- Vulnerability scans  
+- Threat modeling projects  
+- Attack surface maps  
+
+---
+
+## 5. Troubleshooting
+
+### ❗ No subdomains found  
+Ensure your root domain is correctly entered (e.g., `example.com`, not `https://example.com`).
+
+### ❗ Too many results or noise  
+Use AIM classifiers to tag or filter unwanted entries.
+
+### ❗ Duplicate records  
+AIM automatically deduplicates assets — duplicates will merge into a single asset entry.
 
 ---
 
 ## Next Steps
 
-<Card title="View Certificate Catalog" icon="arrow-right" href="/products/aim/certs">
-  Explore all certificates discovered via CRT and other integrations.
+<Card title="View Subdomain Catalog" icon="arrow-right" href="/products/aim/subdomains">
+  Explore all subdomains discovered from CRT and other adapters.
 </Card>

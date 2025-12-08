@@ -1,0 +1,103 @@
+---
+title: Censys
+description: Integrate Censys with AIM to automatically discover external assets, IPs, certificates, and attack surface data.
+mode: wide
+---
+
+## Censys Integration with Snapsec AIM
+
+The **Censys integration** allows AIM to automatically ingest internet-wide scan data related to your organization — including domains, subdomains, IPs, certificates, ports, and technologies.
+
+Once connected, AIM continuously syncs Censys discovery results into your **Global Catalog**, ensuring full visibility into your external-facing asset footprint.
+
+---
+
+## 1. Prerequisites
+
+Before enabling this integration, you need:
+
+- A **Censys Account**
+- Your **API ID**
+- Your **API Secret**
+- One or more **root domains** or **organization identifiers** configured in AIM
+
+> 🔐 Your API Secret behaves like a password — keep it secure and rotate regularly.
+
+---
+
+## 2. Enable the Integration in AIM
+
+1. Go to **AIM → Integrations**.  
+2. Locate the **Censys** integration tile.  
+3. Click **Install**.  
+4. A configuration dialog will appear asking for:
+   - **API ID**
+   - **API Secret**
+
+Fill in your credentials and click **Save & Connect**.
+
+If authentication succeeds, AIM will begin pulling asset data immediately.
+
+---
+
+## 3. What AIM Fetches from Censys
+
+Once connected, AIM automatically imports:
+
+### 🔍 **Domain & Subdomain Data**
+- Newly discovered subdomains  
+- Host associations  
+- DNS records  
+- Expanding external footprint
+
+### 🌐 **IP & Network Intelligence**
+- Public IP addresses  
+- Open ports  
+- Exposed services  
+- Geo & ASN data  
+
+### 🔒 **Certificate Insights**
+- SSL certificate metadata  
+- Certificate → domain relationships  
+- Expired or mismatched certs  
+
+### 🧩 **Technology Fingerprints**
+- Web server signatures  
+- Cloud provider metadata  
+- Framework and stack identification
+
+All discoveries enrich existing assets or create new ones in real time.
+
+---
+
+## 4. How AIM Uses Censys Data
+
+AIM automatically:
+
+- Detects **external-facing assets**  
+- Flags **exposures** such as open ports or public services  
+- Updates **asset ownership**, **environment**, and **risk classification**  
+- Correlates IPs/domains with existing vulnerabilities  
+- Expands discovery for related assets (recursive enrichment)
+
+This ensures your external attack surface remains fully mapped and monitored.
+
+---
+
+## 5. Troubleshooting
+
+| Issue | Possible Cause | Fix |
+|-------|----------------|------|
+| ❌ Authentication Failed | Invalid API ID/Secret | Re-enter credentials and verify from Censys dashboard |
+| ⚠️ No Assets Synced | No matching domains OR rate limits reached | Add root domains in AIM → ASM settings |
+| ⏳ Slow Sync | Large external footprint | Allow the initial sync to complete, AIM processes assets in batches |
+
+If issues persist, contact Snapsec Support with the integration job ID.
+
+---
+
+## Next Steps
+
+<Card title="View Global Asset Catalog" icon="arrow-right" href="/products/aim/global-catalog">
+  Explore newly discovered Censys assets in AIM.
+</Card>
