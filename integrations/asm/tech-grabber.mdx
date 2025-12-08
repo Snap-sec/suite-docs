@@ -1,5 +1,90 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: Tech Grabber
+description: Integrate Tech Grabber to detect technologies, frameworks, and services running on your discovered assets in Snapsec ASM.
+mode: wide
 ---
 
+## Tech Grabber integration with Snapsec ASM
+
+The **Tech Grabber** integration enhances your Attack Surface Management by automatically identifying technologies, frameworks, services, and stack fingerprints associated with every discovered asset.
+
+Once enabled, it enriches domains, subdomains, IPs, and URLs with detailed technology metadata, helping you understand your tech landscape and uncover outdated or vulnerable components.
+
+---
+
+## 1. What Tech Grabber Does
+
+With this integration enabled, Snapsec ASM can automatically:
+
+- Detect frontend & backend technologies  
+- Identify web frameworks, CMS, servers, and libraries  
+- Capture stack fingerprints (Apache, Nginx, Express.js, React, Laravel, etc.)  
+- Highlight outdated or potentially vulnerable versions  
+- Enrich assets for exposure analysis and risk classification  
+
+The detected technology data is sent directly into AIM (Asset Inventory Management) and used across ASM for tagging, rules, exposures, and prioritization.
+
+---
+
+## 2. Prerequisites
+
+There are **no special prerequisites** for enabling Tech Grabber.
+
+Snapsec ASM will automatically process technologies for all assets as soon as the adapter is installed.
+
+You only need:
+
+- Access to **Snapsec Suite**
+- Permissions to install integrations under **ASM → Integrations**
+
+---
+
+## 3. Installing Tech Grabber in Snapsec ASM
+
+1. Go to **ASM → Integrations**
+2. Find **Tech Grabber**
+3. Click **Install**
+4. The adapter activates instantly — no API keys or external configuration required
+
+Once activated, the next discovery cycle or any new asset will automatically be enriched with technology fingerprints.
+
+---
+
+## 4. How Technology Detection Works
+
+After installation:
+
+- ASM runs passive & active fingerprinting checks  
+- Technologies detected from headers, responses, fingerprints, and patterns  
+- Output is pushed to AIM under **Technology Index**  
+- ASM uses detected tech to:
+  - Flag outdated versions  
+  - Determine exposure levels  
+  - Improve attack surface understanding  
+
+You can view detected technologies under:
+
+- **ASM → Asset Catalog**
+- **AIM → Technology Index**
+- **Subdomain / IP / URL asset full view**
+
+---
+
+## 5. Why This Integration Matters
+
+The Tech Grabber integration helps your security program:
+
+- Identify risky technologies at a glance  
+- Detect outdated or unsupported software  
+- Strengthen threat modeling by understanding stack composition  
+- Improve prioritization by aligning tech with known vulnerabilities  
+
+It provides deep visibility into what powers your attack surface — essential for both offensive and defensive security workflows.
+
+---
+
+## Next Steps
+
+<Card title="View Technology Index" icon="arrow-right" href="/products/aim/technologies">
+  Explore all detected technologies and track updates across your environment.
+</Card>

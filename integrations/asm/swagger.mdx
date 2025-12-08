@@ -1,5 +1,101 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: Swagger
+description: Import API specifications into Snapsec ASM using Swagger or OpenAPI files.
+mode: wide
 ---
 
+## Swagger Integration with Snapsec ASM
+
+Use the **Swagger integration** to automatically ingest API endpoints into Snapsec ASM by uploading or onboarding your OpenAPI/Swagger specification files.  
+This integration helps ensure complete API visibility across your attack surface.
+
+---
+
+## 1. Prerequisites
+
+Before importing your API specifications, ensure you have:
+
+- A **Swagger/OpenAPI file** (`.json` or `.yaml`).
+- Valid API definitions with paths, methods, and metadata.
+- Access to Snapsec ASM with permission to install integrations.
+
+---
+
+## 2. Enable Swagger Integration in Snapsec ASM
+
+1. Navigate to **ASM → Integrations**.  
+2. Locate **Swagger** in the integrations list.  
+3. Click **Install** to enable the adapter.
+
+Once enabled, you can immediately start importing API specifications.
+
+---
+
+## 3. Import Swagger / OpenAPI Specification
+
+After enabling the integration:
+
+1. Open **ASM → API Catalog**.  
+2. Click **Import Swagger**.  
+3. Upload your specification file (`.yaml` or `.json`).  
+4. Snapsec will automatically parse:
+   - API endpoints  
+   - HTTP methods  
+   - Parameters  
+   - Descriptions  
+   - Security schemas  
+
+Extracted APIs will appear instantly in the API Catalog.
+
+---
+
+## 4. Supported File Formats
+
+Snapsec supports:
+
+- **OpenAPI v2 (Swagger 2.0)**
+- **OpenAPI v3.x**
+- JSON and YAML formats
+
+Malformed specifications will show validation errors so you can fix them before importing.
+
+---
+
+## 5. What Gets Imported
+
+From your Swagger definition, Snapsec ASM extracts:
+
+- Endpoint paths  
+- Methods (GET, POST, PUT, DELETE, etc.)  
+- Tags and grouping  
+- Query/body parameters  
+- Authentication requirements  
+- Descriptions and summaries  
+
+This ensures your API attack surface is always mapped and monitored.
+
+---
+
+## 6. Updating Swagger Specifications
+
+If your APIs evolve:
+
+- Upload a **new version** of your Swagger file.  
+- Snapsec will automatically:
+  - Add new endpoints
+  - Update changed endpoints
+  - Mark removed endpoints as deprecated  
+
+No manual cleanup required.
+
+---
+
+## Troubleshooting
+
+- **Validation Failed:** Ensure your Swagger/OpenAPI structure follows official schema.  
+- **Missing Endpoints:** Check if they are inside the `paths` object.  
+- **Upload Error:** Confirm the file format is `.json` or `.yaml`.
+
+---
+
+Snapsec ASM uses the Swagger integration to maintain accurate, continuously updated API inventories across your environment.
