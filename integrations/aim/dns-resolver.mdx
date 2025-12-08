@@ -1,0 +1,76 @@
+---
+title: "DNS Resolver"
+description: "Integrate DNS Resolver to automatically fetch and enrich subdomain data within AIM."
+icon: "globe-pointer"
+mode: "wide"
+---
+
+## Overview
+
+The **DNS Resolver integration** allows AIM to query DNS records directly and ingest discovered subdomains into your asset inventory.  
+This ensures continuous visibility into DNS-related assets, even if they are not present in third-party platforms.
+
+AIM uses DNS resolution intelligence to enrich each discovered asset with metadata such as CNAMEs, A/AAAA records, and status indicators.
+
+<Frame caption="DNS Resolver Integration Interface">
+  <img src="/images/aim/integrations/dns-resolver.png" />
+</Frame>
+
+---
+
+## What This Integration Does
+
+- Resolves DNS records for domains you onboard into AIM  
+- Identifies live, inactive, or shadowed subdomains  
+- Fetches A, AAAA, CNAME, NS, and other DNS record types  
+- Continuously updates changes when DNS modifications occur  
+
+This enables accurate, real-time mapping of your organization’s DNS footprint.
+
+---
+
+## How to Configure DNS Resolver
+
+<Steps>
+  <Step title="Open Integrations" icon="plug">
+    Navigate to **AIM → Integrations** in the Snapsec dashboard.
+  </Step>
+  <Step title="Select DNS Resolver" icon="magnifying-glass">
+    Click on the **DNS Resolver** integration tile.
+  </Step>
+  <Step title="Install Integration" icon="circle-check">
+    Click **Install** — no API keys or credentials are required.
+  </Step>
+  <Step title="Start Discovery" icon="network-wired">
+    Once installed, AIM will begin resolving DNS data for your existing domains.
+  </Step>
+</Steps>
+
+---
+
+## Data Pulled by DNS Resolver
+
+| Data Type | Description |
+|----------|-------------|
+| **A / AAAA Records** | Maps subdomains to IPs (IPv4/IPv6) |
+| **CNAME Records** | Identifies alias mappings and CDN usage |
+| **NS Records** | Shows authoritative name servers |
+| **Live / Inactive State** | Detects active vs. dead subdomains |
+| **Shadow DNS Entries** | Identifies DNS records not tracked internally |
+
+---
+
+## Sync Behavior
+
+- DNS resolution runs **automatically** at regular intervals  
+- Any new DNS-derived subdomain is added to AIM  
+- Deleted or outdated DNS entries update the asset state  
+- All resolved records are stored in the asset’s metadata panel  
+
+---
+
+## Next Steps
+
+<Card title="View Subdomain Inventory" icon="arrow-right" href="/products/aim/subdomains">
+  Explore DNS-enriched subdomains in the AIM catalog.
+</Card>

@@ -1,0 +1,99 @@
+---
+title: Cloudflare
+description: Fetch and sync DNS records, subdomains, IPs, and metadata from Cloudflare into Snapsec AIM.
+mode: wide
+---
+
+## Cloudflare integration with Snapsec AIM
+
+The **Cloudflare integration** allows AIM to automatically discover and sync DNS records, subdomains, IP addresses, and related metadata from your Cloudflare-managed zones.
+
+This enables continuous asset discovery, real-time updates, and accurate inventory management without manual uploads.
+
+---
+
+## 1. Prerequisites
+
+Before connecting Cloudflare to Snapsec AIM, ensure you have:
+
+- A Cloudflare account with access to at least one zone.
+- A **Cloudflare API Token** with required permissions.
+- Zone access level:  
+  - **Zone → Read**  
+  - **DNS → Read**  
+  - (Optional) **Account → Read** for additional metadata.
+
+### Create a Cloudflare API Token
+
+1. Log in to Cloudflare Dashboard.  
+2. Navigate to **My Profile → API Tokens**.  
+3. Click **Create Token**.  
+4. Choose **Read permissions template** or create a custom token.  
+5. Required permissions:
+   - `Zone: Read`
+   - `DNS: Read`
+   - (Optional) `Account: Read`
+6. Select the zones you want AIM to sync.  
+7. Create and copy the token.
+
+> ⚠️ Store this token securely. It will be used only inside Snapsec AIM.
+
+---
+
+## 2. Connecting Cloudflare in Snapsec AIM
+
+1. Go to **AIM → Integrations**.  
+2. Locate **Cloudflare** and click **Install**.  
+3. Enter the required fields:
+   - **Email** (Cloudflare account email)
+   - **API Token**
+4. Click **Install** or **Connect** to verify the connection.
+
+After successful authentication, AIM will begin syncing DNS and asset data from Cloudflare.
+
+---
+
+## 3. What AIM imports from Cloudflare
+
+Once connected, AIM automatically fetches:
+
+- All DNS records (A, AAAA, CNAME, TXT, MX, NS, etc.)
+- Associated **subdomains**
+- Cloudflare-provided metadata
+- Linked IP addresses
+- Exposure classification
+- Zones and hosting attributes
+
+AIM updates the data continuously based on adapter refresh cycles.
+
+---
+
+## 4. Sync Behavior
+
+### Automatic Sync  
+AIM periodically:
+- Refreshes DNS records  
+- Detects new subdomains  
+- Identifies removed or inactive entries  
+- Updates risk and exposure calculations  
+
+### Manual Sync  
+You can trigger a refresh from the **Active Adapters** menu.
+
+---
+
+## 5. Troubleshooting
+
+- **Invalid token** → Regenerate your token with correct permissions.  
+- **No zones appearing** → Ensure the token is scoped to specific zones.  
+- **Partial data** → Check DNS permissions and verify zone access.  
+
+If errors persist, contact Snapsec support with the request ID shown in the UI.
+
+---
+
+## Next Steps
+
+<Card title="View DNS Catalog" icon="arrow-right" href="/products/aim/dns">
+  Explore all DNS records and subdomains imported from Cloudflare.
+</Card>
