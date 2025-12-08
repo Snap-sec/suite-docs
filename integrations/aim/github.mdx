@@ -1,0 +1,104 @@
+---
+title: "GitHub"
+description: "Integrate GitHub with AIM to automatically ingest repository metadata, ownership details, and linked assets."
+icon: "github"
+mode: "wide"
+---
+
+## Overview
+
+The **GitHub integration for AIM** allows you to automatically pull repository information, metadata, ownership data, and associated assets directly into your Asset Inventory.  
+This ensures your development ecosystem remains continuously monitored, up-to-date, and accurately attributed.
+
+<Frame caption="GitHub Integration Overview">
+  <img src="/images/aim/integrations/github.png" />
+</Frame>
+
+---
+
+## What This Integration Does
+
+With GitHub connected, AIM can:
+
+- Discover repositories under your organization  
+- Sync repository metadata such as description, visibility, and activity  
+- Track associated technologies, owners, and tags  
+- Enrich AIM’s asset catalog with GitHub-origin assets  
+- Keep repository inventory updated automatically through adapter syncs  
+
+This eliminates manual tracking and ensures developers and security teams have a shared, accurate source of truth.
+
+---
+
+## Prerequisites
+
+Before configuring GitHub, ensure you have:
+
+- A GitHub **organization** or **user account**  
+- A GitHub **Personal Access Token (PAT)** with the required scopes  
+- AIM workspace access with integration permissions  
+
+### Required GitHub scopes
+
+Your PAT must include:
+
+- `repo` — to read repositories  
+- `read:org` — to fetch organization membership  
+- `admin:repo_hook` *(optional)* — if enabling webhook-based syncs  
+
+---
+
+## How to Configure GitHub in AIM
+
+<Steps>
+  <Step title="Open the GitHub Integration" icon="link">
+    Go to **AIM → Integrations** and select the **GitHub** integration tile.
+  </Step>
+
+  <Step title="Enter Access Token" icon="key">
+    Paste your GitHub Personal Access Token in the required field.
+  </Step>
+
+  <Step title="Select Organization" icon="building">
+    Choose the GitHub organization or user scope you want AIM to scan.
+  </Step>
+
+  <Step title="Click Install" icon="circle-check">
+    AIM will verify credentials and begin syncing repositories.
+  </Step>
+</Steps>
+
+---
+
+## Sync Behavior
+
+After installation:
+
+- AIM pulls repository lists and metadata  
+- Repository changes are synced periodically via adapters  
+- Deletions or inactivity are flagged for lifecycle review  
+- Asset relations for repos (employees, technologies, exposure, etc.) are updated continuously  
+
+---
+
+## Troubleshooting
+
+### Invalid token  
+- Ensure your PAT includes the correct scopes  
+- Confirm the token has not expired or been revoked  
+
+### Organization not visible  
+- The PAT-linked user must be a member of the organization  
+- Check GitHub org SSO requirements  
+
+### No repositories syncing  
+- Ensure the selected visibility settings (private/public) match your repos  
+- Verify the integration run logs under **Adapters → Logs**
+
+---
+
+## Next Steps
+
+<Card title="View Repository Assets" icon="arrow-right" href="/products/aim/repo">
+  Explore repositories synced from GitHub inside the AIM Repository Catalog.
+</Card>

@@ -1,0 +1,82 @@
+---
+title: Google Sheets
+description: Integrate Google Sheets to import structured asset data directly into Snapsec AIM.
+mode: wide
+icon: table
+---
+
+## Overview
+
+The **Google Sheets integration** allows AIM to ingest structured asset data directly from your spreadsheets.  
+Teams that maintain asset inventories, employee lists, or custom registries in Google Sheets can seamlessly sync them into AIM without manual CSV uploads.
+
+<Frame caption="Google Sheets Integration">
+  <img src="/images/aim/integrations/google-sheets.png" />
+</Frame>
+
+---
+
+## What This Integration Does
+
+- Connect a Google Sheets document to AIM.  
+- Automatically import rows as asset entries.  
+- Map sheet columns to AIM asset fields.  
+- Keep data synchronized whenever the sheet updates.
+
+This integration is ideal for teams who manage asset information collaboratively in Sheets.
+
+---
+
+## Prerequisites
+
+Before enabling the integration, ensure:
+
+- You have a Google account with access to the target sheet.  
+- The sheet is formatted with clear header columns.  
+- You have created an AIM API key (if required by your workspace).  
+
+---
+
+## How to Configure
+
+1. Go to **AIM → Integrations**.  
+2. Click **Google Sheets → Install**.  
+3. Paste the **Google Sheet URL** you want AIM to ingest.  
+4. Map each column from the sheet to AIM asset fields (e.g., name, type, owner, description).  
+5. Save the integration to begin syncing.
+
+<Frame caption="Google Sheets Mapping Interface">
+  <img src="/images/aim/integrations/google-sheets-mapping.png" />
+</Frame>
+
+---
+
+## Data Synced Into AIM
+
+Based on your column mapping, AIM can import:
+
+- Asset names  
+- Owners  
+- Types (e.g., domain, IP, employee, repo)  
+- Tags  
+- Notes / descriptions  
+- Risk values (optional)  
+
+Each synced row becomes an asset entry inside AIM’s catalog.
+
+---
+
+## Sync Behavior
+
+- Sync runs periodically to detect updates in the sheet.  
+- Newly added rows are imported automatically.  
+- Modified rows update existing asset records.  
+- Deleted rows are not removed unless processed via AIM’s lifecycle controls.
+
+---
+
+## Next Steps
+
+<Card title="View All AIM Integrations" icon="arrow-right" href="/integrations/aim">
+  Explore additional integrations for enhanced asset discovery and enrichment.
+</Card>

@@ -1,0 +1,106 @@
+---
+title: "GitLab"
+description: "Integrate GitLab with AIM to automatically sync repositories and related asset metadata."
+icon: "gitlab"
+mode: "wide"
+---
+
+## Overview
+
+The **GitLab integration** allows AIM to automatically fetch and maintain an up-to-date catalog of repositories stored in your GitLab organization or groups.  
+Once connected, AIM continuously pulls:
+
+- Repository names  
+- Visibility (public / private)  
+- Default branches  
+- Timestamps  
+- Ownership and namespace  
+- Associated metadata  
+
+This ensures your development assets remain accurately tracked inside AIM without manual importing.
+
+<Frame caption="GitLab Integration in AIM">
+  <img src="/images/aim/gitlab.png" />
+</Frame>
+
+---
+
+## Prerequisites
+
+Before setting up the integration, ensure the following:
+
+- A GitLab account with API access  
+- A **Personal Access Token (PAT)** with:
+  - `read_api`
+  - `read_repository`
+- The GitLab instance URL:
+  - `https://gitlab.com` for cloud  
+  - Your custom domain for self-hosted GitLab (e.g., `https://gitlab.internal.company`)  
+
+> AIM never requires write permissions — only read access is needed.
+
+---
+
+## How to Connect GitLab to AIM
+
+<Steps>
+  <Step title="Open Integrations">
+    Go to **AIM → Integrations** and locate the **GitLab** tile.
+  </Step>
+
+  <Step title="Click Install">
+    Select **Install** to open the configuration modal.
+  </Step>
+
+  <Step title="Enter GitLab Instance URL">
+    Provide the URL of your GitLab environment.
+  </Step>
+
+  <Step title="Add Your Personal Access Token">
+    Paste your PAT with `read_api` permissions.
+  </Step>
+
+  <Step title="Save Integration">
+    AIM will validate your credentials and begin importing repository data.
+  </Step>
+</Steps>
+
+---
+
+## What AIM Syncs from GitLab
+
+AIM automatically imports and updates:
+
+- Repository name  
+- Namespace (user or group)  
+- Description  
+- Visibility (private / internal / public)  
+- Repository URL  
+- Last activity timestamp  
+- Default branch  
+- Creation & update metadata  
+
+Syncs run continuously to ensure your inventory always reflects the latest repository state.
+
+---
+
+## Managing the Integration
+
+After installation, you can:
+
+- **Refresh** repositories manually  
+- **Pause / Resume** syncing  
+- **View sync logs** to confirm import success  
+- **Remove** the integration at any time  
+
+<Frame caption="GitLab Repositories Synced in AIM">
+  <img src="/images/aim/repos.png" />
+</Frame>
+
+---
+
+## Next Steps
+
+<Card title="View Repository Catalog" icon="arrow-right" href="/products/aim/repo">
+  Explore all GitLab repositories imported into AIM.
+</Card>
