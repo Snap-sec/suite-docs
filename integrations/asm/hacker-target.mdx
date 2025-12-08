@@ -1,5 +1,102 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: HackerTarget
+description: Integrate HackerTarget with Snapsec ASM to enrich external attack surface discovery using OSINT-based scanning.
+icon: "target"
+mode: wide
 ---
 
+## HackerTarget integration with Snapsec ASM
+
+The **HackerTarget integration** enhances Snapsec ASM by performing lightweight OSINT-based reconnaissance on your domains.  
+Once configured, ASM can automatically fetch subdomains, open ports, HTTP services, and exposure indicators discovered by HackerTarget’s public scanning APIs.
+
+This integration helps teams expand their visibility into unknown or shadow assets without running intrusive scans.
+
+---
+
+## 1. What this integration does
+
+Once installed, Snapsec ASM can use HackerTarget to:
+
+- Enumerate **subdomains**  
+- Identify **open ports** exposed on the internet  
+- Detect **running HTTP services**  
+- Highlight **potential exposures** found via OSINT  
+- Automatically associate discovered assets with your ASM inventory  
+
+All results are ingested directly into the **ASM Asset Catalog**.
+
+---
+
+## 2. Prerequisites
+
+Before installing the integration, ensure you have:
+
+- A domain added in Snapsec ASM  
+- Internet access from Snapsec to HackerTarget APIs  
+- (Optional) HackerTarget API key for extended rate limits  
+
+The integration works with or without an API key, but API usage limits may apply.
+
+---
+
+## 3. How to Install
+
+1. Navigate to **ASM → Integrations**  
+2. Locate **HackerTarget**  
+3. Click **Install**  
+4. (Optional) Enter your **HackerTarget API key**  
+5. Save the configuration  
+
+Once installed, HackerTarget becomes an active data source for ASM discovery.
+
+---
+
+## 4. How data is fetched
+
+Snapsec ASM uses multiple HackerTarget API endpoints to enrich discovery:
+
+- `/hostsearch` — discover subdomains  
+- `/nmap` — detect open ports  
+- `/httpheaders` — identify running HTTP services  
+
+Fetched data is automatically:
+
+- Normalized  
+- Classified  
+- Added to your ASM asset inventory  
+- Tagged with the **HackerTarget adapter**  
+
+---
+
+## 5. Monitoring Scan History
+
+After installation, results appear in:
+
+- **ASM → Scans**  
+- **ASM → Asset Catalog → Subdomains / IPs / Ports**  
+- **Discovery Logs**, which show timestamps and fetched results  
+
+Each batch of discovered assets is marked with:
+
+> *“Discovered via HackerTarget adapter”*
+
+---
+
+## 6. Removing or Updating the Integration
+
+To modify or remove:
+
+1. Go to **ASM → Integrations**  
+2. Open **HackerTarget**  
+3. Update the API key or click **Uninstall**  
+
+Removing the integration **does not delete existing assets**, only stops new fetches.
+
+---
+
+## Next Steps
+
+<Card title="View ASM Asset Catalog" icon="arrow-right" href="/products/asm/asset-catalog">
+  Explore all assets discovered through HackerTarget and other adapters.
+</Card>

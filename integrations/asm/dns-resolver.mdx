@@ -1,5 +1,126 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: DNS Resolver
+description: Integrate DNS Resolver with Snapsec ASM to discover subdomains and expand your external attack surface inventory.
+mode: wide
 ---
 
+## DNS Resolver integration with Snapsec ASM
+
+The **DNS Resolver** integration enables Snapsec ASM to perform DNS lookups, resolve hostnames, and discover subdomains tied to your external assets.  
+By resolving DNS records in real time, ASM expands visibility across attack surface assets that may not appear through passive enumeration alone.
+
+This integration is essential for:
+- Subdomain discovery  
+- Asset enrichment (A, AAAA, CNAME, NS, TXT lookups)  
+- Mapping exposed services  
+- Detecting shadow or forgotten DNS records  
+
+---
+
+## 1. Prerequisites
+
+You do not need API keys or external credentials.  
+DNS Resolver works immediately once installed.
+
+Ensure:
+- The domain you want to resolve is added to Snapsec ASM.
+- Outbound DNS queries are permitted from your environment (if self-hosted).
+
+---
+
+## 2. Enable DNS Resolver in Snapsec ASM
+
+1. Log in to Snapsec Suite.  
+2. Navigate to **ASM → Integrations**.  
+3. Locate **DNS Resolver** in the integrations list.  
+4. Click **Install**.  
+
+Once installed, the adapter becomes active and will automatically start resolving newly discovered assets.
+
+---
+
+## 3. What DNS Resolver Does
+
+After activation, Snapsec ASM will automatically:
+
+### 🔹 Resolve DNS Records  
+Performs live lookups for:
+- **A / AAAA**
+- **CNAME**
+- **MX**
+- **NS**
+- **TXT**
+- **SOA**
+
+### 🔹 Discover Subdomains  
+Resolves domain permutations and passively collected records to detect:
+- Shadow subdomains  
+- Developer or staging subdomains  
+- Old or forgotten DNS entries  
+
+### 🔹 Enrich Asset Metadata  
+Each resolved asset is enhanced with:
+- IP address information  
+- Record types  
+- TTL values  
+- Canonical host relations  
+
+### 🔹 Detect Exposed Services  
+Resolved hosts are correlated with:
+- Open ports  
+- Active web services  
+- Technologies discovered in subsequent scans  
+
+---
+
+## 4. How DNS Resolver Works Internally
+
+Once installed:
+
+1. ASM collects domains from:  
+   - Organization settings  
+   - Censys  
+   - HackerTarget  
+   - crt.sh (CRT adapter)  
+   - Manual imports  
+
+2. DNS Resolver runs periodic resolution cycles:
+   - Attempts record resolution  
+   - Identifies new subdomains  
+   - Flags dead/expired DNS entries  
+
+3. Updated DNS data flows into:
+   - **Subdomain Catalog**  
+   - **IP Catalog**  
+   - **Exposure analysis**  
+   - **Technology detection workflows**  
+
+All results remain synchronized automatically.
+
+---
+
+## 5. Troubleshooting
+
+Here are common resolution issues and fixes:
+
+**❌ Subdomains not resolving**  
+- The domain may not exist anymore.  
+- TTL expiration may cause intermittent resolution.  
+- DNSSEC misconfiguration may block lookups.
+
+**❌ No IP address returned**  
+- The record might be CNAME-only or dormant.  
+- The DNS zone may be misconfigured.
+
+**❌ Resolver shows timeout**  
+- Firewall is blocking outbound DNS queries (self-hosted only).  
+
+If you continue experiencing issues, contact Snapsec support with the affected domain and resolution logs.
+
+---
+
+## Next Steps
+
+<Card title="View Subdomain Catalog" icon="arrow-right" href="/products/asm/asset-catalog">
+  Explore discovered subdomains enriched by DNS Resolver.
+</Card>

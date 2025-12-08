@@ -1,5 +1,95 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: Nuclei
+description: Run Nuclei scans for attack-surface discovery and sync results into Snapsec ASM.
+mode: wide
 ---
 
+## Nuclei Integration with Snapsec ASM
+
+The **Nuclei integration** allows Snapsec ASM to run template-based reconnaissance and exposure detection across your external attack surface.  
+Once connected, ASM can trigger Nuclei scans, ingest the findings, and update asset exposure status automatically.
+
+---
+
+## 1. What This Integration Does
+
+With Nuclei connected to ASM, you can:
+
+- Discover exposed services, misconfigurations, and weaknesses.
+- Scan domains, subdomains, IPs, and URLs monitored by Attack Surface Management.
+- Automatically ingest findings into ASM’s **Exposures** section.
+- Enrich assets with detected technologies, fingerprints, and metadata.
+
+ASM uses Nuclei templates to continuously test your perimeter for security gaps.
+
+---
+
+## 2. How to Enable Nuclei Integration
+
+1. Go to **ASM → Integrations**.  
+2. Find **Nuclei** in the list of available integrations.  
+3. Click **Install** or **Configure**.  
+4. Choose how Nuclei will be executed:
+   - Snapsec-hosted scanning engine  
+   - Your custom Nuclei runner (self-hosted)  
+5. Save the configuration.
+
+Once installed, the Nuclei adapter appears in **Active Adapters**.
+
+---
+
+## 3. How Nuclei Works Inside ASM
+
+After setup, ASM will:
+
+- Auto-run Nuclei scans during scheduled discovery cycles.
+- Trigger Nuclei when new assets (subdomains, hosts, IPs) are found.
+- Parse JSON results and convert them into **Exposures**.
+- Display findings in:
+  - Exposure Feed  
+  - Asset Exposure Panel  
+  - Technology & Service Detection  
+
+Each asset is updated with:
+
+- Severity  
+- Template ID  
+- Description  
+- Evidence  
+- First/Last Seen timestamps  
+
+---
+
+## 4. Supported Nuclei Use Cases
+
+- Subdomain & host vulnerability detection  
+- Exposure fingerprinting  
+- Misconfiguration scanning  
+- Technology & service identification  
+- API endpoint probing  
+- Asset-level risk scoring enrichment  
+
+---
+
+## 5. Troubleshooting
+
+**No results appearing?**
+
+- Ensure your Nuclei runner has internet access.  
+- Validate that assets resolve (DNS, IP reachable).  
+
+**Adapter stuck in “Waiting”?**
+
+- Restart your Nuclei engine or re-authorize your configuration.  
+
+**Templates not running?**
+
+- Check if your Nuclei install includes the official template repository.  
+
+---
+
+## Next Step
+
+<Card title="View Exposures" icon="arrow-right" href="/products/asm/exposures">
+  Explore Nuclei-generated exposures in your attack surface.
+</Card>

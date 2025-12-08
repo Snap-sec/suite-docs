@@ -1,5 +1,94 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: IPinfo
+description: Integrate IPinfo with Snapsec ASM to enrich external assets with geolocation, ASN, and exposure intelligence.
+mode: wide
 ---
 
+## IPinfo integration with Snapsec ASM
+
+Use the **IPinfo adapter** to automatically enrich discovered external assets with:
+
+- ASN & ISP information  
+- Geolocation (country, region, city)  
+- IP reputation & hosting type  
+- Organization metadata  
+
+This helps ASM build a complete picture of your external attack surface by adding context that cannot be derived from scanning alone.
+
+---
+
+## 1. Prerequisites
+
+Before enabling the integration, ensure you have:
+
+- An **IPinfo API token**  
+- Access to Snapsec ASM  
+- Outbound internet access to `ipinfo.io`
+
+---
+
+## 2. Enable IPinfo integration
+
+1. Navigate to **ASM → Integrations**.  
+2. Locate the **IPinfo** tile under Active Adapters.  
+3. Click **Install** (or **Configure** if previously installed).  
+4. Enter your **API Token**.  
+5. Click **Save** to activate the adapter.
+
+Once connected, the adapter will begin enriching IP assets automatically.
+
+---
+
+## 3. What IPinfo adds to ASM
+
+Whenever ASM discovers an IP—through scanning, DNS enumeration, or external datasets—the IPinfo adapter adds:
+
+### 🔹 Network & Routing Intelligence  
+- ASN (Autonomous System Number)  
+- ASN Name  
+- ISP / Hosting Provider  
+
+### 🔹 Geolocation Metadata  
+- Country  
+- Region  
+- City  
+- Lat/Long (approximate)
+
+### 🔹 Exposure Clues  
+- Hosting type (VPN, proxy, hosting provider, residential ranges)  
+- Organization ownership where available  
+
+### 🔹 Classification Enhancements  
+- Used for environment, exposure, and risk tagging inside ASM & AIM  
+
+---
+
+## 4. How enrichment works
+
+Once enabled:
+
+- New IPs discovered by ASM are **instantly enriched** using live IPinfo lookups.  
+- Existing IPs in the inventory are scheduled for **progressive enrichment**.  
+- Data is unified across ASM and AIM for improved prioritization.
+
+---
+
+## 5. Troubleshooting
+
+**Invalid Token**  
+- Ensure the provided API token is active and copied correctly.  
+
+**Rate Limit Reached**  
+- Upgrade IPinfo plan or reduce scan frequency.  
+
+**No enrichment data visible**  
+- Check if the asset is an IP address (not domain/subdomain).  
+- Verify integration status under ASM → Integrations.  
+
+---
+
+## Next Steps
+
+<Card title="View ASM Asset Catalogue" icon="arrow-right" href="/products/asm/asset-catalog">
+  Explore enriched IP, domain, and exposure details inside Snapsec ASM.
+</Card>
