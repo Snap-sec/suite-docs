@@ -1,0 +1,108 @@
+---
+title: Swagger
+description: Import and sync API definitions into AIM using Swagger specifications.
+mode: wide
+icon: "code"
+---
+
+## Overview
+
+The **Swagger Integration** allows AIM to automatically ingest and update API definitions using uploaded or linked Swagger (OpenAPI) specifications.  
+This keeps your API catalog accurate, enriched, and continuously aligned with engineering changes.
+
+<Frame caption="Swagger Integration Overview">
+  <img src="/images/aim/integrations/swagger.png" />
+</Frame>
+
+---
+
+## What This Integration Does
+
+With Swagger connected, AIM can:
+
+- Parse OpenAPI/Swagger files (`.json` or `.yaml`)
+- Discover all API endpoints, methods, parameters, and structures
+- Automatically create or update API assets in AIM
+- Maintain version-accurate and up-to-date API inventories
+- Detect additions or removals when new specs are uploaded
+
+This integration is ideal for teams whose API definitions live in Postman, SwaggerHub, API Gateway exports, or local repositories.
+
+---
+
+## How to Connect Swagger to AIM
+
+### 1. Open the Swagger Integration
+
+1. Navigate to **AIM → Integrations**  
+2. Locate **Swagger**  
+3. Click **Install**
+
+You will see the upload/import dialog.
+
+### 2. Provide Your Swagger Definition
+
+You can connect Swagger in two ways:
+
+#### **Option A — Upload a Swagger/OpenAPI File**
+Upload a `.json` or `.yaml` file exported from:
+
+- SwaggerHub  
+- Postman  
+- API Gateway  
+- Internal API documentation tools  
+
+#### **Option B — Import Through URL**
+Paste a public or authenticated Swagger spec URL.
+
+AIM will fetch the schema and begin API discovery.
+
+---
+
+## How AIM Processes Swagger Data
+
+After import, AIM:
+
+- Parses paths, operations, tags, and schemas  
+- Builds API endpoint entries in the API Catalog  
+- Classifies endpoints and applies default tagging  
+- Maps metadata like parameters, servers, content types, and security settings  
+- Updates existing APIs if the spec has changed  
+
+This ensures AIM always reflects the *current, real API surface*.
+
+---
+
+## Managing Swagger Imports
+
+Swagger imports can be:
+
+- **Re-uploaded** to update an API set  
+- **Scheduled** (if using a URL source)  
+- **Refreshed** on demand  
+
+When a new version is uploaded, AIM automatically:
+
+- Adds newly introduced endpoints  
+- Flags removed endpoints  
+- Updates definitions, schemas, and metadata  
+
+---
+
+## Troubleshooting
+
+Common issues and resolutions:
+
+- **Spec not parsing**: Ensure the file is valid OpenAPI 2.0 / 3.x format  
+- **Missing endpoints**: Check if the paths are defined under `paths:` in the spec  
+- **Private URL failing**: Confirm authentication headers or tokens are configured  
+
+If you continue experiencing issues, share the spec file with Snapsec Support for validation.
+
+---
+
+## Next Steps
+
+<Card title="View API Catalog" icon="arrow-right" href="/products/aim/apis">
+  Explore the API assets discovered from your Swagger files.
+</Card>
