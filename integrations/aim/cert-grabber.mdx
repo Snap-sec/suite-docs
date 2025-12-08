@@ -1,0 +1,71 @@
+---
+title: Cert Grabber
+description: Automatically fetch SSL/TLS certificates from discovered subdomains to enrich AIM asset data.
+mode: wide
+---
+
+## Cert Grabber integration with Snapsec AIM
+
+The **Cert Grabber** integration enhances your asset inventory by retrieving SSL/TLS certificate metadata from each discovered subdomain.
+
+This helps detect:
+- Expired certificates  
+- Weak encryption  
+- Misconfigured certificate chains  
+- Certificate reuse issues  
+
+---
+
+## 1. How It Works
+
+Once enabled, AIM will:
+
+- Scan discovered subdomains  
+- Fetch certificate details, including:
+  - Issuer  
+  - Expiry date  
+  - SAN entries  
+  - Signature algorithm  
+  - Public key info  
+- Map certificates to:
+  - Subdomains  
+  - Services  
+  - Technology fingerprints  
+
+---
+
+## 2. Enabling the Integration
+
+1. Navigate to **AIM → Integrations**  
+2. Select **Cert Grabber**  
+3. Click **Install**  
+
+No API key is needed.
+
+---
+
+## 3. What AIM Enriches
+
+- Automatically flags:
+  - Expired certificates  
+  - Soon-to-expire certificates  
+  - Weak or deprecated algorithms  
+- Creates certificate entries under **AIM → Certificates**
+
+---
+
+## Troubleshooting
+
+**No certificates found:**  
+Subdomain may not resolve or may not support HTTPS.
+
+**Duplicate certificates:**  
+AIM deduplicates based on fingerprint.
+
+---
+
+## Next Steps
+
+<Card title="Browse Certificates" icon="arrow-right" href="/products/aim/certs">
+  View certificate metadata, expiration alerts, and linked assets.
+</Card>
