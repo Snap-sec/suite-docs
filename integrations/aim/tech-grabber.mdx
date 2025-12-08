@@ -1,0 +1,92 @@
+---
+title: Tech Grabber
+description: Integrate Tech Grabber to automatically detect technologies running across your assets.
+mode: wide
+---
+
+## Tech Grabber Integration for AIM
+
+The **Tech Grabber** adapter enriches your Asset Inventory by identifying the technologies, frameworks, servers, and platforms associated with your domains, IPs, and applications.
+
+Once enabled, AIM will automatically scan supported assets and populate technology fingerprints such as:
+
+- Web servers (Nginx, Apache, IIS)  
+- Frameworks (React, Django, Laravel)  
+- Programming languages  
+- CDN or WAF providers  
+- Cloud hosting signatures  
+
+This helps security teams better understand the technical stack and map attack surface risk across environments.
+
+---
+
+##  How to Enable Tech Grabber
+
+1. Navigate to **AIM → Integrations**.  
+2. Locate **Tech Grabber** in the integrations list.  
+3. Click **Install** to open the configuration modal.  
+4. Confirm the installation — no API keys or credentials are required.  
+
+Once installed, Tech Grabber begins analyzing assets automatically.
+
+---
+
+##  What Data It Collects
+
+Tech Grabber enriches asset metadata with:
+
+- Detected technologies & versions  
+- Hosting providers / cloud fingerprints  
+- Service banners and headers  
+- Application stack attributes  
+
+All discovered technology tags appear directly inside:
+
+- Subdomain view  
+- IP view  
+- Application view  
+- Technology Index  
+
+---
+
+##  How It Works Inside AIM
+
+After installation:
+
+- AIM scans each eligible asset during routine discovery cycles.  
+- Technologies are extracted and attached to the asset record.  
+- Tags such as `nginx`, `nodejs`, `cloudflare`, `wordpress`, etc., are added automatically.  
+- New discoveries trigger updates in the Technology Index and asset views.
+
+This ensures ongoing, automated technology identification with zero manual work.
+
+---
+
+##  Monitoring Enrichment Results
+
+You can view technology data in:
+
+- **Asset Details → Technologies section**  
+- **Technology Index (AIM → Technologies)**  
+- **Relations & service context inside IP / Domain views**  
+
+This allows fast filtering, grouping, and risk analysis for specific tech stacks.
+
+---
+
+## Troubleshooting
+
+**No technologies detected?**  
+- Ensure the asset is reachable externally.  
+- Some assets (internal-only systems) may not expose banners or headers.  
+
+**Updates not appearing?**  
+- Wait for the next enrichment cycle or refresh Tech Grabber via **Active Adapters**.  
+
+---
+
+## Next Steps
+
+<Card title="View Technology Index" icon="arrow-right" href="/products/aim/technologies">
+  Explore all identified technologies across your organization.
+</Card>
