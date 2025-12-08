@@ -1,0 +1,76 @@
+---
+title: "HackerTarget"
+description: "Integrate HackerTarget to fetch external reconnaissance data for your domains into AIM."
+icon: "satellite-dish"
+mode: "wide"
+---
+
+## Overview
+
+The **HackerTarget integration** allows AIM to gather reconnaissance data for your domains using HackerTarget’s public scanning endpoints.  
+This helps enrich asset discovery by identifying additional exposed services, open ports, and DNS information discovered externally.
+
+<Frame caption="HackerTarget Integration">
+  <img src="/images/aim/integrations/hackertarget.png" />
+</Frame>
+
+---
+
+## Prerequisites
+
+Before enabling the integration:
+
+- Ensure you have a valid **domain** added to AIM.
+- Confirm your environment allows outbound HTTPS requests to HackerTarget.
+- No API key is required for standard enumeration.
+
+---
+
+## How to Enable HackerTarget in AIM
+
+<Steps>
+  <Step title="Open AIM Integrations" icon="puzzle-piece">
+    Go to **AIM → Integrations** in the Snapsec sidebar.
+  </Step>
+
+  <Step title="Select HackerTarget" icon="satellite-dish">
+    Find the **HackerTarget** integration tile and click **Install**.
+  </Step>
+
+  <Step title="Confirm Installation" icon="circle-check">
+    Click **Install Now** to activate the integration.
+  </Step>
+</Steps>
+
+Once enabled, AIM begins fetching external enumeration data for supported domains.
+
+---
+
+## What Data HackerTarget Provides
+
+HackerTarget can enrich AIM with:
+
+- DNS Records  
+- Subdomain enumeration  
+- Open port data  
+- Basic service fingerprinting  
+
+This information helps expand your visibility into externally exposed infrastructure.
+
+---
+
+## Managing the Integration
+
+After installation:
+
+- The integration will appear under **Active Adapters**.
+- You can **refresh**, **pause**, or **remove** the adapter at any time.
+- Logs of each fetch run are available under **Refresh Logs**.
+
+---
+
+## Next Steps
+
+<Card title="View External Recon Data" icon="arrow-right" href="/products/aim/subdomains">
+  Explore newly discovered subdomains and exposure details.
+</Card>
