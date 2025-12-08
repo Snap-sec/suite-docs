@@ -1,5 +1,114 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: Shodan
+description: Integrate Shodan to enrich ASM discovery with exposed services, open ports, banners, and internet-facing intelligence.
+mode: wide
 ---
 
+## Shodan integration with Snapsec ASM
+
+The **Shodan integration** allows Snapsec ASM to automatically enrich your external attack surface with intelligence gathered from Shodan’s global internet scan data.
+
+Once connected, ASM can fetch:
+
+- Open ports and exposed services  
+- Service banners & fingerprints  
+- Detected technologies  
+- Host metadata (ISP, organization, tags)  
+- Exposure indicators discovered by Shodan  
+
+This provides deeper context for identifying high-risk internet-facing assets.
+
+---
+
+## 1. Prerequisites
+
+Before enabling the integration, ensure you have:
+
+- A **Shodan API Key**  
+- An active Snapsec **ASM workspace**  
+- Internet access from the Snapsec backend to `api.shodan.io`
+
+> Shodan API keys can be generated from your Shodan account dashboard under **Account → API Keys**.
+
+---
+
+## 2. Enable the Shodan Integration in Snapsec ASM
+
+1. Navigate to **ASM → Integrations**.  
+2. Locate the **Shodan** integration tile.  
+3. Click **Install** (or **Configure** if already added).  
+
+A configuration dialog will appear requesting:
+
+- **API Key**  
+- Optional: request frequency or Shodan lookup limits depending on your plan.
+
+Enter your **Shodan API Key**, then click **Install Now**.
+
+If valid, the integration status will update to **Connected**.
+
+---
+
+## 3. How ASM uses Shodan data
+
+When enabled, ASM performs the following automatically:
+
+### 🔍 Enriches Discovered Hosts  
+Whenever ASM finds an external IP or domain, it queries Shodan for:
+
+- Exposed ports  
+- Service versions  
+- TLS/SSL info  
+- Technology signatures  
+- Banner metadata  
+- CVE mappings (when available)
+
+### ⚠️ Surface-Level Risk Indicators  
+Shodan-derived risk attributes include:
+
+- Services flagged as dangerous (RDP, Telnet, Elasticsearch, etc.)  
+- Deprecated protocols  
+- Known exploitable service versions  
+
+### 🔗 Correlation with ASM Exposure Engine  
+Shodan results are merged with:
+
+- Snapsec exposure detections  
+- Internal scan results  
+- DNS + port mapping  
+- Asset classification rules  
+
+This gives a unified and more accurate risk profile.
+
+---
+
+## 4. Viewing Shodan Data in Asset Views
+
+Once the integration is active, each IP/domain page may show additional fields:
+
+- **Open Ports (Shodan)**  
+- **Service Banners**  
+- **Technologies Identified**  
+- **ISP & ASN Information**  
+- **Exposed Protocols**  
+- **Risk Signals from Shodan**
+
+These appear under the **Exposures**, **Ports**, or **Technologies** sections depending on the data type.
+
+---
+
+## 5. Troubleshooting
+
+| Issue | Possible Cause | Fix |
+|-------|----------------|------|
+| Invalid API key | Wrong key or expired Shodan plan | Regenerate key and retry |
+| No data returned | Shodan has not scanned the host yet | Retry later or upgrade Shodan plan |
+| Rate limit errors | Free-tier API limit exceeded | Increase plan or reduce query frequency |
+
+---
+
+## Next Steps
+
+<Card title="Explore ASM Exposures" icon="arrow-right" href="/products/asm/exposures">
+  View enriched exposures, ports, and Shodan-derived risk indicators for your assets.
+</Card>
