@@ -1,0 +1,85 @@
+---
+title: "Import Employees"
+description: "Import and synchronize employee records into AIM using a CSV upload."
+icon: "id-card"
+mode: "wide"
+---
+
+## Overview
+
+The **Import Employees** integration allows you to bulk-upload employee identities into AIM using a simple CSV file.  
+This is useful when sourcing employee data from HR systems, IAM exports, or manual records.
+
+<Frame caption="Import Employees">
+  <img src="/images/aim/integrations/import-employees.png" />
+</Frame>
+
+---
+
+## How It Works
+
+AIM processes each row in the CSV and converts it into an employee identity with:
+
+- Email  
+- Vendor / provider  
+- Tags  
+- Internal / external classification  
+- Activity metadata  
+- Ownership mapping  
+
+Uploaded identities become part of the Employee Directory and can be enriched through other AIM adapters.
+
+---
+
+## CSV Requirements
+
+Your CSV must include at least:
+
+| Column | Description |
+|--------|-------------|
+| **email** | Employee’s primary identity |
+| **vendor** | Associated provider (e.g., Gmail, Slack, Microsoft) |
+| **type** | Internal or external |
+| **tags** | Optional metadata |
+
+AIM automatically validates the structure before saving entries.
+
+---
+
+## Import Steps
+
+<Steps>
+  <Step title="Open Import Employees" icon="file-arrow-up">
+    Navigate to <strong>Integrations → Import Employees</strong>.
+  </Step>
+  <Step title="Upload CSV" icon="upload">
+    Select your CSV file containing employee data.
+  </Step>
+  <Step title="Validate Data" icon="clipboard-check">
+    AIM previews parsed rows and checks for errors.
+  </Step>
+  <Step title="Confirm Import" icon="circle-check">
+    Process the file to add all employee identities into AIM.
+  </Step>
+</Steps>
+
+---
+
+## What Happens After Import
+
+- Identities appear in the **Employee Directory**  
+- Risk scoring & exposure classification begin automatically  
+- Assets and vendors link to employees where applicable  
+- Records become visible in search, filters, and analytics  
+
+---
+
+## Next Steps
+
+<Card
+  title="View Employee Directory"
+  icon="arrow-right"
+  href="/products/aim/employees"
+>
+  Explore all imported identities and their associated metadata.
+</Card>
