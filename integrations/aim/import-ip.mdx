@@ -1,49 +1,88 @@
 ---
 title: "Import IP Addresses"
-description: "Import IP assets into AIM using CSV upload for bulk onboarding and inventory enrichment."
+description: "Import IP address assets into AIM using a simple CSV upload workflow."
 icon: "file-arrow-up"
 mode: "wide"
 ---
 
 ## Overview
 
-The **Import IP Addresses** integration allows teams to bring large sets of IP assets into AIM using a simple CSV upload.  
-This is useful when migrating from legacy systems, CMDB exports, scanner outputs, or manually maintained spreadsheets.
+The **Import IP Addresses** feature allows you to bulk-upload IP assets into AIM using a CSV file.  
+This is useful when migrating from legacy systems, consolidating inventories, or onboarding externally provided IP lists.
 
 <Frame caption="Import IP Addresses">
-  <img src="/images/aim/integrations/import-ip.png" />
+  <img src="/images/aim/import-ip.png" />
 </Frame>
 
 ---
 
 ## How It Works
 
-AIM accepts a structured CSV file containing IP-related metadata.  
-Once uploaded, AIM automatically:
+AIM parses your CSV file and converts each row into an IP asset enriched with:
 
-- Creates new IP asset records  
-- Enriches each IP using adapters (IpInfo, TechGrabber, ASM, VM, etc.)  
-- Assigns exposure, risk, and classification  
-- Correlates IPs with existing assets where possible  
+- IP address value  
+- Exposure status (if available)  
+- Owner or team information (if provided)  
+- Tags or classifications  
+- Detected-on timestamps  
 
-This ensures newly imported IPs instantly become part of the unified inventory.
+Uploaded IPs immediately appear in your IP Catalog and become available for correlation with vulnerabilities, relationships, and risk scoring.
 
 ---
 
-## CSV Format Requirements
+## CSV Format
 
-Your CSV must contain at least:
+Your CSV file should contain at least one column:
+
+| Column | Required | Description |
+|--------|----------|-------------|
+| **ip** | Yes | The IP address to be imported |
+
+Optional columns include:
 
 | Column | Description |
 |--------|-------------|
-| **ip** | The IP address to import (mandatory) |
-| **owner** | Optional owner/team attribution |
-| **tags** | Optional comma-separated tags |
-| **source** | Optional description of where the IP came from |
+| **owner** | Assigns an owner during import |
+| **tags** | Comma-separated list of tags |
+| **description** | Additional metadata about the IP |
 
-Example:
+---
 
-```csv
-ip,owner,tags,source
-192.168.1.10,network-team,internal,legacy-cmdb
-34.112.55.20,cloud-team,production,aws-export
+## How to Import
+
+<Steps>
+  <Step title="Open Import IP Addresses" icon="file-arrow-up">
+    Go to **AIM → Integrations → Import IP Addresses**.
+  </Step>
+
+  <Step title="Upload CSV" icon="upload">
+    Select or drag your CSV file into the importer.
+  </Step>
+
+  <Step title="Preview Records" icon="eye">
+    AIM shows a preview of parsed IPs before importing.
+  </Step>
+
+  <Step title="Confirm Import" icon="circle-check">
+    Click **Import** to add the IPs to your inventory.
+  </Step>
+</Steps>
+
+---
+
+## After Import
+
+Once imported:
+
+- IPs appear instantly in the **IP Catalog**
+- Classifier rules may auto-assign owners, environments, or exposure status  
+- IPs become eligible for vulnerability correlation from VM integrations  
+- You can enrich them further via adapters (Tech Grabber, IPInfo, ASM, etc.)
+
+---
+
+## Next Steps
+
+<Card title="View IP Catalog" icon="arrow-right" href="/products/aim/ips">
+  Explore imported IP assets and their associated risk, exposures, and relationships.
+</Card>

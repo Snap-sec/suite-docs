@@ -1,0 +1,96 @@
+---
+title: "Snapsec ASM"
+description: "Integrate Snapsec ASM with AIM to sync external attack surface assets directly into your internal asset inventory."
+icon: "globe"
+mode: "wide"
+---
+
+## Overview
+
+The **Snapsec ASM Integration** allows AIM to automatically ingest assets discovered on your external attack surface — including domains, subdomains, IPs, exposed services, cloud endpoints, and shadow infrastructure.
+
+This integration ensures that everything visible to attackers externally also becomes visible internally to your security and asset teams.
+
+<Frame caption="Snapsec ASM Integration in AIM">
+  <img src="/images/aim/integrations/asm.png" />
+</Frame>
+
+---
+
+## What This Integration Does
+
+Once enabled, AIM begins receiving assets from your ASM workspace:
+
+- Newly discovered domains & subdomains  
+- Shadow IT assets  
+- External IPs and open ports  
+- Cloud-exposed resources  
+- High-risk or misconfigured assets  
+- Exposure intelligence linked with vulnerabilities  
+
+AIM merges these findings with your internal catalog, eliminating blind spots between ASM and internal IT.
+
+---
+
+## How to Configure
+
+### 1. Open the Snapsec ASM Adapter  
+Go to **AIM → Integrations → Snapsec ASM → Install**.
+
+### 2. Provide Required Credentials  
+Enter:
+
+- **ASM Workspace ID**  
+- **API Key** (from your ASM settings)  
+
+Click **Install** to activate the connection.
+
+### 3. AIM Begins Sync Automatically  
+Once installed:
+
+- New ASM discoveries appear under relevant asset types  
+- Exposure metadata and relationships update in real time  
+- Shadow assets become visible across AIM dashboards  
+
+---
+
+## Fields Imported from ASM
+
+AIM will ingest metadata such as:
+
+- Asset value (domain, subdomain, IP, API, etc.)  
+- Exposure type (Exposed, Shadow, Safe)  
+- Severity & risk indicators  
+- Open ports / services  
+- First & last seen timestamps  
+- Technology fingerprints  
+- Associated ASN / cloud metadata  
+
+---
+
+## Sync Frequency
+
+ASM → AIM sync runs **continuously**, and most updates appear within seconds of being discovered.
+
+---
+
+## When to Use This Integration
+
+Enable Snapsec ASM in AIM if you want:
+
+- External attack surface assets visible in your internal inventory  
+- Unified vulnerability & exposure analysis  
+- Shadow asset detection mapped to owners  
+- Cross-module correlation between AIM, ASM, and VM  
+
+---
+
+## Next Steps
+
+<Card
+  title="View External Assets in AIM"
+  icon="arrow-right"
+  href="/products/aim/global-catalog"
+>
+  Explore all ASM-enriched assets inside AIM’s unified inventory.
+</Card>
