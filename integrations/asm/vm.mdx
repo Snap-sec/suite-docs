@@ -1,5 +1,110 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: Snapsec VM
+description: Forward exposures and discovered vulnerabilities from ASM into Snapsec Vulnerability Management.
+mode: wide
 ---
 
+## Snapsec VM Integration with Attack Surface Management (ASM)
+
+The **Snapsec VM integration** allows you to seamlessly forward exposures, misconfigurations, service detections, and discovered vulnerabilities from **Snapsec ASM** into the **Vulnerability Management (VM)** module for deeper triage, remediation workflows, SLA tracking, ownership assignment, and reporting.
+
+This integration ensures that anything discovered through external attack surface scans becomes part of your centralized vulnerability lifecycle.
+
+---
+
+## 1. What This Integration Does
+
+Once enabled, the Snapsec VM adapter:
+
+- Sends **ASM exposures** (open ports, banners, technologies, risky services).
+- Forwards **ASM-detected vulnerabilities**, including:
+  - Weak SSL configurations  
+  - Open directory listings  
+  - Misconfigured cloud services  
+  - Exposed admin panels  
+  - Fingerprint-based vulnerabilities  
+- Maps ASM findings into VM’s structured vulnerability model.
+- Automatically creates or updates vulnerabilities inside the selected VM Assessment.
+- Syncs asset information (domains, IPs, APIs, subdomains) into VM.
+
+This enables unified remediation inside the VM module.
+
+---
+
+## 2. How to Enable the Integration
+
+1. Go to **ASM → Integrations**.  
+2. Find **Snapsec VM** in the integration list.  
+3. Click **Install**.  
+4. Enter the required details:
+   - **Assessment ID** (where findings should be pushed)
+   - **API Key** (for authentication)
+5. Save the configuration.
+
+Once connected, ASM will automatically route all future exposures and vulnerabilities into the assigned VM Assessment.
+
+---
+
+## 3. Required Fields
+
+| Field | Description |
+|-------|-------------|
+| **Assessment ID** | The VM assessment where ASM findings will be stored. |
+| **API Key** | Auth token for secure ingestion into Snapsec VM. |
+
+---
+
+## 4. How Data Flows Into VM
+
+When ASM discovers something new:
+
+1. Exposure or vulnerability is generated in ASM.  
+2. Integration webhook transforms the finding into VM’s schema.  
+3. VM creates or updates:
+   - Vulnerability entry  
+   - Asset association  
+   - Severity & risk metadata  
+4. The vulnerability appears in **VM → Vulnerabilities** within seconds.
+
+---
+
+## 5. Supported Finding Types Sent to VM
+
+Snapsec ASM sends the following categories:
+
+- **Surface Exposures**
+  - Open ports  
+  - TLS handshake data  
+  - Service banners  
+  - Technologies fingerprinted  
+
+- **Vulnerability-like Issues**
+  - Weak/expired SSL certs  
+  - Publicly accessible admin dashboards  
+  - Open storage buckets  
+  - Default pages or unsafe server headers  
+  - Known misconfigurations detected via scanners  
+
+- **API-related exposures** (if API discovery is enabled)
+
+---
+
+## 6. Troubleshooting
+
+**Findings not appearing in VM?**
+
+- Check the **Assessment ID** is valid.  
+- Confirm your **API key** is active.  
+- Verify ASM scan results exist for the assets you're monitoring.  
+
+**Getting authentication errors?**
+
+- Regenerate the API key and update the integration config.
+
+---
+
+## Next Steps
+
+<Card title="Open Vulnerability Management" icon="arrow-right" href="/products/vm/dashboard">
+  View imported ASM findings inside the VM module.
+</Card>
