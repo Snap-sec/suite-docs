@@ -1,0 +1,100 @@
+---
+title: Snapsec AIM
+description: Sync discovered external attack surface assets directly into Snapsec AIM for unified asset visibility.
+mode: wide
+---
+
+## Snapsec AIM integration with Snapsec ASM
+
+The **Snapsec AIM integration** allows Snapsec ASM to automatically push all discovered external assets — such as domains, subdomains, IPs, technologies, exposures, and certificates — into **Snapsec Asset Inventory Management (AIM)**.  
+This ensures your internal CMDB and inventory stay continuously updated with real attack surface discoveries.
+
+---
+
+## 1. What this integration does
+
+Once enabled, ASM will automatically:
+
+- Sync newly discovered **domains & subdomains** into AIM  
+- Push **IP addresses**, **ports**, and **cloud resources** if detected  
+- Update **technologies**, **exposure state**, and **risk metadata**  
+- Enrich existing AIM assets with ASM discovery data  
+- Ensure AIM reflects real-world, external-facing asset changes  
+
+This creates a single source of truth between ASM and AIM.
+
+---
+
+## 2. Prerequisites
+
+You only need:
+
+- An active **Snapsec AIM workspace**
+- API permissions (automatically handled inside Suite — no tokens required)
+- ASM discovery data available for sync
+
+No manual configuration or API keys are required inside ASM.
+
+---
+
+## 3. How to enable the integration
+
+1. Go to **ASM → Integrations**  
+2. Find **Snapsec AIM**  
+3. Click **Install**  
+4. ASM will immediately begin syncing new discoveries into AIM  
+
+Once installed, the integration appears as **Active**.
+
+---
+
+## 4. What data is synced into AIM
+
+ASM sends the following asset categories into AIM:
+
+| Data Type | Description |
+|-----------|-------------|
+| **Domains & Subdomains** | All discovered hostnames, including wildcard findings |
+| **IP Addresses** | Resolved IPs and infrastructure-level details |
+| **Ports & Services** | Open ports, service fingerprints, and exposure tags |
+| **Technologies** | Tech stack fingerprints from scanners & passive sources |
+| **Certificates** | SSL/TLS certificate metadata discovered during recon |
+| **Exposures** | Public exposures detected by ASM (e.g., open ports, weak DNS, etc.) |
+
+AIM automatically correlates and merges this data with its existing inventory.
+
+---
+
+## 5. Sync Behavior
+
+### **Automatic & Continuous Sync**
+ASM pushes new assets or updated properties into AIM as soon as they are discovered.
+
+### **Deduplication**
+If AIM already contains the asset, ASM updates it rather than creating duplicates.
+
+### **Metadata Enrichment**
+Tags, risk indicators, and exposure classifications from ASM are ported into AIM.
+
+---
+
+## 6. Troubleshooting
+
+- **Not seeing assets in AIM?**  
+  Ensure ASM discovery scans have completed.
+
+- **Duplicate assets in AIM?**  
+  AIM’s classifier rules may group items differently; review your classifier config.
+
+- **Technologies not syncing?**  
+  Verify that Tech Grabber or other tech-detection sources are active in ASM.
+
+If issues persist, contact Snapsec support.
+
+---
+
+## Next Steps
+
+<Card title="Open AIM Global Catalog" icon="arrow-right" href="/products/aim/global-catalog">
+  View synced domains, IPs, and technologies inside your Asset Inventory.
+</Card>
