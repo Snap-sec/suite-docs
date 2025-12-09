@@ -1,0 +1,101 @@
+---
+title: Swagger
+description: Import API specifications into Snapsec WAS using Swagger files or Swagger URLs.
+mode: wide
+---
+
+## Swagger Integration with Snapsec WAS
+
+The **Swagger integration** allows Snapsec WAS to automatically ingest API specifications (OpenAPI/Swagger) to generate API endpoints, detect routes, understand request/response schemas, and improve API security testing coverage.
+
+Snapsec uses the imported Swagger/OpenAPI definition to map your API landscape and identify potential security risks earlier in the development lifecycle.
+
+---
+
+## 1. Prerequisites
+
+Before enabling Swagger in Snapsec WAS, ensure you have:
+
+- A valid **Swagger/OpenAPI specification** (JSON or YAML)
+- Optional:
+  - A **public URL** hosting the Swagger spec  
+  - An existing project in WAS (recommended)
+
+Supported versions:
+
+- OpenAPI 2.0 (Swagger)
+- OpenAPI 3.x
+
+---
+
+## 2. Configure Swagger in Snapsec WAS
+
+1. Navigate to **WAS → Integrations**.  
+2. Locate **Swagger** from the available adapters.  
+3. Click **Install** or **Configure**.  
+4. Choose your preferred import method:
+   - **Upload File (.json / .yaml)**
+   - **Provide URL** to the hosted Swagger spec
+
+5. Click **Import Now**.
+
+If the spec is valid, Snapsec will parse it and automatically generate API endpoints under your selected project.
+
+---
+
+## 3. What Swagger Imports Into Snapsec WAS
+
+Once uploaded, Snapsec analyzes the API specification and extracts:
+
+### **API Endpoint Discovery**
+- HTTP methods (GET, POST, PUT, DELETE, PATCH)
+- Path parameters, query parameters, request bodies  
+- Auth requirements (Basic, Bearer, API key)
+
+### **Schema & Payload Understanding**
+- JSON schema definitions  
+- Data types and validation rules  
+- Nested objects and arrays
+
+### **Security Insights**
+- Missing authentication  
+- Unsafe default values  
+- Sensitive parameters  
+- Potential injection points  
+- Unvalidated inputs  
+
+Snapsec uses this data to generate accurate API tests and enhance vulnerability detection.
+
+---
+
+## 4. Supported Import Methods
+
+| Method | Description |
+|-------|-------------|
+| **Direct Upload** | Upload `.json` or `.yaml` Swagger/OpenAPI files. |
+| **Swagger URL** | Provide a URL pointing to a hosted API spec. |
+| **Automated via CI/CD** *(coming soon)* | Auto-push specs during deployment. |
+
+---
+
+## 5. Troubleshooting
+
+**Invalid Specification**  
+- Ensure the file follows OpenAPI 2.0 / 3.x formatting.  
+- Validate using tools like Swagger Editor or Redocly.
+
+**Endpoints not appearing**  
+- Confirm paths are defined under `paths:` section.  
+- Ensure no circular references in the schema.
+
+**URL import fails**  
+- Check if the endpoint is public or requires authentication.  
+- Verify CORS and content-type headers.
+
+---
+
+## Next Steps
+
+<Card title="View API Catalogue" icon="arrow-right" href="/products/was/api-catalog">
+  Explore discovered API endpoints generated from Swagger.
+</Card>
