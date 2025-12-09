@@ -1,5 +1,142 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: Snapsec VM
+description: Connect Snapsec VM with the Vulnerability Scanner to sync detected vulnerabilities into VM.
+mode: wide
 ---
+
+## Snapsec VM Integration with Vulnerability Scanner (VS)
+
+The Snapsec VM integration allows the **Vulnerability Scanner** to automatically push discovered vulnerabilities into **Snapsec VM**.  
+This enables unified vulnerability management, centralized triage, and reporting across your entire attack surface.
+
+---
+
+## 1. Prerequisites
+
+Before enabling the integration, ensure you have:
+
+- Access to **Snapsec VM**
+- An **Assessment** created inside Snapsec VM  
+- The **Assessment ID**  
+- The **API Key** for your VM workspace  
+
+You can find the API key in VM under:
+
+**Settings → API Keys**
+
+---
+
+## 2. Open the Snapsec VM Integration in Vulnerability Scanner
+
+1. Go to **Vulnerability Scanner → Integrations**  
+2. Locate the **Snapsec VM** integration tile  
+3. Click **Install** (or **Configure** if already connected)
+
+You will see fields similar to:
+
+- **Asset Inventory API Key**
+- **Assessment for storing vulnerabilities**
+- **Auto-sync Severities**
+- **Custom Headers (optional)**
+
+(This matches the UI screenshots you provided.)
+
+---
+
+## 3. Enter Snapsec VM Configuration
+
+In the integration dialog:
+
+### **Asset Inventory API Key**  
+Paste the API key from Snapsec VM.
+
+### **Assessment for Storing Vulnerabilities**  
+Choose the VM Assessment where you want vulnerabilities from VS to be stored.
+
+### **Auto-sync Severities**  
+Select which severities should automatically sync:
+
+- Critical  
+- High  
+- Medium  
+- Low  
+- Info  
+
+VS will only forward vulnerabilities of the selected severities.
+
+### **Custom Headers (Optional)**  
+You may add headers for environments that require:
+
+- Gateway authorization  
+- Tenant routing  
+- Custom authentication tokens  
+
+Example:
+
+| Header | Value |
+|--------|--------|
+| `x-org` | `acme` |
+| `x-api-version` | `2` |
+
+You can also delete or add new headers anytime.
+
+Click **Update** to save the integration.
+
+---
+
+## 4. How Syncing Works
+
+Once configured:
+
+- Every scan in Vulnerability Scanner will generate a list of vulnerabilities.
+- VS will automatically send selected-severity vulnerabilities to the configured VM Assessment.
+- Each synced vulnerability will show a **“Send to VM”** icon or status indicator.
+- In Snapsec VM, they appear under **Vulnerabilities**, linked back to the scanned asset.
+
+The integration ensures:
+
+- No duplicated entries  
+- Continuous enrichment from ASM / AIM if assets overlap  
+- Centralized triage and remediation  
+
+---
+
+## 5. Manual Sync (Optional)
+
+From the Vulnerabilities list in VS:
+
+1. Open **Vulnerability Scanner → Vulnerabilities**  
+2. Select any vulnerability  
+3. Click **Send to VM**
+
+This option is useful for:
+
+- Testing the integration  
+- Sending low-severity vulnerabilities that are not auto-synced  
+
+---
+
+## 6. Troubleshooting
+
+### **Invalid API Key**
+- Ensure the key matches EXACTLY as generated in Snapsec VM  
+- Regenerate the key if needed  
+
+### **Assessment not showing**
+- Ensure the API key has permissions  
+- Refresh the integration page  
+- Try reloading VS  
+
+### **Vulnerabilities not syncing**
+- Check auto-sync severities  
+- Ensure the assessment is correctly selected  
+- Verify VM is reachable (network access allowed)  
+
+---
+
+## Next Steps
+
+<Card title="Open Vulnerability Scanner" icon="arrow-right" href="/products/vs">
+  Start scanning assets and sync findings directly into Snapsec VM.
+</Card>
 

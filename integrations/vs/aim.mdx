@@ -1,5 +1,147 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: Snapsec AIM
+description: Connect Snapsec Asset Inventory Management (AIM) with Vulnerability Scanner to sync discovered assets and store vulnerability findings.
+mode: wide
 ---
 
+## Snapsec AIM Integration with Vulnerability Scanner (VS)
+
+The **Snapsec AIM integration** allows the Vulnerability Scanner to automatically:
+
+- Pull assets from Snapsec AIM into VS.  
+- Map and store vulnerability findings back into the correct Asset Inventory.  
+- Keep the asset inventory and live scan results fully synchronized.
+
+This ensures VS always scans the latest assets, and AIM always stays updated with fresh vulnerability data.
+
+---
+
+## 1. Prerequisites
+
+Before configuring Snapsec AIM in VS, ensure you have:
+
+- An active **Snapsec AIM workspace**  
+- **AIM API Key** (from the AIM settings page)  
+- Optional: A designated **Assessment in VM** where VS-generated vulnerabilities will be stored  
+- VS user permissions to configure integrations
+
+You can obtain the AIM API Key from:  
+**AIM → Settings → API Key**
+
+---
+
+## 2. Configure Snapsec AIM inside Vulnerability Scanner
+
+1. Go to **Vulnerability Scanner → Integrations**.  
+2. Open the **Snapsec AIM** integration tile.  
+3. You will see the section:
+
+   - **Asset Inventory Integration**  
+   - **Asset Inventory API Key**
+
+4. Paste your AIM **API Key** into the field.
+
+5. Click **Refresh** to validate the key.  
+6. Click **Save** once connected.
+
+When the connection is successful, VS will begin syncing assets from AIM, visible under:  
+**VS → Catalogue → Assets**
+
+---
+
+## 3. Vulnerability Synchronization Configuration
+
+VS lets you decide how vulnerability data should sync back into Snapsec AIM.
+
+You will see a configuration panel inside the AIM integration:
+
+### **Assessment for storing vulnerabilities**
+
+Choose an existing VM Assessment where VS should send discovered vulnerabilities.
+
+Example:  
+- `External Attack Surface Scan`  
+- `API Security Scan`  
+- `Infra Assessment`
+
+This field is required before vulnerabilities can sync.
+
+---
+
+### **Auto-sync Severities**
+
+Select which severities should automatically sync to AIM:
+
+- Critical  
+- High  
+- Medium  
+- Low  
+- Info  
+
+VS will only push vulnerabilities matching these severities.
+
+---
+
+### **Custom Headers (Optional)**
+
+You can add custom headers for environments requiring routing, tenancy, or authentication.
+
+Example:
+
+Header | Value  
+------ | ------  
+`x-tenant` | `customer-01`  
+`source` | `vs-scanner`
+
+Add as many headers as needed using the **Add Header** button.
+
+---
+
+## 4. How the Integration Works
+
+Once configured:
+
+### **AIM → VS**
+- Assets from AIM automatically appear in VS under **Catalogue → Assets**.
+- These assets can be grouped and scanned.
+- VS will periodically refresh these assets.
+
+### **VS → AIM**
+- Discovered vulnerabilities are pushed to the chosen VM Assessment.
+- AIM’s asset pages will show associated vulnerabilities.
+- Vulnerability state changes propagate back depending on workspace rules.
+
+This creates a **bidirectional sync** between Asset Management and Vulnerability Management through VS.
+
+---
+
+## 5. Troubleshooting
+
+### **Invalid API Key**
+- Ensure the AIM key hasn’t expired.
+- Regenerate a key if needed.
+
+### **Assets not appearing**
+- Verify the AIM workspace actually contains assets.
+- Check if asset types are supported by VS.
+
+### **Vulnerabilities not syncing**
+- Ensure an Assessment is selected.
+- Verify auto-sync severities include the vulnerability severity.
+- Check custom header rules aren’t blocking the request.
+
+### **Refresh Issues**
+- Use the **Refresh** button next to the API key field.
+- If rate-limited, wait a few minutes and try again.
+
+---
+
+## Next Steps
+
+<Card title="View Assets in Vulnerability Scanner" icon="arrow-right" href="/vs/catalogue/assets">
+  Explore synchronized assets inside VS.
+</Card>
+
+<Card title="View Vulnerabilities in VM" icon="bug" href="/vm/vulnerabilities">
+  Review vulnerabilities pushed from VS scans.
+</Card>
