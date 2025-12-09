@@ -1,5 +1,102 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: Postman
+description: Integrate Postman with Snapsec Threat Management to onboard API endpoints for threat modeling.
+mode: wide
 ---
 
+## Postman Integration with Snapsec Threat Management
+
+Use the **Postman integration** to automatically import your API endpoints into Snapsec Threat Management (TM).  
+This allows the threat modeler to analyze your API surfaces, generate risks, and build threat scenarios based on real request metadata.
+
+---
+
+## 1. Prerequisites
+
+Before enabling the Postman integration, ensure you have:
+
+- A **Postman account**
+- A **Postman API Key**
+- Collections containing API requests you want to analyze
+- A Threat Management project created inside Snapsec (optional but recommended)
+
+You can create or retrieve your Postman API Key from:  
+**https://postman.com/settings/me/api-keys**
+
+---
+
+## 2. Configure Postman in Snapsec TM
+
+1. Go to **Threat Management → Integrations**  
+2. Select **Postman** from the list of adapters  
+3. Click **Install** or **Configure**  
+4. Provide the required fields:
+   - **Postman API Key**
+   - Optional: Select a TM project to associate imported endpoints with
+
+Click **Install Now** to complete setup.
+
+If successful, Snapsec will show **Connected** status for the integration.
+
+---
+
+## 3. What Postman imports into Threat Management
+
+Once connected, Snapsec TM automatically ingests:
+
+### **Endpoint Metadata**
+- URL paths  
+- Methods (GET, POST, PUT, DELETE, etc.)  
+- Request bodies and parameters  
+- Headers and authentication schemes  
+
+### **Collection Grouping**
+- Imported APIs retain their **collection names**  
+- Endpoints are mapped to **Threat Management Projects** (if selected)
+
+### **Threat Modeling Inputs**
+Imported endpoints become part of:
+- **Threat Catalog**  
+- **Endpoint List (Requests)**  
+- **Automated Threat Detection**  
+- **Project-level threat scoring**
+
+Snapsec enriches endpoint data to generate relevant threats (e.g., injection, authorization bypass, SSRF, IDOR).
+
+---
+
+## 4. Refreshing Data
+
+You can refresh your imported Postman APIs anytime:
+
+**Integrations → Postman → Refresh**
+
+This pulls the latest endpoints from your Postman collections.
+
+---
+
+## 5. Troubleshooting
+
+### **Invalid API Key**
+- Regenerate the token and update it in Snapsec TM.  
+- Ensure the key has access to the collections you want to import.
+
+### **Endpoints Not Appearing**
+- Confirm the API key is still active.  
+- Ensure your Postman workspace and collections are not private/restricted.  
+- Validate the request structure (Snapsec supports standard Postman schemas).
+
+### **Mapping Issues**
+- Make sure the TM project is selected during import (optional but recommended).  
+
+---
+
+## Next Steps
+
+<Card title="View Threat Requests" icon="arrow-right" href="/products/tm/requests">
+  Explore all imported API endpoints for threat modeling.
+</Card>
+
+<Card title="View Threats" icon="shield-halved" href="/products/tm/threats">
+  Analyze and manage generated threats.
+</Card>
