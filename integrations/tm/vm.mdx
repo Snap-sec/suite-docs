@@ -1,0 +1,113 @@
+---
+title: Snapsec VM
+description: Forward exposures, weaknesses, and validated threats from Threat Management into Snapsec Vulnerability Management.
+mode: wide
+---
+
+## Snapsec VM Integration with Threat Management
+
+The **Snapsec VM integration** allows Threat Management (TM) to seamlessly forward discovered threats, validated weaknesses, and API-level exposures into **Snapsec Vulnerability Management**.  
+This ensures engineering teams receive actionable vulnerability data enriched with threat context.
+
+---
+
+## 1. Prerequisites
+
+Before enabling the integration, ensure you have:
+
+- An active **Snapsec VM workspace**  
+- A valid **VM API Key**  
+- Optional: A dedicated **Assessment** inside VM to store threats coming from TM
+
+You can generate your API key from:
+
+**VM → Settings → API Keys**
+
+---
+
+## 2. Configure Snapsec VM in Threat Management
+
+1. Navigate to **Threat Management → Integrations**  
+2. Select **Snapsec VM** from the available integrations  
+3. Provide the required fields:
+   - **VM API Key**
+   - **Assessment for storing threats** (dropdown)
+4. Configure optional settings:
+   - **Auto-sync severity levels**
+   - **Custom headers** (if your VM instance requires them)
+
+Click **Install Now** to activate the integration.
+
+Once connected, the status will show **Connected**.
+
+---
+
+## 3. What Data Syncs from TM → Snapsec VM
+
+Once enabled, the integration forwards:
+
+### **Threat Records**
+- Identified API threats  
+- Context: owner, state, project, confidence, severity  
+- Affected endpoint information
+
+### **Exposure Details**
+- HTTP method  
+- URL path  
+- Threat category (e.g., Injection, Authentication Bypass, CORS, SSRF)
+
+### **Project-Level Threat Modeling Outputs**
+- Threat descriptions  
+- Mitigation notes  
+- Attack vectors  
+- Tags and metadata
+
+### **Automatic Updates**
+If auto-sync is enabled, updates to threat status (Acknowledged, Fixed, Verified, etc.) will also sync into the corresponding VM assessment.
+
+---
+
+## 4. Sync Configuration Options
+
+### **Assessment Mapping**
+Choose which VM assessment stores TM threats.  
+You may use:
+- A single unified assessment  
+- Separate assessments per project
+
+### **Severity Filters**
+Select which severities are synced:
+- Critical  
+- High  
+- Medium  
+- Low  
+- Info  
+
+### **Custom Headers (Optional)**
+Use custom header fields if your VM environment requires additional authentication or routing filters.
+
+---
+
+## 5. Troubleshooting
+
+### Invalid API Key  
+- Regenerate the key in VM  
+- Ensure no extra spaces are copied  
+
+### Threats Not Appearing in VM  
+- Check severity sync rules  
+- Confirm assessment selection  
+- Verify network access to VM endpoint  
+
+### Custom Header Errors  
+- Remove headers and test again  
+- Confirm proper format: `key: value`
+
+---
+
+## Next Steps
+
+<Card title="Open Vulnerability Management" icon="arrow-right" href="/products/vm">
+  View synced threats inside VM Assessments.
+</Card>
+
