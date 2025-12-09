@@ -1,0 +1,109 @@
+---
+title: Postman
+description: Integrate Postman collections with Snapsec WAS to import API endpoints for testing.
+mode: wide
+---
+
+## Postman Integration with Snapsec WAS
+
+The **Postman integration** allows Snapsec WAS to fetch API endpoints directly from your Postman collections.  
+This is ideal when your team manages APIs through Postman but lacks a formal Swagger/OpenAPI spec.
+
+Snapsec will sync your collections, extract endpoints, and prepare them for automated API security testing.
+
+---
+
+## 1. Prerequisites
+
+Before enabling Postman in Snapsec WAS, ensure you have:
+
+- A **Postman account**
+- A **Postman API Key**
+- An exported or hosted Postman Collection
+- Optional: Environments containing variables used in requests
+
+Generate your API key here:  
+`https://web.postman.co/settings/me/api-keys`
+
+---
+
+## 2. Configure Postman in Snapsec WAS
+
+1. Navigate to **WAS → Integrations**.  
+2. Find **Postman** in the integrations list.  
+3. Click **Install**.  
+4. Enter your:
+   - **Postman API Key**
+   - (Optional) Collection ID  
+   - (Optional) Environment ID  
+
+Click **Install Now** to connect Postman with Snapsec WAS.
+
+If the credentials are valid, Snapsec will mark the integration as **Connected**.
+
+---
+
+## 3. What Postman Fetches Into Snapsec WAS
+
+Once connected, Snapsec retrieves:
+
+### **API Endpoint Discovery**
+- Request URLs  
+- HTTP methods  
+- Headers & parameters  
+- Authentication tokens (masked for security)  
+- Body structure and payload formats  
+- Collection-level and folder-level organization  
+
+### **Dynamic Context Mapping**
+Snapsec uses Postman metadata to understand:
+
+- Expected request flows  
+- Variables & environment dependencies  
+- Common authentication patterns  
+- Multi-step or chained requests  
+
+### **Security Insights from Postman Collections**
+Snapsec identifies:
+
+- Sensitive endpoints  
+- Unauthenticated routes  
+- Endpoints accepting user input  
+- Unsafe request patterns  
+- Potential injection surfaces  
+
+All imported endpoints appear in the **WAS API Catalogue**.
+
+---
+
+## 4. Syncing Postman Collections
+
+You can re-sync anytime:
+
+**Integrations → Postman → Refresh**
+
+Snapsec automatically updates:
+- New endpoints  
+- Deleted or modified endpoints  
+- Variables and environments  
+
+---
+
+## 5. Troubleshooting
+
+**401 Unauthorized**  
+- API key is invalid, expired, or missing required permissions.
+
+**Collection Not Found**  
+- Ensure the Collection ID is correct and not part of a private workspace unless allowed.
+
+**Variables Not Resolved**  
+- Confirm the correct Environment ID is selected.
+
+---
+
+## Next Steps
+
+<Card title="Start an API Scan" icon="arrow-right" href="/products/was/scans">
+  Begin scanning imported Postman endpoints for vulnerabilities.
+</Card>
