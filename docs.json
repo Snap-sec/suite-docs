@@ -110,7 +110,7 @@
           },{
             "group": "Web Application Scanner",
             "pages": [
-              "products/was/introduction",
+              "products/was/dashboard",
               "products/was/projects",
               "products/was/vulnerabilities",
               "products/was/environments",
