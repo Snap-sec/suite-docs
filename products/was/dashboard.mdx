@@ -1,0 +1,153 @@
+---
+title: "Dashboard"
+description: "Monitor API and Web Application security posture, vulnerability trends, rule coverage, and scanning performance in real time."
+icon: "gauge-high"
+mode: "wide"
+---
+
+<Banner>
+The **Web Application Security (WAS) Dashboard** provides a unified, real-time view of your application’s security health — including vulnerability distribution, endpoints analyzed, active rules, and scan activity.  
+It serves as the central location for understanding your exposure, tracking trends, and prioritizing remediation.
+</Banner>
+
+<Frame caption="WAS Dashboard Overview">
+  <img src="/images/was/dashboard.png" />
+</Frame>
+
+---
+
+## Overview
+
+The WAS Dashboard aggregates data from:
+- API request analysis  
+- Automated security scans  
+- Rule-based vulnerability detections  
+- Endpoint discovery  
+
+It presents the overall security posture across:
+- **Total Endpoints**
+- **Total Vulnerabilities**
+- **Total Rules Active**
+- **Total Scans Executed**
+
+This allows teams to track detection quality, exposure trends, and rule effectiveness.
+
+---
+
+## Key Metrics & Analytics
+
+<Columns cols={4}>
+
+<Card title="Total Endpoints" icon="server">
+  Number of API endpoints discovered and analyzed.
+</Card>
+
+<Card title="Total Vulnerabilities" icon="shield-halved">
+  Total number of vulnerabilities detected across all API endpoints.
+</Card>
+
+<Card title="Total Rules" icon="list-check">
+  Count of rule checks currently active for detection.
+</Card>
+
+<Card title="Total Scans" icon="magnifying-glass-chart">
+  Total number of scans executed in the workspace.
+</Card>
+
+</Columns>
+
+---
+
+## Visual Analytics & Security Trends
+
+### Vulnerability Severity Distribution
+
+<Frame caption="Severity Distribution Chart">
+  <img src="/images/was/severity-chart.png" />
+</Frame>
+
+Displays vulnerability distribution across:
+- Critical  
+- High  
+- Medium  
+- Low  
+- Informational  
+
+This helps security teams estimate the immediate remediation workload.
+
+---
+
+### CWE Distribution
+
+<Frame caption="CWE Classification Chart">
+  <img src="/images/was/cwe-distribution.png" />
+</Frame>
+
+Shows how vulnerabilities group under standardized CWE categories (e.g., CWE-284: Improper Access Control), helping teams understand recurring weakness patterns.
+
+---
+
+### Open/Closed Vulnerabilities
+
+<Frame caption="Open vs Closed Vulnerabilities">
+  <img src="/images/was/open-close.png" />
+</Frame>
+
+Helps track remediation progress and backlog by showing:
+- Active vulnerabilities  
+- Resolved vulnerabilities  
+
+---
+
+## Top Vulnerabilities
+
+<Frame caption="Top Vulnerabilities Table">
+  <img src="/images/was/top-vulns.png" />
+</Frame>
+
+Highlights:
+- Most frequent vulnerabilities  
+- Affected endpoints  
+- Severity  
+- Detection timestamps  
+
+This prioritizes what needs immediate attention.
+
+Columns include:
+- **Title**
+- **State**
+- **Severity**
+- **First Detected**
+- **Reported On**
+
+---
+
+## How to Use the Dashboard
+
+<Columns cols={2}>
+
+<Card title="Track Security Posture" icon="chart-pie">
+  Monitor trends across vulnerabilities, endpoints, severity, and detection rules.
+</Card>
+
+<Card title="Identify High-Risk Endpoints" icon="exclamation">
+  Quickly detect endpoints repeatedly affected by access control or logic flaws.
+</Card>
+
+<Card title="Validate Detection Rules" icon="clipboard-check">
+  Ensure rules are triggering correctly across environments and projects.
+</Card>
+
+<Card title="Improve Scan Efficiency" icon="bolt">
+  Use scan frequency and vulnerability density metrics to adjust scan profiles.
+</Card>
+
+</Columns>
+
+---
+
+## Next Steps
+
+<Card title="View Vulnerabilities" icon="arrow-right" href="/products/was/vulnerabilities">
+  Explore detailed vulnerability data, affected endpoints, and remediation steps.
+</Card>
