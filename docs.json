@@ -112,6 +112,7 @@
             "pages": [
               "products/was/dashboard",
               "products/was/projects",
+              "producst/was/rewuests",
               "products/was/vulnerabilities",
               "products/was/environments",
               "products/was/rules",
