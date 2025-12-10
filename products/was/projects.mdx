@@ -1,5 +1,223 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Projects"
+description: "Manage, monitor, and configure web application scanning projects in Snapsec WAS."
+icon: "layer-group"
+mode: "wide"
 ---
 
+<Banner>
+The **Projects module** in the Web Application Scanner (WAS) provides complete visibility into each scanned application — including request flow, API endpoints, vulnerability findings, and scan configuration.  
+It is the core workspace where analysts create, monitor, and optimize application security tests.
+</Banner>
+
+<Frame caption="WAS Project Overview">
+  <img src="/images/was/projects/projects-overview.png" />
+</Frame>
+
+---
+
+## Overview
+
+Each project represents a **single web application** or API environment under assessment.  
+A project contains:
+
+- **Metrics** – high-level status and vulnerability counts  
+- **API Endpoints** – discovered or imported request inventory  
+- **Transformed Requests** – AI-enhanced or mutated requests  
+- **Vulnerabilities** – all findings detected during scanning  
+- **Configuration** – settings for authentication, crawling, rules, and scope  
+
+Projects enable security teams to organize testing efforts and monitor risk at the application level.
+
+---
+
+## Project Metrics
+
+<Frame caption="Project Metrics Dashboard">
+  <img src="/images/was/projects/metrics.png" />
+</Frame>
+
+The **Metrics tab** provides a quick summary of project health:
+
+<Columns cols={3}>
+
+<Card title="Pending Vulnerabilities" icon="triangle-exclamation">
+  Total vulnerabilities identified and awaiting remediation.
+</Card>
+
+<Card title="Resolved Vulnerabilities" icon="circle-check">
+  Number of findings resolved or marked safe.
+</Card>
+
+<Card title="Progress Overview" icon="percent">
+  Tracks remediation progress out of total findings.
+</Card>
+
+</Columns>
+
+Additional charts such as **Status Distribution** and **Severity Distribution** help visualize vulnerability trends.
+
+---
+
+## API Endpoints
+
+<Frame caption="API Endpoints Inventory">
+  <img src="/images/was/projects/api-endpoints.png" />
+</Frame>
+
+The **API Endpoints tab** displays:
+
+- Total requests discovered  
+- Total transformed requests  
+- Requests sent to the scanner  
+- Vulnerabilities found per request  
+
+Each row includes:
+
+- **Endpoint path & host**  
+- **Request method (GET, POST, etc.)**  
+- **Associated vulnerabilities by severity**  
+
+Filters allow sorting by:
+
+- Severity  
+- HTTP method  
+- Whether vulnerabilities exist  
+
+This is essential for understanding the attack surface and identifying high-risk endpoints.
+
+---
+
+## Transformed Requests
+
+<Frame caption="Transformed Requests View">
+  <img src="/images/was/projects/transformed-requests.png" />
+</Frame>
+
+Transformed Requests show all mutated, enhanced, or AI-generated variations derived from original traffic.  
+
+These help simulate:
+
+- Edge cases  
+- Unexpected payload behaviors  
+- Authentication bypass attempts  
+- Input rewriting  
+
+Useful for improving test depth and coverage.
+
+---
+
+## Vulnerabilities
+
+<Frame caption="Vulnerability Listing">
+  <img src="/images/was/projects/vulnerabilities.png" />
+</Frame>
+
+All identified vulnerabilities appear here once a scan runs.
+
+Features include:
+
+- Severity badges  
+- State (Open / Resolved)  
+- Detection timestamps  
+- Endpoint association  
+- Detailed findings after expansion  
+
+If no vulnerabilities exist, the system displays an onboarding prompt to **Start a Scan**.
+
+---
+
+## Configure
+
+<Frame caption="Project Configuration Panel">
+  <img src="/images/was/projects/configure.png" />
+</Frame>
+
+The **Configure tab** defines how the scanner interacts with your application.
+
+### **Application Information**
+
+- **Target URL**  
+- **Application Name**  
+- **Owner**  
+- **Tags**  
+
+### **Scanning Scope**
+
+Define include/exclude patterns using scope rules.
+
+### **Authentication**
+
+Upload Playwright authentication scripts to enable authenticated scans.
+
+Includes:
+
+- File upload interface  
+- String-based authentication validation logic  
+
+### **Crawler Settings**
+
+<Columns cols={2}>
+
+<Card title="Aggressive" icon="bolt">
+  Fast, comprehensive crawling with maximum coverage.
+</Card>
+
+<Card title="Intelligent (AI)" icon="robot">
+  AI-guided crawling that prioritizes important paths.
+</Card>
+
+</Columns>
+
+### **Webhook URL**
+
+Send vulnerability results to external systems.
+
+### **Scan Rules**
+
+Enable or disable detection categories such as:
+
+- Security Headers  
+- Authentication Bypass  
+- Directory Traversal  
+- XSS (Stored / Reflected)  
+- Open Redirect  
+- Server Error Leaks  
+
+Each rule can be toggled individually.
+
+---
+
+## Best Practices
+
+<Columns cols={2}>
+
+<Card title="Organize Projects" icon="folder-tree">
+  Use tags and owners to categorize applications by teams or environments.
+</Card>
+
+<Card title="Optimize Crawling" icon="spider">
+  Select AI-powered crawling for large or dynamic applications.
+</Card>
+
+<Card title="Improve Findings Quality" icon="wand-magic-sparkles">
+  Use transformed requests to enhance attack coverage.
+</Card>
+
+<Card title="Automate Workflows" icon="right-left">
+  Integrate with Postman, Swagger, or VM for unified risk visibility.
+</Card>
+
+</Columns>
+
+---
+
+## Next Steps
+
+<Card title="Run a Scan" icon="play" href="/products/was/scans">
+  Launch a new scan for this project.
+</Card>
+
+<Card title="View Vulnerabilities" icon="bug" href="/products/was/vulnerabilities">
+  Explore all findings, remediation advice, and status workflows.
+</Card>
