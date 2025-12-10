@@ -1,32 +1,54 @@
 ---
 title: "Rules"
-description: "Define, customize, and manage detection rules that analyze API and web requests for vulnerabilities."
-icon: "shield-halved"
+description: "Create and manage detection rules that analyze requests to identify vulnerabilities."
+icon: "list-check"
 mode: "wide"
 ---
 
 <Banner>
-The **Rules** section allows you to manage detection logic used by the Web Application Scanner.  
-Rules define how requests are transformed, how responses are evaluated, and when vulnerabilities should be reported.
-This provides deep customization and fine-tuned control over your security testing.
+WAS **Rules** allow you to define custom logic for identifying vulnerabilities based on API or web requests.  
+These rules transform requests, inspect responses, and generate findings when patterns match.
 </Banner>
 
 <Frame caption="Rules Overview">
-  <img src="/images/was/rules-overview.png" />
+  <img src="/images/was/rules.png" />
 </Frame>
 
 ---
 
-## YAML Rule Editor
+## Overview
 
-<Frame caption="YAML Editor for Rule Definition">
+The **Rules Engine** in Snapsec WAS enables security teams to:
+
+- Build custom detection logic in YAML  
+- Modify headers, payloads, or request flows  
+- Match on response codes, body content, or metadata  
+- Automatically generate vulnerabilities based on findings  
+- Enable/disable rule execution per project  
+
+Rules are evaluated during scanning, and findings appear in the **Vulnerabilities** section.
+
+---
+
+## Rule Editor (YAML)
+
+The left side of the Rules page provides a **YAML rule editor** where you can create or modify rules.
+
+<Frame caption="YAML Rule Editor">
   <img src="/images/was/rules-yaml-editor.png" />
 </Frame>
 
-Below is the exact rule displayed in the interface:
+A rule typically includes sections such as:
+
+- **target** — which endpoints the rule applies to  
+- **transform** — modify or remove headers / payload content  
+- **match_on** — response indicators (status, string, header, etc.)  
+- **report** — vulnerability metadata generated when the rule triggers  
+
+Example:
 
 ```yaml
-rule_name: Detect Unauthorized requests
+rule_name: Detect Unauthorized Requests
 target: all
 
 transform:
@@ -42,12 +64,4 @@ report:
   title: "Unauthorized Without Token"
   description: "Endpoint returns 200 when token is removed"
   severity: "medium"
-  cvssScore: 6.3
-  cwe: "CWE-284: Improper Access Control"
-  impact: "Returning a 200 status code when the Authorization token is removed indicates missing access control."
-  mitigation: "Ensure that the server returns the correct HTTP status code when Authorization headers are missing."
-  stepsToReproduce: |
-    1. Send a request to the target endpoint with a valid Authorization token.
-    2. Remove the Authorization header and send the same request again.
-    3. Observe that the response still returns a 200 status code with 'unauthorized'.
-    4. This indicates the system does not properly enforce authentication.
+  cwe: "CWE-284"

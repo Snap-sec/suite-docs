@@ -1,158 +1,122 @@
 ---
-title: "Vulnerabilities"
-description: "View, filter, and manage vulnerabilities detected across all Web Application Scanner projects."
-icon: "shield-halved"
-mode: wide
+title: "Scans"
+description: "View, execute, and manage all Web Application Security scan activities."
+icon: "magnifying-glass-chart"
+mode: "wide"
 ---
 
 <Banner>
-The **Vulnerabilities** page provides a consolidated, real-time list of all issues identified by the Web Application Scanner.  
-Use this section to investigate findings, track detection timestamps, and take remediation actions.
+The **Scans** section provides a centralized overview of all scans performed within the Web Application Scanner (WAS).  
+You can track scan progress, rule coverage, vulnerability findings, and manage rescans or deletions — all from a unified interface.
 </Banner>
 
-<Frame caption="Vulnerabilities Overview">
-  <img src="/images/was/vulnerabilities.png" />
+<Frame caption="WAS — Scans Overview">
+  <img src="/images/was/scans.png" />
 </Frame>
 
 ---
 
 ## Overview
 
-This section shows every vulnerability detected across your scanned applications.  
-Key metrics displayed at the top include:
+The **Scans dashboard** lists every executed or scheduled scan across all WAS projects.  
+For each scan, you can quickly determine:
 
-- **Total Active** vulnerabilities  
-- **Total Resolved** vulnerabilities  
+- Scan status (Completed / Running / Failed)
+- Total rules executed
+- Progress (executed vs. total rules)
+- Vulnerability counts (Critical, High, Medium, Low)
+- Execution timestamp
+- Available scan actions (rescan, delete)
 
-You can filter, search, sort, and take action on individual findings from a centralized view.
-
----
-
-## Filters & Search
-
-Use the filter bar to refine vulnerability results:
-
-<Columns cols={3}>
-
-<Card title="Rules Filter" icon="list-check">
-  Filter vulnerabilities based on the specific rule or detection signature.
-</Card>
-
-<Card title="Scans Filter" icon="magnifying-glass-chart">
-  Narrow results to vulnerabilities originating from a specific scan run.
-</Card>
-
-<Card title="Severity Filter" icon="triangle-exclamation">
-  Display vulnerabilities by severity: **Critical**, **High**, **Medium**, **Low**, or **Informational**.
-</Card>
-
-</Columns>
-
-<Columns cols={3}>
-
-<Card title="Status Filter" icon="circle-dot">
-  Filter between **Active**, **Suppressed**, or **Resolved** vulnerabilities.
-</Card>
-
-<Card title="Suppressed Filter" icon="eye-slash">
-  Show only vulnerabilities intentionally suppressed by the user.
-</Card>
-
-<Card title="Search Bar" icon="magnifying-glass">
-  Search vulnerabilities by keyword, URL, or scan name.
-</Card>
-
-</Columns>
+This enables teams to efficiently monitor scanning behavior and identify gaps or failures.
 
 ---
 
-## Vulnerability Table
-
-Each row displays complete context for an identified vulnerability:
-
-- **Title**  
-- **Endpoint / URL**  
-- **Severity**  
-- **Status**  
-- **Scan Name**  
-- **First Detected**  
-- **Last Detected**  
-- **Actions**  
-
----
-
-## Severity Labels
+## Key Metrics Displayed
 
 <Columns cols={4}>
 
-<Card title="Medium" icon="exclamation">
-  Most findings may appear under Medium severity, depending on detection rules.
+<Card title="Scan Name" icon="file-waveform">
+  The name of the project or scan task executed.
 </Card>
 
-<Card title="Low" icon="circle-info">
-  Low-risk issues or informational signals.
+<Card title="Status" icon="circle-check">
+  Indicates whether the scan is **Completed**, **Running**, or **Failed**.
 </Card>
 
-<Card title="High / Critical" icon="triangle-exclamation">
-  Displayed if identified by relevant rules during scans.
+<Card title="Rules Executed" icon="list-check">
+  Shows how many rules were run versus how many are configured.
 </Card>
 
-<Card title="Suppressed" icon="eye-slash">
-  Indicates manually suppressed vulnerabilities.
-</Card>
-
-</Columns>
-
----
-
-## Status Indicators
-
-- **Active** — Currently detected and unresolved.  
-- **Resolved** — Automatically marked when the scanner no longer detects the issue.  
-- **Suppressed** — Manually hidden but still tracked internally.
-
----
-
-## Actions
-
-The actions column allows you to:
-
-<Columns cols={3}>
-
-<Card title="View Details" icon="arrow-right">
-  Open the vulnerability detail page for complete information.
-</Card>
-
-<Card title="Suppress" icon="ban">
-  Temporarily hide a vulnerability from active tracking.
-</Card>
-
-<Card title="Delete" icon="trash">
-  Remove the vulnerability record (administrative use only).
+<Card title="Vulnerability Summary" icon="exclamation-triangle">
+  Displays counts across severity levels (Critical, High, Medium, Low).
 </Card>
 
 </Columns>
 
 ---
 
-## Best Practices
+## Scan Table Breakdown
 
-- Regularly filter by **Recent Detections** to identify new risks quickly.  
-- Use suppression for **accepted risks**, not unresolved issues.  
-- Cross-check recurring issues to track vulnerabilities that reappear after fixes.  
+<Frame caption="List of Scans">
+  <img src="/images/was/scans-table.png" />
+</Frame>
+
+Each scan row includes:
+
+- **Scan Name** — Assigned project or custom scan label  
+- **Timestamp** — When the scan was last run  
+- **Status** — Current state of the scan  
+- **Rules** — Number of rules executed  
+- **Progress** — Execution completion indicator  
+- **Vulnerabilities** — Severity distribution  
+- **Actions** — Options to re-run or delete a scan  
+
+---
+
+## Actions Available for Each Scan
+
+<Columns cols={2}>
+
+<Card title="Rescan" icon="rotate-right">
+  Re-executes the scan using the same configuration and ruleset.
+</Card>
+
+<Card title="Delete Scan" icon="trash">
+  Permanently removes the scan entry from the history.
+</Card>
+
+</Columns>
+
+---
+
+## When to Use the Scans Page
+
+<Columns cols={2}>
+
+<Card title="Audit Historical Scans" icon="clock-rotate-left">
+  Review past scans to understand vulnerability trends or revalidate fixed issues.
+</Card>
+
+<Card title="Monitor Rule Coverage" icon="chart-line">
+  Ensure rules are being executed correctly and identify incomplete scans.
+</Card>
+
+<Card title="Trigger New Scans" icon="play">
+  Initiate fresh assessments after deployment or configuration changes.
+</Card>
+
+<Card title="Track Vulnerability Discovery" icon="bug">
+  Quickly see how many vulnerabilities were uncovered during each scan.
+</Card>
+
+</Columns>
 
 ---
 
 ## Next Steps
 
-<Columns cols={2}>
-
-<Card title="View Requests" icon="arrow-right" href="/products/was/requests">
-  Explore the API requests that led to detected vulnerabilities.
+<Card title="View Scan Profiles" icon="sliders" href="/products/was/scan-profiles">
+  Explore scan profiles to define advanced scanning rules, authentication flows, and configurations.
 </Card>
 
-<Card title="Run a New Scan" icon="magnifying-glass-chart" href="/products/was/scans">
-  Trigger another scan to verify remediation.
-</Card>
-
-</Columns>

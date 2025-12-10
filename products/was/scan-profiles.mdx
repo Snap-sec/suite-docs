@@ -1,5 +1,131 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Scan Profiles"
+description: "Create and manage reusable scan profiles to control headers, authentication, and configuration for Web Application Scanner (WAS) scans."
+icon: "sliders"
+mode: "wide"
 ---
 
+<Banner>
+Scan Profiles allow you to define **custom configurations**, **headers**, and **scan behaviors** that can be reused across multiple projects and scans.  
+Use them to maintain consistent testing standards across environments and applications.
+</Banner>
+
+<Frame caption="Scan Profiles Overview">
+  <img src="/images/was/scan-profiles.png" />
+</Frame>
+
+---
+
+## Overview
+
+Scan Profiles make WAS scanning flexible and repeatable.  
+They allow teams to:
+
+- Define **global request headers**
+- Apply **authentication values**
+- Maintain reusable configurations across multiple projects
+- Enable consistent security testing rules
+- Avoid duplicating configuration during every scan
+
+Profiles are especially useful when scanning:
+- Staging vs Production environments  
+- APIs requiring tokens / session identifiers  
+- Applications with custom headers or tenant routing  
+
+---
+
+## Creating a Scan Profile
+
+<Frame caption="Create a New Scan Profile">
+  <img src="/images/was/scan-profile-create.png" />
+</Frame>
+
+### **1. Profile Details**
+
+<CardGroup cols={2}>
+
+<Card title="Profile Name" icon="tag">
+Enter a unique name to identify this scan profile.
+</Card>
+
+<Card title="Description" icon="note-sticky">
+(Optional) Add context or usage instructions for your team.
+</Card>
+
+</CardGroup>
+
+---
+
+## Custom Headers
+
+Profiles support adding **custom HTTP headers** that will be included with all scan requests.
+
+<Columns cols={2}>
+
+<Card title="Header Name" icon="heading">
+Define the name of the header (e.g., `Authorization`, `X-Tenant-ID`).
+</Card>
+
+<Card title="Header Value" icon="note">
+Specify the value to be applied during scanning.
+</Card>
+
+</Columns>
+
+Users can add multiple headers—for API tokens, session cookies, or routing identifiers.
+
+<Frame caption="Adding Custom Headers">
+  <img src="/images/was/scan-profile-headers.png" />
+</Frame>
+
+---
+
+## Managing Scan Profiles
+
+All created profiles appear under **Existing Scan Profiles**.
+
+<Frame caption="Existing Scan Profiles">
+  <img src="/images/was/scan-profile-list.png" />
+</Frame>
+
+Each profile supports:
+
+<Columns cols={3}>
+
+<Card title="Edit" icon="pen-to-square">
+Modify name, headers, or configuration at any time.
+</Card>
+
+<Card title="Delete" icon="trash">
+Remove outdated profiles to maintain clean workspace organization.
+</Card>
+
+<Card title="Reusable" icon="recycle">
+Profiles can be applied to any scan across WAS.
+</Card>
+
+</Columns>
+
+---
+
+## Why Use Scan Profiles?
+
+<CardGroup cols={3}>
+  <Card title="Consistency Across Scans" icon="check-double">
+    Apply identical configuration across all projects.
+  </Card>
+  <Card title="Faster Setup" icon="rocket">
+    Reduce repetitive configuration when creating new scans.
+  </Card>
+  <Card title="Team Collaboration" icon="users">
+    Shared settings ensure standardized security testing across teams.
+  </Card>
+</CardGroup>
+
+---
+
+## Next Steps
+
+<Card title="Run a Scan Using This Profile" icon="arrow-right" href="/products/was/scans">
+  Learn how scan profiles integrate with the scanning workflow.
+</Card>
