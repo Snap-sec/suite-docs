@@ -107,6 +107,18 @@
               "products/tm/integrations",
               "products/tm/severity-distribution"
             ]
+          },{
+            "group": "Web Application Security",
+            "pages": [
+              "products/was/introduction",
+              "products/was/projects",
+              "products/was/vulnerabilities",
+              "products/was/environments",
+              "products/was/rules",
+              "products/was/scans",
+              "products/was/scan-profiles",
+              "products/was/integrations"
+            ]
           }
 
 
