@@ -1,5 +1,103 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Environments"
+description: "Manage deployment environments and configure environment-specific variables for the Web Application Scanner."
+icon: "layer-group"
+mode: "wide"
 ---
 
+<Banner>
+The **Environments** section allows you to define and manage variable sets for different deployment stages such as **Production** and **Vulnerable Environment**.  
+These variables act as placeholders inside your API requests and scans, enabling cleaner testing workflows and seamless switching between environments.
+</Banner>
+
+<Frame caption="Environment Overview">
+  <img src="/images/was/env-overview.png" />
+</Frame>
+
+---
+
+## Overview
+
+Environments provide a centralized space to:
+
+- Define base URLs, tokens, and configuration values  
+- Maintain isolated variables per environment  
+- Inject values dynamically into requests using `{{variableName}}`  
+- Ensure accurate scanning across production and vulnerable test setups  
+- Support consistent testing without modifying request templates  
+
+---
+
+## Environment Tabs
+
+<Frame caption="Production & Vulnerable Environment Tabs">
+  <img src="/images/was/env-tabs.png" />
+</Frame>
+
+Available environments:
+
+- **Production**  
+- **Vulnerable Environment**
+
+Switching between environments automatically updates all variables in real time.
+
+---
+
+## Production Environment
+
+<Frame caption="Production Environment Variables">
+  <img src="/images/was/env-production.png" />
+</Frame>
+
+| Key | Type    | Value                         |
+|-----|---------|-------------------------------|
+| url | default | https://apiv2.shiprocket.in    |
+
+Only one variable is configured for Production: the API base URL used for live applications.
+
+---
+
+## Vulnerable Environment
+
+<Frame caption="Vulnerable Environment Variables">
+  <img src="/images/was/env-vulnerable.png" />
+</Frame>
+
+| Key           | Type    | Value                |
+|---------------|---------|----------------------|
+| vuln_base_url | default | http://54.234.21.239 |
+
+This environment is typically used for security testing, simulations, or validating WAF and rule-based detections.
+
+---
+
+## Adding a New Variable
+
+<Steps>
+  <Step title="Open the Environment" icon="folder-open">
+    Navigate to **Environments**, then select either **Production** or **Vulnerable Environment**.
+  </Step>
+  <Step title="Click Add Variable" icon="plus-circle">
+    Use the **Add Variable** button located at the top-right corner.
+  </Step>
+  <Step title="Define the Variable" icon="pen-to-square">
+    Enter the **key**, choose a **type**, and specify the **value**.
+  </Step>
+  <Step title="Save Variable" icon="circle-check">
+    The variable will now be available for use inside API requests and scan configurations.
+  </Step>
+</Steps>
+
+---
+
+## Using Variables in Requests
+
+Variables can be directly injected into request URLs, headers, bodies, or authentication blocks.
+
+Example:
+
+```json
+{
+  "url": "{{vuln_base_url}}/api/scan",
+  "method": "GET"
+}
