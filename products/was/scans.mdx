@@ -1,0 +1,158 @@
+---
+title: "Vulnerabilities"
+description: "View, filter, and manage vulnerabilities detected across all Web Application Scanner projects."
+icon: "shield-halved"
+mode: wide
+---
+
+<Banner>
+The **Vulnerabilities** page provides a consolidated, real-time list of all issues identified by the Web Application Scanner.  
+Use this section to investigate findings, track detection timestamps, and take remediation actions.
+</Banner>
+
+<Frame caption="Vulnerabilities Overview">
+  <img src="/images/was/vulnerabilities.png" />
+</Frame>
+
+---
+
+## Overview
+
+This section shows every vulnerability detected across your scanned applications.  
+Key metrics displayed at the top include:
+
+- **Total Active** vulnerabilities  
+- **Total Resolved** vulnerabilities  
+
+You can filter, search, sort, and take action on individual findings from a centralized view.
+
+---
+
+## Filters & Search
+
+Use the filter bar to refine vulnerability results:
+
+<Columns cols={3}>
+
+<Card title="Rules Filter" icon="list-check">
+  Filter vulnerabilities based on the specific rule or detection signature.
+</Card>
+
+<Card title="Scans Filter" icon="magnifying-glass-chart">
+  Narrow results to vulnerabilities originating from a specific scan run.
+</Card>
+
+<Card title="Severity Filter" icon="triangle-exclamation">
+  Display vulnerabilities by severity: **Critical**, **High**, **Medium**, **Low**, or **Informational**.
+</Card>
+
+</Columns>
+
+<Columns cols={3}>
+
+<Card title="Status Filter" icon="circle-dot">
+  Filter between **Active**, **Suppressed**, or **Resolved** vulnerabilities.
+</Card>
+
+<Card title="Suppressed Filter" icon="eye-slash">
+  Show only vulnerabilities intentionally suppressed by the user.
+</Card>
+
+<Card title="Search Bar" icon="magnifying-glass">
+  Search vulnerabilities by keyword, URL, or scan name.
+</Card>
+
+</Columns>
+
+---
+
+## Vulnerability Table
+
+Each row displays complete context for an identified vulnerability:
+
+- **Title**  
+- **Endpoint / URL**  
+- **Severity**  
+- **Status**  
+- **Scan Name**  
+- **First Detected**  
+- **Last Detected**  
+- **Actions**  
+
+---
+
+## Severity Labels
+
+<Columns cols={4}>
+
+<Card title="Medium" icon="exclamation">
+  Most findings may appear under Medium severity, depending on detection rules.
+</Card>
+
+<Card title="Low" icon="circle-info">
+  Low-risk issues or informational signals.
+</Card>
+
+<Card title="High / Critical" icon="triangle-exclamation">
+  Displayed if identified by relevant rules during scans.
+</Card>
+
+<Card title="Suppressed" icon="eye-slash">
+  Indicates manually suppressed vulnerabilities.
+</Card>
+
+</Columns>
+
+---
+
+## Status Indicators
+
+- **Active** — Currently detected and unresolved.  
+- **Resolved** — Automatically marked when the scanner no longer detects the issue.  
+- **Suppressed** — Manually hidden but still tracked internally.
+
+---
+
+## Actions
+
+The actions column allows you to:
+
+<Columns cols={3}>
+
+<Card title="View Details" icon="arrow-right">
+  Open the vulnerability detail page for complete information.
+</Card>
+
+<Card title="Suppress" icon="ban">
+  Temporarily hide a vulnerability from active tracking.
+</Card>
+
+<Card title="Delete" icon="trash">
+  Remove the vulnerability record (administrative use only).
+</Card>
+
+</Columns>
+
+---
+
+## Best Practices
+
+- Regularly filter by **Recent Detections** to identify new risks quickly.  
+- Use suppression for **accepted risks**, not unresolved issues.  
+- Cross-check recurring issues to track vulnerabilities that reappear after fixes.  
+
+---
+
+## Next Steps
+
+<Columns cols={2}>
+
+<Card title="View Requests" icon="arrow-right" href="/products/was/requests">
+  Explore the API requests that led to detected vulnerabilities.
+</Card>
+
+<Card title="Run a New Scan" icon="magnifying-glass-chart" href="/products/was/scans">
+  Trigger another scan to verify remediation.
+</Card>
+
+</Columns>
