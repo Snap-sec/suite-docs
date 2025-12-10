@@ -108,7 +108,7 @@
               "products/tm/severity-distribution"
             ]
           },{
-            "group": "Web Application Security",
+            "group": "Web Application Scanner",
             "pages": [
               "products/was/introduction",
               "products/was/projects",
