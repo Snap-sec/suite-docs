@@ -1,0 +1,53 @@
+---
+title: "Rules"
+description: "Define, customize, and manage detection rules that analyze API and web requests for vulnerabilities."
+icon: "shield-halved"
+mode: "wide"
+---
+
+<Banner>
+The **Rules** section allows you to manage detection logic used by the Web Application Scanner.  
+Rules define how requests are transformed, how responses are evaluated, and when vulnerabilities should be reported.
+This provides deep customization and fine-tuned control over your security testing.
+</Banner>
+
+<Frame caption="Rules Overview">
+  <img src="/images/was/rules-overview.png" />
+</Frame>
+
+---
+
+## YAML Rule Editor
+
+<Frame caption="YAML Editor for Rule Definition">
+  <img src="/images/was/rules-yaml-editor.png" />
+</Frame>
+
+Below is the exact rule displayed in the interface:
+
+```yaml
+rule_name: Detect Unauthorized requests
+target: all
+
+transform:
+  headers:
+    remove:
+      - Authorization
+
+match_on:
+  status: 200
+  response_contains: "unauthorized"
+
+report:
+  title: "Unauthorized Without Token"
+  description: "Endpoint returns 200 when token is removed"
+  severity: "medium"
+  cvssScore: 6.3
+  cwe: "CWE-284: Improper Access Control"
+  impact: "Returning a 200 status code when the Authorization token is removed indicates missing access control."
+  mitigation: "Ensure that the server returns the correct HTTP status code when Authorization headers are missing."
+  stepsToReproduce: |
+    1. Send a request to the target endpoint with a valid Authorization token.
+    2. Remove the Authorization header and send the same request again.
+    3. Observe that the response still returns a 200 status code with 'unauthorized'.
+    4. This indicates the system does not properly enforce authentication.
