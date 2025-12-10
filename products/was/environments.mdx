@@ -1,103 +1,132 @@
 ---
 title: "Environments"
-description: "Manage deployment environments and configure environment-specific variables for the Web Application Scanner."
-icon: "layer-group"
+description: "Manage deployment and vulnerable environments for Web Application Scanner (WAS)."
+icon: "server"
 mode: "wide"
 ---
 
 <Banner>
-The **Environments** section allows you to define and manage variable sets for different deployment stages such as **Production** and **Vulnerable Environment**.  
-These variables act as placeholders inside your API requests and scans, enabling cleaner testing workflows and seamless switching between environments.
+The **Environments** section allows you to configure deployment variables and vulnerable testing environments used across scans.  
+These variables help WAS dynamically interact with production systems and controlled vulnerable targets.
 </Banner>
 
-<Frame caption="Environment Overview">
-  <img src="/images/was/env-overview.png" />
+<Frame caption="WAS — Environments Overview">
+  <img src="/images/was/environments.png" />
 </Frame>
 
 ---
 
 ## Overview
 
-Environments provide a centralized space to:
+The **Environments module** centralizes key-value pairs that define:
 
-- Define base URLs, tokens, and configuration values  
-- Maintain isolated variables per environment  
-- Inject values dynamically into requests using `{{variableName}}`  
-- Ensure accurate scanning across production and vulnerable test setups  
-- Support consistent testing without modifying request templates  
+- Base URLs for the application under test  
+- Additional operational variables needed during scanning  
+- Vulnerable test environments for security validation workflows  
+
+Environments help ensure consistent configuration across all scans and eliminate hardcoded values.
 
 ---
 
-## Environment Tabs
+## Environment Types
 
-<Frame caption="Production & Vulnerable Environment Tabs">
-  <img src="/images/was/env-tabs.png" />
-</Frame>
+<Columns cols={2}>
 
-Available environments:
+<Card title="Production Environment" icon="globe">
+  Contains variables used for scanning your real application such as production URLs or API keys.
+</Card>
 
-- **Production**  
-- **Vulnerable Environment**
+<Card title="Vulnerable Environment" icon="biohazard">
+  Defines controlled vulnerable systems (e.g., DVWA, custom vulnerable APIs) for training or validation.
+</Card>
 
-Switching between environments automatically updates all variables in real time.
+</Columns>
 
 ---
 
 ## Production Environment
 
-<Frame caption="Production Environment Variables">
-  <img src="/images/was/env-production.png" />
+<Frame caption="Production Environment — Variable Configuration">
+  <img src="/images/was/environments-production.png" />
 </Frame>
 
-| Key | Type    | Value                         |
-|-----|---------|-------------------------------|
-| url | default | https://apiv2.shiprocket.in    |
+Each entry in the **Production** section includes:
 
-Only one variable is configured for Production: the API base URL used for live applications.
+- **Key** — Name of the variable (e.g., `url`)  
+- **Type** — Default or custom category  
+- **Value** — Assigned environment value (e.g., `https://apiv2.shiprocket.in`)  
+
+These variables are referenced by WAS during scanning and rule execution.
 
 ---
 
 ## Vulnerable Environment
 
-<Frame caption="Vulnerable Environment Variables">
-  <img src="/images/was/env-vulnerable.png" />
+<Frame caption="Vulnerable Environment — Variable Configuration">
+  <img src="/images/was/environments-vulnerable.png" />
 </Frame>
 
-| Key           | Type    | Value                |
-|---------------|---------|----------------------|
-| vuln_base_url | default | http://54.234.21.239 |
+This section defines variables for intentionally vulnerable applications.
 
-This environment is typically used for security testing, simulations, or validating WAF and rule-based detections.
+Example use cases:
 
----
+- Security training and demonstrations  
+- Validating exploit detection rules  
+- Regression testing after rule updates  
 
-## Adding a New Variable
+Each record contains:
 
-<Steps>
-  <Step title="Open the Environment" icon="folder-open">
-    Navigate to **Environments**, then select either **Production** or **Vulnerable Environment**.
-  </Step>
-  <Step title="Click Add Variable" icon="plus-circle">
-    Use the **Add Variable** button located at the top-right corner.
-  </Step>
-  <Step title="Define the Variable" icon="pen-to-square">
-    Enter the **key**, choose a **type**, and specify the **value**.
-  </Step>
-  <Step title="Save Variable" icon="circle-check">
-    The variable will now be available for use inside API requests and scan configurations.
-  </Step>
-</Steps>
+- **Key** — Variable identifier (e.g., `vuln_base_url`)  
+- **Value** — URL of vulnerable host (e.g., `http://54.234.21.239`)  
 
 ---
 
-## Using Variables in Requests
+## Key Actions Available
 
-Variables can be directly injected into request URLs, headers, bodies, or authentication blocks.
+<Columns cols={3}>
 
-Example:
+<Card title="Add Variable" icon="circle-plus">
+  Create new environment variables for production or vulnerable targets.
+</Card>
 
-```json
-{
-  "url": "{{vuln_base_url}}/api/scan",
-  "method": "GET"
-}
+<Card title="Edit Variable" icon="pen-to-square">
+  Modify existing key-value pairs to adjust application or test URLs.
+</Card>
+
+<Card title="Delete Variable" icon="trash">
+  Remove unused or deprecated environment entries.
+</Card>
+
+</Columns>
+
+---
+
+## When to Use the Environments Page
+
+<Columns cols={2}>
+
+<Card title="Manage URLs Across Scans" icon="link">
+  Centralize base URLs instead of manually entering them for each scan.
+</Card>
+
+<Card title="Configure Vulnerable Test Labs" icon="flask">
+  Set up training or testing environments for rule and detection evaluation.
+</Card>
+
+<Card title="Support Multi-Stage Deployments" icon="layer-group">
+  Switch between QA, staging, or production setups easily.
+</Card>
+
+<Card title="Simplify Rule Execution" icon="wand-magic-sparkles">
+  Rules automatically pull the correct values from environment variables.
+</Card>
+
+</Columns>
+
+---
+
+## Next Steps
+
+<Card title="Configure Rules" icon="scroll" href="/products/was/rules">
+  Define detection logic that leverages environment variables for scanning.
+</Card>

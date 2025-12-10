@@ -1,5 +1,120 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Integrations"
+description: "Connect Postman, Swagger, and other data sources to import APIs into the Web Application Scanner."
+icon: "plug"
+mode: "wide"
 ---
 
+<Banner>
+The **Integrations** section allows you to seamlessly connect external API sources—such as **Postman** or **Swagger**—to automatically import, sync, and update API endpoints in the Web Application Scanner (WAS).  
+This ensures your security testing always reflects the most accurate and up-to-date API inventory.
+</Banner>
+
+<Frame caption="WAS — Integrations Overview">
+  <img src="/images/was/integrations.png" />
+</Frame>
+
+---
+
+## Overview
+
+The **Integrations page** provides a centralized place to install, configure, and manage adapters that pull APIs into WAS.
+
+You can:
+
+- Install connectors like **Postman** or **Swagger**
+- View active adapters and their sync status
+- Refresh imported APIs
+- Enable continuous synchronization for automatic updates
+
+Once installed, an adapter continuously fetches the latest API changes from the source, keeping WAS in sync with your development workflow.
+
+---
+
+## Adapter Types
+
+<Columns cols={2}>
+
+<Card title="Postman" icon="file-lines">
+  Import APIs directly from **Postman Collections**.  
+  Ideal for teams already managing API documentation or testing workflows in Postman.
+</Card>
+
+<Card title="Swagger / OpenAPI" icon="diagram-project">
+  Upload or connect **Swagger (OAS)** specifications to onboard structured API definitions effortlessly.
+</Card>
+
+</Columns>
+
+---
+
+## Active Adapters
+
+<Frame caption="Active Integrations">
+  <img src="/images/was/active-integrations.png" />
+</Frame>
+
+Each installed adapter displays:
+
+- **Adapter Name**  
+- **Installation Status**  
+- **Last Sync Timestamp**  
+- **Actions (Refresh / Remove)**  
+
+This helps teams verify that integrations are functioning correctly and API data is being continuously synchronized.
+
+---
+
+## Installing an Adapter
+
+<Columns cols={2}>
+
+<Card title="1. Choose an Adapter" icon="list">
+  Navigate to the **Adapters** tab and select the integration you want to enable.
+</Card>
+
+<Card title="2. Install" icon="download">
+  Click **Install** to activate the connector and grant WAS permission to fetch APIs.
+</Card>
+
+<Card title="3. Sync API Data" icon="arrows-rotate">
+  WAS will immediately import your endpoints, requests, and metadata.
+</Card>
+
+<Card title="4. Start Using Data in WAS" icon="bolt">
+  Imported APIs flow into **Requests**, **Projects**, and **Scans** for security analysis.
+</Card>
+
+</Columns>
+
+---
+
+## When to Use Integrations
+
+<Columns cols={2}>
+
+<Card title="Centralize API Sources" icon="layer-group">
+  Combine Postman collections, Swagger definitions, and manual requests into one security testing environment.
+</Card>
+
+<Card title="Automate API Onboarding" icon="robot">
+  Reduce manual data entry by auto-syncing API updates from your development tools.
+</Card>
+
+<Card title="Keep WAS Continuously Updated" icon="sync">
+  Ensure the scanner always targets the latest version of your APIs.
+</Card>
+
+<Card title="Accelerate Testing" icon="rocket">
+  Immediately scan newly imported APIs without configuring endpoints manually.
+</Card>
+
+</Columns>
+
+---
+
+## Next Steps
+
+<Card title="Start Scanning APIs" icon="shield-halved" href="/products/was/scans">
+  Once APIs are imported, run automated scans to detect security vulnerabilities instantly.
+</Card>
