@@ -1,5 +1,174 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Vulnerabilities"
+description: "View, filter, triage, and manage vulnerabilities detected across your Web Application Scanner projects."
+icon: "shield-halved"
+mode: "wide"
 ---
 
+<Banner>
+The **Vulnerabilities section** provides a centralized view of all findings discovered across your scanned applications.  
+It allows analysts to filter, investigate, and manage vulnerabilities by severity, scan source, suppression status, and more — ensuring complete visibility of application security risks.
+</Banner>
+
+<Frame caption="Vulnerabilities Overview">
+  <img src="/images/was/vulnerabilities.png" />
+</Frame>
+
+---
+
+## Overview
+
+The Vulnerabilities module aggregates every issue detected across all WAS scans and presents:
+
+- Total active vulnerabilities  
+- Total resolved vulnerabilities  
+- Severity distribution  
+- Recent scan detections  
+- Suppressed vs. active vulnerability counts  
+- Full vulnerability listing with sorting, filtering, and triage actions  
+
+This serves as the primary panel for identifying and prioritizing security issues across all applications.
+
+---
+
+## Key Metrics
+
+<Columns cols={3}>
+
+<Card title="Total Active" icon="list-check">
+  Displays the number of unresolved vulnerabilities currently open.
+</Card>
+
+<Card title="Total Resolved" icon="check">
+  Shows how many findings have been marked as resolved.
+</Card>
+
+<Card title="Suppressed" icon="eye-slash">
+  Count of findings manually suppressed or programmatically muted.
+</Card>
+
+</Columns>
+
+---
+
+## Filters & Search
+
+The Vulnerabilities table supports deep filtering to quickly locate findings of interest:
+
+<Columns cols={3}>
+
+<Card title="Filter by Severity" icon="triangle-exclamation">
+  Narrow results to Critical, High, Medium, Low, or Informational.
+</Card>
+
+<Card title="Filter by Scan Source" icon="magnifying-glass-chart">
+  View findings tied to specific scans or rescans.
+</Card>
+
+<Card title="Filter by Status" icon="toggle-on">
+  Switch between Active, Resolved, or Suppressed issues.
+</Card>
+
+</Columns>
+
+Other filters include:
+- **Rule Type**
+- **Request/Endpoint**
+- **Detection timeframe**
+- **Workspace or project context**
+
+---
+
+## Vulnerability Table
+
+<Frame caption="Vulnerability Listing">
+  <img src="/images/was/vulnerabilities-table.png" />
+</Frame>
+
+Each row presents:
+
+- **Title** — Name of the vulnerability  
+- **Severity** — Risk classification  
+- **Status** — Active, suppressed, or resolved  
+- **Scan Name** — Which project/scan identified it  
+- **Timestamps** — First detected & last detected  
+- **Actions** — Drill-down, suppress, resolve  
+
+---
+
+## Vulnerability Details Page
+
+When clicking a vulnerability row, WAS provides an in-depth view including:
+
+### 🔍 Technical Details
+- Description of the issue  
+- Impact assessment  
+- CWE mapping  
+- Evidence from request/response logs  
+- Reproduction steps  
+
+### 🛠 Recommended Fixes
+- Framework-specific remediation guidance  
+- Secure coding patterns  
+- Validation, authentication, or sanitization strategies  
+
+### 📊 Affected Endpoints
+- Each endpoint where the vulnerability was detected  
+- Associated request methods  
+- Count of occurrences  
+
+### 🚦 Status & Workflow
+- Mark as **Resolved**  
+- Mark as **False Positive**  
+- **Suppress** with optional expiration  
+- View historical detection timeline  
+
+---
+
+## Bulk Actions
+
+Analysts can take actions at scale:
+
+<Columns cols={2}>
+
+<Card title="Bulk Suppress" icon="eye-slash">
+  Hide multiple vulnerabilities at once from dashboards and reporting.
+</Card>
+
+<Card title="Bulk Resolve" icon="check-double">
+  Mark multiple findings as resolved for program tracking.
+</Card>
+
+</Columns>
+
+---
+
+## Best Practices
+
+<Columns cols={2}>
+
+<Card title="Prioritize by Severity" icon="fire">
+  Address Critical and High findings promptly to reduce attack surface.
+</Card>
+
+<Card title="Review Detection Trends" icon="chart-line">
+  Compare first/last detection timestamps to identify recurring issues.
+</Card>
+
+<Card title="Use Suppression Wisely" icon="eye-slash">
+  Suppress only intentional behavior or accepted risks.
+</Card>
+
+<Card title="Investigate Endpoint Clusters" icon="sitemap">
+  Multiple vulnerabilities on the same endpoint often indicate deeper flaws.
+</Card>
+
+</Columns>
+
+---
+
+## Next Steps
+
+<Card title="View Requests" href="/products/was/requests" icon="arrow-right">
+  Explore detailed API requests and payload transformations that led to these findings.
+</Card>

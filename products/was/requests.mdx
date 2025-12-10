@@ -1,5 +1,153 @@
 ---
-title: 'New file'
-description: 'Description of your new file.'
+title: "Requests"
+description: "Manage and analyze all captured API requests within Web Application Scanner (WAS)."
+icon: "right-left"
+mode: "wide"
 ---
 
+<Banner>
+The **Requests** module gives you full visibility into every API request captured during scanning, whether imported from Postman, proxy traffic, or runtime discovery.  
+It provides detailed filtering, vulnerability indicators, request metadata, and workspace-level organization.
+</Banner>
+
+<Frame caption="Requests Table Overview">
+  <img src="/images/was/requests.png" />
+</Frame>
+
+---
+
+## Overview
+
+The **Requests** section displays all API requests associated with your application or project.  
+It allows you to:
+
+- Inspect request URLs, methods, and workspaces  
+- Identify requests that contain vulnerabilities  
+- Filter based on severity, method, vulnerability presence, or workspace  
+- Track which collection or integration the request originated from  
+- Quickly understand vulnerability counts (Critical, High, Medium, Low) per request  
+
+---
+
+## Key Table Metrics
+
+<Columns cols={4}>
+
+<Card title="Request Name" icon="file-lines">
+  Displays the HTTP operation and endpoint path (e.g., `GET /api/v1/user`).
+</Card>
+
+<Card title="Method" icon="bolt">
+  Indicates the HTTP method — GET, POST, PUT, DELETE, etc.
+</Card>
+
+<Card title="URL" icon="link">
+  Shows the full URL where the request was executed.
+</Card>
+
+<Card title="Workspace" icon="layer-group">
+  Identifies the workspace or environment this request belongs to.
+</Card>
+
+</Columns>
+
+<Columns cols={3}>
+
+<Card title="Collection Name" icon="folder-tree">
+  Specifies where the request originated — Postman, imported API spec, or auto-discovery.
+</Card>
+
+<Card title="Has Vulnerabilities" icon="shield-halved">
+  Displays vulnerability severity badges: Critical (C), High (H), Medium (M), Low (L).
+</Card>
+
+<Card title="Filters & Search" icon="magnifying-glass">
+  Search by endpoint, filter by method, severity, presence of vulnerabilities, or workspace.
+</Card>
+
+</Columns>
+
+---
+
+## Filters & Search
+
+The request table provides powerful filtering options:
+
+- **Search** → Search by URL, request name, or any keyword  
+- **Method Filter** → GET, POST, PUT, DELETE, etc.  
+- **Severity Filter** → Show requests containing Critical, High, Medium, or Low vulnerabilities  
+- **Has Vulnerabilities Filter** → Quickly isolate risky endpoints  
+- **Workspace Filter** → Limit requests to a specific workspace  
+
+These filters make it easy to isolate attack vectors or review specific API behavior.
+
+---
+
+## Understanding Vulnerability Badges
+
+<Frame caption="Vulnerability Badges per Request">
+  <img src="/images/was/requests-vulns.png" />
+</Frame>
+
+Each request displays severity badges:
+- **C0** → Critical findings  
+- **H0** → High findings  
+- **M2** → Medium findings  
+- **L0** → Low findings  
+
+A badge count of **0** means no vulnerabilities of that severity were found.
+
+---
+
+## Use Cases
+
+<Columns cols={2}>
+
+<Card title="Troubleshoot API Behavior" icon="stethoscope">
+  Inspect individual requests to understand failures, misconfigurations, or inconsistent responses.
+</Card>
+
+<Card title="Locate Vulnerable Endpoints" icon="bug">
+  Filter for requests containing vulnerabilities to prioritize remediation.
+</Card>
+
+<Card title="Validate Scan Coverage" icon="chart-area">
+  View all traffic captured to ensure the scanner crawled and tested your entire API surface.
+</Card>
+
+<Card title="Analyze Collections" icon="folder-open">
+  Compare imported Postman requests with runtime-discovered requests.
+</Card>
+
+</Columns>
+
+---
+
+## Example Row Breakdown
+
+A typical request entry includes:
+
+| Column | Description |
+|--------|-------------|
+| **Name** | `GET /apiesec/api/v1/vulnerabilities` |
+| **Method** | GET |
+| **URL** | Full request URL |
+| **Collection Name** | e.g., "new project", "Postman", etc. |
+| **Vulnerability Summary** | C0 / H0 / M4 / L0 |
+| **Workspace Name** | e.g., "new project" |
+
+---
+
+## Actions & Next Steps
+
+<Card title="View API Endpoints Module" icon="arrow-right" href="/products/was/api-endpoints">
+  Explore detailed endpoint-level vulnerability breakdowns.
+</Card>
+
+<Card title="Run a Scan" icon="play" href="/products/was/scans">
+  Generate new requests and update vulnerability insights.
+</Card>
+
+<Card title="Manage Projects" icon="folder-tree" href="/products/was/projects">
+  Organize your requests into structured workspaces.
+</Card>
