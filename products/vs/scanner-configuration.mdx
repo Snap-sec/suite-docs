@@ -1,164 +1,93 @@
 ---
-title: "Scanner Configuration"
-description: "Configure scanners, manage scanning engines, and customize detection settings across your vulnerability scanning environment."
-icon: "sliders"
+title: "Scanner-Configuration"
+description: "Manage vulnerability scanners, register new scanners, and monitor their status."
+icon: "server"
 mode: "wide"
 ---
 
-<Banner>
-The **Scanner Configuration** section allows you to manage all connected scanning engines, customize detection rules, set scan behaviors, and control how the Vulnerability Scanner interacts with your environment.
-It ensures your setup remains flexible, scalable, and aligned with organizational security requirements.
-</Banner>
+The **Scanners** page lists all registered vulnerability scanners and allows you to create new ones.  
+Each scanner displays its current status, URL, and vulnerability counts discovered by that scanner.
 
-<Frame caption="Scanner Configuration Overview">
-  <img src="/images/vs/scanner-config.png" />
+<Frame caption="Scanner List Overview">
+  <img src="/images/vs/scanners/list.png" />
 </Frame>
 
 ---
 
 ## Overview
 
-Scanner Configuration provides a unified control panel to:
+The Scanners page shows:
 
-- Add and manage scanners  
-- Modify detection settings  
-- Configure scan thresholds and performance limits  
-- Enable or disable scanning engines  
-- Customize rulesets for different asset types  
-- Monitor scanner health and last activity logs  
+- **Scanner name**  
+- **Creation timestamp**  
+- **Status badge** (e.g., *Active*)  
+- **Scanner URL**  
+- **Vulnerability counts** (C0 · H0 · M0 · L0)
 
-This gives teams complete flexibility over how and when scanning occurs.
+You can also **search scanners** using the Search bar at the top.
 
 ---
 
-## Scanner List & Status
+## Scanner Card Breakdown
 
-<Frame caption="Connected Scanners">
-  <img src="/images/vs/scanner-list.png" />
+Each scanner card displays:
+
+- **Name** (e.g., *Default Scanner*)  
+- **Created On** timestamp  
+- **Status Indicator** (*Active*)  
+- **Scanner URL** (e.g., `http://vscanner:3018`)  
+- **Vulnerability Summary**  
+  - C0 = Critical  
+  - H0 = High  
+  - M0 = Medium  
+  - L0 = Low  
+- **Delete Scanner** action (trash icon)
+
+---
+
+## Create Scanner
+
+Users can add a new scanner using the **Create Scanner** button.
+
+<Frame caption="Create Scanner Modal">
+  <img src="/images/vs/scanners/create.png" />
 </Frame>
 
-Each scanner entry includes:
+### Fields in the Create Scanner Form
 
-| Field | Description |
-|-------|-------------|
-| **Scanner Name** | Unique identifier for the scanner engine |
-| **Type** | API, Web, Network, Cloud, or Custom Scanner |
-| **Status** | Active, Idle, or Offline |
-| **Last Seen** | Timestamp of last communication |
-| **Version** | Scanner runtime or engine version |
-| **Actions** | Edit, Disable, or Remove the scanner |
+- **Scanner Name**  
+  A user-defined name for the scanner.
 
-You can quickly detect inactive scanners or outdated engines from this view.
+- **Scanner URL**  
+  The live and externally accessible URL of the scanner.
 
----
+### Steps to Create a Scanner
 
-## Adding a New Scanner
-
-<Steps>
-  <Step title="Open Scanner Configuration" icon="server">
-    Navigate to **Scanner Configuration → Add Scanner**.
-  </Step>
-  <Step title="Select Scanner Type" icon="list">
-    Choose from API, Web App, Network, Cloud, or Custom scanners.
-  </Step>
-  <Step title="Provide Connection Details" icon="plug">
-    Enter authentication keys, endpoints, or integration tokens.
-  </Step>
-  <Step title="Save & Activate" icon="circle-check">
-    The scanner will register and appear in your active scanner list.
-  </Step>
-</Steps>
+1. Click **Create Scanner**.  
+2. Enter a **Scanner Name**.  
+3. Enter the **Scanner URL**.  
+4. Click **Create Scanner** to register the scanner.
 
 ---
 
-## Rule & Detection Settings
-
-Each scanner can be customized to detect different vulnerability classes.
-
-<Frame caption="Rule Management">
-  <img src="/images/vs/scanner-rules.png" />
-</Frame>
-
-### Configurable Parameters Include:
-
-- **OWASP Coverage**  
-- **Scanner Depth / Crawl Limit**
-- **Rate Limits**
-- **Timeout Settings**
-- **Excluded Paths or Endpoints**
-- **Risk Threshold Filters**
-- **Signature Packs & Behavioral Detection**
-
-These options allow deep tailoring of scan sensitivity and performance.
-
----
-
-## Performance & Rate Control
-
-You can adjust scanning speed and load impact:
-
-- **Concurrency level**
-- **Request per second (RPS) caps**
-- **Network throttling**
-- **Max threads or parallel jobs**
-
-This ensures scans do not overwhelm production systems.
-
----
-
-## Health Monitoring
-
-Each scanner reports:
-
-- Uptime  
-- Last heartbeat  
-- Running jobs  
-- Error logs  
-- Version mismatches  
-- Queued scans  
-
-<Frame caption="Scanner Health Monitoring">
-  <img src="/images/vs/scanner-health.png" />
-</Frame>
-
-Use this to detect stalled scanners or troubleshoot failed scans immediately.
-
----
-
-## Actions You Can Perform
+## Available Actions
 
 <Columns cols={2}>
-  <Card title="Edit Scanner" icon="pen">
-    Update scanner configuration, authentication, or detection rules.
-  </Card>
 
-  <Card title="Disable Scanner" icon="circle-pause">
-    Temporarily pause a scanner from executing jobs.
-  </Card>
+<Card title="Download Scanner" icon="download">
+  Download the scanner package for deployment.
+</Card>
 
-  <Card title="Delete Scanner" icon="trash">
-    Remove unused or deprecated scanners from the system.
-  </Card>
+<Card title="Create Scanner" icon="plus">
+  Register a new scanner by providing its Name and URL.
+</Card>
 
-  <Card title="Refresh Configuration" icon="rotate-right">
-    Force scanners to reload updated rules and settings instantly.
-  </Card>
 </Columns>
-
----
-
-## Best Practices
-
-- Keep scanners updated to the latest engine version.  
-- Disable unused scanners to reduce noise and errors.  
-- Use environment-based scanners (e.g., staging-only) to reduce production load.  
-- Configure rule packs based on business risk and application type.  
-- Monitor scanner health regularly to prevent scanning gaps.  
 
 ---
 
 ## Next Steps
 
-<Card title="Explore Vulnerability Catalogue" icon="arrow-right" href="/products/vs/vulnerability-catalogue">
-  View all vulnerabilities discovered by your configured scanners.
+<Card title="View Vulnerabilities" icon="arrow-right" href="/products/vs/vulnerabilities">
+  Explore vulnerabilities detected by this scanner.
 </Card>
