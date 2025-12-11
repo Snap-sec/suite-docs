@@ -104,6 +104,92 @@ A view to manage project-level permissions and designate threat owners.
 
 ---
 
+# ⭐ **Project Setup Actions**  
+These are the first actions users perform after creating or opening a project.
+
+---
+
+## Create a Project
+
+<Frame caption="Create a New Project">
+  <img src="/images/tm/create-project.png" />
+</Frame>
+
+To begin threat modeling:
+
+1. Go to **Threat Management → Projects**.  
+2. Click **Create Project**.  
+3. Enter:
+   - **Project Name**
+   - **Description**
+4. Click **Create** to initialize your workspace.
+
+A new project appears with zero endpoints and zero threats until data is added.
+
+---
+
+## Import Endpoints
+
+<Frame caption="Import Endpoints from Postman">
+  <img src="/images/tm/import-endpoints.png" />
+</Frame>
+
+Use the **Import Endpoints** feature to onboard API endpoints into your project.
+
+Supported format:
+- **Postman JSON collections**
+
+Steps:
+1. Click **Browse** and upload a Postman collection.  
+2. Endpoints are automatically extracted.  
+3. Click **Import Endpoints** to add them to the project.
+
+This provides an instant starting point for threat modeling without manual data entry.
+
+---
+
+## Import Threats
+
+<Frame caption="Import Threats">
+  <img src="/images/tm/import-threats.png" />
+</Frame>
+
+You can import previously generated threats directly into a project.
+
+Supported file type:
+- **JSON** (Snapsec exported threat format)
+
+Steps:
+1. Click **Import Threats** inside the project.  
+2. Upload your `.json` threat file.  
+3. Threats are mapped to endpoints and added immediately.
+
+This is useful for migrating between projects or reusing existing threat libraries.
+
+---
+
+## Create Manual Threat
+
+<Frame caption="Create Manual Threat">
+  <img src="/images/tm/manual-threat.png" />
+</Frame>
+
+If you want to define a threat manually:
+
+1. Inside a project, click **Create Manual Threat**.  
+2. Fill in:
+   - Threat title  
+   - Description  
+   - Severity  
+   - Confidence  
+   - Mitigation  
+   - References  
+3. Click **Save** to add it to the project.
+
+Manual threats allow teams to document design flaws, business logic risks, or situations not detected automatically.
+
+---
+
 ## Project Roles & Collaboration
 
 Teams can add collaborators with specific roles:
@@ -145,19 +231,17 @@ This ensures repeatable, consistent modeling without manual guesswork.
 
 ## Dashboard-Level Visibility
 
-The Threat Modeling **Dashboard** aggregates data from all projects:
-
 <Frame caption="Threat Modeling Dashboard Overview">
   <img src="/images/tm/projects6.png" />
 </Frame>
 
-It provides global insights such as:
+Gain global insights such as:
 
 - Total threats across all projects  
-- Pending vs In Progress vs Verified  
-- Severity distribution (Critical / High / Medium / Low)  
-- Per-project threat breakdown  
-- CWE classification across large datasets  
+- Threat status distribution  
+- Severity breakdown  
+- Per-project comparison  
+- CWE classification  
 
 ---
 
