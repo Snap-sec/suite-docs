@@ -5,13 +5,11 @@ icon: "chart-bar"
 mode: "wide"
 ---
 
-
-The **Vulnerability Scanner Dashboard** provides a real-time overview of your organization’s security health — including vulnerability volume, scan activity, scanner performance, and asset visibility.  
+The **Vulnerability Scanner Dashboard** provides a real-time overview of your organization's security health — including vulnerability volume, scan activity, scanner performance, and asset visibility.\
 It serves as the command center for monitoring risk trends and prioritizing remediation.
 
-
 <Frame caption="Vulnerability Scanner Dashboard Overview">
-  <img src="/images/vs/products/dashboard.png" />
+  ![](/images/vs/products/dashboard.png)
 </Frame>
 
 ---
@@ -19,11 +17,12 @@ It serves as the command center for monitoring risk trends and prioritizing reme
 ## Overview
 
 The Dashboard consolidates insights from all scan engines and displays the current state of:
-- Total vulnerabilities detected  
-- Severity-level distribution  
-- Total scans performed  
-- Active scanners  
-- Asset coverage  
+
+- Total vulnerabilities detected
+- Severity-level distribution
+- Total scans performed
+- Active scanners
+- Asset coverage
 
 It highlights both long-term trends and moment-to-moment changes in your vulnerability landscape.
 
@@ -32,35 +31,27 @@ It highlights both long-term trends and moment-to-moment changes in your vulnera
 ## Key Metrics & Analytics
 
 <Columns cols={3}>
-
-<Card title="Total Vulnerabilities" icon="shield-halved">
-  Displays the complete count of vulnerabilities detected across all assets.
-</Card>
-
-<Card title="Total Scans" icon="magnifying-glass-chart">
-  Shows how many scans have been executed historically.
-</Card>
-
-<Card title="Active Scanners" icon="server">
-  Indicates how many scanner engines are connected and reporting.
-</Card>
-
+  <Card title="Total Vulnerabilities" icon="shield-halved">
+    Displays the complete count of vulnerabilities detected across all assets.
+  </Card>
+  <Card title="Total Scans" icon="magnifying-glass-chart">
+    Shows how many scans have been executed historically.
+  </Card>
+  <Card title="Active Scanners" icon="server">
+    Indicates how many scanner engines are connected and reporting.
+  </Card>
 </Columns>
 
 <Columns cols={3}>
-
-<Card title="Total Assets" icon="building">
-  Number of assets discovered in the scanner’s catalogue.
-</Card>
-
-<Card title="Coverage Trend" icon="chart-line">
-  Tracks scan coverage improvements or declines over time.
-</Card>
-
-<Card title="Risk Visibility" icon="eye">
-  Shows how much of your attack surface has been assessed.
-</Card>
-
+  <Card title="Total Assets" icon="building">
+    Number of assets discovered in the scanner's catalogue.
+  </Card>
+  <Card title="Coverage Trend" icon="chart-line">
+    Tracks scan coverage improvements or declines over time.
+  </Card>
+  <Card title="Risk Visibility" icon="eye">
+    Shows how much of your attack surface has been assessed.
+  </Card>
 </Columns>
 
 ---
@@ -68,14 +59,15 @@ It highlights both long-term trends and moment-to-moment changes in your vulnera
 ## Vulnerability Trend Graph
 
 <Frame caption="Vulnerability Trend (12 Months)">
-  <img src="/images/vs/dashboard-trend.png" />
+  ![](/images/vs/products/dashboard-trend.png)
 </Frame>
 
 This graph helps you analyze:
-- Vulnerability spikes  
-- Reduction after remediation efforts  
-- Seasonal or deployment-related changes  
-- Scanner efficiency over time  
+
+- Vulnerability spikes
+- Reduction after remediation efforts
+- Seasonal or deployment-related changes
+- Scanner efficiency over time
 
 Use it to correlate security events with operational changes.
 
@@ -84,21 +76,23 @@ Use it to correlate security events with operational changes.
 ## Top 10 Vulnerabilities
 
 <Frame caption="Top 10 Vulnerabilities">
-  <img src="/images/vs/dashboard-top10.png" />
+  ![](/images/vs/dashboard-top10.png)
 </Frame>
 
 This table highlights:
-- Most common issues  
-- Repeated misconfigurations  
-- High-frequency weaknesses  
-- Vulnerabilities concentrated on specific assets  
+
+- Most common issues
+- Repeated misconfigurations
+- High-frequency weaknesses
+- Vulnerabilities concentrated on specific assets
 
 Columns include:
-- **Title**  
-- **Asset**  
-- **Scanner**  
-- **Severity**  
-- **Found On**  
+
+- **Title**
+- **Asset**
+- **Scanner**
+- **Severity**
+- **Found On**
 
 This helps analysts quickly identify widespread or urgent issues.
 
@@ -107,23 +101,18 @@ This helps analysts quickly identify widespread or urgent issues.
 ## Severity Snapshot
 
 <Columns cols={4}>
-
-<Card title="Critical" icon="circle-exclamation">
-  Count of critical severity vulnerabilities (currently may show 0 if none detected).
-</Card>
-
-<Card title="High" icon="triangle-exclamation">
-  High severity issues requiring prompt remediation.
-</Card>
-
-<Card title="Medium" icon="exclamation">
-  Moderate risks that may require patching or configuration fixes.
-</Card>
-
-<Card title="Low / Info" icon="circle-info">
-  Low-risk findings such as missing headers or informational signals.
-</Card>
-
+  <Card title="Critical" icon="circle-exclamation">
+    Count of critical severity vulnerabilities (currently may show 0 if none detected).
+  </Card>
+  <Card title="High" icon="triangle-exclamation">
+    High severity issues requiring prompt remediation.
+  </Card>
+  <Card title="Medium" icon="exclamation">
+    Moderate risks that may require patching or configuration fixes.
+  </Card>
+  <Card title="Low / Info" icon="circle-info">
+    Low-risk findings such as missing headers or informational signals.
+  </Card>
 </Columns>
 
 ---
@@ -131,6 +120,7 @@ This helps analysts quickly identify widespread or urgent issues.
 ## Asset Exposure & Coverage
 
 The dashboard highlights:
+
 - **Total discovered assets**
 - **Assets with vulnerabilities**
 - **Safe assets**
@@ -143,23 +133,18 @@ This gives a clear picture of scanning completeness and gaps requiring attention
 ## How to Use the Dashboard
 
 <Columns cols={2}>
-
-<Card title="Monitor Risk Posture" icon="chart-pie">
-  Track changes in vulnerability count and criticality over time.
-</Card>
-
-<Card title="Prioritize Fixes" icon="list-check">
-  Use severity, frequency, and asset importance to prioritize remediation.
-</Card>
-
-<Card title="Validate Scanning Health" icon="server">
-  Ensure scanners are active and scan cycles are running as expected.
-</Card>
-
-<Card title="Detect Anomalies" icon="bell">
-  Identify sudden spikes that may indicate new vulnerabilities or exposed assets.
-</Card>
-
+  <Card title="Monitor Risk Posture" icon="chart-pie">
+    Track changes in vulnerability count and criticality over time.
+  </Card>
+  <Card title="Prioritize Fixes" icon="list-check">
+    Use severity, frequency, and asset importance to prioritize remediation.
+  </Card>
+  <Card title="Validate Scanning Health" icon="server">
+    Ensure scanners are active and scan cycles are running as expected.
+  </Card>
+  <Card title="Detect Anomalies" icon="bell">
+    Identify sudden spikes that may indicate new vulnerabilities or exposed assets.
+  </Card>
 </Columns>
 
 ---
