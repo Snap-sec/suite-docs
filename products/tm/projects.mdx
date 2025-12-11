@@ -73,6 +73,117 @@ This allows stakeholders to triage and prioritize projects at a glance.
 
 ---
 
+## Creating a Project
+
+The **Create Project** workflow allows teams to quickly initialize a new threat-modeling workspace.  
+A project acts as the primary container for endpoints, threats, collaborators, and modeling insights.
+
+<Frame caption="Create Project Modal">
+  <img src="/images/tm/create-project.png" />
+</Frame>
+
+---
+
+## How Project Creation Works
+
+When creating a new project, users must provide:
+
+### **1. Project Name**
+A unique identifier for the project, typically the service name or API domain.  
+Examples:
+- `User Authentication Service`
+- `Order Management API`
+- `Payments Gateway`
+
+### **2. Description**
+A human-readable explanation of the system being modeled.  
+This field helps collaborators understand:
+- What the project covers  
+- Stakeholder responsibilities  
+- Any assumptions or constraints  
+
+### **3. Select Collections**
+Collections represent imported request sources such as:
+- Postman workspaces  
+- Swagger/OAS specifications  
+- WAS request captures  
+
+Selecting a collection allows the system to automatically pull API requests into the project.
+
+---
+
+## Fields in the Create Project Form
+
+<Columns cols={3}>
+
+<Card title="Name" icon="tag">
+  The required project name used for identification across the dashboard.
+</Card>
+
+<Card title="Description" icon="align-left">
+  Optional but recommended summary describing system scope and purpose.
+</Card>
+
+<Card title="Collections" icon="folder-tree">
+  Select one or more request sources to import API endpoints into the project.
+</Card>
+
+</Columns>
+
+---
+
+## Example Workflow
+
+1. Click **Create Project** from the Projects dashboard.
+2. Enter a meaningful **project name**.
+3. Add a detailed **description** (recommended for large teams).
+4. Use the dropdown to **select request collections**.
+5. Click **Create**.
+
+Once created, you will be redirected to the **Project Workspace**, where you can:
+- View imported API endpoints  
+- Begin automated threat generation  
+- Assign collaborators  
+- Track modeling progress  
+
+---
+
+## Best Practices for Creating Projects
+
+<Columns cols={2}>
+
+<Card title="Use Clear Names" icon="pen-to-square">
+  Avoid vague names like *Service 1*. Use descriptive labels tied to real system boundaries.
+</Card>
+
+<Card title="Define Scope Early" icon="bullseye">
+  Clearly describe what is in scope (e.g., user flows, API modules, components).
+</Card>
+
+<Card title="Attach the Right Collections" icon="folder-plus">
+  Always link the collection containing your live or relevant API requests.
+</Card>
+
+<Card title="Add Collaborators Immediately" icon="users-gear">
+  Assign owners early to ensure timely threat review and mitigation.
+</Card>
+
+</Columns>
+
+---
+
+## Next Steps After Creating a Project
+
+<Card title="Start Threat Modeling" icon="arrow-right" href="/products/tm/threats">
+  Begin analyzing threats generated for your API surface.
+</Card>
+
+<Card title="View Imported Endpoints" icon="network-wired" href="/products/tm/api-endpoints">
+  Explore the full list of API endpoints included in this project.
+</Card>
+
+---
+
 ## Project Details
 
 Inside each project, users gain access to multiple components:
