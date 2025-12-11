@@ -54,139 +54,287 @@ Projects allow security teams to break large applications into manageable units 
 
 ---
 
-## Project Workspace
 
-<Frame caption="Project Workspace View">
-  <img src="/images/tm/projects2.png" />
-</Frame>
+## Exploring Existing Projects
 
-Each project card displays:
-
-- **Project title & description**  
-- **Total endpoints**  
-- **Total threats**  
-- **Collaborators**  
-- **Started date**  
-- **Progress bar showing modeling completion**  
-
-This allows stakeholders to triage and prioritize projects at a glance.
-
----
-
-## Project Details
-
-Inside each project, users gain access to multiple components:
-
-### 🔹 API Endpoints  
-A complete list of scanned or manually added endpoints including:  
-- Method  
-- Host  
-- Path  
-- Threat count  
-- Threat status  
-
-### 🔹 Threats  
-Auto-generated or manually added threats appear with:  
-- Severity  
-- Confidence  
-- Owners  
-- State (Pending, Acknowledged, In Progress, etc.)  
-
-### 🔹 Metrics  
-Charts summarizing threat severity distribution, status counts, and resolver workload.
-
-### 🔹 Collaborators  
-A view to manage project-level permissions and designate threat owners.
-
-<Frame caption="API Endpoints Overview">
-  <img src="/images/tm/projects3.png" />
-</Frame>
-
----
-
-## Project Roles & Collaboration
-
-Teams can add collaborators with specific roles:
-
-- **Owner** — full access; responsible for all threat approvals  
-- **Manager** — can analyze threats, assign owners, and update states  
-- **Member** — can review and assist in threat analysis  
-
-<Frame caption="Project Collaborator Controls">
+<Frame caption="Threat Modeling Projects Overview">
   <img src="/images/tm/projects4.png" />
 </Frame>
 
-Roles help define clear responsibility boundaries across the team.
+The main Projects page shows a grid of project cards.
+
+Each card displays:
+
+- **Project name** and short description  
+- **Total Endpoints** and **Total Threats**  
+- **Progress bar** to visualize activity and coverage  
+- **Started** date (how long the project has been active)  
+- **Owner avatar** to see who is responsible
+
+To open a project, simply **click on its card**.
+
+Inside a project, you can switch between tabs:
+
+- **Metrics** – overview of threats, severity distribution, and progress  
+- **API Endpoints** – list of imported endpoints and their threat status  
+- **Threats** – all generated or manually created threats  
+- **Project Settings** – collaborators and ownership  
+- **Admin Settings** – advanced controls for the project
+
 
 ---
 
-## Threat Generation Workflow
+## Creating a New Project
 
-Each project integrates automated threat modeling:
+To start threat modeling for a new application or service:
 
-- AI analyzes API requests  
-- Threats are generated using structured rules  
-- Each threat includes:
-  - Title  
-  - Explanation  
-  - Severity  
-  - Confidence  
-  - Practical mitigations  
-  - OWASP & CWE mappings  
-  - References  
+<Steps>
+  <Step title="Open the Projects page">
+    From the left navigation menu, go to **Threat Modeler → Projects**.
 
-<Frame caption="Threat Management Inside Project">
-  <img src="/images/tm/projects5.png" />
+  </Step>
+
+  <Step title="Click Create Project">
+    In the top-right corner, click the blue **Create Project** button.
+
+    <Frame caption="Threat Modeling Projects Overview">
+  <img src="/images/tm/projects2.png" />
+</Frame>
+  </Step>
+
+  <Step title="Fill in project details">
+    In the **Create Project** modal:
+    - **Name** – a clear name such as `Snapsec Portal`  
+    - **Description** – short context for the team (what this system does, environment, etc.)  
+    - **Select Collections** – optionally attach one or more API collections (for example, Postman collections) that contain the endpoints you want to model.
+  
+<Frame caption="Threat Modeling Projects Overview">
+  <img src="/images/tm/projects3.png" />
 </Frame>
 
-This ensures repeatable, consistent modeling without manual guesswork.
+  </Step>
+
+  <Step title="Create the project">
+    Click **Create** to finalize. You will be redirected to the new project view.
+  </Step>
+</Steps>
+
+<Callout>
+A project is the container for everything related to a system: endpoints, threats, collaborators, and ownership settings.
+</Callout>
 
 ---
 
-## Dashboard-Level Visibility
 
-The Threat Modeling **Dashboard** aggregates data from all projects:
+## Importing API Endpoints into a Project
 
-<Frame caption="Threat Modeling Dashboard Overview">
-  <img src="/images/tm/projects6.png" />
-</Frame>
+The **API Endpoints** tab is where you centralize all endpoints for a project.
 
-It provides global insights such as:
+To import endpoints:
 
-- Total threats across all projects  
-- Pending vs In Progress vs Verified  
-- Severity distribution (Critical / High / Medium / Low)  
-- Per-project threat breakdown  
-- CWE classification across large datasets  
+<Steps>
+  <Step title="Go to API Endpoints tab">
+    Open your project and select the **API Endpoints** tab from the top navigation.
+
+    <Frame caption="Threat Modeling Projects Overview">
+      <img src="/images/tm/projects8.png" />
+    </Frame>
+
+
+  </Step>
+
+  <Step title="Click Import API Endpoints">
+    Use the **Import** button on the top-right of the endpoints table.
+
+    <Frame caption="Threat Modeling Projects Overview">
+      <img src="/images/tm/projects5.png" />
+    </Frame>
+
+  </Step>
+
+  <Step title="Upload your source">
+    Upload your API definition file (for example, a Postman collection export or similar JSON file).
+
+    <Frame caption="Threat Modeling Projects Overview">
+      <img src="/images/tm/projects6.png" />
+    </Frame>
+
+  </Step>
+
+  <Step title="Review imported endpoints">
+    After import, endpoints appear in the table with:
+    - Endpoint path and name  
+    - HTTP method  
+    - Host  
+    - Total threats  
+    - Threat status and actions (re-generate, delete, etc.)
+  </Step>
+</Steps>
+
+<Callout>
+Once endpoints are imported, Threat Modeler can automatically generate threats for them using your configured rules and AI engine.
+</Callout>
 
 ---
 
-## Example Use Cases
+## Importing Threats from CSV
 
-<Columns cols={2}>
+If you already have threats defined in spreadsheets or another system, you can bulk-import them.
 
-<Card title="API Threat Modeling" icon="code-branch">
-  Analyze microservices and endpoints to identify backend weaknesses.
-</Card>
+To import threats:
 
-<Card title="Secure Design Review" icon="clipboard-list">
-  Evaluate system architecture and business logic flows.
-</Card>
+<Steps>
+  <Step title="Open the Threats tab">
+    Inside your project, go to the **Threats** tab.
 
-<Card title="Regulatory Compliance" icon="scale-balanced">
-  Maintain audit-ready threat modeling documentation.
-</Card>
+    <Frame caption="Threat Modeling Projects Overview">
+      <img src="/images/tm/projects9.png" />
+    </Frame>
 
-<Card title="Developer Collaboration" icon="users-gear">
-  Give developers visibility and ownership over threat mitigation.
-</Card>
 
-</Columns>
+  </Step>
+
+  <Step title="Click Import Threats">
+    Use the **Import Threats** button on the top right (CSV import icon).
+
+
+  </Step>
+
+  <Step title="Upload CSV file">
+    Select your CSV file following the expected format (columns such as title, description, severity, state, endpoint mapping, etc.).
+    <Frame caption="Threat Modeling Projects Overview">
+      <img src="/images/tm/projects11.png" />
+    </Frame>
+
+  </Step>
+
+  <Step title="Confirm and import">
+    Confirm the mapping if prompted and complete the import. All rows will appear as threats in the table.
+  </Step>
+</Steps>
+
+<Callout>
+CSV import is ideal when migrating from legacy tools or loading a batch of identified threats during onboarding.
+</Callout>
 
 ---
 
-## Next Steps
+## Downloading Threats as CSV
 
-<Card title="Explore API Endpoints" icon="arrow-right" href="/products/tm/api-endpoints">
-  Begin analyzing API paths, methods, and threat exposures inside each project.
-</Card>
+You can export threats to CSV for reporting, sharing with other systems, or offline analysis.
+
+<Steps>
+  <Step title="Go to the Threats tab">
+    Open the project Page.
+
+    <Frame caption="Threat Modeling Projects Overview">
+      <img src="/images/tm/projects1.png" />
+    </Frame>
+  </Step>
+
+
+  <Step title="Click Download CSV">
+    Click on the 3 dots and Then Click on "Export Csv Report".
+     <Frame caption="Threat Modeling Projects Overview">
+      <img src="/images/tm/projects13.png" />
+    </Frame>
+  </Step>
+
+  <Step title="Use the CSV output">
+    The generated CSV includes key fields such as:
+    - Threat title and description  
+    - Severity, state, and confidence  
+    - Linked endpoint information  
+    - Timestamps and metadata
+  </Step>
+</Steps>
+
+---
+
+## Adding or Removing Collaborators
+
+Collaborators control who can see and manage a project.
+
+To manage collaborators:
+
+<Steps>
+  <Step title="Open Project Settings">
+    Within a project, click the **Project Settings** tab.
+
+     <Frame caption="Threat Modeling Projects Overview">
+      <img src="/images/tm/projects14.png" />
+    </Frame>
+
+
+  </Step>
+
+  <Step title="Add a collaborator">
+
+     <Frame caption="Threat Modeling Projects Overview">
+      <img src="/images/tm/projects15.png" />
+    </Frame>
+
+    In the **Update Collaborators** section:
+    - Choose a user from the **Collaborators** dropdown  
+    - Select a **Role** (Owner, Editor, or Viewer)  
+    - Click **Update Collaborator**
+  </Step>
+
+  <Step title="Remove a collaborator">
+    In the collaborators list, click the **trash** icon next to the user you want to remove.
+
+    <Frame caption="Threat Modeling Projects Overview">
+      <img src="/images/tm/projects17.png" />
+    </Frame>
+
+
+  </Step>
+</Steps>
+
+<Callout>
+Use **Owner** for people responsible for security decisions, **Editor** for active contributors, and **Viewer** for stakeholders who only need read-only access.
+</Callout>
+
+---
+
+## Setting a Default Threat Owner
+
+The **Default Threat Owner** is the person who will be assigned as the owner for new threats when no specific owner is specified.
+
+To configure:
+
+<Steps>
+  <Step title="Go to Project Settings">
+    Inside the project, open the **Project Settings** tab.
+     <Frame caption="Threat Modeling Projects Overview">
+      <img src="/images/tm/projects14.png" />
+    </Frame>
+
+  </Step>
+
+  <Step title="Choose Default Threat Owner">
+    In the **Default Threat Owner** section:
+    - Select a team member from the dropdown.
+
+    <Frame caption="Threat Modeling Projects Overview">
+      <img src="/images/tm/projects18.png" />
+    </Frame>
+
+
+  </Step>
+
+  <Step title="Save the setting">
+    Click **Update Default Threat Owner**.
+  </Step>
+
+  <Step title="How it works">
+    All newly created or imported threats without an explicit owner will be automatically assigned to this member. Ownership can still be changed later on individual threats.
+  </Step>
+</Steps>
+
+<Callout>
+A default owner ensures that every threat has a clearly responsible person from day one, avoiding “unowned” risks.
+</Callout>
+
+---
+
