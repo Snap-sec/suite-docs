@@ -91,7 +91,7 @@
                 "products/vs/dashboard",
                 "products/vs/scan-management",
                 "products/vs/asset-catalogue",
-                "prpducts/vs/group-management",
+                "products/vs/group-management",
                 "products/vs/scanner-configuration",
                 "products/vs/vulnerability-catalogue",
                 "products/vs/integrations"
@@ -112,7 +112,7 @@
             "pages": [
               "products/was/dashboard",
               "products/was/projects",
-              "producst/was/requests",
+              "products/was/requests",
               "products/was/vulnerabilities",
               "products/was/environments",
               "products/was/rules",
