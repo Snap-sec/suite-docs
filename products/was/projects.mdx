@@ -1,276 +1,207 @@
 ---
 title: "Projects"
-description: "Manage, monitor, and collaborate on structured threat-modeling initiatives across your applications."
+description: "Create, manage, and configure Web Application Scanner (WAS) projects — including endpoints, transformed requests, vulnerabilities, scan settings, and crawler behavior."
 icon: "diagram-project"
 mode: "wide"
 ---
 
 <Banner>
-The **Projects** module gives teams a unified workspace to model threats across APIs, microservices, and applications.
-Each project consolidates endpoints, threat logs, collaborators, and progress analytics — allowing teams to perform
-systematic, repeatable, and collaborative threat modeling.
+The **Projects** module is the central workspace for the Web Application Scanner (WAS)**.  
+Each project contains its own set of API endpoints, vulnerabilities, scanning configuration, crawler rules, and transformed requests.  
+You must create a project before performing scans, importing traffic, or viewing vulnerabilities.
 </Banner>
 
-<Frame caption="Threat Modeling Projects Overview">
-  <img src="/images/tm/projects1.png" />
+<Frame caption="Projects Overview">
+  <img src="/images/was/products/projects-list.png" />
 </Frame>
 
 ---
 
 ## Overview
 
-Threat Modeling **Projects** act as dedicated workspaces for analyzing application components, API endpoints, and security risks.
+The **Projects** page displays all WAS projects along with:
 
-Each project contains:
+- Project name  
+- Description  
+- Started date  
+- Owner  
+- Quick actions  
 
-- API endpoint inventory  
-- Automatically generated threat findings  
-- Threat severity & confidence analytics  
-- Project-level completion status  
-- Collaborators & permissions  
-- Workload distribution and ownership  
-
-Projects allow security teams to break large applications into manageable units and model each component efficiently.
+Projects serve as isolated workspaces where you configure scanning, analyze vulnerabilities, and review security findings per application.
 
 ---
 
-## Key Metrics & Insights
+## Creating a Project
 
-<Columns cols={3}>
+<Frame caption="Create Project Modal">
+  <img src="/images/was/products/create-project.png" />
+</Frame>
 
-<Card title="Total Endpoints" icon="network-wired">
-  Total API endpoints included in the modeling scope of the project.
-</Card>
+To create a new WAS project:
 
-<Card title="Total Threats" icon="shield-halved">
-  Count of all identified or generated threats across the project.
-</Card>
+1. Click **Create Project**.  
+2. Enter the project **Name**.  
+3. Add a **Description** (optional).  
+4. Select relevant **Collections** (if applicable).  
+5. Click **Create** to generate the project.
 
-<Card title="Progress Status" icon="chart-line">
-  Tracks how much threat analysis is completed for the project.
-</Card>
-
-</Columns>
+Newly created projects appear instantly in the Projects list.
 
 ---
 
 ## Project Workspace
 
-<Frame caption="Project Workspace View">
-  <img src="/images/tm/projects2.png" />
+Selecting a project opens the full **Project Workspace**, which contains multiple sections:
+
+<Frame caption="Project Workspace Overview">
+  <img src="/images/was/products/project-metrics.png" />
 </Frame>
 
-Each project card displays:
+The workspace includes:
 
-- **Project title & description**  
-- **Total endpoints**  
-- **Total threats**  
-- **Collaborators**  
-- **Started date**  
-- **Progress bar showing modeling completion**  
-
-This allows stakeholders to triage and prioritize projects at a glance.
+- **Metrics**
+- **API Endpoints**
+- **Transformed Requests**
+- **Vulnerabilities**
+- **Configure**
+- **Crawler Settings**
 
 ---
 
-## Project Details
+# 📊 Project Sections
 
-Inside each project, users gain access to multiple components:
+---
 
-### 🔹 API Endpoints  
-A complete list of scanned or manually added endpoints including:  
-- Method  
+## Metrics
+
+<Frame caption="Project Metrics Dashboard">
+  <img src="/images/was/projects/metrics.png" />
+</Frame>
+
+The **Metrics** tab provides project-wide insights:
+
+- Pending vs resolved vulnerabilities  
+- Severity distribution (Critical / High / Medium / Low)  
+- Total identified vulnerabilities  
+- Visual charts for status and severity  
+
+This gives a real-time health snapshot of the application’s risk.
+
+---
+
+## API Endpoints
+
+<Frame caption="API Endpoints Table">
+  <img src="/images/was/products/api-endpoints.png" />
+</Frame>
+
+Displays every captured API request, including:
+
+- HTTP Method  
 - Host  
 - Path  
-- Threat count  
-- Threat status  
+- Total vulnerabilities for that endpoint  
+- Filters (severity, method, has vulnerabilities, etc.)  
 
-### 🔹 Threats  
-Auto-generated or manually added threats appear with:  
+Used to analyze coverage and identify vulnerable endpoints.
+
+---
+
+## Transformed Requests
+
+<Frame caption="Transformed Requests Table">
+  <img src="/images/was/products/transformed-requests.png" />
+</Frame>
+
+Shows normalized/processed versions of API requests that the scanner uses internally.
+
+Includes:
+
+- Endpoint  
+- Method  
+- Host  
+- Vulnerability summary  
+
+Useful for understanding scanner processing and request transformation depth.
+
+---
+
+## Vulnerabilities
+
+<Frame caption="Project Vulnerabilities View">
+  <img src="/images/was/products/vulnerabilities.png" />
+</Frame>
+
+The **Vulnerabilities** tab displays:
+
+- Vulnerability Title  
+- Status (Active, Suppressed)  
+- Scan Name  
 - Severity  
-- Confidence  
-- Owners  
-- State (Pending, Acknowledged, In Progress, etc.)  
+- First Detected / Last Detected  
+- Quick Actions (view, suppress, etc.)  
 
-### 🔹 Metrics  
-Charts summarizing threat severity distribution, status counts, and resolver workload.
+This is the primary interface for triaging and responding to findings.
 
-### 🔹 Collaborators  
-A view to manage project-level permissions and designate threat owners.
+---
 
-<Frame caption="API Endpoints Overview">
-  <img src="/images/tm/projects3.png" />
+## Configure
+
+<Frame caption="Project Configuration Panel">
+  <img src="/images/was/products/configure.png" />
 </Frame>
 
+Used to set up:
+
+### Application Information
+- Target URL  
+- Application Name  
+- Owner  
+- Tags  
+
+### Scanning Scope
+Add scope rules limiting what the scanner tests.
+
+### Authentication
+- Upload Playwright authentication scripts  
+- Add success-detection logic (string match)
+
+### Crawler Settings
+Choose between:
+- **Aggressive mode**  
+- **Intelligent (AI-powered) mode**  
+
 ---
 
-# ⭐ **Project Setup Actions**  
-These are the first actions users perform after creating or opening a project.
+## Crawler Rules & Webhook Settings
 
----
-
-## Create a Project
-
-<Frame caption="Create a New Project">
-  <img src="/images/tm/create-project.png" />
+<Frame caption="Crawler Rules & Webhook Settings">
+  <img src="/images/was/products/crawler-settings.png" />
 </Frame>
 
-To begin threat modeling:
+Includes:
 
-1. Go to **Threat Management → Projects**.  
-2. Click **Create Project**.  
-3. Enter:
-   - **Project Name**
-   - **Description**
-4. Click **Create** to initialize your workspace.
+- **Webhook URL** for receiving vulnerability notifications  
+- **Rule activation toggles** for specific checks:
+  - Missing Security Headers  
+  - Authentication Bypass  
+  - Server Error Leak  
+  - Directory Traversal  
+  - XSS Indicators  
+  - Command Injection  
+  - SQL Injection  
+  - And more…
 
-A new project appears with zero endpoints and zero threats until data is added.
-
----
-
-## Import Endpoints
-
-<Frame caption="Import Endpoints from Postman">
-  <img src="/images/tm/import-endpoints.png" />
-</Frame>
-
-Use the **Import Endpoints** feature to onboard API endpoints into your project.
-
-Supported format:
-- **Postman JSON collections**
-
-Steps:
-1. Click **Browse** and upload a Postman collection.  
-2. Endpoints are automatically extracted.  
-3. Click **Import Endpoints** to add them to the project.
-
-This provides an instant starting point for threat modeling without manual data entry.
-
----
-
-## Import Threats
-
-<Frame caption="Import Threats">
-  <img src="/images/tm/import-threats.png" />
-</Frame>
-
-You can import previously generated threats directly into a project.
-
-Supported file type:
-- **JSON** (Snapsec exported threat format)
-
-Steps:
-1. Click **Import Threats** inside the project.  
-2. Upload your `.json` threat file.  
-3. Threats are mapped to endpoints and added immediately.
-
-This is useful for migrating between projects or reusing existing threat libraries.
-
----
-
-## Create Manual Threat
-
-<Frame caption="Create Manual Threat">
-  <img src="/images/tm/manual-threat.png" />
-</Frame>
-
-If you want to define a threat manually:
-
-1. Inside a project, click **Create Manual Threat**.  
-2. Fill in:
-   - Threat title  
-   - Description  
-   - Severity  
-   - Confidence  
-   - Mitigation  
-   - References  
-3. Click **Save** to add it to the project.
-
-Manual threats allow teams to document design flaws, business logic risks, or situations not detected automatically.
-
----
-
-## Project Roles & Collaboration
-
-Teams can add collaborators with specific roles:
-
-- **Owner** — full access; responsible for all threat approvals  
-- **Manager** — can analyze threats, assign owners, and update states  
-- **Member** — can review and assist in threat analysis  
-
-<Frame caption="Project Collaborator Controls">
-  <img src="/images/tm/projects4.png" />
-</Frame>
-
-Roles help define clear responsibility boundaries across the team.
-
----
-
-## Threat Generation Workflow
-
-Each project integrates automated threat modeling:
-
-- AI analyzes API requests  
-- Threats are generated using structured rules  
-- Each threat includes:
-  - Title  
-  - Explanation  
-  - Severity  
-  - Confidence  
-  - Practical mitigations  
-  - OWASP & CWE mappings  
-  - References  
-
-<Frame caption="Threat Management Inside Project">
-  <img src="/images/tm/projects5.png" />
-</Frame>
-
-This ensures repeatable, consistent modeling without manual guesswork.
-
----
-
-## Dashboard-Level Visibility
-
-<Frame caption="Threat Modeling Dashboard Overview">
-  <img src="/images/tm/projects6.png" />
-</Frame>
-
-Gain global insights such as:
-
-- Total threats across all projects  
-- Threat status distribution  
-- Severity breakdown  
-- Per-project comparison  
-- CWE classification  
-
----
-
-## Example Use Cases
-
-<Columns cols={2}>
-
-<Card title="API Threat Modeling" icon="code-branch">
-  Analyze microservices and endpoints to identify backend weaknesses.
-</Card>
-
-<Card title="Secure Design Review" icon="clipboard-list">
-  Evaluate system architecture and business logic flows.
-</Card>
-
-<Card title="Regulatory Compliance" icon="scale-balanced">
-  Maintain audit-ready threat modeling documentation.
-</Card>
-
-<Card title="Developer Collaboration" icon="users-gear">
-  Give developers visibility and ownership over threat mitigation.
-</Card>
-
-</Columns>
+These rules control what the WAS engine tests during scans.
 
 ---
 
 ## Next Steps
 
-<Card title="Explore API Endpoints" icon="arrow-right" href="/products/tm/api-endpoints">
-  Begin analyzing API paths, methods, and threat exposures inside each project.
+<Card title="View Vulnerabilities" icon="arrow-right" href="/products/was/vulnerabilities">
+  Explore project-specific vulnerability findings and remediation details.
+</Card>
+
+<Card title="Manage Scanners" icon="server" href="/products/was/scanner">
+  Connect or configure a scanner instance for automated scanning.
 </Card>
