@@ -11,7 +11,7 @@ It enables complete visibility into routes, methods, linked threats, metadata, a
 
 
 <Frame caption="API Catalog Overview">
-  <img src="/images/tm/api1.png" />
+  <img src="/images/tm/api2.png" />
 </Frame>
 
 ---
@@ -60,10 +60,6 @@ This catalog acts as the **source of truth** for API attack surface discovery an
 
 ## Endpoint Distribution
 
-<Frame caption="API Endpoint Distribution">
-  <img src="/images/tm/api2.png" />
-</Frame>
-
 Visual breakdown of:
 - HTTP method usage  
 - Project grouping  
@@ -105,67 +101,6 @@ Filters can be combined for deep investigation.
 
 ---
 
-## API Full View
-
-<Frame caption="API Endpoint Full View">
-  <img src="/images/tm/api3.png" />
-</Frame>
-
-Each endpoint includes:
-
-### API Summary
-- Method  
-- Route path  
-- Host/service  
-- Threat count & severity breakdown  
-- Environment  
-- Status (active, deprecated)  
-
-### Threat Insights
-- Threat severity distribution  
-- Linked threat details  
-- State progression  
-- References & audit log  
-
-### Parameters & Payloads
-- Query parameters  
-- Path parameters  
-- Body schemas  
-- Expected inputs  
-
-### Associations
-- Linked services  
-- Related endpoints  
-- Shared components  
-
----
-
-## API Lifecycle Controls
-
-Each endpoint supports:
-
-- **Assign Owner** — map route to responsible service team  
-- **Regenerate Threats** — refresh threat modelling logic  
-- **Archive Endpoint** — mark route as deprecated  
-- **Delete Endpoint** — remove invalid or outdated entries  
-
-All actions synchronize across the Threat Modelling module.
-
----
-
-## How API Endpoints Are Discovered
-
-Snapsec identifies API endpoints using:
-
-- **Postman Adapter** — imports and syncs Postman collections  
-- **Swagger / OpenAPI Adapter** — parses API definitions  
-- **Threat Generator** — discovers new routes through modelling  
-- **App Imports** — APIs linked from projects  
-- **Manual additions** — user-created endpoints  
-
-Endpoints are continuously updated as APIs evolve.
-
----
 
 ## Example Use Cases
 

@@ -97,7 +97,7 @@
                 "products/vs/integrations"
               ]
             },{
-            "group": "Threat Modelling",
+            "group": "Threat Modeler",
             "pages": [
               "products/tm/introduction",
               "products/tm/projects",
