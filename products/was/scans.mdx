@@ -1,122 +1,80 @@
 ---
 title: "Scans"
-description: "View, execute, and manage all Web Application Security scan activities."
-icon: "magnifying-glass-chart"
+description: "Create, monitor, and manage Web Application Scanner (WAS) scans across projects."
+icon: "radar"
 mode: "wide"
 ---
 
 <Banner>
-The **Scans** section provides a centralized overview of all scans performed within the Web Application Scanner (WAS).  
-You can track scan progress, rule coverage, vulnerability findings, and manage rescans or deletions — all from a unified interface.
+The **Scans** section is where you execute and manage security scans in WAS.  
+It provides visibility into scan execution status, applied rules, progress, and discovered vulnerabilities.
 </Banner>
 
 <Frame caption="WAS — Scans Overview">
-  <img src="/images/was/scans.png" />
+  <img src="/images/was/products/scans-overview.png" />
 </Frame>
 
 ---
 
-## Overview
+## Scans Overview
 
-The **Scans dashboard** lists every executed or scheduled scan across all WAS projects.  
-For each scan, you can quickly determine:
+The **Scans Overview** lists all scans executed in the workspace with real-time status and results.
 
-- Scan status (Completed / Running / Failed)
-- Total rules executed
-- Progress (executed vs. total rules)
-- Vulnerability counts (Critical, High, Medium, Low)
-- Execution timestamp
-- Available scan actions (rescan, delete)
+Each scan entry displays:
 
-This enables teams to efficiently monitor scanning behavior and identify gaps or failures.
+- **Scan Name** — User-defined identifier  
+- **Status** — Completed or in-progress  
+- **Rules** — Number of rules applied  
+- **Progress** — Requests processed vs total  
+- **Vulnerabilities** — Severity-wise breakdown (C / H / M / L)  
+- **Actions** — Re-run or delete scan  
 
----
-
-## Key Metrics Displayed
-
-<Columns cols={4}>
-
-<Card title="Scan Name" icon="file-waveform">
-  The name of the project or scan task executed.
-</Card>
-
-<Card title="Status" icon="circle-check">
-  Indicates whether the scan is **Completed**, **Running**, or **Failed**.
-</Card>
-
-<Card title="Rules Executed" icon="list-check">
-  Shows how many rules were run versus how many are configured.
-</Card>
-
-<Card title="Vulnerability Summary" icon="exclamation-triangle">
-  Displays counts across severity levels (Critical, High, Medium, Low).
-</Card>
-
-</Columns>
+This view helps teams quickly assess scan health, coverage, and security findings across projects.
 
 ---
 
-## Scan Table Breakdown
+## Create Scan
 
-<Frame caption="List of Scans">
-  <img src="/images/was/scans-table.png" />
+<Frame caption="Create New Scan">
+  <img src="/images/was/products/scans-create.png" />
 </Frame>
 
-Each scan row includes:
+Use **Create Scan** to launch a new security scan.
 
-- **Scan Name** — Assigned project or custom scan label  
-- **Timestamp** — When the scan was last run  
-- **Status** — Current state of the scan  
-- **Rules** — Number of rules executed  
-- **Progress** — Execution completion indicator  
-- **Vulnerabilities** — Severity distribution  
-- **Actions** — Options to re-run or delete a scan  
+You can configure:
 
----
+- **Name & Description** — Identify the scan purpose  
+- **Rules (optional)** — Select specific detection rules  
+- **Environments** — Choose environment variables for execution  
+- **Collections** — Target API collections  
+- **Projects** — Associate scan with projects  
+- **Auth Profile** — Apply authentication logic  
+- **Scope** — Limit scan to specific paths or endpoints  
 
-## Actions Available for Each Scan
-
-<Columns cols={2}>
-
-<Card title="Rescan" icon="rotate-right">
-  Re-executes the scan using the same configuration and ruleset.
-</Card>
-
-<Card title="Delete Scan" icon="trash">
-  Permanently removes the scan entry from the history.
-</Card>
-
-</Columns>
+Once created, WAS executes the scan and tracks progress automatically.
 
 ---
 
-## When to Use the Scans Page
+## Flush Scans
 
-<Columns cols={2}>
+<Frame caption="Flush Scan Confirmation">
+  <img src="/images/was/products/scans-flush.png" />
+</Frame>
 
-<Card title="Audit Historical Scans" icon="clock-rotate-left">
-  Review past scans to understand vulnerability trends or revalidate fixed issues.
-</Card>
+The **Flush** action permanently removes scan data.
 
-<Card title="Monitor Rule Coverage" icon="chart-line">
-  Ensure rules are being executed correctly and identify incomplete scans.
-</Card>
+Key points:
 
-<Card title="Trigger New Scans" icon="play">
-  Initiate fresh assessments after deployment or configuration changes.
-</Card>
+- Clears scan execution history  
+- Deletes associated results and metrics  
+- Requires confirmation before proceeding  
 
-<Card title="Track Vulnerability Discovery" icon="bug">
-  Quickly see how many vulnerabilities were uncovered during each scan.
-</Card>
-
-</Columns>
+This is useful for cleanup, testing cycles, or resetting scan state during development.
 
 ---
 
 ## Next Steps
 
-<Card title="View Scan Profiles" icon="sliders" href="/products/was/scan-profiles">
-  Explore scan profiles to define advanced scanning rules, authentication flows, and configurations.
+<Card title="View Vulnerabilities" icon="shield-halved" href="/products/was/vulnerabilities">
+  Analyze vulnerabilities discovered during scans and begin remediation.
 </Card>
-
