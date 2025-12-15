@@ -1,146 +1,138 @@
 ---
 title: "DNS Catalog"
-description: "Track, manage, and analyze DNS records across all domains and environments."
+description: "Centralized dashboard to monitor, analyze, and manage DNS records across your attack surface."
 mode: "wide"
 icon: "folder-tree"
 ---
 
-## Overview
+## DNS Dashboard Overview
 
-The **DNS Catalog** provides centralized visibility into all DNS records discovered across your infrastructure.  
-AIM automatically aggregates DNS data from adapters, scanners, and integrations to help teams detect misconfigurations, shadow DNS records, and exposure risks before attackers do.
+The **DNS Catalog Dashboard** provides a centralized view of all discovered DNS records across your environments.  
+It helps security and infrastructure teams quickly understand DNS exposure, ownership, and risk at scale.
 
-<Frame caption="DNS Record Inventory Dashboard">
-  <img src="/images/aim/dns1.png" style={{ borderRadius: '0.5rem' }} />
+<Frame caption="DNS Records Dashboard">
+  <img src="/images/aim/dns-dashboard.png" />
 </Frame>
 
 ---
 
-## Key Metrics & Analytics
+## Key Metrics & Visibility
 
-The dashboard offers real-time insights into your DNS footprint:
+The dashboard highlights high-level DNS posture through summary metrics:
 
-- **Total DNS Records** — All records discovered across environments.  
-- **Shadow DNS Records** — Records found outside registered DNS zones.  
-- **Exposed Records** — DNS entries pointing to external or risky hosts.  
-- **Invalid or Stale Records** — Broken, outdated, or orphaned DNS entries.
+- **Total Records** — All DNS records discovered  
+- **Internal Records** — DNS entries mapped to internal assets  
+- **External Records** — Records resolving to external hosts  
+- **CNAME Records** — Canonical name mappings  
 
-### DNS Record Distribution
+Visual charts provide instant insight into:
 
-Visual charts help analyze:
+- DNS records per domain  
+- Exposure distribution (Internal vs External)  
+- DNS record type distribution  
 
-- **Record Types (A, AAAA, CNAME, MX, TXT, NS, etc.)**
-- **Exposure breakdown (Exposed vs Safe)**
-- **Associated vulnerabilities or misconfigurations**
-- **Organizations & Providers**
+This allows teams to quickly identify risky or externally exposed DNS entries.
 
-<Frame caption="DNS Type Distribution">
-  <img src="/images/aim/dns2.png" style={{ borderRadius: '0.5rem' }} />
+---
+
+## DNS Records Table
+
+The DNS inventory table lists every discovered record with searchable and filterable metadata.
+
+Available columns include:
+
+- **Record Value** — IP address or hostname  
+- **Vulnerability Count** — Linked vulnerabilities (if any)  
+- **Host** — Associated host (if available)  
+- **Type** — DNS record type (A, CNAME, etc.)  
+- **Owner** — Assigned owner or team  
+- **Tags** — Classification labels  
+- **Associations** — Linked assets  
+- **Detected On** — First and last detection timestamps  
+
+This table acts as the primary entry point for deeper DNS asset analysis.
+
+---
+
+## DNS Asset Detail View
+
+Clicking a DNS record opens the **DNS Asset Detail View**, providing a complete breakdown of that specific asset.
+
+<Frame caption="DNS Asset Detail View">
+  <img src="/images/aim/dns-asset-details.png" />
 </Frame>
 
----
+### Asset Summary
 
-## Search, Filters & Sorting
+Each DNS asset includes:
 
-The catalog includes powerful filters for pinpointing critical DNS issues:
-
-| Filter | Description |
-|--------|-------------|
-| **Record Type** | Filter by A, CNAME, MX, etc. |
-| **Exposure** | Show only exposed or shadow DNS records. |
-| **Owners** | Filter by assigned owner or team. |
-| **Adapters** | Show DNS records discovered through specific integrations. |
-| **Risk** | Sort or filter by auto-calculated risk score. |
-| **Organisations** | Filter based on hosting provider or authoritative DNS. |
-| **hasVulns** | Show DNS entries linked to vulnerabilities. |
-
----
-
-## DNS Table Columns
-
-| Column | Description |
-|--------|-------------|
-| **Record Value** | The DNS record (e.g., api.example.com). |
-| **Record Type** | A, CNAME, MX, TXT, etc. |
-| **Target / Value** | Where the DNS record points to. |
-| **Exposure** | Whether the record exposes an asset externally. |
-| **Auto Risk** | AIM-generated score based on exposure & associations. |
-| **Organisation** | Hosting provider or domain owner. |
-| **Owner** | Responsible team or user. |
-| **Tags** | Quick classification labels. |
-| **Associations** | Linked assets like IPs, certs, or apps. |
-| **Detected On** | First & last seen timestamps. |
-
----
-
-## DNS Record Full View
-
-Every DNS record includes a detailed breakdown:
-
-### **DNS Summary**
-
-- Record value  
-- Record type  
-- Target / destination  
-- Exposure classification  
-- Total linked assets  
-- Environment (e.g., Production, Internal)  
+- Current status (Active / Decommissioned)  
+- Total vulnerabilities linked  
 - Risk score  
-- First/last detection timestamps  
+- Exposure classification  
+- Environment context  
+- First and last detection dates  
+- Assigned owner  
 
-### **Linked Assets & Vulnerabilities**
+---
 
-AIM automatically correlates DNS records with:
-- IPs  
+### Asset Relationships
+
+The **Asset Relation Graph** visualizes how the DNS record connects to other assets such as:
+
+- APIs  
 - Applications  
-- Certificates  
-- Subdomains  
-- Vulnerabilities  
+- IP addresses  
+- Services  
 
-<Frame caption="DNS Asset Relation Graph">
-  <img src="/images/aim/dns3.png" style={{ borderRadius: '0.5rem' }} />
+This relationship mapping helps teams understand blast radius and dependency chains.
+
+---
+
+### Additional Asset Context
+
+From the asset detail page, teams can also view and manage:
+
+- **Tags** — For classification and tracking  
+- **Technologies** — Detected tech stack (if available)  
+- **Open Ports** — Network exposure details  
+
+---
+
+## Decommission DNS Asset
+
+DNS records that are no longer valid or required can be safely decommissioned.
+
+<Frame caption="Decommission DNS Asset">
+  <img src="/images/aim/dns-decommission.png" />
 </Frame>
 
----
+When decommissioning an asset:
 
-## DNS Misconfiguration Detection
+- A **reason for decommissioning** is required  
+- The asset is marked as inactive  
+- Historical data remains preserved for audit and tracking  
 
-AIM automatically flags issues such as:
-
-- **Dangling DNS records**  
-- **Broken CNAME chains**  
-- **Orphaned A/AAAA records**  
-- **Exposure to unintended external hosts**  
-- **Wildcard or overly permissive DNS entries**  
-- **Expired or mismatched DNS-to-certificate mappings**
+This ensures DNS hygiene while maintaining a clear audit trail.
 
 ---
 
-## How DNS Records Are Discovered
+## Why Decommission DNS Assets?
 
-AIM continuously syncs DNS data using:
+Common use cases include:
 
-- **ASM Adapter** (external DNS discovery)  
-- **Cloud provider integrations**  
-- **Domain registrars**  
-- **Security scanners**  
-- **TechDetect (DNS enumeration)**  
+- Removing stale or unused DNS records  
+- Cleaning up legacy infrastructure entries  
+- Reducing attack surface exposure  
+- Preventing dangling or orphaned DNS mappings  
 
-This ensures all DNS updates, additions, or stale records are caught instantly.
-
----
-
-## Example Use Cases
-
-- **Security Teams** — Detect shadow DNS entries or exposed DNS surfaces.  
-- **App Teams** — Track DNS mappings for environments and services.  
-- **Compliance** — Ensure DNS structures meet audit and policy requirements.  
-- **Ops / Infra** — Identify broken or stale DNS entries causing outages.
+Decommissioning helps maintain an accurate and secure DNS inventory.
 
 ---
 
 ## Explore Live Demo
 
-<Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Instantly explore how Snapsec AIM discovers, enriches, and tracks every asset in real time — all without creating an account.
+<Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles"
+  href="https://suite.snapsec.co/demo">
+  Instantly explore how Snapsec AIM discovers, visualizes, and manages DNS assets — including exposure analysis, asset relationships, and decommissioning — all in real time, without creating an account.
 </Card>
