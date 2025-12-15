@@ -1,131 +1,77 @@
 ---
 title: "Scan Profiles"
-description: "Create and manage reusable scan profiles to control headers, authentication, and configuration for Web Application Scanner (WAS) scans."
+description: "Manage and configure reusable API scan profiles for Web Application Scanner (WAS)."
 icon: "sliders"
 mode: "wide"
 ---
 
-<Banner>
-Scan Profiles allow you to define **custom configurations**, **headers**, and **scan behaviors** that can be reused across multiple projects and scans.  
-Use them to maintain consistent testing standards across environments and applications.
-</Banner>
+The **Scan Profiles** section allows you to define reusable scanning configurations such as custom headers.  
+These profiles can be attached to scans to ensure consistent authentication, headers, and request behavior across environments.
+
+---
+
+## Scan Profiles Overview
 
 <Frame caption="Scan Profiles Overview">
-  <img src="/images/was/scan-profiles.png" />
+  <img src="/images/was/scan-profiles/overview.png" />
 </Frame>
 
----
+The overview page displays:
 
-## Overview
+- A **Profile Details** panel for creating new scan profiles  
+- A list of **Existing Scan Profiles** already created  
+- Profile metadata such as creation time  
 
-Scan Profiles make WAS scanning flexible and repeatable.  
-They allow teams to:
-
-- Define **global request headers**
-- Apply **authentication values**
-- Maintain reusable configurations across multiple projects
-- Enable consistent security testing rules
-- Avoid duplicating configuration during every scan
-
-Profiles are especially useful when scanning:
-- Staging vs Production environments  
-- APIs requiring tokens / session identifiers  
-- Applications with custom headers or tenant routing  
+Each scan profile represents a reusable configuration that can be applied while creating scans.
 
 ---
 
-## Creating a Scan Profile
+## Create Scan Profile
 
-<Frame caption="Create a New Scan Profile">
-  <img src="/images/was/scan-profile-create.png" />
+<Frame caption="Create New Scan Profile">
+  <img src="/images/was/scan-profiles/create.png" />
 </Frame>
 
-### **1. Profile Details**
+Use this section to create a new scan profile by defining:
 
-<CardGroup cols={2}>
+- **Profile Name** — A descriptive name for the scan configuration  
+- **Custom Headers** — Key-value HTTP headers added to every request  
+  - Header Name  
+  - Header Value  
+- **Add Header** — Add multiple headers as required  
 
-<Card title="Profile Name" icon="tag">
-Enter a unique name to identify this scan profile.
-</Card>
-
-<Card title="Description" icon="note-sticky">
-(Optional) Add context or usage instructions for your team.
-</Card>
-
-</CardGroup>
+Click **Create Profile** to save the scan profile.  
+Once created, it becomes available for selection while creating scans.
 
 ---
 
-## Custom Headers
+## Edit & Manage Existing Scan Profiles
 
-Profiles support adding **custom HTTP headers** that will be included with all scan requests.
-
-<Columns cols={2}>
-
-<Card title="Header Name" icon="heading">
-Define the name of the header (e.g., `Authorization`, `X-Tenant-ID`).
-</Card>
-
-<Card title="Header Value" icon="note">
-Specify the value to be applied during scanning.
-</Card>
-
-</Columns>
-
-Users can add multiple headers—for API tokens, session cookies, or routing identifiers.
-
-<Frame caption="Adding Custom Headers">
-  <img src="/images/was/scan-profile-headers.png" />
+<Frame caption="Edit Existing Scan Profile">
+  <img src="/images/was/scan-profiles/edit.png" />
 </Frame>
 
----
+The **Existing Scan Profiles** section allows you to manage saved profiles:
 
-## Managing Scan Profiles
+Each profile card shows:
+- **Profile Name**
+- **Created At** timestamp
 
-All created profiles appear under **Existing Scan Profiles**.
+Available actions:
+- **Edit** — Update profile name or modify custom headers  
+- **Delete** — Remove an unused scan profile  
 
-<Frame caption="Existing Scan Profiles">
-  <img src="/images/was/scan-profile-list.png" />
-</Frame>
+While editing a profile:
+- Existing headers can be updated or removed  
+- New headers can be added  
+- Changes are saved using **Update Profile**
 
-Each profile supports:
-
-<Columns cols={3}>
-
-<Card title="Edit" icon="pen-to-square">
-Modify name, headers, or configuration at any time.
-</Card>
-
-<Card title="Delete" icon="trash">
-Remove outdated profiles to maintain clean workspace organization.
-</Card>
-
-<Card title="Reusable" icon="recycle">
-Profiles can be applied to any scan across WAS.
-</Card>
-
-</Columns>
-
----
-
-## Why Use Scan Profiles?
-
-<CardGroup cols={3}>
-  <Card title="Consistency Across Scans" icon="check-double">
-    Apply identical configuration across all projects.
-  </Card>
-  <Card title="Faster Setup" icon="rocket">
-    Reduce repetitive configuration when creating new scans.
-  </Card>
-  <Card title="Team Collaboration" icon="users">
-    Shared settings ensure standardized security testing across teams.
-  </Card>
-</CardGroup>
+This ensures scan configurations remain flexible and easy to maintain.
 
 ---
 
 ## Next Steps
 
-<Card title="Run a Scan Using This Profile" icon="arrow-right" href="/products/was/scans">
-  Learn how scan profiles integrate with the scanning workflow.
+<Card title="Use Scan Profiles in Scans" icon="arrow-right" href="/products/was/scans">
+  Apply scan profiles while creating scans to reuse headers and configuration settings.
 </Card>
