@@ -1,67 +1,153 @@
 ---
 title: "Rules"
-description: "Create and manage detection rules that analyze requests to identify vulnerabilities."
-icon: "list-check"
+description: "Create, manage, and execute detection rules that analyze API requests to identify vulnerabilities."
+icon: "scroll"
 mode: "wide"
 ---
 
-<Banner>
-WAS **Rules** allow you to define custom logic for identifying vulnerabilities based on API or web requests.  
-These rules transform requests, inspect responses, and generate findings when patterns match.
-</Banner>
 
-<Frame caption="Rules Overview">
-  <img src="/images/was/rules.png" />
+The **Rules** section defines how the Web Application Scanner (WAS) detects vulnerabilities.  
+Rules analyze API requests and responses using configurable logic written in YAML, enabling precise and extensible security checks.
+
+
+<Frame caption="WAS — Rules Overview">
+  <img src="/images/was/products/rule-overview.png" />
 </Frame>
 
 ---
 
 ## Overview
 
-The **Rules Engine** in Snapsec WAS enables security teams to:
+The **Rules module** allows you to:
 
-- Build custom detection logic in YAML  
-- Modify headers, payloads, or request flows  
-- Match on response codes, body content, or metadata  
-- Automatically generate vulnerabilities based on findings  
-- Enable/disable rule execution per project  
+- View all available detection rules  
+- Enable or disable rules dynamically  
+- Track how many vulnerabilities each rule has detected  
+- Create or edit rules using a YAML-based editor  
+- Sync default rules provided by WAS  
 
-Rules are evaluated during scanning, and findings appear in the **Vulnerabilities** section.
+Rules are executed during scans and form the core detection engine of WAS.
 
 ---
 
-## Rule Editor (YAML)
+## Rule List & Status
 
-The left side of the Rules page provides a **YAML rule editor** where you can create or modify rules.
-
-<Frame caption="YAML Rule Editor">
-  <img src="/images/was/rules-yaml-editor.png" />
+<Frame caption="Rule List with Vulnerability Counts">
+  <img src="/images/was/products/rules-list.png" />
 </Frame>
 
-A rule typically includes sections such as:
+Each rule entry displays:
 
-- **target** — which endpoints the rule applies to  
-- **transform** — modify or remove headers / payload content  
-- **match_on** — response indicators (status, string, header, etc.)  
-- **report** — vulnerability metadata generated when the rule triggers  
+- **Rule Name** — Descriptive name of the detection logic  
+- **Vuln Count** — Number of vulnerabilities detected by the rule  
+- **Status** — Whether the rule is Active or Inactive  
+- **Actions** — Edit, delete, or toggle the rule  
 
-Example:
+This helps teams quickly identify high-impact rules.
 
-```yaml
-rule_name: Detect Unauthorized Requests
-target: all
+---
 
-transform:
-  headers:
-    remove:
-      - Authorization
+## YAML Rule Editor
 
-match_on:
-  status: 200
-  response_contains: "unauthorized"
+<Frame caption="YAML Rule Editor">
+  <img src="/images/was/products/rules-yaml-editor.png" />
+</Frame>
 
-report:
-  title: "Unauthorized Without Token"
-  description: "Endpoint returns 200 when token is removed"
-  severity: "medium"
-  cwe: "CWE-284"
+Rules are defined using a structured YAML format that includes:
+
+- **rule name** — Identifier for the rule  
+- **target** — Scope of execution (e.g., all requests)  
+- **transform** — Request/response transformations  
+- **match_on** — Conditions to trigger detection  
+- **report** — Vulnerability metadata  
+
+Example capabilities include:
+
+- Removing or modifying headers  
+- Matching HTTP status codes  
+- Inspecting response bodies  
+- Defining severity, CWE, and impact  
+
+---
+
+## Vulnerability Metadata
+
+Within each rule, you can configure:
+
+- **Title & Description**  
+- **Severity** (Critical, High, Medium, Low)  
+- **CVSS Score**  
+- **CWE Mapping**  
+- **Impact Description**  
+- **Mitigation Guidance**  
+- **Steps to Reproduce**  
+
+This ensures detected issues are actionable and well-documented.
+
+---
+
+## Rule Actions
+
+<Columns cols={3}>
+
+<Card title="Create Rule" icon="circle-plus">
+  Add a new custom detection rule using the YAML editor.
+</Card>
+
+<Card title="Edit Rule" icon="pen-to-square">
+  Modify existing rule logic or vulnerability metadata.
+</Card>
+
+<Card title="Enable / Disable Rule" icon="toggle-on">
+  Control whether a rule participates in active scans.
+</Card>
+
+</Columns>
+
+---
+
+## Sync Default Rules
+
+<Frame caption="Sync Default Rules">
+  <img src="/images/was/products/rules-sync.png" />
+</Frame>
+
+The **Sync Default Rules** option allows you to:
+
+- Restore the default WAS rule set  
+- Receive updates to built-in detection logic  
+- Ensure alignment with latest vulnerability checks  
+
+This is useful after experimentation or custom rule changes.
+
+---
+
+## When to Use the Rules Page
+
+<Columns cols={2}>
+
+<Card title="Customize Detection Logic" icon="sliders">
+  Tailor vulnerability detection to your application’s behavior.
+</Card>
+
+<Card title="Improve Signal Quality" icon="filter">
+  Reduce false positives by refining match conditions.
+</Card>
+
+<Card title="Validate Rule Effectiveness" icon="bug">
+  Review vulnerability counts to assess rule impact.
+</Card>
+
+<Card title="Extend Coverage" icon="puzzle-piece">
+  Add new rules to detect custom or business-logic flaws.
+</Card>
+
+</Columns>
+
+---
+
+## Next Steps
+
+<Card title="Run a Scan" icon="play" href="/products/was/scans">
+  Execute scans using the active ruleset to detect vulnerabilities.
+</Card>
