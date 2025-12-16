@@ -1,193 +1,99 @@
 ---
-title: "Application Registry"
-description: "Catalog, monitor, and analyze all applications discovered across your environments."
+title: "Application Inventory"
+description: "Catalog and monitor enterprise applications discovered across your environments."
 icon: "window-restore"
 mode: "wide"
 ---
 
-## Overview
+## Application Inventory Overview
 
-The **Application Registry** provides a centralized view of all applications identified across your ecosystems — including web apps, internal tools, API services, and shadow applications.  
-AIM automatically classifies each application, correlates vulnerabilities, and tracks ownership, risk, and exposure.
+The **Application Inventory** dashboard provides a centralized view of all applications discovered across your organization, including internal apps, APIs, and externally exposed services.
 
-<Frame caption="Application Registry Overview">
-  <img src="/images/aim/apps1.png" />
+It helps teams understand application exposure, vulnerability concentration, and ownership at a glance.
+
+<Frame caption="Application Inventory Dashboard">
+  <img src="/images/aim/apps-overview.png" />
 </Frame>
 
----
+### What the Dashboard Shows
 
-## Key Metrics
+- **Total Applications** discovered
+- **Vulnerable Applications** with linked security findings
+- **Exposed Applications** reachable from external networks
+- **Shadowed Applications** without clear ownership or classification
 
-<Columns cols={4}>
-  <Stat title="Total Applications" value="10" />
-  <Stat title="Vulnerable Applications" value="6" />
-  <Stat title="Exposed Applications" value="10" />
-  <Stat title="Shadowed Applications" value="5" />
-</Columns>
+### Visual Insights
 
-These metrics help security and IT teams quickly assess exposure and prioritize remediation.
+- **Vulnerability Distribution** by severity (Critical, High, Medium, Low)
+- **Application Distribution** across environments
+- **Exposure-based breakdown** for prioritization
 
----
+### Application Table
 
-## Vulnerability Insights
-
-<Frame caption="Vulnerability Severity Breakdown">
-  <img src="/images/aim/apps-vulns.png" />
-</Frame>
-
-The Application Registry aggregates vulnerability data and displays:
-
-- **Critical**
-- **High**
-- **Medium**
-- **Low**
-
-Severity distributions help prioritize the most impactful fixes.
-
----
-
-## Search, Filtering & Grouping
-
-Users can filter and sort applications using:
-
-| Filter | Purpose |
-|--------|---------|
-| **Owners** | Filter by application owner or responsible team |
-| **Risk Score** | Sort apps by automated risk scoring |
-| **Exposure** | Show exposed, safe, or shadow apps |
-| **Adapters** | View applications discovered via specific integrations |
-| **hasVulns** | Only display vulnerable applications |
-| **Last Seen** | Filter based on detection timeline |
-
-These controls ensure fast triage and navigation through complex inventories.
-
----
-
-## Application Table Columns
-
-Each application entry displays structured metadata:
+The table lists all discovered applications with key metadata:
 
 | Column | Description |
-|--------|-------------|
-| **Application Name** | The registered or detected name |
-| **Source** | Adapter or input source (ASM, VM, API Sec, CSV) |
-| **Vulnerability Count** | Number of linked vulnerabilities |
-| **Risk Score** | Automatically computed risk value |
-| **Type** | Application type (Web, API, SaaS, Internal) |
-| **Owner** | Assigned user or team |
-| **Tags** | Labels like `vm`, `application`, `internal` |
-| **Associations** | Linked assets (domains, APIs, repos) |
-| **Detected On** | First and last detection timestamps |
+|------|-------------|
+| **Asset Value** | Application name or identifier |
+| **Vuln Count** | Number of linked vulnerabilities |
+| **Auto Risk** | System-calculated risk score |
+| **Type** | Application type |
+| **Owner** | Assigned application owner |
+| **Tags** | Labels such as `vm`, `application` |
+| **Associations** | Linked assets |
+| **Detected On** | First and last discovery timestamps |
+
+This view is used to triage, filter, and select applications for deeper inspection.
 
 ---
 
-## Full Application View
+## Application Asset Detail View
 
-Each application includes a detailed internal profile.
+Clicking an application opens its **asset-level view**, providing full context about that specific application.
+
+<Frame caption="Application Asset Detail View">
+  <img src="/images/aim/app-detail.png" />
+</Frame>
 
 ### Application Summary
 
-A summary card displays:
+Each application asset includes:
 
-- Application Name  
-- Status (Active, Inactive, Unknown)  
-- Total Linked Vulnerabilities  
-- Risk Score  
-- Exposure (Exposed or Safe)  
-- Environment (Prod, Dev, Staging)  
-- Owner  
-- Detection Timeline  
+- **Status** (Active)
+- **Total Vulnerabilities**
+- **Risk Score**
+- **Exposure** (Exposed or Safe)
+- **Environment**
+- **First Found / Last Found**
+- **Managed By (Owner)**
 
-### Vulnerability Analysis
+Lifecycle actions available:
+- **Decommission Asset**
+- **Delete Asset**
 
-<Frame caption="Application Vulnerability Trends">
-  <img src="/images/aim/apps-trends.png" />
-</Frame>
+### Vulnerability Insights
 
-Users can view:
+- Vulnerability trend panel
+- Severity distribution panel  
+(Displayed when vulnerability data is available)
 
-- Historical vulnerability trends  
-- Severity distribution  
-- Detailed vulnerability table with state & history  
+### Metadata & Relationships
 
-All findings link back to VM for deeper triage.
+Inside an application asset, you can view and manage:
 
----
+- **Tags** for classification
+- **Technologies** associated with the application
+- **Open Ports** (if detected)
+- **Asset Relations Graph** showing connections to:
+  - Domains
+  - APIs
+  - Certificates
+  - Other linked assets
 
-## Tags, Technologies & Components
-
-- **Tags:** Business labels or security classification  
-- **Technologies:** Libraries, frameworks, or platforms detected (e.g., Nginx, Node.js, Django)  
-- **Components:** Linked APIs, subdomains, containers, or cloud resources  
-
-This enables accurate dependency mapping and impact assessment.
-
----
-
-## Asset Relations
-
-<Frame caption="Application Asset Graph">
-  <img src="/images/aim/app-relations.png" />
-</Frame>
-
-The relation graph maps relationships between:
-
-- Applications  
-- APIs  
-- Domains  
-- IPs  
-- Certificates  
-- Cloud components  
-
-This reveals attack paths and dependencies.
+This view helps teams understand **blast radius**, dependencies, and risk impact before remediation or decommissioning.
 
 ---
-
-## Ownership & Lifecycle Controls
-
-Each application includes lifecycle management actions:
-
-- **Assign Owner**
-- **Update Metadata**
-- **Decommission Application**
-- **Delete Application**
-
-Changes synchronize across AIM and related modules.
-
----
-
-## How Applications Are Discovered
-
-Applications are detected through:
-
-- **ASM Adapter** — external surface scans  
-- **VM Adapter** — vulnerability imports  
-- **API Sec Adapter** — request-based discovery  
-- **TechDetect Adapter** — technology fingerprinting  
-- **Manual Input / CSV Uploads**  
-
-This ensures a continuously accurate application inventory.
-
----
-
-## Example Use Cases
-
-### Security Teams
-Identify vulnerable or exposed applications quickly.
-
-### Asset Managers
-Track application ownership and maintain accurate registries.
-
-### DevSecOps
-Monitor application posture and ensure compliance.
-
-### Incident Response
-Investigate affected applications during incidents.
-
----
-
-## Explore Live Demo
 
 <Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Instantly explore how Snapsec AIM discovers, enriches, and tracks every asset in real time — all without creating an account.
+  Instantly explore how Snapsec AIM discovers, enriches, and tracks applications and assets in real time — all without creating an account.
 </Card>
