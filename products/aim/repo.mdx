@@ -1,56 +1,92 @@
 ---
-title: "Repositories Catalog"
-description: "Track Git repositories, monitor activity, and manage secure code assets across your organization."
-icon: "code-branch"
+title: "Workstation Directory"
+description: "Track employee devices, workstation risks, exposure levels, and lifecycle states across the organization."
+icon: "desktop"
 mode: "wide"
 ---
 
-## Repository Dashboard Overview
+## Workstation Dashboard Overview
 
-The **Repositories Catalog** provides a centralized dashboard showing all code repositories discovered across connected Git platforms such as GitHub, GitLab, or Bitbucket.
+The **Workstation Directory** provides a centralized dashboard of all employee-linked devices such as laptops, desktops, and virtual workstations discovered across the environment.
 
-This dashboard helps security and engineering teams understand repository posture at a glance — including activity, archive status, ownership, and risk.
+This dashboard gives security and IT teams immediate visibility into device posture, vulnerability presence, exposure status, and ownership.
 
-<Frame caption="Repositories Catalog Dashboard">
-  <img src="/images/aim/aim-repositories.png" />
+<Frame caption="Workstation Dashboard Overview">
+  <img src="/images/aim/workstations-dashboard.png" />
 </Frame>
 
 ### What the Dashboard Shows
 
-- **Total Repositories** — Complete count of repositories discovered
-- **Vulnerable Repositories** — Repositories linked to security findings
-- **Private Repositories** — Internal or restricted repositories
-- **Public Repositories** — Internet-facing repositories
-- **Activity Panel** — Repository update or commit activity
-- **Archive Status** — Archived vs active repositories
-- **Technology Distribution** — Languages and tech stacks used (when available)
+- **Total Workstations** — All discovered employee devices
+- **Vulnerable Workstations** — Devices with one or more security findings
+- **Exposure Status** — Safe vs exposed workstations
+- **Risk Distribution** — Risk scoring across devices
+- **Vulnerability Trends** — High-level trend view (when data exists)
+- **Severity Distribution** — Breakdown of Critical, High, Medium, and Low findings
 
-Below the analytics, the repository table allows users to:
+Below the analytics, the workstation table allows teams to:
 
-- Search repositories by name  
+- Search devices by name or identifier  
 - Filter by owner, risk, exposure, adapters, or vulnerability presence  
-- Sort by activity, creation date, or risk score  
+- Sort devices by risk score, discovery date, or vulnerability count  
 
-Each row represents a single repository discovered by AIM.
+Each row represents a single workstation asset tracked by AIM.
 
 ---
 
-## Repository Asset View (Inside a Repository)
+## Asset Risk Calculation
 
-Clicking any repository opens its **Repository Asset View**, providing deep visibility into that specific codebase.
+Each workstation includes a transparent and explainable **Asset Risk Calculation**, showing exactly how its final risk score is derived.
 
-<Frame caption="Repository Asset View">
-  <img src="/images/aim/aim-repositories2.png" />
+<Frame caption="Workstation Asset Risk Calculation">
+  <img src="/images/aim/workstation-risk-calculation.png" />
 </Frame>
 
-### Repository Summary Panel
+### How Risk Is Calculated
 
-Each repository asset includes:
+AIM computes workstation risk using weighted components:
 
-- **Repository Name & Status** (Active / Inactive)
+- **Vulnerabilities (60%)**  
+  Based on severity counts:
+  - Critical
+  - High
+  - Medium
+  - Low
+
+- **Exposure (30%)**  
+  Whether the workstation is externally reachable or safely contained.
+
+- **Inherent Asset Risk (10%)**  
+  Baseline risk associated with the asset type (workstation, laptop, VM).
+
+### Final Risk Score
+
+All components are combined into a **final numerical risk score**, giving teams:
+
+- Clear prioritization
+- Consistent scoring across asset types
+- Defensible risk justification for audits and reporting
+
+This ensures workstation risk is **measurable, explainable, and actionable**.
+
+---
+
+## Workstation Asset View (Inside a Workstation)
+
+Clicking any workstation opens its **Workstation Asset View**, providing deep visibility into that specific device.
+
+<Frame caption="Workstation Asset View">
+  <img src="/images/aim/workstation-asset-view.png" />
+</Frame>
+
+### Workstation Summary Panel
+
+Each workstation asset displays:
+
+- **Device Name & Status** (Active / Decommissioned)
 - **Total Vulnerabilities**
 - **Risk Score**
-- **Exposure Status** (Safe / Exposed)
+- **Exposure Status**
 - **Environment** (Prod, Dev, Unknown)
 - **First Found / Last Found**
 - **Managed By** (Owner or team)
@@ -59,21 +95,22 @@ Lifecycle actions available:
 - **Decommission Asset**
 - **Delete Asset**
 
-### Repository Insights
+### Workstation Insights
 
-Within the repository asset view, AIM provides:
+Within the asset view, teams can access:
 
-- **Vulnerability Trends** — Historical vulnerability changes (if available)
-- **Severity Distribution** — Breakdown of vulnerability severity
-- **Tags** — Labels such as `GitHub`, `Repository`
-- **Technologies** — Detected languages or frameworks (when available)
-- **Asset Relations Graph** — Visual mapping of how the repository connects to:
+- **Vulnerability Trends** — Historical vulnerability changes
+- **Severity Distribution** — Severity breakdown for findings
+- **Tags** — Labels such as `workstation`, `laptop`, `employee-device`
+- **Technologies** — Installed or detected technologies (if available)
+- **Asset Relations Graph** — Visual mapping of relationships with:
+  - Employees
   - Applications
-  - APIs
-  - Domains
-  - Other assets
+  - Repositories
+  - Certificates
+  - Other infrastructure assets
 
-This view enables teams to trace security findings back to source code and understand downstream impact.
+This view enables precise investigation, faster remediation, and clear understanding of device impact across the organization.
 
 ---
 
@@ -81,6 +118,5 @@ This view enables teams to trace security findings back to source code and under
 
 <Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles"
   href="https://suite.snapsec.co/demo">
-  Instantly explore how Snapsec AIM discovers, enriches, and tracks repositories and other assets in real time — all without creating an account.
+  Instantly explore how Snapsec AIM discovers, enriches, and tracks workstations and other assets in real time — all without creating an account.
 </Card>
-
