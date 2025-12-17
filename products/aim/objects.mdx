@@ -1,94 +1,100 @@
 ---
 title: "Object Storage"
-description: "Track, analyze, and manage all cloud storage buckets with full visibility into risk, exposure, and associations."
-icon: "box-archive"
+description: "Discover, track, and assess cloud object storage buckets across AWS, Azure, and GCP."
+icon: "database"
 mode: "wide"
 ---
 
 ## Overview
 
-The **Object Storage** module provides centralized visibility into all cloud storage buckets discovered across your environments.  
-It highlights exposure status, ownership gaps, associations, and risk posture — helping teams secure publicly accessible or misconfigured buckets before they become threat vectors.
+The **Object Storage** dashboard provides a centralized view of all cloud storage buckets discovered across supported cloud providers such as **AWS S3**, **Azure Blob Storage**, and **Google Cloud Storage (GCS)**.
 
-<Frame caption="Object Storage Overview">
-  <img src="/images/aim/object-storage1.png" />
+This dashboard helps security and cloud teams quickly understand storage exposure, ownership gaps, and potential risk signals.
+
+<Frame caption="Object Storage Inventory Dashboard">
+  <img src="/images/aim/object-storage-dashboard.png" />
 </Frame>
 
+### What the Dashboard Shows
+
+- **Total Buckets** — Total number of discovered object storage buckets  
+- **Exposed Buckets** — Buckets that may be publicly accessible or misconfigured  
+- **Tested Buckets** — Buckets assessed through connected security scanners  
+- **Exposure Repositories** — Linked assets or services interacting with buckets  
+
+Below the summary metrics, the bucket table allows teams to:
+
+- Search buckets by name  
+- Filter by **Owner**, **Risk**, **Exposure**, **Adapters**, or **Vulnerability presence**  
+- View vulnerability count, auto risk score, and associations  
+- Track **first found** and **last found** timestamps  
+
+Each row represents a single object storage bucket managed within AIM.
+
 ---
 
-## Key Metrics
+## Object Storage Asset View (Inside a Bucket)
 
-- **Total Buckets**  
-  Shows the full count of detected cloud buckets across environments.
+Selecting a bucket opens its **Object Storage Asset View**, offering detailed visibility into configuration, risk posture, and relationships.
 
-- **Exposed Buckets**  
-  Buckets publicly reachable or misconfigured according to adapter data.
-
-- **Tested Buckets**  
-  Buckets processed or scanned by security tools for additional insights.
-
-- **Exposure Repositories**  
-  Number of repositories or linked assets that introduce risk to a bucket.
-
----
-
-## Bucket Table Details
-
-Each bucket includes enriched metadata to support deeper analysis:
-
-| Column | Description |
-|--------|-------------|
-| **Asset Value** | Bucket name and source details |
-| **Source** | Cloud provider or integration (e.g., OCI, AWS) |
-| **Vuln Count** | Total vulnerabilities linked to assets inside or referencing this bucket |
-| **Auto Risk** | Automated risk score based on severity, exposure, and associations |
-| **Owner** | Responsible user or team (if assigned) |
-| **Tags** | Labels such as *ObjectStorage*, *Internal*, or *External* |
-| **Associations** | Number of assets or systems connected to this bucket |
-| **Detected On** | First and last seen timestamps |
-
-<Frame caption="Bucket Listing">
-  <img src="/images/aim/object-storage2.png" />
+<Frame caption="Object Storage Asset View">
+  <img src="/images/aim/object-storage-asset.png" />
 </Frame>
 
----
+### Bucket Summary Panel
 
-## What You Can Do
+Each object storage asset includes:
 
-- **Identify exposed buckets** before they lead to data leakage  
-- ** Correlate buckets with applications, repositories, and IPs**  
-- **Assign owners** to ensure accountability  
-- **Track detection timelines** to understand lifecycle and activity  
-- **Filter by adapters, risk, exposure, or vulnerabilities** for fast triage  
+- **Bucket Name & Status** (Active / Inactive)
+- **Total Vulnerabilities**
+- **Risk Score**
+- **Exposure Status** (Safe / Exposed)
+- **Environment** (Prod, Dev, Unknown)
+- **First Found / Last Found**
+- **Managed By** (Owner or team)
+
+Available lifecycle actions:
+- **Decommission Asset**
+- **Delete Asset**
+
+### Bucket Insights
+
+Within the asset view, AIM provides:
+
+- **Vulnerability Trends** — Historical vulnerability data (when available)
+- **Severity Distribution** — Breakdown of detected issues by severity
+- **Tags** — Classification labels for governance and filtering
+- **Technologies** — Related services or storage technologies
+- **Asset Relations Graph** — Visual mapping showing how the bucket is:
+  - Hosted by cloud vendors
+  - Connected to applications or services
+  - Related to other assets in the environment
+
+This view enables teams to understand storage exposure in context and trace how sensitive data stores connect to the wider attack surface.
 
 ---
 
 ## Example Use Cases
 
-<Columns cols={2}>
+<CardGroup cols={3}>
+  <Card title="Cloud Exposure Management" icon="cloud-exclamation">
+    Identify publicly exposed or misconfigured storage buckets before data leakage occurs.
+  </Card>
 
-<Card title="Shadow Bucket Detection" icon="circle-exclamation">
-Detect previously unknown buckets created outside governance.
-</Card>
+  <Card title="Data Security Governance" icon="lock">
+    Maintain visibility into where critical data is stored and who owns each bucket.
+  </Card>
 
-<Card title="Misconfiguration Review" icon="shield-halved">
-Quickly identify buckets with open access or weak configuration.
-</Card>
-
-<Card title="Data Sensitivity Tracking" icon="lock">
-Map buckets to high-risk repositories or systems storing sensitive data.
-</Card>
-
-<Card title="Ownership Assignment" icon="user-check">
-Assign responsible teams to each bucket to strengthen accountability.
-</Card>
-
-</Columns>
+  <Card title="Incident Investigation" icon="diagram-project">
+    Quickly trace compromised buckets and understand their relationships with other assets.
+  </Card>
+</CardGroup>
 
 ---
 
 ## Explore Live Demo
 
-<Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Instantly explore how Snapsec AIM discovers, enriches, and tracks every asset in real time — all without creating an account.
+<Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles"
+  href="https://suite.snapsec.co/demo">
+Instantly explore how Snapsec AIM discovers, enriches, and tracks object storage assets in real time — all without creating an account.
 </Card>
