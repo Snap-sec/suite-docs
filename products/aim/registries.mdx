@@ -1,118 +1,113 @@
 ---
 title: "Registries"
-description: "Track container registries, analyze vulnerability distribution, and monitor exposure across registry assets."
+description: "Track registries, monitor vulnerabilities, and manage registry-linked assets across your environments."
 icon: "boxes-stacked"
 mode: "wide"
 ---
 
 ## Overview
 
-The **Registries** module provides centralized visibility into all discovered container registries across your environment.  
-It aggregates registry metadata, vulnerability insights, exposure status, and associations — enabling teams to secure build pipelines and monitor container supply-chain risks.
+The **Registries Dashboard** provides a centralized view of all container registries discovered across your organization, including cloud-based and on-prem registries.
+
+This view helps security and platform teams quickly understand registry exposure, vulnerability posture, and ownership status.
 
 <Frame caption="Registries Dashboard">
-  <img src="/images/aim/registries-overview.png" />
+  <img src="/images/aim/registries-dashboard.png" />
 </Frame>
 
+### What the Dashboard Shows
+
+- **Total Registries** — All detected container registries  
+- **Vulnerable Registries** — Registries with associated vulnerabilities  
+- **Exposed Registries** — Internet-facing or externally reachable registries  
+- **Shadowed Registries** — Unmanaged or unknown registries  
+
+The dashboard also includes:
+
+- **Severity Distribution** — Critical, High, Medium, Low breakdown  
+- **Vulnerability Distribution** — Count by severity  
+- **Environment Distribution** — Prod, Dev, Staging (when available)  
+
+Below the charts, the registry table allows users to:
+
+- Search registries by name  
+- Filter by adapters and owners  
+- Sort by vulnerability count or detection time  
+
+Each row represents a single registry asset tracked by AIM.
+
 ---
 
-## Key Metrics
+## Total Vulnerabilities View
 
-| Metric | Description |
-|--------|-------------|
-| **Total Registries** | Total number of registry assets detected (e.g., GitLab registries). |
-| **Vulnerable Registries** | Registries with one or more vulnerabilities associated with their images. |
-| **Exposed Registries** | Registries publicly reachable or accessible through external exposure. |
-| **Shadowed Registries** | Registries found through discovery but not officially managed or tracked. |
+Clicking on the **Vulnerability Count** opens a focused breakdown of vulnerabilities associated with registries.
 
----
-
-## Severity Distribution
-
-A donut chart visualizes overall vulnerability severity across all registry assets:
-
-- **Critical**
-- **High**
-- **Medium**
-- **Low**
-
-This helps prioritize which registries require immediate attention.
-
-<Frame caption="Severity Distribution Visualization">
-  <img src="/images/aim/registries-severity.png" />
+<Frame caption="Total Vulnerabilities Breakdown">
+  <img src="/images/aim/registries-total-vulnerabilities.png" />
 </Frame>
 
+### Vulnerability Summary
+
+This modal provides:
+
+- **Total Vulnerabilities Count**
+- **Critical Vulnerabilities**
+- **High Vulnerabilities**
+- **Medium Vulnerabilities**
+- **Low Vulnerabilities**
+
+This view helps teams quickly assess overall registry risk without leaving the dashboard, enabling faster prioritization and triage.
+
 ---
 
-## Vulnerability Distribution
+## Registry Asset View 
 
-A bar graph breaks down vulnerability counts across severity types, highlighting registries with the highest risk concentration.
+Selecting a specific registry opens its **Registry Asset View**, providing deep visibility into that individual registry.
 
-<Frame caption="Vulnerability Distribution Breakdown">
-  <img src="/images/aim/registries-vuln-chart.png" />
+<Frame caption="Registry Asset View">
+  <img src="/images/aim/registries-asset.png" />
 </Frame>
 
----
+### Registry Summary Panel
 
-## Registries Table
+Each registry asset includes:
 
-The Registries table provides detailed metadata for each registry:
+- **Registry Name & Status** (Active / Inactive)
+- **Total Vulnerabilities**
+- **Risk Score**
+- **Exposure Status** (Safe / Exposed)
+- **Environment**
+- **First Found / Last Found**
+- **Managed By**
 
-### **Columns**
+Lifecycle actions available:
+- **Decommission Asset**
+- **Delete Asset**
 
-| Column | Description |
-|--------|-------------|
-| **Asset Value** | Registry name/path such as `registry.snapsec.com/...` |
-| **Source** | Origin of detection, e.g., GitLab. |
-| **Vuln Count** | Number of vulnerabilities associated with registry images. |
-| **Auto Risk** | Automated risk rating based on severity + exposure. |
-| **Owner** | Assigned owner (if any). |
-| **Tags** | Classification tags like `gitlab`, `container-registry`, `vm`, `registry`. |
-| **Associations** | Linked assets (e.g., applications, images). |
-| **Detected On** | Timestamp of first/last detection for lifecycle tracking. |
+### Registry Insights
 
-<Frame caption="Registry Table Example">
-  <img src="/images/aim/registries-table.png" />
-</Frame>
+Within the asset view, AIM provides:
 
----
+- **Vulnerability Trends** — Historical vulnerability data (if available)
+- **Severity Distribution** — Severity breakdown for the registry
+- **Tags** — Classification labels
+- **Technologies** — Detected technologies (when available)
+- **Asset Relations Graph** — Visual mapping of how the registry connects to:
+  - Images
+  - Applications
+  - CI/CD pipelines
+  - Other AIM assets
 
-## Search, Filters & Sorting
-
-Users can refine registry results through:
-
-- **Adapters** (e.g., GitLab)
-- **Owners**
-- **Risk scores**
-- **Exposure**
-- **hasVulns** (show only vulnerable registries)
-
-This enables targeted analysis of critical repository and registry surfaces.
-
----
-
-## Use Cases
-
-<CardGrid>
-
-<Card title="Supply Chain Security" icon="shield-halved">
-  Identify vulnerable container images early in the CI/CD pipeline.
-</Card>
-
-<Card title="Registry Exposure Analysis" icon="lock-open">
-  Monitor external-facing registries and prevent supply-chain leaks.
-</Card>
-
-<Card title="DevSecOps Integration" icon="code-merge">
-  Streamline registry risk insights into CI/CD workflows.
-</Card>
-
-</CardGrid>
+This view allows teams to understand registry-level risk, trace dependencies, and assess blast radius.
 
 ---
 
 ## Explore Live Demo
 
-<Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Instantly explore how Snapsec AIM discovers, enriches, and tracks every asset in real time — all without creating an account.
+<Card
+  title="Explore AIM Live — No Signup Needed"
+  icon="wand-magic-sparkles"
+  href="https://suite.snapsec.co/demo"
+>
+  Instantly explore how Snapsec AIM discovers, enriches, and tracks registries and other assets in real time — all without creating an account.
 </Card>
