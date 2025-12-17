@@ -5,136 +5,112 @@ icon: "desktop"
 mode: "wide"
 ---
 
-The **Workstation Directory** gives security and IT teams complete visibility into all employee-linked devices such as laptops, desktops, VMs, and spare systems.  
-AIM continuously monitors workstation posture, vulnerabilities, ownership, and relationships with other assets.
+## Workstation Dashboard Overview
 
----
+The **Workstation Directory** provides a centralized dashboard of all employee-linked devices such as laptops, desktops, and virtual workstations discovered across the environment.
 
-## Workstation Dashboard
-
-The dashboard provides a centralized view of all discovered workstations and their overall security posture.
+This dashboard gives security and IT teams immediate visibility into device posture, vulnerability presence, exposure status, and ownership.
 
 <Frame caption="Workstation Dashboard Overview">
   <img src="/images/aim/workstations/workstations-dashboard.png" />
 </Frame>
 
-### What You See on the Dashboard
+### What the Dashboard Shows
 
-- **Total Workstations** discovered across the organization  
-- **Vulnerable Workstations** with detected security issues  
-- **Exposure Status** (Safe / Exposed / Shadowed)  
-- **Risk Scoring** based on vulnerabilities and exposure  
-- **Discovery Timeline** showing first and last detection  
+- **Total Workstations** — All discovered employee devices
+- **Vulnerable Workstations** — Devices with one or more security findings
+- **Exposure Status** — Safe vs exposed workstations
+- **Risk Distribution** — Risk scoring across devices
+- **Vulnerability Trends** — High-level trend view (when data exists)
+- **Severity Distribution** — Breakdown of Critical, High, Medium, and Low findings
 
-### Risk & Severity Insights
+Below the analytics, the workstation table allows teams to:
 
-<Frame caption="Workstation Vulnerability & Severity Distribution">
-  <img src="/images/aim/workstations/workstations-severity.png" />
-</Frame>
+- Search devices by name or identifier  
+- Filter by owner, risk, exposure, adapters, or vulnerability presence  
+- Sort devices by risk score, discovery date, or vulnerability count  
 
-This view helps teams quickly identify:
-- High-risk endpoints
-- Devices requiring immediate patching
-- Shadow or unmanaged workstations
-
-### Asset Relationship Awareness
-
-Workstations are not isolated assets. AIM visually maps their relationships to:
-- Employees
-- Applications
-- Repositories
-- Certificates
-- Network services
-
-This provides immediate context on **blast radius** if a workstation is compromised.
+Each row represents a single workstation asset tracked by AIM.
 
 ---
 
-## Inside a Workstation Asset
+## Asset Risk Calculation
 
-Clicking a workstation opens its **full asset profile**, enabling deep inspection and lifecycle control.
+Each workstation includes a transparent and explainable **Asset Risk Calculation**, showing exactly how its final risk score is derived.
 
-<Frame caption="Workstation Asset Detail View">
-  <img src="/images/aim/workstations/workstations-asset.png" />
+<Frame caption="Workstation Asset Risk Calculation">
+  <img src="/images/aim/workstations/workstation-risk-calculation.png" />
 </Frame>
 
-### Asset Summary Panel
+### How Risk Is Calculated
 
-Each workstation asset includes:
+AIM computes workstation risk using weighted components:
 
-- **Status** (Active, Shadowed, Decommissioned)
+- **Vulnerabilities (60%)**  
+  Based on severity counts:
+  - Critical
+  - High
+  - Medium
+  - Low
+
+- **Exposure (30%)**  
+  Whether the workstation is externally reachable or safely contained.
+
+- **Inherent Asset Risk (10%)**  
+  Baseline risk associated with the asset type (workstation, laptop, VM).
+
+### Final Risk Score
+
+All components are combined into a **final numerical risk score**, giving teams:
+
+- Clear prioritization
+- Consistent scoring across asset types
+- Defensible risk justification for audits and reporting
+
+This ensures workstation risk is **measurable, explainable, and actionable**.
+
+---
+
+## Workstation Asset View (Inside a Workstation)
+
+Clicking any workstation opens its **Workstation Asset View**, providing deep visibility into that specific device.
+
+<Frame caption="Workstation Asset View">
+  <img src="/images/aim/workstations/workstation-asset-view.png" />
+</Frame>
+
+### Workstation Summary Panel
+
+Each workstation asset displays:
+
+- **Device Name & Status** (Active / Decommissioned)
 - **Total Vulnerabilities**
 - **Risk Score**
-- **Exposure State**
-- **Environment** (Prod, Unknown, etc.)
+- **Exposure Status**
+- **Environment** (Prod, Dev, Unknown)
 - **First Found / Last Found**
-- **Managed By** (Owner assignment)
+- **Managed By** (Owner or team)
 
-### Vulnerability & Severity Analysis
-
-<Frame caption="Workstation Vulnerability Trends">
-  <img src="/images/aim/workstations/workstations-trends.png" />
-</Frame>
-
-- Tracks vulnerability trends over time  
-- Shows severity distribution (Critical, High, Medium, Low)  
-- Helps validate remediation progress  
-
-### Tags, Technologies & Ports
-
-Inside the asset, teams can manage:
-- **Tags** (e.g., workstation, VM, spare-device)
-- **Technologies** installed or detected
-- **Open Ports** (if applicable)
-
-This enables deeper technical profiling of each device.
-
-### Asset Relationship Graph
-
-<Frame caption="Workstation Asset Relations">
-  <img src="/images/aim/workstations/workstations-relations.png" />
-</Frame>
-
-The relationship graph shows how a workstation connects to:
-- Employees
-- Applications
-- Repositories
-- Other infrastructure assets  
-
-This is critical for impact analysis during incidents.
-
-### Lifecycle Actions
-
-Each workstation supports full lifecycle management:
-- **Assign / Change Owner**
-- **Decommission Workstation**
+Lifecycle actions available:
+- **Decommission Asset**
 - **Delete Asset**
 
-All changes sync across AIM modules in real time.
+### Workstation Insights
 
----
+Within the asset view, teams can access:
 
-## Example Use Cases
+- **Vulnerability Trends** — Historical vulnerability changes
+- **Severity Distribution** — Severity breakdown for findings
+- **Tags** — Labels such as `workstation`, `laptop`, `employee-device`
+- **Technologies** — Installed or detected technologies (if available)
+- **Asset Relations Graph** — Visual mapping of relationships with:
+  - Employees
+  - Applications
+  - Repositories
+  - Certificates
+  - Other infrastructure assets
 
-<Columns cols={2}>
-
-<Card title="Endpoint Risk Management" icon="shield-halved">
-  Identify high-risk employee devices and prioritize remediation.
-</Card>
-
-<Card title="IT Asset Tracking" icon="laptop">
-  Maintain an accurate inventory of all workstations and spare devices.
-</Card>
-
-<Card title="Incident Investigation" icon="triangle-exclamation">
-  Analyze affected workstations and their asset relationships during incidents.
-</Card>
-
-<Card title="Compliance & Audits" icon="clipboard-check">
-  Ensure all employee devices are monitored, owned, and lifecycle-managed.
-</Card>
-
-</Columns>
+This view enables precise investigation, faster remediation, and clear understanding of device impact across the organization.
 
 ---
 
@@ -142,5 +118,6 @@ All changes sync across AIM modules in real time.
 
 <Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles"
   href="https://suite.snapsec.co/demo">
-Instantly explore how Snapsec AIM discovers, enriches, and tracks workstations and other assets in real time — all without creating an account.
+  Instantly explore how Snapsec AIM discovers, enriches, and tracks workstations and other assets in real time — all without creating an account.
 </Card>
+
