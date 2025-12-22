@@ -45,7 +45,8 @@
               "products/vm/reports",
               "products/vm/search",
               "products/vm/sla-analytics",
-              "products/vm/ownership"            
+              "products/vm/ownership",
+              "products/vm/normalisation-rules"
             ]
           },{
             "group": "Attack Surface Management",
