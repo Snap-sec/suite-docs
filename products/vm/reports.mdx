@@ -19,80 +19,56 @@ You can generate, download, revalidate, or delete reports directly from this int
 
 ---
 
-## Report Types & Their Purpose
+## Types of Reports & Their Purpose
 
-Snapsec supports multiple report types designed for different stakeholders, decision points, and security workflows.  
-Each report serves a distinct objective — from technical remediation to executive risk communication.
+Snapsec provides multiple report types to support different security, compliance, and business workflows.  
+Each report is designed with a specific audience and outcome in mind — from deep technical remediation to executive decision-making.
 
----
+<Frame caption="Report Types Selection – Choose the right report for your security objective">
+  <img
+    src="/images/vm/reports2.png"
+    alt="Generate Report modal showing different report types available in Snapsec"
+  />
+</Frame>
 
-### Assessment Specific Reports
+<Columns cols={2}>
+  <Card title="Assessment-Specific Report" icon="list-check">
+    **Purpose:**  
+    Used by security engineers and pentesters to document findings from a single assessment.  
+    This report focuses on technical depth — vulnerabilities, proof of concept, impact, and remediation steps — making it ideal for fixing issues identified during a test.
+  </Card>
 
-**Purpose:**  
-Assessment-specific reports provide a **deep technical snapshot** of security findings for a single engagement, scan, or test.
+  <Card title="Asset-Specific Report" icon="server">
+    **Purpose:**  
+    Designed to evaluate the security posture of a specific asset or asset group.  
+    Helps asset owners understand cumulative risk, recurring weaknesses, and exposure trends tied to domains, IPs, APIs, or infrastructure components.
+  </Card>
 
-They are primarily used to:
-- Communicate detailed findings to engineering and security teams  
-- Serve as an official deliverable for penetration tests or security assessments  
-- Support remediation planning with evidence, impact, and reproduction steps  
+  <Card title="Executive Report" icon="chart-pie">
+    **Purpose:**  
+    Created for leadership and non-technical stakeholders.  
+    Summarizes overall risk, severity distribution, remediation progress, and trends — enabling informed business decisions without exposing technical noise.
+  </Card>
 
-These reports focus on **accuracy, depth, and exploit context**, making them ideal for hands-on remediation work.
+  <Card title="Change Request Report" icon="arrows-rotate">
+    **Purpose:**  
+    Supports secure change management by validating security impact before or after a change.  
+    Ensures new releases, integrations, or infrastructure updates meet security requirements before approval.
+  </Card>
 
----
+  <Card title="Revalidation Report" icon="shield-check">
+    **Purpose:**  
+    Confirms whether previously reported vulnerabilities have been successfully remediated.  
+    Commonly used for client verification, compliance evidence, and closure confirmation after fixes are deployed.
+  </Card>
 
-### Asset Specific Reports
+  <Card title="Organization-Wide Report" icon="building">
+    **Purpose:**  
+    Provides a holistic view of security posture across all assets and assessments.  
+    Useful for audits, quarterly reviews, and tracking risk trends at an organizational level.
+  </Card>
+</Columns>
 
-**Purpose:**  
-Asset-specific reports concentrate on the **security posture of a single asset or asset group**, independent of how many assessments contributed to the findings.
-
-They help teams:
-- Understand long-term risk exposure of critical assets  
-- Track recurring vulnerabilities across multiple scans  
-- Support asset owners with focused remediation accountability  
-
-These reports are commonly used for **asset owners, infrastructure teams, and cloud security reviews**.
-
----
-
-### Executive Reports
-
-**Purpose:**  
-Executive reports translate technical vulnerability data into **business-level risk insights**.
-
-They are designed to:
-- Communicate security posture to leadership and non-technical stakeholders  
-- Highlight trends, risk concentration, and remediation progress  
-- Support board discussions, audits, and strategic planning  
-
-Rather than listing every vulnerability, executive reports emphasize **impact, risk trends, and overall security maturity**.
-
----
-
-### Change Request Reports
-
-**Purpose:**  
-Change request reports validate the **security impact of system changes** such as deployments, configuration updates, or infrastructure modifications.
-
-They are used to:
-- Ensure changes do not introduce new vulnerabilities  
-- Provide security sign-off for release approvals  
-- Maintain traceability between change management and security testing  
-
-These reports are especially valuable in **DevSecOps and regulated environments** where change verification is mandatory.
-
----
-
-### Revalidation Reports
-
-**Purpose:**  
-Revalidation reports confirm whether previously identified vulnerabilities have been **successfully fixed**.
-
-They help teams:
-- Verify remediation effectiveness  
-- Prevent false closure of vulnerabilities  
-- Provide audit-ready proof of fixes  
-
-Revalidation reports are often used during **post-remediation reviews, compliance audits, and customer validation cycles**.
 
 ---
 
