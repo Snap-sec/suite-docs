@@ -19,33 +19,83 @@ You can generate, download, revalidate, or delete reports directly from this int
 
 ---
 
-## Report Types
+---
 
-<Frame caption="Report generation modal showing available report types">
-  <img src="/images/vm/reports4.png" alt="Report generation modal with options for Full Executive, Asset Specific, Assessment Specific, and Change Request reports" />
-</Frame>
+## Report Types & Their Purpose
 
-Snapsec supports multiple report types to meet different visibility needs:
+Snapsec supports multiple report types designed for different stakeholders, decision points, and security workflows.  
+Each report serves a distinct objective — from technical remediation to executive risk communication.
 
-<Columns cols={2}>
-  <Card title="1. Assessment Specific Reports" icon="list-check">
-    Generate detailed reports for a single assessment or project.
+---
 
-  </Card>
-  <Card title="2. Asset Specific Reports" icon="server">
-    Create reports for specific asset types like subdomains, IPs, or ports, summarizing associated vulnerabilities and remediation progress.
-  </Card>
-  <Card title="3. Executive Reports" icon="chart-pie">
-    Executive-level summaries featuring charts, metrics, and trends — ideal for board or CISO-level presentations.
-  </Card>
-  <Card title="4. Change Request Reports" icon="arrows-rotate">
-    Reports dedicated to tracking vulnerabilities, test outcomes, and verification for approved change requests.
-  </Card>
+### Assessment Specific Reports
 
-  <Card title="4. Revalidation Reports" icon="arrows-rotate">
-  Confirm whether previously reported vulnerabilities are fixed, with clear pass/fail results and updated evidence.  
-  </Card>
-</Columns>
+**Purpose:**  
+Assessment-specific reports provide a **deep technical snapshot** of security findings for a single engagement, scan, or test.
+
+They are primarily used to:
+- Communicate detailed findings to engineering and security teams  
+- Serve as an official deliverable for penetration tests or security assessments  
+- Support remediation planning with evidence, impact, and reproduction steps  
+
+These reports focus on **accuracy, depth, and exploit context**, making them ideal for hands-on remediation work.
+
+---
+
+### Asset Specific Reports
+
+**Purpose:**  
+Asset-specific reports concentrate on the **security posture of a single asset or asset group**, independent of how many assessments contributed to the findings.
+
+They help teams:
+- Understand long-term risk exposure of critical assets  
+- Track recurring vulnerabilities across multiple scans  
+- Support asset owners with focused remediation accountability  
+
+These reports are commonly used for **asset owners, infrastructure teams, and cloud security reviews**.
+
+---
+
+### Executive Reports
+
+**Purpose:**  
+Executive reports translate technical vulnerability data into **business-level risk insights**.
+
+They are designed to:
+- Communicate security posture to leadership and non-technical stakeholders  
+- Highlight trends, risk concentration, and remediation progress  
+- Support board discussions, audits, and strategic planning  
+
+Rather than listing every vulnerability, executive reports emphasize **impact, risk trends, and overall security maturity**.
+
+---
+
+### Change Request Reports
+
+**Purpose:**  
+Change request reports validate the **security impact of system changes** such as deployments, configuration updates, or infrastructure modifications.
+
+They are used to:
+- Ensure changes do not introduce new vulnerabilities  
+- Provide security sign-off for release approvals  
+- Maintain traceability between change management and security testing  
+
+These reports are especially valuable in **DevSecOps and regulated environments** where change verification is mandatory.
+
+---
+
+### Revalidation Reports
+
+**Purpose:**  
+Revalidation reports confirm whether previously identified vulnerabilities have been **successfully fixed**.
+
+They help teams:
+- Verify remediation effectiveness  
+- Prevent false closure of vulnerabilities  
+- Provide audit-ready proof of fixes  
+
+Revalidation reports are often used during **post-remediation reviews, compliance audits, and customer validation cycles**.
+
 
 ---
 
