@@ -36,18 +36,18 @@
               "products/vm/dashboard",
               "products/vm/assessments",
               "products/vm/assessment-groups",
-              "products/vm/assets",
               "products/vm/vulnerabilities",
               "products/vm/vulnerability-groups",
-              "products/vm/blockers",
-              "products/vm/change-management",
-              "products/vm/integrations",
-              "products/vm/reports",
-              "products/vm/search",
-              "products/vm/sla-analytics",
               "products/vm/ownership",
+              "products/vm/search",
+              "products/vm/assets",
+              "products/vm/change-management",
+              "products/vm/sla-analytics",
+              "products/vm/reports",
               "products/vm/business-units",
-              "products/vm/normalization-rules"
+              "products/vm/blockers",
+              "products/vm/normalization-rules",
+              "products/vm/integrations"
             ]
           },{
             "group": "Attack Surface Management",
