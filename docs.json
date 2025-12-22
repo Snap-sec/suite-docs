@@ -46,6 +46,7 @@
               "products/vm/search",
               "products/vm/sla-analytics",
               "products/vm/ownership",
+              "products/vm/business-units",
               "products/vm/normalization-rules"
             ]
           },{
