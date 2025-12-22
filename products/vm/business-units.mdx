@@ -1,14 +1,15 @@
 ---
 title: "Business Units"
-description: "Organize assets, vulnerabilities, and assessments by business function or team ownership."
+description: "Organize vulnerabilities, assessments, and remediation ownership by business function or team."
 icon: "briefcase"
 mode: "wide"
 ---
 
 ## Business Units Overview
 
-The **Business Units** dashboard provides a high-level view of all organizational units and their associated security posture.  
-Each card represents a distinct business function, helping teams track ownership, vulnerability exposure, and assessment coverage.
+The **Business Units** dashboard provides a high-level view of how vulnerabilities and assessments are distributed across organizational teams.
+
+Each card represents a business function or team, enabling clear ownership, accountability, and risk visibility.
 
 <Frame caption="Business Units Overview">
   <img src="/images/vm/business-units-overview.png" />
@@ -16,81 +17,85 @@ Each card represents a distinct business function, helping teams track ownership
 
 ### What You Can See
 - Business unit name and description  
-- Assigned owner  
-- Severity counters (Critical → Info)  
-- Quick access to detailed unit insights  
+- Assigned owner or responsible lead  
+- Vulnerability counts by severity (Critical → Info)  
+- Quick access to detailed unit-level security metrics  
 
-This view enables leadership and security teams to quickly understand risk distribution across departments.
+This view helps security leaders quickly understand **where risk lives inside the organization**.
 
 ---
 
 ## Create a Business Unit
 
-New business units can be created to align assets and assessments with organizational structure.
+Business units can be created to align vulnerability ownership with real-world organizational structure.
 
 <Frame caption="Create Business Unit">
   <img src="/images/vm/business-units-create.png" />
 </Frame>
 
 ### Fields Required
-- **Name** — Business unit identifier (e.g., Security Operations, DevOps)
-- **Description** — Purpose and responsibility of the unit
-- **Owner** — Accountable person or team
-- **Logo URL** *(optional)* — Visual identifier for the unit
+- **Name** — Business unit identifier (e.g., Security Operations, DevOps, Product Engineering)  
+- **Description** — Scope and responsibility of the unit  
+- **Owner** — Accountable individual or team  
+- **Logo URL** *(optional)* — Visual identifier  
 
-Once created, the business unit becomes available for asset and assessment association.
+Once created, business units can be assigned to:
+- Vulnerabilities  
+- Assessments  
+- Assets involved in remediation workflows  
 
 ---
 
 ## Business Unit Details (Inside a Business Unit)
 
-Clicking **View Details** opens the dedicated business unit page with summarized security metrics.
+Selecting **View Details** opens the dedicated business unit page with consolidated vulnerability metrics.
 
 <Frame caption="Business Unit Summary View">
   <img src="/images/vm/business-units-details.png" />
 </Frame>
 
 ### Summary Metrics Include
-- **Total Vulnerabilities**
-- **Total Assessments**
-- **Open Vulnerabilities**
-- **Closed Vulnerabilities**
-- **Average CVSS Score**
+- **Total Vulnerabilities**  
+- **Total Assessments**  
+- **Open Vulnerabilities**  
+- **Closed Vulnerabilities**  
+- **Average CVSS Score**  
 
-Ownership information is clearly displayed to ensure accountability and streamlined remediation workflows.
+Ownership information is prominently displayed to reinforce accountability and speed up remediation coordination.
 
 ---
 
 ## Security Analytics & Associated Assessments
 
-Scrolling further within a business unit reveals deeper analytics and assessment relationships.
+Scrolling further reveals deeper vulnerability analytics and assessment relationships for the selected business unit.
 
 <Frame caption="Business Unit Analytics & Assessments">
   <img src="/images/vm/business-units-analytics.png" />
 </Frame>
 
 ### Available Insights
-- **Vulnerability Timeline** — Historical view of detections over time
-- **Severity Distribution** — Breakdown by Critical, High, Medium, Low
-- **Detections vs Resolutions** — Measure remediation effectiveness
-- **Vulnerabilities by Status** — Track lifecycle states (In Progress, Fixed, Resolved, etc.)
-- **Associated Assessments** — Linked security assessments assigned to the unit
+- **Vulnerability Timeline** — Track detections over time  
+- **Severity Distribution** — Critical, High, Medium, Low breakdown  
+- **Detections vs Resolutions** — Measure remediation effectiveness  
+- **Vulnerabilities by Status** — In Progress, Fixed, Resolved, etc.  
+- **Associated Assessments** — Security assessments linked to the unit  
 
-This section helps teams understand not just *what* vulnerabilities exist, but *how effectively* they are being addressed.
+This view enables teams to assess **both exposure and remediation performance** at a business-unit level.
 
 ---
 
 ## Example Use Cases
 
 - **Security Operations:** Track remediation progress by team ownership  
-- **Engineering Leaders:** Understand which units generate the most risk  
-- **Compliance Teams:** Ensure every assessment is tied to a responsible unit  
-- **Management:** Gain visibility into organizational security maturity  
+- **Engineering Managers:** Understand vulnerability impact on their teams  
+- **Compliance Teams:** Ensure every assessment and finding has a clear owner  
+- **Leadership:** Gain visibility into organizational security maturity  
 
 ---
 
 ## Explore Live Demo
 
-<Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Explore how Snapsec AIM organizes assets, vulnerabilities, and assessments using business units — all without creating an account.
+<Card title="Explore Vulnerability Management Live — No Signup Needed"
+icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
+  Explore how Snapsec VM organizes vulnerabilities and assessments by business unit ownership — all without creating an account.
 </Card>
