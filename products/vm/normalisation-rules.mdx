@@ -12,7 +12,7 @@ The **Normalization Rules** dashboard provides a centralized view of all active 
 These rules allow security teams to standardize risk classification based on internal policies, asset context, or vulnerability type — ensuring consistent prioritization regardless of scanner source.
 
 <Frame caption="Normalization Rules Dashboard">
-  <img src="/images/vm/normalization/overview.png" />
+  <img src="/images/vm/normalization-overview.png" />
 </Frame>
 
 From this view, teams can:
@@ -28,7 +28,7 @@ From this view, teams can:
 Creating a normalization rule starts with defining **basic rule metadata** and **conditions** that determine when the rule should apply.
 
 <Frame caption="Create Normalization Rule – Conditions">
-  <img src="/images/vm/normalization/create-rule.png" />
+  <img src="/images/vm/normalization-create-rule.png" />
 </Frame>
 
 ### Rule Configuration Includes
@@ -49,7 +49,7 @@ The **Actions** section defines what happens when conditions are met.
 One option is **Set Discrete Severity**, which overrides the vulnerability’s severity with a fixed value.
 
 <Frame caption="Normalization Rule – Set Discrete Severity">
-  <img src="/images/vm/normalization/actions-severity.png" />
+  <img src="/images/vm/normalization-actions-severity.png" />
 </Frame>
 
 ### Supported Severity Levels
@@ -72,7 +72,7 @@ This is commonly used to:
 For more granular control, rules can **transform the CVSS score** using mathematical operations instead of fixed severity overrides.
 
 <Frame caption="Normalization Rule – Transform CVSS Score">
-  <img src="/images/vm/normalization/actions-cvss.png" />
+  <img src="/images/vm/normalization-actions-cvss.png" />
 </Frame>
 
 ### CVSS Transformation Options
@@ -97,7 +97,7 @@ This is useful when:
 - Historical vulnerabilities need reclassification  
 
 <Frame caption="Execute Normalization Confirmation">
-  <img src="/images/vm/normalization/execute.png" />
+  <img src="/images/vm/normalization-execute.png" />
 </Frame>
 
 Once confirmed, the system recalculates severity and CVSS values according to defined rules — without rescanning assets.
