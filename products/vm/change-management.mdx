@@ -128,6 +128,152 @@ During or after validation, vulnerabilities identified are automatically linked 
 
 ---
 
+## Change Info
+
+The **Change Info** section provides a complete overview of the change request and its technical context.  
+It helps security teams understand *what is changing*, *who owns it*, and *how risky the change is* before testing begins.
+
+<Frame caption="Change Request – Change Info">
+  <img src="/images/vm/cm-change-info.png" />
+</Frame>
+
+### Included Information
+- **Request Details** — Title, requester, contact, dates, and ticket ID  
+- **Technical Information** — Tech stack, integrations, data sensitivity, production impact  
+- **Pentest Requirements** — Priority, deadlines, go/no-go criteria  
+- **Technical Access Details** — Environment, URLs, authentication method, credentials  
+- **Change Summary** — Release notes and functional updates  
+
+This section acts as the **single source of truth** for the change request.
+
+---
+
+## Settings
+
+The **Settings** tab allows teams to configure how the assessment behaves and how results are managed.
+
+<Frame caption="Change Request – Settings Overview">
+  <img src="/images/vm/change-settings.png" />
+</Frame>
+
+### What You Can Configure
+- Assessment metadata (name, date, category)
+- Default ticket assignee
+- Business unit and department mapping
+- Collaborators and access
+- Assessment type and lifecycle state
+
+---
+
+## Import CSV (Within Settings)
+
+The **Import CSV** option allows bulk ingestion of vulnerabilities into the change request.
+
+<Frame caption="Import Vulnerabilities via CSV">
+  <img src="/images/vm/change-import-csv.png" />
+</Frame>
+
+### Why Use Import CSV
+- Upload results from third-party scanners
+- Migrate findings from legacy tools
+- Speed up onboarding of large vulnerability sets
+- Standardize vulnerability intake for change testing
+
+Imported vulnerabilities immediately become part of the assessment workflow.
+
+---
+
+## Export CSV (Within Settings)
+
+The **Export CSV** option enables teams to extract assessment data for offline analysis or compliance needs.
+
+<Frame caption="Export Vulnerabilities to CSV">
+  <img src="/images/vm/change-export-csv.png" />
+</Frame>
+
+### Common Use Cases
+- Share findings with external teams
+- Perform custom analytics
+- Maintain audit records
+- Backup assessment data
+
+Exports include vulnerability details, severity, status, and ownership.
+
+---
+
+## Custom Report
+
+The **Custom Report** section allows users to manually curate executive-ready or client-facing reports.
+
+<Frame caption="Custom Report Editor">
+  <img src="/images/vm/change-custom-report.png" />
+</Frame>
+
+### Custom Report Sections
+- **Report Title**
+- **Author & Reviewer**
+- **Executive Summary**
+- **Custom Scope**
+- **Methodology**
+- **Conclusion**
+- **Action Plan**
+
+This gives full control over narrative, formatting, and messaging beyond auto-generated reports.
+
+---
+
+## Activity
+
+The **Activity** tab provides a chronological audit trail of all actions performed within the change request.
+
+<Frame caption="Change Request Activity Timeline">
+  <img src="/images/vm/change-activity.png" />
+</Frame>
+
+### Tracked Events
+- Assessment type changes (Black / Grey / White box)
+- Status updates (Started, Paused, Completed)
+- Configuration changes
+- User actions and timestamps
+
+This ensures **accountability, traceability, and compliance visibility**.
+
+---
+
+## Docs & Evidences
+
+The **Docs & Evidences** section is used to upload proof, screenshots, logs, and supporting files related to the assessment.
+
+<Frame caption="Upload Evidence Modal">
+  <img src="/images/vm/change-docs-evidence.png" />
+</Frame>
+
+### Evidence Management
+- Upload up to **20 files per upload**
+- Max **10 MB per file**
+- Store screenshots, logs, videos, or PDFs
+- Maintain evidence for audits and revalidation
+
+This section is critical for **compliance, verification, and reporting accuracy**.
+
+---
+
+## Why This Matters
+
+Modern security failures often originate from *well-intentioned changes* — rushed releases, undocumented fixes, or unreviewed configuration updates.  
+The **Change Management** module ensures that security is not an afterthought, but an embedded control point in every release cycle.
+
+By combining request context, technical validation, vulnerability tracking, reporting, and evidence collection into a single workflow, Snapsec enables teams to:
+
+- **Prevent risky changes from reaching production** without proper security validation  
+- **Maintain continuous visibility** into how each change impacts risk posture  
+- **Create defensible audit trails** linking changes, findings, approvals, and evidence  
+- **Align engineering velocity with security governance**, not slow it down  
+- **Support compliance requirements** with structured data instead of manual documentation  
+
+Instead of fragmented tools and ad-hoc approvals, Change Management provides a **repeatable, traceable, and security-first release process** — helping organizations ship faster *without* compromising trust, compliance, or resilience.
+
+
 
 ## Explore Live Demo
 
