@@ -17,6 +17,44 @@ Below, charts expose **Vulnerability Trends**, **Open/Close Severity Distributio
 
 ---
 
+## Tabular View 
+
+In addition to the card-based layout, assessments can also be viewed in a **Tabular View** for detailed comparison and operational tracking.
+
+This view presents all assessments in a structured table format, making it ideal for audits, filtering, and bulk review.
+
+<Frame caption="Assessment Tabular View showing list-based assessment details">
+  <img src="/images/vm/ass-tabular.png" alt="Assessment list view with columns for state, vulnerabilities, progress, and collaborators" />
+</Frame>
+
+### What the Tabular View Shows
+
+- **Assessment Name & Type** — Quickly identify the nature of each engagement  
+- **Department & Business Unit** — Ownership and organizational context  
+- **Assessment State** — New, Testing Ongoing, Remediation, Paused, or Completed  
+- **Vulnerability Breakdown** — Count of Critical, High, Medium, and Low findings  
+- **Progress Indicator** — Percentage of vulnerabilities resolved  
+- **Created Date** — Timeline visibility  
+- **Collaborators** — Assigned testers and reviewers  
+
+### When to Use Tabular View
+
+<Columns cols={2}>
+  <Card title="Operational Tracking" icon="table">
+    Best suited for security teams managing multiple parallel assessments and tracking status at scale.
+  </Card>
+  <Card title="Filtering & Audits" icon="filter">
+    Easily filter by state, assessment type, or date to support audits and reporting.
+  </Card>
+</Columns>
+
+<Callout icon="info-circle" color="blue">
+The tabular view is especially useful for compliance reviews, weekly reporting, and leadership visibility where side-by-side comparison matters.
+</Callout>
+
+---
+
+
 ## Assessment Metric
 
 <Frame caption="Live charts for trends and distributions inside an assessment">
@@ -37,8 +75,6 @@ The page’s purpose is to track remediation effectiveness, analyze vulnerabilit
     Line/bar/donut charts show discovery vs. closure, open/close by severity, and overall severity distribution.
   </Card>
 </Columns>
-
-
 
 ---
 
@@ -74,7 +110,6 @@ Renaming an assessment does not affect linked vulnerabilities or reports — all
 Use the **Collaborators** panel to invite or remove team members.  
 Collaborators can view vulnerabilities, upload evidence, and contribute to custom reports — enabling shared visibility and accountability.
 
-
 ---
 
 ### Updating Assessment State
@@ -101,7 +136,6 @@ Control your assessment’s status through three lifecycle options:
 <Banner>
 Keeping states updated ensures all team members — security, QA, and developers — stay synchronized on what’s currently being tested or finalized.
 </Banner>
-
 
 ---
 
