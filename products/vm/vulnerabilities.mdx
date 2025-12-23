@@ -95,6 +95,107 @@ Each vulnerability record links directly to:
 This ensures every issue remains fully contextualized and actionable within your workflow.
 
 ---
+---
+
+## Vulnerability Details View
+
+Clicking on any vulnerability from the **Vulnerability List** opens a detailed view that consolidates **context, discussion, metadata, and evidence** into a single page.
+
+This view is designed to help security teams, developers, and auditors collaborate on remediation without switching screens.
+
+<Frame caption="Vulnerability detail view with description and reproduction steps">
+  <img src="/images/vm/vulnerability-details-1.png" alt="Vulnerability description with steps to reproduce and impact" />
+</Frame>
+
+---
+
+## Vulnerability Description
+
+The top section presents the **full vulnerability narrative**, written in a structured and readable format.
+
+### Included Sections
+- **Title** — Clear, standardized vulnerability name  
+- **Description** — Explanation of the issue and why it exists  
+- **Steps to Reproduce** — Actionable steps to validate the finding  
+- **Impact** — Security and business consequences if left unresolved  
+
+This section acts as the **primary reference** for developers and reviewers during remediation.
+
+---
+
+## Comments & Recent Activity
+
+All collaboration and system actions related to the vulnerability are tracked in a live activity feed.
+
+<Frame caption="Recent activity timeline and discussion thread">
+  <img src="/images/vm/vulnerability-details-2.png" alt="Recent activity feed with comments and system events" />
+</Frame>
+
+### What’s Tracked
+- User comments and discussions  
+- Owner or state changes  
+- Assessment updates  
+- External references (e.g., PRs, commits, tickets)  
+
+This ensures **transparent collaboration** and a complete **audit trail** of decisions and actions.
+
+<Callout icon="message" color="blue">
+Use comments to tag teammates, clarify fixes, or request re-tests — all context stays tied to the vulnerability.
+</Callout>
+
+---
+
+## Report Details Panel
+
+A side panel summarizes all **critical metadata** required for prioritization, ownership, and compliance.
+
+<Frame caption="Vulnerability report details and severity panel">
+  <img src="/images/vm/vulnerability-details-3.png" alt="Vulnerability report metadata with CVSS, owner, state, and SLA" />
+</Frame>
+
+### Key Metadata Displayed
+- **Severity & CVSS Score** (visualized)  
+- **Owner & Collaborators**  
+- **Current State** (Unresolved, In Progress, Resolved, etc.)  
+- **Assessment Source**  
+- **Affected Asset**  
+- **CWE & CVSS Vector**  
+- **SLA Status** (Compliant / Breached)  
+- **Reported Date & Business Unit**
+
+This panel allows teams to **assess risk and urgency at a glance**.
+
+---
+
+## Attachments & Evidence
+
+Evidence supporting the vulnerability can be uploaded directly within the same view.
+
+<Frame caption="Attachments section for vulnerability evidence">
+  <img src="/images/vm/vulnerability-details-4.png" alt="Attachments upload area for vulnerability evidence" />
+</Frame>
+
+### Evidence Capabilities
+- Upload screenshots, logs, PoCs, or videos  
+- Drag-and-drop or browse upload  
+- Up to **10 files**, **12 MB per file**  
+- Evidence remains permanently linked to the vulnerability  
+
+Attachments strengthen remediation accuracy and are essential for **audit, revalidation, and reporting**.
+
+---
+
+## Why This Matters
+
+This unified vulnerability view ensures that every issue is:
+
+- **Clearly explained** for developers  
+- **Collaboratively discussed** by all stakeholders  
+- **Fully contextualized** with severity and ownership  
+- **Backed by evidence** for validation and audits  
+- **Tracked end-to-end** from discovery to resolution  
+
+By keeping description, activity, metadata, and evidence in one place, Snapsec transforms vulnerability handling into a **focused, auditable, and developer-friendly workflow**.
 
 
 ## Explore Live Demo
