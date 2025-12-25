@@ -1,80 +1,152 @@
 ---
-title: "Dashboard"
-description: "Get a unified overview of your organization’s external attack surface — from subdomains and ports to technologies, services, and exposures."
-icon: "chart-bar"
+title: "Account & Settings"
+description: "Manage personal profile, authentication, security preferences, notifications, and workspace appearance from a single control center."
+icon: "user-gear"
 mode: "wide"
 ---
 
-## Overview
-
-The **ASM Dashboard** provides a complete, real-time overview of your organization’s external attack surface.  
-It helps you visualize discovered assets, exposed services, open ports, and potential risks — all aggregated from continuous reconnaissance and scanning.
-
-This centralized view enables security teams to **track discovery trends**, **analyze exposure**, and **prioritize risk reduction efforts** across their infrastructure.
-
-<Frame caption="Attack Surface Overview Dashboard">
-  <img src="/images/asm/dashboard.png" alt="Attack Surface Management Dashboard" />
+<Frame caption="Account & Settings overview showing profile, security, and workspace controls">
+  <img src="/images/admin/account-overview.png" alt="Account settings dashboard with personal info, security, notifications, and preferences" />
 </Frame>
 
----
+## Overview
 
-## Key Metrics
+The **Account & Settings** page acts as the central control center for user identity, security posture, and workspace personalization within Snapsec.  
+It allows users to manage their personal profile, secure their account, configure preferences, and control notification behavior — all from one unified interface.
 
-At the top of the dashboard, you’ll find a summary of core visibility and exposure metrics:
-
-| Metric | Description |
-|--------|--------------|
-| **Subdomains** | Total discovered subdomains linked to your organization. |
-| **Ports** | Unique open ports identified across hosts and IPs. |
-| **Services** | Active services detected across the external network. |
-| **Technologies** | Frameworks, platforms, and products identified during scanning. |
-| **Web Servers** | Hosts serving HTTP/HTTPS content. |
-| **IP Addresses** | Unique IPs associated with your assets. |
-| **Certificates** | SSL/TLS certificates found across hosts. |
-| **DNS Records** | Total DNS entries discovered. |
-| **Exposures** | Known risks or misconfigurations identified. |
-| **Scans** | The number of reconnaissance scans executed. |
+This page is designed to balance **usability, security, and governance**, ensuring users can manage their account without impacting organizational controls.
 
 ---
 
-## Visual Analytics
+## Personal Information
 
-The dashboard features multiple visual charts that break down your external posture.
+<Frame caption="Personal information settings for user profile">
+  <img src="/images/admin/personal-info.png" alt="Personal information settings including name and profile photo" />
+</Frame>
 
-<Columns cols={2}>
-  <Card title="Port Exposure Analysis" icon="server">
-    Displays distribution of open ports (e.g., 80, 443, 8080) to help identify unnecessary exposures.
-  </Card>
-  <Card title="WAF Coverage Analysis" icon="shield">
-    Shows what percentage of assets are protected by a Web Application Firewall (WAF).
-  </Card>
-  <Card title="Geographic Asset Distribution" icon="globe">
-    Highlights the geographical location of your exposed assets, revealing region-based exposure trends.
-  </Card>
-  <Card title="DNS Record Distribution" icon="cloud">
-    Visualizes DNS record types (A, CNAME, TXT, MX, etc.) for better infrastructure mapping.
-  </Card>
-  <Card title="Technology Used" icon="microchip">
-    Summarizes detected technologies such as Nginx, React, jQuery, Node.js, etc.
-  </Card>
-  <Card title="Subdomain Distribution" icon="list">
-    Displays the percentage of **live** vs **dead** subdomains, reflecting cleanup and active surface size.
-  </Card>
-</Columns>
+The **Personal Info** section allows users to manage their individual profile details.
+
+### What You Can Manage
+- Profile photo (JPEG / PNG)
+- First name and last name
+- Basic identity details associated with the account
+
+These details are reflected across assessments, reports, comments, and activity logs to maintain accurate attribution.
 
 ---
 
-## Value to Security Teams
+## Login & Security
 
-- **Instant Visibility:** Understand your exposed assets at a glance.  
-- **Data-Driven Prioritization:** Identify critical areas with the most open ports or missing protections.  
-- **Continuous Tracking:** Visualize trends across scans to measure attack surface growth or reduction.  
-- **Cross-Domain Insights:** Correlate technologies, geolocations, and DNS data for deeper context.
+<Frame caption="Authentication and password management">
+  <img src="/images/admin/authentication.png" alt="Authentication settings with password and 2FA options" />
+</Frame>
+
+The **Login & Security** section focuses on protecting account access and preventing unauthorized usage.
+
+### Password Management
+- Update current password securely
+- Enforce confirmation for password changes
+- Immediate application across all sessions
+
+### Two-Factor Authentication (2FA)
+- **OTP via Email** — Receive one-time passwords by email
+- **Authenticator App (TOTP)** — Use apps like Google Authenticator or Authy
+
+Enabling 2FA significantly reduces the risk of account compromise.
+
+<Banner>
+Security changes take effect immediately and may require re-authentication on active sessions.
+</Banner>
 
 ---
 
-## Explore Live Demo
+## Advanced Settings
 
-<Card title="Explore ASM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Instantly explore how Snapsec **Attack Surface Management (ASM)** discovers external assets, identifies exposures, enriches attack surface data, and visualizes risk — all in real time, without creating an account.
-</Card>
+The **Advanced Settings** section allows users to customize how Snapsec behaves and communicates.
+
+---
+
+### Preferences
+
+<Frame caption="User preferences configuration">
+  <img src="/images/admin/preferences.png" alt="Preferences including language, timezone, and currency" />
+</Frame>
+
+Configure localization and regional preferences:
+
+- **Language** — Interface language
+- **Time Zone** — Used across reports, SLAs, and activity timelines
+- **Currency** — Display currency for billing and cost-related views
+
+These settings ensure consistent reporting and time-based accuracy.
+
+---
+
+### Appearance
+
+<Frame caption="Workspace appearance and theme selection">
+  <img src="/images/admin/appearance.png" alt="Theme selection options including dark, light, and system mode" />
+</Frame>
+
+Customize the visual appearance of your workspace:
+
+- **Dark Mode**
+- **Light Mode**
+- **System Default**
+
+Appearance settings apply instantly and help align Snapsec with user accessibility or system preferences.
+
+---
+
+### Notifications
+
+<Frame caption="Notification preferences for email and Slack">
+  <img src="/images/admin/notifications.png" alt="Notification preferences for vulnerabilities and status updates" />
+</Frame>
+
+Control how and when Snapsec notifies you about important events.
+
+#### Email Notifications
+- Critical
+- High
+- Medium
+- Low
+- Remediation updates
+- Status changes
+
+#### Slack Notifications
+- Severity-based alerts
+- Remediation updates
+- Status changes
+
+Notifications can be fine-tuned to avoid alert fatigue while ensuring critical issues are never missed.
+
+---
+
+## Delete Account
+
+<Frame caption="Account deletion confirmation">
+  <img src="/images/admin/delete-account.png" alt="Delete account confirmation with warning message" />
+</Frame>
+
+Users can permanently delete their account from this section.
+
+### Important Notes
+- Deletion is **irreversible**
+- All personal data associated with the account is permanently removed
+- Organizational access may be revoked immediately
+
+<Callout icon="triangle-exclamation" color="red">
+Account deletion cannot be undone. Ensure all responsibilities are transferred before proceeding.
+</Callout>
+
+---
+
+## Why This Matters
+
+- **Security-first access control** with strong authentication and 2FA  
+- **Clear identity attribution** across vulnerabilities, reports, and activities  
+- **Personalized workspace experience** without affecting org-wide policies  
+- **Granular notification control** to stay informed without overload  
+
+Account & Settings ensures every user operates securely, efficiently, and with full control over their Snapsec experience.
