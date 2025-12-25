@@ -27,7 +27,8 @@
             "group": "Getting started",
             "pages": [
               "index",
-              "deployments"
+              "deployments",
+              "Account & Access"
             ]
           },
           {
