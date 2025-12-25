@@ -123,6 +123,11 @@
               "products/was/scan-profiles",
               "products/was/integrations"
             ]
+          },{
+            "group": "Administration & Settings",
+            "pages": [
+              "products/admin/dashboard"
+            ]
           }
 
 
