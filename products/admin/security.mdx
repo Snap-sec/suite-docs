@@ -1,0 +1,121 @@
+---
+title: "Security"
+description: "Monitor active sessions, review device access, and audit security events across your Snapsec workspace."
+icon: "shield-lock"
+mode: "wide"
+---
+
+<Frame caption="Security section entry point inside Settings">
+  <img src="/images/settings/activity.png" alt="Security navigation entry showing where to access security controls" />
+</Frame>
+
+## Overview
+
+The **Security** section provides visibility and control over how users access your Snapsec workspace.  
+It is designed to help organizations monitor login activity, identify suspicious behavior, and maintain a complete audit trail of security-relevant actions.
+
+This section answers three critical questions:
+
+- **Who is accessing the workspace?**
+- **From which devices and locations?**
+- **What actions are being performed?**
+
+Together, these controls help enforce accountability, detect anomalies, and support compliance requirements.
+
+---
+
+## Current Sessions
+
+<Frame caption="Current user sessions across the organization">
+  <img src="/images/settings/current-sessions.png" alt="Table showing active user sessions with browser, device, OS, and last login time" />
+</Frame>
+
+The **Current Sessions** view displays all active and recent user logins across the organization.
+
+### What You Can See
+
+- **User identity** — name and role (Admin / Member)  
+- **Last login time** — when the session was initiated  
+- **Browser & OS** — Chrome, Firefox, Windows, Linux, etc.  
+- **Login device** — Desktop or other device types  
+
+This allows administrators to quickly identify:
+- Unexpected logins
+- Duplicate or concurrent sessions
+- Access from unfamiliar platforms
+
+---
+
+## Device Security
+
+<Frame caption="Device access and login history">
+  <img src="/images/settings/device-security.png" alt="Device security table showing login devices and access details" />
+</Frame>
+
+The **Device Security** section focuses on *where* access is coming from.
+
+Each entry represents a device that has successfully authenticated to the workspace.
+
+### Why This Matters
+
+- Helps detect compromised or shared credentials  
+- Identifies stale or unused access paths  
+- Supports device-level access reviews during audits  
+
+Administrators can regularly review this list to ensure that only trusted devices are accessing sensitive environments.
+
+---
+
+## Security Logs
+
+<Frame caption="Detailed security and activity logs">
+  <img src="/images/settings/security-logs.png" alt="Security logs table showing events, HTTP methods, users, IP addresses, and timestamps" />
+</Frame>
+
+**Security Logs** provide a complete, immutable audit trail of actions performed within the platform.
+
+### Logged Information Includes
+
+- **Event title** — what action occurred  
+- **User** — who performed the action  
+- **HTTP method** — GET, POST, PUT, etc.  
+- **Action type** — read, write, update  
+- **Origin & URL** — API or UI source  
+- **IP address** — source of the request  
+- **Timestamp** — exact time of activity  
+
+These logs are essential for:
+- Incident investigations  
+- Compliance and audit reviews  
+- Detecting misuse or abnormal behavior  
+
+<Banner>
+Security logs are read-only and cannot be modified, ensuring audit integrity.
+</Banner>
+
+---
+
+## Why This Matters
+
+Security is not just about prevention — it is about **visibility and traceability**.
+
+By combining session monitoring, device awareness, and detailed logs, Snapsec enables organizations to:
+
+- Detect suspicious access early  
+- Enforce accountability across teams  
+- Maintain compliance with security and audit standards  
+- Respond faster during security incidents  
+
+This turns workspace access from a blind spot into a **controlled, observable system**.
+
+---
+
+## Explore Live Demo
+
+<Card
+  title="Explore Snapsec Live — No Signup Needed"
+  icon="wand-magic-sparkles"
+  href="https://suite.snapsec.co/demo"
+>
+  Jump straight into the live environment and see how Snapsec unifies access control, activity logging, and security visibility — all from a single dashboard.
+</Card>

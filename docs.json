@@ -126,7 +126,8 @@
             "group": "Administration & Settings",
             "pages": [
               "products/admin/account-and-adminstration",
-              "products/admin/company-profile"
+              "products/admin/company-profile",
+              "products/admin/security"
             ]
           }
 
