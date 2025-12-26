@@ -125,7 +125,7 @@
           },{
             "group": "Administration & Settings",
             "pages": [
-              "products/admin/account-and-adminstration",
+              "products/admin/account-and-adminstrator",
               "products/admin/company-profile",
               "products/admin/security",
               "products/admin/departments",
