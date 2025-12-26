@@ -95,6 +95,32 @@ Security logs are read-only and cannot be modified, ensuring audit integrity.
 
 ---
 
+## FAQs
+
+<Frame caption="Frequently asked questions related to security and access">
+  <img src="/images/admin/FAQS-cs.png" alt="FAQ section under current sessions" />
+</Frame>
+
+### 1. What is this API key used for?
+API keys authenticate requests and identify calling applications or adapters.  
+They allow secure access to protected routes and integrations.
+
+### 2. Can I use one API key for multiple adapters or apps?
+Yes, a single API key can be reused across multiple adapters unless restricted by policy.
+
+### 3. How do I rotate or regenerate my API key?
+API keys can be regenerated from the **API Keys** section.  
+Rotating keys regularly is recommended for security hygiene.
+
+### 4. Are API keys tied to specific environments (dev/staging/prod)?
+Keys can be scoped or labeled per environment depending on your internal access strategy.
+
+### 5. What should I do if a key is leaked or compromised?
+Immediately rotate the key and review security logs to identify any unauthorized usage.
+
+### 6. Can I limit what an API key can do?
+Yes. Permissions and scopes can be applied to restrict access to only required actions.
+
 ## Why This Matters
 
 Security is not just about prevention — it is about **visibility and traceability**.
