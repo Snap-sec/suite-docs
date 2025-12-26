@@ -127,7 +127,8 @@
             "pages": [
               "products/admin/account-and-adminstration",
               "products/admin/company-profile",
-              "products/admin/security"
+              "products/admin/security",
+              "products/admin/departments"
             ]
           }
 
