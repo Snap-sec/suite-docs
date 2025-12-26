@@ -128,7 +128,8 @@
               "products/admin/account-and-adminstration",
               "products/admin/company-profile",
               "products/admin/security",
-              "products/admin/departments"
+              "products/admin/departments",
+              "products/admin/teams"
             ]
           }
 
