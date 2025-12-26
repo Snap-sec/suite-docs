@@ -129,7 +129,8 @@
               "products/admin/company-profile",
               "products/admin/security",
               "products/admin/departments",
-              "products/admin/teams"
+              "products/admin/teams",
+              "products/admin/members"
             ]
           }
 
