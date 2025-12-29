@@ -79,12 +79,12 @@
               "products/aim/registries",
               "products/aim/objects",
               "products/aim/vendors",
+              "products/aim/decommisioning",
               "products/aim/adapters",
               "products/aim/classifier",
               "products/aim/tags",
               "products/aim/groups",
               "products/aim/exports",
-              "products/aim/decommisioning",
               "products/aim/public-search"
             ]
           },{
