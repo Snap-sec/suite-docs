@@ -131,7 +131,8 @@
               "products/admin/departments",
               "products/admin/teams",
               "products/admin/members",
-              "products/admin/api-keys"
+              "products/admin/api-keys",
+              "products/admin/integrations"
             ]
           }
 
