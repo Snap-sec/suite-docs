@@ -1,106 +1,157 @@
 ---
-title: "Integrations"
-description: "Connect Snapsec with external tools and platforms to synchronize security data, logs, and workflows across your ecosystem."
-icon: "plug-circle-bolt"
+title: Integration
+description: Learn how to connect Snapsec Suite with IBM QRadar to stream security and audit events in real time.
+icon: "hexagon-nodes"
 mode: "wide"
 ---
 
-<Frame caption="Integrations entry point from Settings">
-  <img
-    src="/images/admin/integrations-arrow.png"
-    alt="Integrations option accessible from Snapsec Settings menu"
-  />
-</Frame>
+## What is QRadar Integration
 
-## Overview
+The **QRadar Integration** allows Snapsec Suite to send all system-generated security and audit events directly to **IBM QRadar SIEM**.
 
-The **Integrations** module allows you to connect Snapsec with **external security tools and platforms** to create a unified, automated security workflow.
+Once connected, QRadar can ingest Snapsec events for:
+- Centralized logging
+- Correlation with other security signals
+- Threat detection and investigations
+- Compliance and audit visibility
 
-Integrations enable Snapsec to **ingest logs, synchronize events, and exchange data** with third-party systems—reducing manual effort and improving visibility across your security stack.
-
-This is especially useful for SOC teams, security engineers, and administrators who rely on multiple tools for monitoring and response.
+This integration helps security teams gain **real-time visibility** into activities happening across the Snapsec platform from within their existing SIEM workflows.
 
 ---
 
-## Integrations Dashboard
+## What Events Does Snapsec Send
 
-<Frame caption="Integrations dashboard showing available adapters">
-  <img
-    src="/images/admin/integrations.png"
-    alt="Integrations page displaying available adapters such as QRadar"
-  />
-</Frame>
+Snapsec sends **all system events** to QRadar, including but not limited to:
 
-The Integrations dashboard provides a **central catalog of supported adapters**.
+- User management events (create, update, delete)
+- Authentication and authorization actions
+- Asset changes
+- Vulnerability lifecycle events
+- Configuration changes
+- Integration and automation activities
+- Administrative and audit actions
 
-### What You See Here
-- **Adapter Name** — External tool or platform (e.g., QRadar)
-- **Description** — What data or functionality the integration provides
-- **Status Tabs**
-  - **Adapters** — Available integrations you can install
-  - **Active Adapters** — Currently connected and running integrations
-- **Search Bar** — Quickly locate integrations by name or type
-- **Install Action** — One-click setup for supported tools
-
-This view gives instant clarity on what integrations are available and which are already active.
+All events are transmitted in a **structured, consistent schema** to ensure reliable parsing and correlation inside QRadar.
 
 ---
 
-## Supported Adapters
+## Event Schema
 
-Snapsec supports integrations with **security monitoring, logging, and analytics platforms**.
+Snapsec sends events in JSON format using the following schema:
 
-### Example: QRadar Integration
-- Synchronizes **security logs and access logs**
-- Enables centralized monitoring alongside Snapsec findings
-- Helps correlate vulnerabilities, activity, and alerts across systems
+```json
+{
+  "type": "audit",
+  "action": "create_user",
+  "request": {
+    "url": "/v1/users",
+    "params": {},
+    "query": {},
+    "headers": {
+      "user-agent": "curl/8.0.1"
+    }
+  },
+  "response": {
+    "body": {
+      "id": "u_123",
+      "status": "created"
+    },
+    "headers": {
+      "content-type": "application/json"
+    }
+  },
+  "metadata": {
+    "ip": "203.0.113.10",
+    "userId": "admin_1",
+    "traceId": "abc-xyz"
+  },
+  "timestamp": "2026-01-27T10:15:30.000Z"
+}
+```
 
-As Snapsec evolves, additional adapters can be enabled from this page without changing your existing configuration.
+### Field Overview
 
----
+- **type**  
+  The category of the event.  
+  Example: `audit`
 
-## Installing an Integration
+- **action**  
+  The specific action performed within Snapsec.  
+  Example: `create_user`, `delete_asset`
 
-To connect an external tool:
+- **request**  
+  Details about the API request that triggered the event, including:
+  - URL
+  - Parameters
+  - Query values
+  - Request headers
 
-1. Navigate to **Settings → Integrations**
-2. Browse or search for the desired adapter
-3. Click **Install**
-4. Follow the configuration steps (if required)
+- **response**  
+  The result of the action, including:
+  - Response body
+  - Response headers
 
-Once installed, the integration appears under **Active Adapters**, and data synchronization begins automatically.
+- **metadata**  
+  Additional contextual information such as:
+  - IP address of the actor
+  - User ID who performed the action
+  - Trace ID for request correlation
 
----
+- **timestamp**  
+  The exact time when the event occurred, formatted in ISO 8601.
 
-## Active Integrations
 
-The **Active Adapters** tab shows all integrations currently enabled in your workspace.
+  ## How to Connect Snapsec with QRadar
 
-### From Here You Can
-- Verify integration status
-- Monitor connected tools
-- Disable or remove adapters when no longer needed
+<Steps>
+  <Step title="Open your Snapsec profile">
+    Log in to **Snapsec Suite** and click on your profile icon in the top-right corner.
+    <Frame caption="Department FAQs available on the Departments page">
+      <img src="/images/admin/qradar1.png" alt="Expandable FAQ section for departments" />
+    </Frame>
+  </Step>
 
-This ensures full control over external data flow and system connections.
 
----
 
-## Why Integrations Matter
+  <Step title="Navigate to Integrations">
+    Select **Integrations** from the settings sidebar.
+    <Frame caption="Department FAQs available on the Departments page">
+      <img src="/images/admin/qradar2.png" alt="Expandable FAQ section for departments" />
+    </Frame>
+  </Step>
 
-Integrations extend Snapsec beyond a standalone platform.
+  <Step title="Select QRadar">
+    Locate **QRadar** from the list of available integrations and click on it.
+    <Frame caption="Department FAQs available on the Departments page">
+      <img src="/images/admin/qradar2.5.png" alt="Expandable FAQ section for departments" />
+    </Frame>
+  </Step>
 
-- Centralize security data from multiple tools
-- Reduce manual log handling and duplication
-- Improve incident correlation and response speed
-- Maintain a single source of truth for security operations
+  <Step title="Enter QRadar details">
+    Provide the following information:
+    - QRadar URL
+    - Bearer Token
 
-By connecting Snapsec to your existing ecosystem, teams gain **better context, automation, and operational efficiency**.
+    <Frame caption="Department FAQs available on the Departments page">
+      <img src="/images/admin/qradar3.png" alt="Expandable FAQ section for departments" />
+    </Frame>
+  </Step>
 
----
+  <Step title="Save and verify">
+    Click **Save** to enable the integration.  
+    Once completed, QRadar will appear under **Installed Adapters**, confirming the connection.
 
-## Explore Live Demo
+    <Frame caption="Department FAQs available on the Departments page">
+      <img src="/images/admin/qradar4.png" alt="Expandable FAQ section for departments" />
+    </Frame>
+  </Step>
+</Steps>
 
-<Card title="Explore Snapsec Integrations — Live Demo" icon="wand-magic-sparkles"
-  href="https://suite.snapsec.co/demo">
-  See how Snapsec connects with external tools to unify logs, security data, and workflows in real time.
-</Card>
+
+## Verification
+
+After installation, verify the integration using the following checks:
+
+- Confirm the adapter status is shown as **Installed** in Snapsec.
+- Check **QRadar logs** to ensure Snapsec events are being received.
+- Verify that events are **parsed and indexed correctly** inside QRadar for search and correlation.

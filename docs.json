@@ -47,7 +47,7 @@
               "products/vm/business-units",
               "products/vm/blockers",
               "products/vm/normalization-rules",
-              "products/vm/integrations"
+              "/integrations/vm/index"
             ]
           },{
             "group": "Attack Surface Management",
@@ -57,8 +57,8 @@
               "products/asm/rules",
               "products/asm/asset-catalog",
               "products/asm/exposures",
-              "products/asm/integrations",
-              "products/asm/reports"
+              "products/asm/reports",
+              "/integrations/asm/index"
             ]
           },{
             "group": "Asset Inventory Management",
@@ -80,7 +80,7 @@
               "products/aim/objects",
               "products/aim/vendors",
               "products/aim/decommisioning",
-              "products/aim/adapters",
+              "/integrations/aim/index",
               "products/aim/classifier",
               "products/aim/tags",
               "products/aim/groups",
@@ -96,7 +96,7 @@
                 "products/vs/group-management",
                 "products/vs/scanner-configuration",
                 "products/vs/vulnerability-catalogue",
-                "products/vs/integrations"
+                "/integrations/vs/index"
               ]
             },{
             "group": "Threat Modeler",
@@ -106,8 +106,8 @@
               "products/tm/api-catalog",
               "products/tm/threats",
               "products/tm/threat-mitigation",
-              "products/tm/integrations",
-              "products/tm/severity-distribution"
+              "products/tm/severity-distribution",
+              "/integrations/tm/index"
             ]
           },{
             "group": "Web Application Scanner",
@@ -120,7 +120,7 @@
               "products/was/rules",
               "products/was/scans",
               "products/was/scan-profiles",
-              "products/was/integrations"
+              "/integrations/was/index"
             ]
           },{
             "group": "Administration & Settings",
