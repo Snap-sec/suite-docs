@@ -19,6 +19,30 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
+    "global": {
+      "anchors": [
+        {
+          "anchor": "Website",
+          "icon": "book-open-cover",
+          "href": "https://snapsec.co"
+        },
+        {
+          "anchor": "Blog",
+          "icon": "square-rss",
+          "href": "https://blog.snapsec.co"
+        },
+        {
+          "anchor": "Features",
+          "icon": "wand-magic-sparkles",
+          "href": "https://docs.snapsec.co/features/introduction"
+        },
+        {
+          "anchor": "Live Demo",
+          "icon": "laptop",
+          "href": "https://suite.snapsec.co/demo"
+        }
+      ]
+    },
     "tabs": [
       {
         "tab": "Documentation",
@@ -49,7 +73,8 @@
               "products/vm/normalization-rules",
               "/integrations/vm/index"
             ]
-          },{
+          },
+          {
             "group": "Attack Surface Management",
             "pages": [
               "products/asm/dashboard",
@@ -60,7 +85,8 @@
               "products/asm/reports",
               "/integrations/asm/index"
             ]
-          },{
+          },
+          {
             "group": "Asset Inventory Management",
             "pages": [
               "products/aim/dashboard",
@@ -87,19 +113,22 @@
               "products/aim/exports",
               "products/aim/public-search"
             ]
-          },{
+          },
+          {
             "group": "Vulnerability Scanner",
             "pages": [
-                "products/vs/dashboard",
-                "products/vs/scan-management",
-                "products/vs/asset-catalogue",
-                "products/vs/group-management",
-                "products/vs/scanner-configuration",
-                "products/vs/vulnerability-catalogue",
-                "/integrations/vs/index"
-              ]
-            },{
+              "products/vs/dashboard",
+              "products/vs/scan-management",
+              "products/vs/asset-catalogue",
+              "products/vs/group-management",
+              "products/vs/scanner-configuration",
+              "products/vs/vulnerability-catalogue",
+              "/integrations/vs/index"
+            ]
+          },
+          {
             "group": "Threat Modeler",
+            "hidden": true,
             "pages": [
               "products/tm/introduction",
               "products/tm/projects",
@@ -109,7 +138,8 @@
               "products/tm/severity-distribution",
               "/integrations/tm/index"
             ]
-          },{
+          },
+          {
             "group": "Web Application Scanner",
             "pages": [
               "products/was/dashboard",
@@ -122,7 +152,8 @@
               "products/was/scan-profiles",
               "/integrations/was/index"
             ]
-          },{
+          },
+          {
             "group": "Administration & Settings",
             "pages": [
               "products/admin/account-and-adminstrator",
@@ -135,8 +166,6 @@
               "products/admin/integrations"
             ]
           }
-
-
         ]
       },
       {
@@ -161,32 +190,7 @@
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Website",
-          "href": "https://snapsec.co",
-          "icon": "book-open-cover"
-        },
-        {
-          "anchor": "Blog",
-          "href": "https://blog.snapsec.co",
-          "icon": "square-rss"
-        },
-        {
-          "anchor": "Features",
-          "href": "https://docs.snapsec.co/features/introduction",
-          "icon": "wand-magic-sparkles"
-        },
-        {
-          "anchor": "Live Demo",
-          "href": "https://suite.snapsec.co/demo",
-          "icon": "laptop"
-        }
-        
-      ]
-    }
+    ]
   },
   "logo": {
     "light": "/logo/light.svg",
