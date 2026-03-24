@@ -1,78 +1,82 @@
 ---
 title: "Dashboard"
-description: "Gain a complete, real-time view of your organization’s vulnerabilities, remediation progress, and team performance."
+description: "Get a real-time overview of vulnerabilities, remediation progress, and team performance in one unified view."
 icon: "grip"
 mode: "wide"
 ---
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/vm/d1.png"
-/>
-
 ## Overview
 
-The **Unified Vulnerability Dashboard** serves as your command center for everything related to vulnerability management.  
-It consolidates vulnerabilities, remediation progress, and performance analytics into one intuitive interface — giving both security and engineering teams instant visibility into the current risk posture.
+<Frame caption="Vulnerability Management Dashboard overview">
+  <img
+    style={{ borderRadius: '0.5rem' }}
+    src="/images/vm/d1.png"
+  />
+</Frame>
 
-From tracking the number of vulnerabilities under review or resolved, to monitoring remediation trends and departmental performance, the dashboard helps you make data-driven security decisions with confidence.  
-Clear visual metrics and charts help you identify bottlenecks, measure SLA compliance, and understand how security improvements are progressing across your organization.
-
----
-
-## Key Insights
-
-<Columns cols={2}>
-  <Card title="Comprehensive Metrics" icon="chart-pie">
-    See total vulnerabilities, categorized by severity and status — from Open and In Review to Resolved and Retest — providing an at-a-glance health summary of your environment.
-  </Card>
-  <Card title="Remediation Graph" icon="line-chart">
-    Visualize your remediation journey with trend lines showing Detected vs. Remediated vulnerabilities over time.
-  </Card>
-  <Card title="Top Performing Assessments" icon="ranking-star">
-    Identify which assessments contribute most to remediation success, and track progress across different security campaigns.
-  </Card>
-  <Card title="Departmental Insights" icon="building">
-    Monitor how different departments perform against vulnerability closure targets — bringing accountability and transparency across teams.
-  </Card>
-  <Card title="Top Contributors" icon="user-check">
-    Recognize high-performing members who drive vulnerability resolution, enabling data-backed recognition and performance tracking.
-  </Card>
-  <Card title="Severity Distribution" icon="exclamation-triangle">
-    Analyze vulnerability severity distribution to focus remediation efforts on critical and high-impact issues first.
-  </Card>
-</Columns>
+The **Dashboard** acts as the central command center for your vulnerability management program.  
+It provides a real-time snapshot of your security posture, helping teams quickly understand what needs attention, what’s in progress, and what’s already resolved.
 
 ---
 
-## Analytics in Action
+## What You Can See
 
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/vm/d2.png"
-/>
+- **Total Vulnerabilities**
+  - Instantly view the total number of detected vulnerabilities across your environment.
 
-The dashboard provides live charts that highlight open vs. closed vulnerabilities, department-wise breakdowns, and time-based remediation performance.  
-These visual insights help teams track improvement over time and ensure SLA commitments are met.
+- **Status Distribution**
+  - Track vulnerabilities across stages like *In Review, Triaged, Retest, Resolved, and Rejected*.
 
----
+- **Detection vs Resolution Timeline**
+  - Visualize how vulnerabilities are being discovered and fixed over time.
 
-## Value
-
-<img
-  style={{ borderRadius: '0.5rem' }}
-  src="/images/vm/d3.png"
-/>
-
-The **Dashboard** transforms complex vulnerability data into actionable intelligence.  
-It allows executives to monitor security posture at a glance, managers to track progress against SLAs, and engineers to focus on the most critical issues.  
-By bringing visibility, accountability, and measurable outcomes to your vulnerability management process, it ensures continuous security improvement across your ecosystem.
+- **Exportable Reports**
+  - Generate and export reports directly from the dashboard for audits and stakeholder updates.
 
 ---
 
+## Insights & Analytics
+
+<Frame caption="Detailed analytics and performance insights">
+  <img
+    style={{ borderRadius: '0.5rem' }}
+    src="/images/vm/d2.png"
+  />
+</Frame>
+
+The dashboard provides deeper insights to help teams track performance and prioritize remediation effectively.
+
+### Key Insights
+
+- **Severity Breakdown**
+  - Understand the distribution of vulnerabilities across *Critical, High, Medium, Low,* and *Informational*.
+
+- **Open vs Closed by Severity**
+  - Compare how many vulnerabilities are still open versus resolved across each severity level.
+
+- **SLA Compliance**
+  - Monitor whether vulnerabilities are being resolved within defined SLA timelines.
+
+- **Top Performing Members**
+  - Identify contributors driving the most vulnerability resolutions.
+
+- **Business Unit Visibility**
+  - Analyze how vulnerabilities are distributed across different business units.
+
+- **Department-wise Remediation**
+  - Track how each department is performing in resolving assigned vulnerabilities.
+
+---
+
+## Why It Matters
+
+The dashboard brings clarity to complex vulnerability data by turning it into actionable insights.  
+It enables teams to prioritize effectively, track progress continuously, and ensure accountability across the organization — all from a single view.
+
+---
 
 ## Explore Live Demo
 
 <Card title="Explore Snapsec Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Jump straight into the live environment and see how Snapsec unifies asset intelligence, threat detection, and vulnerability tracking — all in one dashboard.
+  Experience how Snapsec centralizes vulnerability visibility, tracking, and remediation in one unified platform.
 </Card>
