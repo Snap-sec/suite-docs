@@ -1,110 +1,125 @@
 ---
 title: "Assessment Groups"
-description: "Organize multiple assessments into folders for structured management and easier navigation."
+description: "Organize and manage assessments using folders for better structure, tracking, and navigation."
 icon: "folder-tree"
 mode: "wide"
 ---
 
-<Frame caption="Overview of all Assessment Groups in Vulnerability Management">
-  <img src="/images/vm/groups1.png" alt="Assessment Groups page showing folders for grouping assessments" />
-</Frame>
-
 ## Overview
 
-**Assessment Groups** allow you to organize related security assessments into structured folders.  
-Whether you’re managing multiple VAPT cycles, infrastructure reviews, or code audits, grouping helps maintain clarity, reduce clutter, and enable quicker navigation across large projects.
+<Frame caption="Assessment Groups overview showing folders for organizing assessments">
+  <img src="/images/vm/groups1.png" />
+</Frame>
 
-Each folder acts as a logical workspace where you can add, rename, or delete subfolders and link specific assessments — making it easier for teams to track testing efforts by domain, environment, or client.
+**Assessment Groups** help you organize multiple assessments into structured folders.  
+This makes it easier to manage large volumes of security testing across different projects, teams, or environments.
+
+Instead of handling assessments individually, you can group them logically — improving visibility, navigation, and reporting.
 
 ---
 
-## Creating a New Group
+## What You Can Do
 
-<Frame caption="Modal for creating a new assessment folder">
-  <img src="/images/vm/groups4.png" alt="Create folder modal for organizing assessments into groups" />
+- **Organize Assessments**
+  - Group related assessments by project, business unit, or testing type  
+
+- **Simplify Navigation**
+  - Quickly access relevant assessments without scrolling through long lists  
+
+- **Improve Tracking**
+  - Monitor multiple assessments within a single context  
+
+---
+
+## Creating a Folder
+
+<Frame caption="Create a new folder to group assessments">
+  <img src="/images/vm/groups-create.png" />
 </Frame>
 
 <Steps>
-  <Step title="Open Folder Creation">
-    Click **Create Folder** on the top-right of the Assessment Groups page.
+  <Step title="Click Create Folder">
+    Select **Create Folder** from the Assessment Groups page.
   </Step>
   <Step title="Enter Folder Name">
-    Provide a meaningful name (e.g., *Docker Security*, *VAPT Cycle Q4*, *Infrastructure Review*).
+    Provide a meaningful name (e.g., *Q1 2026 Assessments*, *Critical Assets*).
   </Step>
-  <Step title="Save and Organize">
-    Click **Create Folder** to generate your new group — it will appear instantly in the Folders grid.
+  <Step title="Create Folder">
+    Click **Create Folder** to add it to your workspace.
   </Step>
 </Steps>
 
 ---
 
-## Managing Groups
+## Managing Folders
 
-<Frame caption="Folder options for rename and delete">
-  <img src="/images/vm/groups2.png" alt="Context menu for renaming or deleting an assessment folder" />
+<Frame caption="Folder view with available actions">
+  <img src="/images/vm/groups2.png" />
 </Frame>
 
-<Columns cols={2}>
-  <Card title="Rename Folder" icon="pen-to-square">
-    Rename existing folders to reflect new project phases or updated naming conventions.
-  </Card>
-  <Card title="Delete Folder" icon="trash">
-    Remove obsolete folders when a project cycle or testing scope is complete.
-  </Card>
-</Columns>
+- **Rename Folder**
+  - Update folder names as projects evolve  
 
-<Banner>
-Deleting a folder does **not** delete its linked assessments — all assessments remain intact and accessible under the main list.
-</Banner>
+- **Delete Folder**
+  - Remove folders that are no longer needed  
 
----
-
-## Adding Assessments to a Group
-
-<Frame caption="Interface for adding assessments to an existing folder">
-  <img src="/images/vm/groups3.png" alt="Modal showing selection of assessments to add to a folder" />
-</Frame>
-
-<Steps>
-  <Step title="Open the Target Folder">
-    Click on an existing folder to view its current assessments.
-  </Step>
-  <Step title="Select Add Assessments">
-    Choose **Add Assessments** to attach existing tests into that group.
-  </Step>
-  <Step title="Pick from List">
-    Use the dropdown to search and select one or more assessments, then click **Add Assessments** to finalize.
-  </Step>
-</Steps>
-
-<Callout icon="folder-plus" color="blue">
-Grouping assessments simplifies tracking and reporting — for example, you can create a single folder for *All Q1 Engagements* or *API Security Programs* and review them together.
+<Callout icon="info-circle" color="blue">
+Deleting a folder does not remove the assessments inside it — they remain available in the main assessment list.
 </Callout>
 
 ---
 
-## Inside a Group
+## Adding Assessments to a Folder
 
-<Frame caption="Example view of a single folder containing grouped assessments">
-  <img src="/images/vm/groups4.png" alt="Inside view of a single assessment group showing multiple assessments in one folder" />
+<Frame caption="Select and add assessments to a folder">
+  <img src="/images/vm/groups-add-assessments.png" />
 </Frame>
 
-Within each group, you can:
-- View and manage all related assessments in one place.  
-- Create nested folders for sub-categories (e.g., *External*, *Internal*, *Cloud*).  
-- Add or remove assessments as needed.
+<Steps>
+  <Step title="Open a Folder">
+    Click on the folder where you want to add assessments.
+  </Step>
+  <Step title="Click Add Assessments">
+    Use the **Add Assessments** option inside the folder.
+  </Step>
+  <Step title="Select Assessments">
+    Choose one or more assessments from the dropdown list.
+  </Step>
+  <Step title="Confirm">
+    Click **Add Assessments** to link them to the folder.
+  </Step>
+</Steps>
 
 ---
 
-## Value
+## Inside a Folder
 
-Assessment Groups bring **structure, scalability, and simplicity** to your vulnerability management workflow.  
-They enable large organizations to manage hundreds of assessments efficiently — by client, project phase, or business unit — without losing traceability.
+<Frame caption="View and manage assessments within a group">
+  <img src="/images/vm/groups-inside.png" />
+</Frame>
+
+Inside a folder, you can:
+
+- View all grouped assessments in one place  
+- Track their status and progress  
+- Add more assessments anytime  
+- Organize further using sub-folders (if applicable)  
+
+---
+
+## Why It Matters
+
+Assessment Groups bring structure to your vulnerability management process.
+
+They help you:
+- Manage multiple assessments efficiently  
+- Maintain clarity across teams and projects  
+- Improve reporting and organization at scale  
 
 ---
 
 ## Explore Live Demo
 
 <Card title="Explore Snapsec Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Jump straight into the live environment and see how Snapsec unifies asset intelligence, threat detection, and vulnerability tracking — all in one dashboard.
+  Experience how Snapsec organizes and manages assessments at scale using structured grouping.
 </Card>
