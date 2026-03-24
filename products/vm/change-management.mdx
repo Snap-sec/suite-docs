@@ -1,282 +1,200 @@
 ---
 title: "Change Management"
-description: "Track, assess, and validate all change or feature release requests through structured security review workflows."
+description: "Create, track, and validate change requests through a structured security review workflow."
 icon: "code-compare"
 mode: "wide"
 ---
 
-<Frame caption="Change Management Dashboard showing request summary and vulnerability overview">
-  <img src="/images/vm/cm1.png" alt="Change Management dashboard view" />
-</Frame>
-
 ## Overview
 
-The **Change Management** module allows organizations to securely track and assess changes introduced to their applications, infrastructure, or APIs.  
-It ensures that every new release or feature undergoes a controlled security review before production deployment.
-
-Whether you are performing internal change reviews or managing external pentest requests, this module provides a unified process for **security validation, approval tracking, and evidence management**.
-
----
-
-## Purpose
-
-Every code deployment or configuration update can impact the security posture.  
-Change Management in Snapsec VM formalizes this process by:
-
-- Documenting change requests with relevant context (title, owner, timeline, dependencies).
-- Running targeted assessments on new or modified components.
-- Tracking vulnerabilities introduced or fixed through each release.
-- Maintaining traceability between changes, vulnerabilities, and pentest results.
-
----
-
-## Value
-
-<Columns cols={2}>
-  <Card title="Security in Every Release" icon="shield-check">
-    Ensure each release or feature update goes through defined security checks before deployment.
-  </Card>
-  <Card title="Centralized Request Tracking" icon="inbox">
-    Manage all change and pentest requests from a single interface with clear visibility on status and priority.
-  </Card>
-  <Card title="Evidence-based Validation" icon="file-certificate">
-    Attach supporting evidence, testing credentials, and API documentation for validation and audit.
-  </Card>
-  <Card title="Seamless Integration" icon="plug">
-    Link Jira or CI/CD releases with security verification and vulnerability results.
-  </Card>
-</Columns>
-
----
-
-## Change Management Dashboard
-
-The **Dashboard** provides an overview of all pentests and change requests along with key metrics.
-
-<Frame caption="Dashboard view summarizing requests and vulnerability distribution">
-  <img src="/images/vm/cm2.png" alt="Change management request overview dashboard" />
+<Frame caption="Change Management dashboard showing request insights and status overview">
+  <img src="/images/vm/change-db.png" />
 </Frame>
 
-### Dashboard Highlights
+The **Change Management** module helps teams track and validate application or infrastructure changes before deployment.
 
-- **Requests by Status** — Track running, paused, completed, or pending requests.  
-- **Recent Activities** — See recent submissions, updates, and completions.  
-- **Vulnerability Overview** — Visualize vulnerabilities associated with each change request, categorized by severity.  
-- **Top Priority Requests** — Quickly identify ongoing or urgent security validations.
+It ensures that every release, feature update, or configuration change goes through a structured security review process.
+
+<Callout icon="shield-check" color="green">
+Every change request acts as a security checkpoint before deployment — ensuring controlled and auditable releases.
+</Callout>
+
+---
+
+## What You Can Do
+
+- **Create Change Requests**
+  - Submit new requests for security validation  
+
+- **Track Status**
+  - Monitor requests as *Pending* or *Completed*  
+
+- **Prioritize Work**
+  - Assign priority levels like *Low* or *Medium*  
+
+- **View Risk Impact**
+  - Track vulnerabilities linked to each request  
+
+<Callout icon="lightbulb" color="yellow">
+Use priorities to align security testing with release urgency — critical fixes can be validated faster without delaying deployments.
+</Callout>
+
+---
+
+## Change Requests List
+
+<Frame caption="List view of all change requests with status and priority">
+  <img src="/images/vm/change-requests.png" />
+</Frame>
+
+The **Change Requests** page provides a centralized view of all submitted requests.
+
+### Key Details
+
+- **Change Title**
+  - Name of the request or release  
+
+- **Vulnerabilities**
+  - Linked findings (if any)  
+
+- **Dates**
+  - Request date and report deadline  
+
+- **Priority**
+  - Indicates urgency  
+
+- **Assessment State**
+  - Tracks progress (*Pending / Completed*)  
+
+<Callout icon="eye" color="blue">
+This view is ideal for quickly identifying pending validations and high-priority requests across teams.
+</Callout>
 
 ---
 
 ## Creating a Change Request
 
-Creating a change request captures all necessary information for a release or update validation.
-
-<Steps>
-  <Step title="Navigate to Change Management → Change Requests">
-    Click **Create New Request** to open the change submission form.
-  </Step>
-  <Step title="Add Request Summary">
-    Include priority level, title, requester details, contact information, and a concise summary of the change.
-  </Step>
-  <Step title="Set Timeline">
-    Specify the request date, report deadline, and expected go-live window.
-  </Step>
-  <Step title="Add Technical Details">
-    Provide environment details, URLs, authentication credentials, and link any API documentation or files.
-  </Step>
-  <Step title="Submit for Review">
-    Click **Create Request** to trigger validation and assign reviewers.
-  </Step>
-</Steps>
-
-<Frame caption="Change Request creation form capturing summary and technical details">
-  <img src="/images/vm/cm3.png" alt="New change request creation form" />
+<Frame caption="Change request creation form with structured input sections">
+  <img src="/images/vm/change-summary.png" />
 </Frame>
+
+Creating a request involves filling structured sections that capture all necessary context.
+
+<Callout icon="circle-info" color="blue">
+Providing complete and accurate details ensures faster validation and reduces back-and-forth during testing.
+</Callout>
 
 ---
 
-## Viewing and Managing Change Requests
+### 1. Request Summary
 
-All existing requests are listed in the **Change Requests** tab, where you can view, search, and filter by state, priority, or update date.
-
-Each request includes linked vulnerabilities, associated evidence, and live metrics showing open/closed issues, severity breakdowns, and trends.
-
-<Frame caption="Change Request details with metrics and vulnerability insights">
-  <img src="/images/vm/cm4.png" alt="Change request details and vulnerability metrics" />
+<Frame caption="Basic request details and change summary">
+  <img src="/images/vm/change-summary.png" />
 </Frame>
+
+- **Priority Level**
+- **Request Title**
+- **Requester Name / Team**
+- **Contact Information**
+- **Jira Ticket ID**
+- **Change Summary**
 
 ---
 
-## Adding Vulnerabilities to a Change Request
+### 2. Timeline
 
-During or after validation, vulnerabilities identified are automatically linked to their associated **Change Request**.
-
-<Steps>
-  <Step title="From the Assessment">
-    Select vulnerabilities discovered during the pentest and map them to the related change request.
-  </Step>
-  <Step title="Auto Link via Integration">
-    If connected with CI/CD or scanners, vulnerabilities are automatically assigned to their respective change ID.
-  </Step>
-  <Step title="Review and Track Progress">
-    Track each vulnerability’s lifecycle under the **Metrics** tab within the change request.
-  </Step>
-</Steps>
-
-<Frame caption="Metrics showing severity distribution and vulnerability progress within a change request">
-  <img src="/images/vm/cm5.png" alt="Change request vulnerability tracking metrics" />
+<Frame caption="Timeline details for request scheduling">
+  <img src="/images/vm/change-timeline.png" />
 </Frame>
+
+- **Date of Request**
+- **Planned Go-Live Date**
+- **Deadline for Report**
+
+<Callout icon="clock" color="yellow">
+Accurate timelines help align security testing with release schedules and prevent last-minute delays.
+</Callout>
 
 ---
 
-## Change Info
+### 3. Application Info
 
-The **Change Info** section provides a complete overview of the change request and its technical context.  
-It helps security teams understand *what is changing*, *who owns it*, and *how risky the change is* before testing begins.
-
-<Frame caption="Change Request – Change Info">
-  <img src="/images/vm/cm-change-info.png" />
+<Frame caption="Application details and technical context">
+  <img src="/images/vm/change-tech-d1.png" />
 </Frame>
 
-### Included Information
-- **Request Details** — Title, requester, contact, dates, and ticket ID  
-- **Technical Information** — Tech stack, integrations, data sensitivity, production impact  
-- **Pentest Requirements** — Priority, deadlines, go/no-go criteria  
-- **Technical Access Details** — Environment, URLs, authentication method, credentials  
-- **Change Summary** — Release notes and functional updates  
-
-This section acts as the **single source of truth** for the change request.
+- **Application Service Name**
+- **Tech Stack & Frameworks**
+- **Third-Party Integrations**
 
 ---
 
-## Settings
+### 4. Testing Environment
 
-The **Settings** tab allows teams to configure how the assessment behaves and how results are managed.
-
-<Frame caption="Change Request – Settings Overview">
-  <img src="/images/vm/change-settings.png" />
+<Frame caption="Environment and testing configuration">
+  <img src="/images/vm/change-tech-d2.png" />
 </Frame>
 
-### What You Can Configure
-- Assessment metadata (name, date, category)
-- Default ticket assignee
-- Business unit and department mapping
-- Collaborators and access
-- Assessment type and lifecycle state
+- **Environment Type** (e.g., Development, Staging)
+- **Test URL or IP**
 
 ---
 
-## Import CSV (Within Settings)
+### 5. Authentication & Access
 
-The **Import CSV** option allows bulk ingestion of vulnerabilities into the change request.
-
-<Frame caption="Import Vulnerabilities via CSV">
-  <img src="/images/vm/change-import-csv.png" />
+<Frame caption="Authentication method and credentials">
+  <img src="/images/vm/change-tech-d3.png" />
 </Frame>
 
-### Why Use Import CSV
-- Upload results from third-party scanners
-- Migrate findings from legacy tools
-- Speed up onboarding of large vulnerability sets
-- Standardize vulnerability intake for change testing
+- **Authentication Type**
+- **Test Credentials**
 
-Imported vulnerabilities immediately become part of the assessment workflow.
+<Callout icon="lock" color="red">
+Always provide valid test credentials to ensure complete coverage during security testing.
+</Callout>
 
 ---
 
-## Export CSV (Within Settings)
+### 6. API Documentation
 
-The **Export CSV** option enables teams to extract assessment data for offline analysis or compliance needs.
-
-<Frame caption="Export Vulnerabilities to CSV">
-  <img src="/images/vm/change-export-csv.png" />
+<Frame caption="API documentation and file upload section">
+  <img src="/images/vm/change-tech-d4.png" />
 </Frame>
 
-### Common Use Cases
-- Share findings with external teams
-- Perform custom analytics
-- Maintain audit records
-- Backup assessment data
+- **Swagger / API URL**
+- **Upload supporting files**
 
-Exports include vulnerability details, severity, status, and ownership.
+<Callout icon="file-lines" color="purple">
+Providing API documentation improves testing accuracy and helps identify deeper vulnerabilities faster.
+</Callout>
 
 ---
 
-## Custom Report
+## Final Step
 
-The **Custom Report** section allows users to manually curate executive-ready or client-facing reports.
+- Click **Create Request** to submit  
+- The request appears in the Change Requests list  
+- Status is automatically tracked  
 
-<Frame caption="Custom Report Editor">
-  <img src="/images/vm/change-custom-report.png" />
-</Frame>
-
-### Custom Report Sections
-- **Report Title**
-- **Author & Reviewer**
-- **Executive Summary**
-- **Custom Scope**
-- **Methodology**
-- **Conclusion**
-- **Action Plan**
-
-This gives full control over narrative, formatting, and messaging beyond auto-generated reports.
+<Callout icon="check-circle" color="green">
+Once submitted, the request becomes part of your security workflow and can be tracked until completion.
+</Callout>
 
 ---
 
-## Activity
+## Why It Matters
 
-The **Activity** tab provides a chronological audit trail of all actions performed within the change request.
+Change Management ensures that every release is validated before going live.
 
-<Frame caption="Change Request Activity Timeline">
-  <img src="/images/vm/change-activity.png" />
-</Frame>
-
-### Tracked Events
-- Assessment type changes (Black / Grey / White box)
-- Status updates (Started, Paused, Completed)
-- Configuration changes
-- User actions and timestamps
-
-This ensures **accountability, traceability, and compliance visibility**.
+It helps teams:
+- Maintain visibility over all changes  
+- Reduce risk from untested updates  
+- Align development with structured security validation  
 
 ---
-
-## Docs & Evidences
-
-The **Docs & Evidences** section is used to upload proof, screenshots, logs, and supporting files related to the assessment.
-
-<Frame caption="Upload Evidence Modal">
-  <img src="/images/vm/change-docs-evidence.png" />
-</Frame>
-
-### Evidence Management
-- Upload up to **20 files per upload**
-- Max **10 MB per file**
-- Store screenshots, logs, videos, or PDFs
-- Maintain evidence for audits and revalidation
-
-This section is critical for **compliance, verification, and reporting accuracy**.
-
----
-
-## Why This Matters
-
-Modern security failures often originate from *well-intentioned changes* — rushed releases, undocumented fixes, or unreviewed configuration updates.  
-The **Change Management** module ensures that security is not an afterthought, but an embedded control point in every release cycle.
-
-By combining request context, technical validation, vulnerability tracking, reporting, and evidence collection into a single workflow, Snapsec enables teams to:
-
-- **Prevent risky changes from reaching production** without proper security validation  
-- **Maintain continuous visibility** into how each change impacts risk posture  
-- **Create defensible audit trails** linking changes, findings, approvals, and evidence  
-- **Align engineering velocity with security governance**, not slow it down  
-- **Support compliance requirements** with structured data instead of manual documentation  
-
-Instead of fragmented tools and ad-hoc approvals, Change Management provides a **repeatable, traceable, and security-first release process** — helping organizations ship faster *without* compromising trust, compliance, or resilience.
-
-
 
 ## Explore Live Demo
 
 <Card title="Explore Snapsec Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Jump straight into the live environment and see how Snapsec unifies asset intelligence, threat detection, and vulnerability tracking — all in one dashboard.
+  Experience how Snapsec validates and tracks change requests in a structured workflow.
 </Card>
