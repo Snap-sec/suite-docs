@@ -1,204 +1,188 @@
 ---
-title: "Vulnerability List"
-description: "Access, filter, and manage all discovered vulnerabilities from one unified view across assessments, assets, and teams."
+title: "Vulnerabilities"
+description: "View, manage, and remediate all vulnerabilities across assessments from a unified interface."
 icon: "list-check"
 mode: "wide"
 ---
 
-<Frame caption="Unified view of all vulnerabilities across assessments and assets">
-  <img src="/images/vm/vulnerabilities1.png" alt="Vulnerability Management list showing all vulnerabilities with filters and states" />
-</Frame>
-
 ## Overview
 
-The **Centralized Vulnerability List** provides a single, comprehensive view of all vulnerabilities identified across your entire organization — from assessments, assets, and integrated scanners.  
-It enables teams to track, prioritize, and manage vulnerabilities efficiently, all from one place.
+<Frame caption="Centralized vulnerability list with filters and status overview">
+  <img src="/images/vm/vulnerability.png" />
+</Frame>
 
-With intelligent filters, real-time states, and ownership visibility, this unified view removes the need to navigate multiple reports or dashboards. Every vulnerability is synced automatically from assessments and integrations, ensuring complete and current visibility.
+The **Vulnerabilities** section provides a unified view of all identified security issues across assessments, assets, and teams.
+
+It allows you to track, prioritize, and manage vulnerabilities from discovery to resolution — all in one place.
+
+<Callout icon="shield-check" color="green">
+Every vulnerability is tracked with full context — including severity, ownership, activity, and evidence — ensuring complete visibility across the remediation lifecycle.
+</Callout>
 
 ---
 
-## Key Capabilities
+## What You Can Do
 
-<Columns cols={2}>
-  <Card title="Unified View" icon="table-cells">
-    View all vulnerabilities from every source — assessments, integrations, and manual imports — in one consolidated table.
-  </Card>
-  <Card title="Real-Time Sync" icon="arrows-rotate">
-    Vulnerability data is continuously updated as new assessments complete or integrations refresh.
-  </Card>
-  <Card title="Advanced Filtering" icon="filter">
-    Use granular filters to find vulnerabilities by severity, assessment, state, team, or owner.
-  </Card>
-  <Card title="Ownership & Assignment" icon="user-check">
-    See who owns each vulnerability and its current remediation progress.
-  </Card>
-</Columns>
+- **View All Vulnerabilities**
+  - Access a centralized list across all assessments  
+
+- **Track Status**
+  - Monitor states like *In Review, Re-test, Fixed in Staging, Resolved*  
+
+- **Assign Ownership**
+  - Clearly see who is responsible for remediation  
+
+- **Prioritize Fixes**
+  - Focus on critical issues using severity and SLA indicators  
 
 ---
 
 ## Filtering and Search
 
-<Frame caption="Advanced filtering options for vulnerabilities">
-  <img src="/images/vm/vulnerabilities2.png" alt="Filtering toolbar with filters for severity, assessment, owner, state, and teams" />
+<Frame caption="Filtering toolbar for refining vulnerabilities">
+  <img src="/images/vm/vulerability.png" />
 </Frame>
 
-Filters make it simple to pinpoint vulnerabilities of interest. You can filter and search using:
+Use filters to quickly find relevant vulnerabilities:
 
-- **Severity** – Critical, High, Medium, Low  
-- **Assessment** – Specific assessments or projects  
-- **Owners** – Filter by assigned remediation owners  
-- **State** – In review, In progress, Re-test, Resolved, etc.  
-- **Teams** – View vulnerabilities assigned to particular departments  
-
-The search bar supports keyword lookups across vulnerability titles, domains, and affected assets.
+- **Severity**
+- **Assessments**
+- **Owners**
+- **State**
+- **Business Unit / Departments**
+- **SLA Status**
 
 <Callout icon="search" color="blue">
-Combine multiple filters for advanced queries — for example, *Critical vulnerabilities in Docker assessments assigned to Team A*.
+Combine filters to narrow results — for example, *High severity vulnerabilities in Re-test assigned to Backend Team*.
 </Callout>
 
 ---
 
 ## Vulnerability States
 
-Each vulnerability moves through clear, trackable states — making it easy to monitor progress and identify bottlenecks in remediation:
+Each vulnerability moves through defined states:
 
-| State | Description |
-|--------|--------------|
-| **In Review** | Under review by analysts or awaiting validation. |
-| **In Progress** | Actively being worked on by developers or engineers. |
-| **Re-Test** | Undergoing validation after remediation. |
-| **Resolved** | Verified as fixed and no longer exploitable. |
-| **Unresolved** | Not yet addressed or awaiting confirmation. |
-| **False Positive / Not Applicable** | Marked as invalid or irrelevant to the environment. |
+- **In Review**
+- **Triaged**
+- **Re-test**
+- **Fixed in Staging**
+- **Resolved**
+- **Risk Accepted**
+- **False Positive / Not Applicable**
 
 <Banner>
-Every change in vulnerability state automatically syncs with reports and metrics dashboards.
+State changes are reflected instantly across dashboards and reports.
 </Banner>
 
 ---
 
-## Sorting and Prioritization
+## Creating a Vulnerability
 
-Vulnerabilities can be sorted by **severity**, **state**, **owner**, or **date reported** — helping teams prioritize their response efficiently.  
-You can also group by assessments or filter by remediation responsibility.
-
----
-
-## Linking to Context
-
-Each vulnerability record links directly to:
-- **The originating assessment** (for traceability)  
-- **Associated asset or endpoint** (for impact analysis)  
-- **Evidence and remediation notes**  
-
-This ensures every issue remains fully contextualized and actionable within your workflow.
-
----
-
-## Vulnerability Details View
-
-Clicking on any vulnerability from the **Vulnerability List** opens a detailed view that consolidates **context, discussion, metadata, and evidence** into a single page.
-
-This view is designed to help security teams, developers, and auditors collaborate on remediation without switching screens.
-
-<Frame caption="Vulnerability detail view with description and reproduction steps">
-  <img src="/images/vm/vulnerability-details-1.png" alt="Vulnerability description with steps to reproduce and impact" />
+<Frame caption="Create a new vulnerability manually">
+  <img src="/images/vm/vul-create.png" />
 </Frame>
 
----
+- Click **Create Vulnerability**  
+- Add details like title, severity, and affected asset  
+- Link it to an assessment  
 
-## Vulnerability Description
-
-The top section presents the **full vulnerability narrative**, written in a structured and readable format.
-
-### Included Sections
-- **Title** — Clear, standardized vulnerability name  
-- **Description** — Explanation of the issue and why it exists  
-- **Steps to Reproduce** — Actionable steps to validate the finding  
-- **Impact** — Security and business consequences if left unresolved  
-
-This section acts as the **primary reference** for developers and reviewers during remediation.
-
----
-
-## Comments & Recent Activity
-
-All collaboration and system actions related to the vulnerability are tracked in a live activity feed.
-
-<Frame caption="Recent activity timeline and discussion thread">
-  <img src="/images/vm/vulnerability-details-2.png" alt="Recent activity feed with comments and system events" />
-</Frame>
-
-### What’s Tracked
-- User comments and discussions  
-- Owner or state changes  
-- Assessment updates  
-- External references (e.g., PRs, commits, tickets)  
-
-This ensures **transparent collaboration** and a complete **audit trail** of decisions and actions.
-
-<Callout icon="message" color="blue">
-Use comments to tag teammates, clarify fixes, or request re-tests — all context stays tied to the vulnerability.
+<Callout icon="plus" color="purple">
+Manual creation is useful for adding findings from external tools or internal reviews.
 </Callout>
 
 ---
 
-## Report Details Panel
+## Vulnerability Details
 
-A side panel summarizes all **critical metadata** required for prioritization, ownership, and compliance.
+Clicking a vulnerability opens a **single unified view** containing all information needed for remediation.
 
-<Frame caption="Vulnerability report details and severity panel">
-  <img src="/images/vm/vulnerability-details-3.png" alt="Vulnerability report metadata with CVSS, owner, state, and SLA" />
+<Frame caption="Vulnerability description with steps, impact, and remediation">
+  <img src="/images/vm/vul-inside.png" />
 </Frame>
-
-### Key Metadata Displayed
-- **Severity & CVSS Score** (visualized)  
-- **Owner & Collaborators**  
-- **Current State** (Unresolved, In Progress, Resolved, etc.)  
-- **Assessment Source**  
-- **Affected Asset**  
-- **CWE & CVSS Vector**  
-- **SLA Status** (Compliant / Breached)  
-- **Reported Date & Business Unit**
-
-This panel allows teams to **assess risk and urgency at a glance**.
 
 ---
 
-## Attachments & Evidence
+### Description & Reproduction
 
-Evidence supporting the vulnerability can be uploaded directly within the same view.
+This section includes:
 
-<Frame caption="Attachments section for vulnerability evidence">
-  <img src="/images/vm/vulnerability-details-4.png" alt="Attachments upload area for vulnerability evidence" />
-</Frame>
+- **Title & Description**
+- **Steps to Reproduce**
+- **Impact**
+- **Remediation Guidance**
 
-### Evidence Capabilities
-- Upload screenshots, logs, PoCs, or videos  
-- Drag-and-drop or browse upload  
-- Up to **10 files**, **12 MB per file**  
-- Evidence remains permanently linked to the vulnerability  
-
-Attachments strengthen remediation accuracy and are essential for **audit, revalidation, and reporting**.
+It serves as the **primary reference** for developers fixing the issue.
 
 ---
 
-## Why This Matters
+### Activity & Collaboration
 
-This unified vulnerability view ensures that every issue is:
+<Frame caption="Comments, blockers, and activity timeline">
+  <img src="/images/vm/vul-inside-2.png" />
+</Frame>
 
-- **Clearly explained** for developers  
-- **Collaboratively discussed** by all stakeholders  
-- **Fully contextualized** with severity and ownership  
-- **Backed by evidence** for validation and audits  
-- **Tracked end-to-end** from discovery to resolution  
+- Add comments and tag team members  
+- Track all updates and system changes  
+- Create blockers if remediation is blocked  
 
-By keeping description, activity, metadata, and evidence in one place, Snapsec transforms vulnerability handling into a **focused, auditable, and developer-friendly workflow**.
+<Callout icon="message" color="blue">
+All communication stays tied to the vulnerability — ensuring full traceability.
+</Callout>
 
+---
+
+### Report Details Panel
+
+<Frame caption="Metadata panel with severity, ownership, and SLA status">
+  <img src="/images/vm/vu-report-details.png" />
+</Frame>
+
+Key information includes:
+
+- **Severity & CVSS**
+- **Owner & Collaborators**
+- **Current State**
+- **Assessment Source**
+- **Affected Asset**
+- **CWE Classification**
+- **SLA Status**
+- **Reported Date**
+
+<Callout icon="gauge" color="yellow">
+Use this panel to quickly assess risk and decide remediation priority.
+</Callout>
+
+---
+
+### Attachments & Revalidation
+
+Within the same view:
+
+- Upload screenshots, logs, and PoCs  
+- Track revalidation details  
+- Maintain proof for audits  
+
+<Callout icon="paperclip" color="purple">
+Evidence ensures vulnerabilities are verifiable, reproducible, and audit-ready.
+</Callout>
+
+---
+
+## Why It Matters
+
+The Vulnerabilities section centralizes everything required to manage security issues effectively.
+
+It ensures:
+
+- Clear understanding of each issue  
+- Structured collaboration between teams  
+- Complete audit trail with activity and evidence  
+- End-to-end tracking from discovery to resolution  
+
+---
 
 ## Explore Live Demo
 
 <Card title="Explore Snapsec Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Jump straight into the live environment and see how Snapsec unifies asset intelligence, threat detection, and vulnerability tracking — all in one dashboard.
+  Experience how Snapsec helps teams track and remediate vulnerabilities in a unified workflow.
 </Card>
