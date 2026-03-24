@@ -1,212 +1,210 @@
 ---
 title: "Assessment Details"
-description: "Deep-dive into a single assessment: metrics, configuration, evidence, CSV import, and report building."
+description: "Understand, manage, and track a single assessment — from vulnerabilities to reporting."
 icon: "file-chart-column"
 mode: "wide"
 ---
 
-<Frame caption="Assessment overview with live remediation and status counters">
-  <img src="/images/vm/ass1.png" alt="Assessment metrics header showing status chips, progress bar, trends and distributions" />
-</Frame>
-
 ## Overview
 
-An **Assessment** aggregates everything for one security engagement — status, trends, ownership, evidence, and reporting.  
-Use the top header to see **In Review/In Progress/Resolved**, duplicates, retests, staging fixes, members, and overall progress.  
-Below, charts expose **Vulnerability Trends**, **Open/Close Severity Distribution**, **Severity mix**, and **Top 5 vulnerabilities** for quick triage.
-
----
-
-## Tabular View 
-
-In addition to the card-based layout, assessments can also be viewed in a **Tabular View** for detailed comparison and operational tracking.
-
-This view presents all assessments in a structured table format, making it ideal for audits, filtering, and bulk review.
-
-<Frame caption="Assessment Tabular View showing list-based assessment details">
-  <img src="/images/vm/ass-tabular.png" alt="Assessment list view with columns for state, vulnerabilities, progress, and collaborators" />
+<Frame caption="Assessment overview with status, progress, and key metrics">
+  <img src="/images/vm/Assess1.png" />
 </Frame>
 
-### What the Tabular View Shows
+An **Assessment** represents a complete security engagement — combining vulnerabilities, remediation progress, team collaboration, and reporting in one place.
 
-- **Assessment Name & Type** — Quickly identify the nature of each engagement  
-- **Department & Business Unit** — Ownership and organizational context  
-- **Assessment State** — New, Testing Ongoing, Remediation, Paused, or Completed  
-- **Vulnerability Breakdown** — Count of Critical, High, Medium, and Low findings  
-- **Progress Indicator** — Percentage of vulnerabilities resolved  
-- **Created Date** — Timeline visibility  
-- **Collaborators** — Assigned testers and reviewers  
-
-### When to Use Tabular View
-
-<Columns cols={2}>
-  <Card title="Operational Tracking" icon="table">
-    Best suited for security teams managing multiple parallel assessments and tracking status at scale.
-  </Card>
-  <Card title="Filtering & Audits" icon="filter">
-    Easily filter by state, assessment type, or date to support audits and reporting.
-  </Card>
-</Columns>
-
-<Callout icon="info-circle" color="blue">
-The tabular view is especially useful for compliance reviews, weekly reporting, and leadership visibility where side-by-side comparison matters.
-</Callout>
+It allows teams to track findings from discovery to resolution while maintaining full visibility and accountability.
 
 ---
 
+## What You Can See
 
-## Assessment Metric
+- **Assessment Status**
+  - Track stages like *New, Testing Ongoing, and Remediation*
 
-<Frame caption="Live charts for trends and distributions inside an assessment">
-  <img src="/images/vm/ass2.png" alt="Charts for vulnerability trend over time, open vs close severity and severity donut" />
+- **Progress Tracking**
+  - Monitor resolved vs total vulnerabilities
+
+- **Vulnerability Summary**
+  - View counts across different states like Open, Resolved, and Retest
+
+- **Team Members**
+  - Identify contributors working on the assessment
+
+---
+
+## Metrics & Insights
+
+<Frame caption="Assessment-level analytics and vulnerability insights">
+  <img src="/images/vm/ass2.png" />
 </Frame>
 
-Assessment Metrics provides a real-time overview of an assessment’s progress and health.
-It visualizes key data such as total vulnerabilities, remediation status, and severity distribution — helping teams quickly understand how many issues are open, resolved, or pending re-test.
-The page’s purpose is to track remediation effectiveness, analyze vulnerability trends, and measure progress within a specific assessment, ensuring every test leads to measurable security improvement.
+- **Vulnerability Trends**
+  - Track how issues evolve over time
 
+- **Open vs Closed by Severity**
+  - Identify bottlenecks in remediation
 
-
-<Columns cols={2}>
-  <Card title="Status & Progress" icon="gauge">
-    Snapshot of state chips and a progress bar (e.g., **Resolved 17 of 23**). Great for stand-ups and executive updates.
-  </Card>
-  <Card title="Trends & Quality" icon="chart-line">
-    Line/bar/donut charts show discovery vs. closure, open/close by severity, and overall severity distribution.
-  </Card>
-</Columns>
+- **Severity Distribution**
+  - Understand overall risk exposure
 
 ---
 
-## Managing Assessments
+## Working with an Assessment
 
-The **Basic Details** tab allows you to edit key configuration details of your assessment and manage its overall lifecycle.  
-You can update the assessment name, modify category or scope, assign ticket owners, and manage collaborators — keeping your engagement organized and up to date.
+Each assessment is structured into tabs to support different workflows.
 
 ---
 
-### Updating Name or Category
+### Dashboard
 
-<Frame caption="Add or remove collaborators from the assessment">
-  <img src="/images/vm/ass4.png" alt="Collaborators section showing team member management in the assessment panel" />
+- High-level overview of progress and metrics  
+- Quick visibility into current assessment status  
+
+---
+
+### Vulnerabilities
+
+<Frame caption="List of vulnerabilities within an assessment">
+  <img src="/images/vm/ass-vuln.png" />
 </Frame>
 
-Edit the **Assessment Name**, **Date**, or **Category** fields directly from the form.  
-These updates automatically sync across related dashboards, ensuring consistent labeling and visibility for reports, trends, and performance metrics.
-
-<Callout icon="info-circle" color="blue">
-Renaming an assessment does not affect linked vulnerabilities or reports — all associated data remains intact.
-</Callout>
+- View and manage all identified vulnerabilities  
+- Filter by severity, owner, state, or business unit  
+- Track statuses like *Not Applicable, Open, or Resolved*  
 
 ---
 
-### Adding or Removing Collaborators
+### Docs & Evidences
 
-
-<Frame caption="Add or remove collaborators from the assessment">
-  <img src="/images/vm/ass5.png" alt="Collaborators section showing team member management in the assessment panel" />
+<Frame caption="Upload and manage assessment evidence">
+  <img src="/images/vm/ass-evidence.png" />
 </Frame>
 
-Use the **Collaborators** panel to invite or remove team members.  
-Collaborators can view vulnerabilities, upload evidence, and contribute to custom reports — enabling shared visibility and accountability.
+- Upload screenshots, logs, and PoCs  
+- Maintain audit-ready documentation  
+- Link evidence to vulnerabilities  
 
 ---
 
-### Updating Assessment State
+### Activity
 
-
-<Frame caption="Add or remove collaborators from the assessment">
-  <img src="/images/vm/ass6.png" alt="Collaborators section showing team member management in the assessment panel" />
+<Frame caption="Track all activity and changes within the assessment">
+  <img src="/images/vm/ass-activity.png" />
 </Frame>
 
-Control your assessment’s status through three lifecycle options:
-
-<Columns cols={3}>
-  <Card title="Start Assessment" icon="play">
-    Begin active testing. Findings and evidence tracking start automatically.
-  </Card>
-  <Card title="Pause Assessment" icon="pause">
-    Temporarily stop testing while preserving current data and progress.
-  </Card>
-  <Card title="Complete Assessment" icon="check-circle">
-    Finalize your testing, generate reports, and mark the engagement as closed.
-  </Card>
-</Columns>
-
-<Banner>
-Keeping states updated ensures all team members — security, QA, and developers — stay synchronized on what’s currently being tested or finalized.
-</Banner>
+- View a complete timeline of actions  
+- Track updates like scope changes, edits, and status updates  
+- Maintain full audit trace  
 
 ---
 
-## CSV Import (optional)
+## Reports
 
-<Frame caption="Import vulnerabilities from external scanners via CSV template">
-  <img src="/images/vm/ass7.png" alt="CSV Import modal with file upload and markdown-like mapping example" />
+<Frame caption="Generate and export assessment reports">
+  <img src="/images/vm/ass-reports.png" />
 </Frame>
 
-<Steps>
-  <Step title="Open Import">
-    Click **Import CSV** from the Basic Details actions.
-  </Step>
-  <Step title="Upload file">
-    Attach your scanner export (10MB max). Use our template headers to map title, summary, impact, etc.
-  </Step>
-  <Step title="Validate & Import">
-    Review the preview and confirm — findings are linked to this assessment automatically.
-  </Step>
-</Steps>
+The **Reports** tab allows you to generate multiple types of reports for different stakeholders.
 
-<Banner>Use adapters to normalize fields from tools like GitLab, Burp, or custom pipelines.</Banner>
+### Available Reports
+
+- **Vulnerability Report**
+  - Detailed list of all findings with severity and impact
+
+- **Executive Report**
+  - High-level summary for leadership and decision-makers
+
+- **SLA Report**
+  - Tracks SLA compliance and violations
+
+- **CSV Export**
+  - Raw data export for offline analysis
+
+- **Revalidation Report**
+  - Confirms which vulnerabilities have been fixed
+
+- **Certificate of Completion**
+  - Proof of assessment completion
 
 ---
 
-## Assessment Evidences
+## Customizing Reports
 
-<Frame caption="Centralized repository for screenshots, logs, and proofs" >
-  <img src="/images/vm/ass8.png" alt="Empty evidences state with upload button and illustration" />
+<Frame caption="Customize report content before generation">
+  <img src="/images/vm/ass-reports2.png" />
 </Frame>
 
-- Upload screenshots, PoCs, logs, and recordings.  
-- Tag evidence to **specific vulnerabilities** or keep it **assessment-level** for methodology and scope proofs.
+Before generating reports, you can fully customize their content to match your organization’s standards and reporting needs.
+
+### What You Can Customize
+
+- **Report Title**
+  - Define how the report will be labeled
+
+- **Author & Reviewer**
+  - Add ownership and review attribution for audit purposes
+
+- **Executive Summary**
+  - Provide a high-level overview of findings and risk posture
+
+- **Custom Scope**
+  - Specify included assets, targets, or exclusions
+
+- **Methodology**
+  - Describe testing approach, tools, and techniques used
+
+- **Conclusion**
+  - Summarize overall risk and key takeaways
+
+- **Action Plan**
+  - Add recommended next steps and remediation strategy
 
 ---
 
-## Custom Report tab
+## Scope
 
-<Frame caption="Generate executive-ready reports from structured fields" >
-  <img src="/images/vm/ass9.png" alt="Custom Report builder with fields for title, author, reviewers, executive summary, scope, methodology, conclusion" />
+<Frame caption="Define and manage assessment scope">
+  <img src="/images/vm/ass-scope.png" />
 </Frame>
 
-<Fields>
-  <Field name="Report Title">Display name of the report document.</Field>
-  <Field name="Author & Reviewer">Attribution and review trail for auditability.</Field>
-  <Field name="Executive Summary">High-level outcomes and risk posture.</Field>
-  <Field name="Custom Scope">Assets, endpoints, or exclusions for this engagement.</Field>
-  <Field name="Methodology">Tools, techniques, and test approaches used.</Field>
-  <Field name="Conclusion">Risk summary, next steps, and recommendations.</Field>
-</Fields>
-
-<Tabs>
-  <Tab title="Export">
-    Export to PDF/Doc as needed; the report stays linked to assessment evidence and findings.
-  </Tab>
-  <Tab title="Traceability">
-    Each section references **real findings** and **evidence**, ensuring end-to-end audit trails.
-  </Tab>
-</Tabs>
+- Define assets included in testing  
+- Add domains and IP ranges  
+- Specify out-of-scope items  
 
 ---
 
-## Why this matters
+## Settings
 
-- **Single source of truth:** metrics → configuration → evidence → report, all in one place.  
-- **Speed with control:** import external scanner data, validate, and report without losing context.  
-- **Audit-ready:** collaborators, access levels, and report fields provide clear governance.
+<Frame caption="Configure assessment details and collaborators">
+  <img src="/images/vm/ass-settings.png" />
+</Frame>
 
+- Update assessment details:
+  - Name, category, and date  
+  - Business unit and departments  
+
+- Manage collaborators  
+- Control lifecycle:
+  - Start  
+  - Pause  
+  - Complete  
+
+---
+
+## Why It Matters
+
+The Assessment view centralizes everything required to run a security engagement.
+
+It enables:
+- Complete visibility across vulnerabilities and progress  
+- Seamless collaboration between teams  
+- Structured, customizable reporting for stakeholders and compliance  
+
+---
 
 ## Explore Live Demo
 
 <Card title="Explore Snapsec Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Jump straight into the live environment and see how Snapsec unifies asset intelligence, threat detection, and vulnerability tracking — all in one dashboard.
+  Experience how Snapsec manages assessments end-to-end — from detection to reporting.
 </Card>
