@@ -1,21 +1,68 @@
 ---
 title: "Asset Catalog"
-description: "View, filter, and manage all discovered assets with live vulnerability correlation and risk scoring."
+description: "Gain complete visibility into your attack surface with real-time asset intelligence and vulnerability correlation."
 icon: "server"
 mode: "wide"
 ---
 
-<Frame caption="Overview of assets with type distribution, risk score, and vulnerability breakdown">
-  <img src="/images/vm/assets1.png" alt="Snapsec VM Assets dashboard showing charts, risk scores, and asset list" />
+<Frame caption="Assets dashboard showing inventory insights, risk distribution, and asset list">
+  <img src="/images/vm/asset-catalog.png" alt="Assets dashboard with asset metrics, charts, and asset inventory table" />
 </Frame>
 
 ## Overview
 
-The **Assets** page consolidates every application, subdomain, IP, or certificate discovered across your environment.  
-It provides instant visibility into your attack surface with clear indicators for asset type, risk score, and remediation status.  
-Each asset dynamically correlates with vulnerabilities detected across your scans and assessments — helping teams prioritize what to fix first.
+The **Asset Catalog** provides a centralized, real-time view of all assets discovered across your environment — including subdomains, applications, IPs, and infrastructure components.
 
-Clicking any asset takes you directly to its **Vulnerability List**, showing all related findings, states, and remediation details.
+It combines **asset intelligence + vulnerability context** into a single interface, allowing teams to quickly understand:
+
+- What assets exist  
+- Which assets are vulnerable  
+- How risk is distributed  
+- What needs immediate attention  
+
+Each asset is enriched with ownership, vulnerability counts, and remediation progress — enabling faster prioritization and accountability.
+
+<Callout icon="shield-check" color="green">
+Every asset is continuously mapped to vulnerabilities — giving you a live view of your attack surface risk.
+</Callout>
+
+---
+
+## Asset Intelligence Dashboard
+
+<Frame caption="High-level asset insights including total assets, vulnerable assets, and distribution charts">
+  <img src="/images/vm/asset-catlog2.png" alt="Asset insights dashboard showing distribution and vulnerability metrics" />
+</Frame>
+
+The top section provides a **quick snapshot of your entire asset landscape**.
+
+### Key Insights
+
+- **Total Assets**
+  - Total number of discovered assets across all sources  
+
+- **Vulnerable Assets**
+  - Assets currently affected by one or more vulnerabilities  
+
+- **Safe Assets**
+  - Assets with no active vulnerabilities  
+
+---
+
+### Visual Breakdowns
+
+- **Asset Type Distribution**
+  - Understand the composition of your environment (subdomains, IPs, apps, storage, etc.)  
+
+- **Vulnerable vs Safe Assets**
+  - Instantly assess overall exposure  
+
+- **Severity Distribution**
+  - Identify where critical, high, and low-risk assets exist  
+
+<Callout icon="chart-pie" color="blue">
+These visual insights help security teams prioritize high-risk asset categories first.
+</Callout>
 
 ---
 
@@ -24,55 +71,57 @@ Clicking any asset takes you directly to its **Vulnerability List**, showing all
 Use filters at the top of the table to refine your asset view quickly.  
 You can filter assets by:
 
-- **Type** (Application, Subdomain, IP, Certificate, Port)  
-- **Owner** or assigned team  
-- **Has Vulnerabilities** toggle to view only affected assets  
-- **Risk score or remediation progress**  
+- **Asset Type**  
+- **Is Vulnerable**  
+- **Adapter (source integration)**  
+- **State**  
 
 <Frame caption="Asset filters for refining search and sorting view">
-  <img src="/images/vm/assets2.png" alt="Asset filters bar for filtering by type, owner, and vulnerability status" />
+  <img src="/images/vm/assets2.png" alt="Asset filters bar for filtering assets by type, vulnerability, adapter, and state" />
 </Frame>
 
 ---
 
-## How Assets Are Collected
+## Asset Inventory Table
 
-Snapsec automatically aggregates asset data through **Adapters** — connectors that integrate directly with your discovery and security tools.  
-Adapters continuously import and normalize data from:
+The asset table provides a **detailed, actionable view** of every asset.
 
-- External discovery scanners (ASM integrations)  
-- Cloud inventories and DNS records  
-- Continuous monitoring feeds from your **AIM (Asset Intelligence Management)** module  
+### Key Columns
 
-This unified asset catalog ensures your VM dashboard always reflects the latest and most accurate data.
+- **Asset Name**
+  - Domain, subdomain, or resource identifier  
 
-<Callout icon="link" color="blue">
-Adapters synchronize asset ownership, metadata, and discovery sources automatically — eliminating manual imports.
+- **Owner**
+  - Assigned team or user responsible for the asset  
+
+- **Total Vulnerabilities**
+  - Total number of findings linked to the asset  
+
+- **Open Vulnerabilities**
+  - Breakdown by severity (e.g., High, Low, Info)  
+
+- **Remediation Progress**
+  - Percentage of resolved vulnerabilities  
+
+<Callout icon="eye" color="blue">
+Click any asset to drill down into its full vulnerability list and detailed findings.
 </Callout>
 
 ---
 
-## Vulnerability Data Correlation
+## Vulnerability Correlation
 
-Every asset is continuously correlated with vulnerabilities identified across your **assessments** and **integrations**.  
-The system links each vulnerability to its originating asset and recalculates the **asset’s risk score** in real time.  
+Each asset is automatically linked to vulnerabilities identified across:
 
-This provides a complete picture of which assets pose the highest exposure and need urgent attention.
+- Assessments  
+- Scanners and integrations  
+- Manual testing  
 
-<Frame caption="Linked vulnerability data displayed per asset row">
-  <img src="/images/vm/assets3.png" alt="Asset list showing risk score, open vulnerabilities, and remediation progress" />
-</Frame>
+This ensures that every finding is tied to its originating asset, giving complete traceability and context.
 
----
-
-## Auto Risk Updates
-
-When new vulnerabilities are detected, or existing ones are resolved, the **Asset Risk Score** updates automatically.  
-This dynamic scoring ensures your dashboard always reflects the latest state of risk across your environment — no manual recalculation required.
-
-<Banner>
-Risk scoring adapts continuously based on severity, exploitability, and remediation progress.
-</Banner>
+<Callout icon="chart-diagram" color="pink">
+Assets and vulnerabilities stay continuously synchronized — no manual linking required.
+</Callout>
 
 ---
 
@@ -89,25 +138,20 @@ You can also perform quick actions on any asset:
 
 <Columns cols={3}>
   <Card title="Mark as Important" icon="star">
-    Pin assets that require constant monitoring or belong to critical systems.
+    Highlight critical assets that require continuous monitoring.
   </Card>
-  <Card title="Change Owner" icon="user">
-    Assign ownership to relevant teams for accountability.
+  <Card title="Assign Ownership" icon="user">
+    Ensure accountability by assigning assets to teams or individuals.
   </Card>
-  <Card title="Delete Asset" icon="trash">
-    Remove outdated or irrelevant assets from tracking.
+  <Card title="Manage Asset" icon="gear">
+    Perform actions like updating metadata or removing outdated entries.
   </Card>
 </Columns>
 
-<Frame caption="Quick actions menu available for each asset entry">
-  <img src="/images/vm/assets5.png" alt="Context menu showing mark important, change owner, and delete asset options" />
-</Frame>
-
 ---
-
 
 ## Explore Live Demo
 
 <Card title="Explore Snapsec Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Jump straight into the live environment and see how Snapsec unifies asset intelligence, threat detection, and vulnerability tracking — all in one dashboard.
+  Experience how Snapsec delivers real-time asset visibility with vulnerability-driven prioritization.
 </Card>
