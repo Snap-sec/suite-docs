@@ -1,106 +1,150 @@
 ---
 title: "Blockers"
-description: "Collaboratively manage and track issues that block vulnerability resolution or report progress."
+description: "Track and manage issues that prevent vulnerability remediation or progress."
 icon: "circle-pause"
 mode: "wide"
 ---
 
-<Frame caption="Blockers view — all blockers raised across vulnerabilities">
-  <img src="/images/vm/blockers1.png" alt="Blocker list page displaying open and resolved blockers" />
+<Frame caption="Blockers list with filters, status, and assignment tracking">
+  <img src="/images/vm/blockers.png" alt="Blockers list page showing all blockers with status and assignees" />
 </Frame>
 
 ## Overview
 
-**Blockers** allow teams to raise and track items that temporarily halt progress on vulnerability remediation or reporting.  
-When something prevents a vulnerability from being closed — such as pending business approval, environment dependencies, or severity disagreements — a **blocker** provides visibility, accountability, and resolution tracking.
+**Blockers** help teams track issues that delay or prevent vulnerability remediation.
 
-Each blocker is tied to a vulnerability, includes assigned members, and syncs activity between the **Vulnerability Report** and the **Blockers** dashboard.
+Whenever progress is blocked — due to dependencies, missing access, or validation delays — a blocker ensures the issue is visible, assigned, and tracked until resolution.
+
+Each blocker is linked to a vulnerability and includes ownership, status, and activity history.
+
+<Callout icon="shield-check" color="green">
+Blockers ensure that no remediation delay goes unnoticed — every dependency or issue is tracked with clear ownership.
+</Callout>
 
 ---
 
+## What You Can Do
 
-## Common Use Cases
+- **Track All Blockers**
+  - View all blockers across vulnerabilities  
 
-<Columns cols={2}>
-  <Card title="Severity Re-evaluation" icon="gavel">
-    When teams disagree on CVSS scores or risk classification.
-  </Card>
-  <Card title="Dependency Pending" icon="wrench">
-    Waiting for dependent systems or teams before proceeding with fixes.
-  </Card>
-  <Card title="Access or Scope Clarification" icon="key">
-    Additional permissions or access details are needed before validation.
-  </Card>
-  <Card title="Revalidation Delays" icon="clock">
-    Retests are blocked due to staging or environment unavailability.
-  </Card>
-</Columns>
+- **Filter and Search**
+  - Quickly find blockers using status, priority, or assignee  
 
+- **Manage Ownership**
+  - Assign blockers to responsible team members  
+
+- **Monitor Status**
+  - Track blockers as *Pending* or *Resolved*  
+
+---
+
+## Blocker Views
+
+The Blockers section provides two key views:
+
+- **My Blockers**
+  - Displays blockers assigned to you  
+
+- **All Blockers**
+  - Displays all blockers across the organization  
+
+<Callout icon="eye" color="blue">
+Use *My Blockers* to focus on your tasks and *All Blockers* for complete visibility across teams.
+</Callout>
+
+---
+
+## Filtering and Search
+
+<Frame caption="Filtering blockers by status, priority, and assignee">
+  <img src="/images/vm/all-blockers.png" alt="Blocker filtering toolbar with search and filters" />
+</Frame>
+
+You can refine blockers using:
+
+- **Search**
+- **Status**
+- **Priority**
+- **Assignee**
+
+<Callout icon="search" color="blue">
+Filtering helps quickly identify unresolved blockers or high-priority delays.
+</Callout>
 
 ---
 
 ## Creating a Blocker
 
-Blockers are created directly within a vulnerability report when progress is stalled.
+Blockers are created directly from within a vulnerability when progress is blocked.
 
 <Steps>
-  <Step title="Open the Vulnerability Report">
-    Navigate to any vulnerability report where remediation is being tracked.
+  <Step title="Open Vulnerability">
+    Navigate to a vulnerability where progress is stalled.
   </Step>
-  <Step title="Scroll to the Comment & Blocker Panel">
-    Use the comment box to mention teammates and select the **‘Create a Blocker’** checkbox.
-  </Step>
-  <Step title="Add Blocker Details">
-    Provide a **Title**, assign a responsible **User**, and describe the issue causing the delay.
+  <Step title="Use Comment Panel">
+    In the **Comment & Blocker Panel**, enter details and enable **Create a Blocker**.
   </Step>
   <Step title="Submit Blocker">
-    Click **Create Blocker** to record and notify the assigned user.
+    Add description and assign a user, then submit the blocker.
   </Step>
 </Steps>
 
-<Frame caption="Creating a blocker directly from the vulnerability report panel">
-  <img src="/images/vm/blockers2.png" alt="Comment and Blocker creation panel within vulnerability report" />
+<Frame caption="Creating a blocker from the vulnerability activity panel">
+  <img src="/images/vm/blocker-show.png" alt="Blocker creation inside vulnerability activity panel" />
 </Frame>
 
 ---
 
 ## Managing Blockers
 
-All active and resolved blockers are available under the **Blockers** tab in the VM navigation.  
-From here, you can track blockers by status, assignee, and related vulnerabilities.
+Once created, blockers can be updated and resolved directly.
 
-<Steps>
-  <Step title="View All Blockers">
-    Open the **Blockers** page to see every blocker currently active across the organization.
-  </Step>
-  <Step title="Mark Resolved">
-    Once the issue is addressed (e.g., approval granted or fix verified), click **Mark Resolved** to close the blocker.
-  </Step>
-  <Step title="Reopen Blocker">
-    If an issue reoccurs, click **Reopen Blocker** — this restores visibility in reports and dashboards.
-  </Step>
-</Steps>
+- **Mark as Resolved**
+  - Close the blocker once the issue is fixed  
 
-<Frame caption="Resolved and reopened blockers displayed in the activity timeline">
-  <img src="/images/vm/blockers3.png" alt="Blocker resolution and reopening activity log in vulnerability details" />
-</Frame>
+- **Reopen Blocker**
+  - Reopen if the issue persists  
+
+- **Track Ownership**
+  - View assigned user and creator  
 
 ---
 
 ## Activity Timeline
 
-Each blocker’s creation, resolution, and comments appear in the **Recent Activity** timeline within its associated vulnerability.  
-This ensures full traceability of decision-making, discussions, and timeline accountability between security and development teams.
+<Frame caption="Blocker activity showing creation, updates, and resolution">
+  <img src="/images/vm/blocker-show.png" alt="Blocker activity timeline within vulnerability details" />
+</Frame>
 
-<Banner color="blue">
-All blocker events — creation, resolution, or reopening — are automatically logged for audit and reporting.
-</Banner>
+All blocker actions are recorded in the **Recent Activity** section:
+
+- Creation  
+- Status updates  
+- Resolution  
+- Reopening  
+
+<Callout icon="timeline" color="blue">
+All blocker actions are automatically logged, ensuring full audit visibility.
+</Callout>
 
 ---
 
+## Why It Matters
+
+Blockers ensure that remediation workflows remain transparent and accountable.
+
+They help teams:
+
+- Identify delays early  
+- Assign responsibility clearly  
+- Maintain visibility across teams  
+- Keep remediation workflows moving efficiently  
+
+---
 
 ## Explore Live Demo
 
 <Card title="Explore Snapsec Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Jump straight into the live environment and see how Snapsec unifies asset intelligence, threat detection, and vulnerability tracking — all in one dashboard.
+  Experience how Snapsec helps teams track and resolve blockers in real time.
 </Card>
