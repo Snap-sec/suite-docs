@@ -5,122 +5,119 @@ icon: "box"
 mode: "wide"
 ---
 
-<img style={{ borderRadius: '0.5rem', marginBottom: '1rem' }}
-  src="/images/suite.png" 
-/>
+<Frame caption="Snapsec Suite — choose a product to get started">
+  <img src="/images/suite.png" alt="Snapsec Suite product selection screen with VM, ASM, AIM, VS, and WAS modules" />
+</Frame>
 
-## Centralized. Automated. Intelligent.
+## Welcome to Snapsec Suite
 
-Snapsec Suite is an **end-to-end Application Security platform** built to centralize your entire security lifecycle — from asset discovery to remediation and continuous protection.  
-It unites six core modules into one cohesive system, ensuring that your data, teams, and workflows stay in sync across every phase of security operations.
+Snapsec is a unified platform designed to help you **discover, assess, and manage security risks** across your entire environment.
+
+Each module focuses on a specific part of the security lifecycle — but they all work together seamlessly through a shared data layer.
+
+Start by selecting a module below based on what you want to do.
 
 ---
 
-## The Six Pillars of Snapsec Suite
+## Choose Your Starting Point
 
 <CardGroup cols={3}>
 
 <Card title="Vulnerability Management (VM)" icon="cube" href="/products/vm">
-  Manage vulnerabilities from detection to remediation with full lifecycle visibility, SLA analytics, and automation.
+  Track vulnerabilities, manage remediation workflows, enforce SLAs, and monitor progress across teams.
 </Card>
 
 <Card title="Attack Surface Management (ASM)" icon="triangle-exclamation" href="/products/asm">
-  Discover, classify, and monitor all external assets and exposures — your first line of defense against unknown risks.
+  Discover and monitor external-facing assets, subdomains, and exposures in real time.
 </Card>
 
 <Card title="Asset Intelligence Management (AIM)" icon="crosshairs" href="/products/aim">
-  Build a unified, living inventory of assets with contextual intelligence, ownership mapping, and environment tagging.
+  Build and manage a centralized inventory of assets with ownership, tagging, and contextual intelligence.
 </Card>
 
 <Card title="Vulnerability Scanning (VS)" icon="eye" href="/products/vs">
-  Automate detection with integrated or custom scanners such as Nuclei, Trivy, and OpenVAS — all orchestrated centrally.
-</Card>
-
-<Card title="Threat Management (TM)" icon="bullseye" href="/products/tm">
-  Aggregate, correlate, and prioritize threat data from multiple sources to support proactive risk response.
+  Run automated scans using integrated scanners and import findings directly into your workflow.
 </Card>
 
 <Card title="Web Application Scanner (WAS)" icon="bolt" href="/products/was">
-  Monitor, test, and protect your APIs in real time through continuous discovery, attack simulation, and enforcement.
+  Test and monitor web applications and APIs for vulnerabilities through continuous scanning.
 </Card>
-
 
 </CardGroup>
 
 ---
 
-## Unified Data Fabric
+## How Everything Connects
 
-Every module in Snapsec Suite shares a **common intelligence layer**, enabling **data correlation across all stages** of security operations:
+Snapsec modules are designed to work together — not in isolation.
 
-| Source | Correlates With | Value |
-|--------|-----------------|--------|
-| **ASM** | AIM + VM | Converts discovered assets into managed entities with direct vulnerability mapping. |
-| **AIM** | VM + TM | Enriches vulnerability data with ownership, environment, and business impact. |
-| **VS** | VM | Automatically imports findings into assessments and triggers remediation workflows. |
-| **VM** | TM | Provides live vulnerability intelligence to threat teams for contextual triage. |
-| **WAS** | ASM + VM | Links API discovery data with vulnerabilities and runtime protection events. |
+- **ASM → AIM**  
+  Discovered assets automatically become part of your inventory  
 
-This inter-module correlation creates a **single source of truth** — so every finding, asset, or change request stays connected to its real-world context.
+- **AIM → VM**  
+  Assets are enriched with vulnerability context and ownership  
+
+- **VS → VM**  
+  Scan results are converted into actionable vulnerabilities  
+
+- **VM → WAS / VS**  
+  Issues can be re-tested and validated continuously  
+
+This creates a **single, connected workflow** from discovery to remediation.
 
 ---
 
-## Seamless Automation & Intelligence
+## Suggested Workflow
+
+If you're new, follow this flow:
+
+1. **Start with ASM**  
+   Discover what assets exist  
+
+2. **Move to AIM**  
+   Organize and assign ownership  
+
+3. **Run scans via VS or WAS**  
+   Identify vulnerabilities  
+
+4. **Manage everything in VM**  
+   Track, prioritize, and remediate issues  
+
+---
+
+## What You Can Do Next
 
 <Columns cols={2}>
 
-<Card title="Smart Correlation Engine" icon="engine">
-  Automatically links assets, vulnerabilities, and threats using advanced pattern recognition and tagging logic.
+<Card title="Explore Vulnerabilities" icon="bug" href="/products/vm">
+  Dive into detected issues and start managing remediation workflows.
 </Card>
 
-<Card title="Adaptive SLA Policies" icon="clock">
-  Unified SLA tracking across all modules with severity-based breach detection and team performance insights.
+<Card title="View Your Assets" icon="server" href="/products/aim">
+  Understand what exists in your environment and who owns it.
 </Card>
 
-<Card title="Cross-Module Integrations" icon="plug">
-  Integrate once — connect tools like Jira, Qualys, GitLab, or custom scanners and synchronize data everywhere.
+<Card title="Run a Scan" icon="play" href="/products/vs">
+  Launch scans and start identifying security issues.
 </Card>
 
-<Card title="Unified Reporting Layer" icon="file-chart-column">
-  Generate organization-wide reports combining asset intelligence, vulnerability trends, and remediation progress.
+<Card title="Monitor Attack Surface" icon="shield" href="/products/asm">
+  Track exposed assets and detect changes in real time.
 </Card>
 
 </Columns>
 
 ---
 
-## Continuous Security Lifecycle
-
-1. **Discover** — Identify all assets and exposures using ASM & AIM.  
-2. **Assess** — Run vulnerability scans or manual tests through VS & VM.  
-3. **Prioritize** — Contextualize issues with asset and threat intelligence from AIM & TM.  
-4. **Remediate** — Track fixes, blockers, and change requests in VM.  
-5. **Validate** — Re-test and verify patches automatically via VS.  
-6. **Protect** — Monitor APIs and runtime assets with WAS.
-
-Each step is **recorded, correlated, and measurable** — building a transparent feedback loop between detection and defense.
-
----
-
-## The Value of Centralization
-
-- **Single Source of Truth:** Every vulnerability, asset, and threat lives in one ecosystem.  
-- **Reduced Friction:** Developers, analysts, and managers share a unified dashboard.  
-- **Improved Visibility:** Complete traceability from discovery to remediation.  
-- **Data-Driven Decisions:** Context-aware prioritization based on business impact.  
-- **Automation-Ready:** Integrate with CI/CD, issue trackers, or security tools through adapters.
-
----
-
 ## Explore Live Demo
 
 <Card
-  title="Get Started with Snapsec Suite"
-  icon="arrow-right"
+  title="Launch Snapsec Demo"
+  icon="wand-magic-sparkles"
   href="https://suite.snapsec.co/demo"
   data-umami-event="Demo CTA Click"
-  data-umami-event-location="Next Steps"
-  data-umami-event-variant="Get Started">
+  data-umami-event-location="Getting Started"
+  data-umami-event-variant="Launch Demo">
   
-  Follow our quickstart guide to set up your organization and start securing your assets today.
+  Access the full Snapsec Suite and explore each module in action.
 </Card>

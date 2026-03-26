@@ -1,155 +1,127 @@
 ---
 title: "Reports"
-description: "Generate, manage, and download detailed vulnerability and executive reports for assessments, assets, and change requests."
+description: "Search, generate, and manage vulnerability and executive reports with a streamlined, action-first workflow."
 icon: "file-chart-column"
 mode: "wide"
 ---
 
-<Frame caption="Reports dashboard showing generated vulnerability and executive reports">
-  <img src="/images/vm/reports1.png" alt="List of reports with types, states, and actions in Snapsec VM Reports page" />
+<Frame caption="Reports dashboard with search-first layout and quick actions">
+  <img src="/images/vm/reports-main-page.png" alt="Reports page showing report list, search bar, and generate report button" />
 </Frame>
 
 ## Overview
 
-The **Reports** page centralizes all report generation and management within Vulnerability Management.  
-From technical vulnerability exports to high-level executive summaries, this module allows you to create customized PDF reports tailored to your audience — from engineers to leadership.
+The **Reports** page provides a centralized and simplified interface to manage all generated reports across your environment.
 
-Each report is automatically linked to its source assessment, asset, or change request for full traceability.  
-You can generate, download, revalidate, or delete reports directly from this interface.
+From vulnerability exports to executive summaries, reports can be quickly generated, searched, and managed — all from a single view.
 
----
+Each report is linked to its source assessment (if applicable) and includes its current state, allowing teams to track and access reports effortlessly.
 
-## Types of Reports & Their Purpose
-
-Snapsec provides multiple report types to support different security, compliance, and business workflows.  
-Each report is designed with a specific audience and outcome in mind — from deep technical remediation to executive decision-making.
-
-<Frame caption="Report Types Selection – Choose the right report for your security objective">
-  <img
-    src="/images/vm/reports-types.png"
-    alt="Generate Report modal showing different report types available in Snapsec"
-  />
-</Frame>
-
-<Columns cols={2}>
-  <Card title="Assessment-Specific Report" icon="list-check">
-    **Purpose:**  
-    Used by security engineers and pentesters to document findings from a single assessment.  
-    This report focuses on technical depth — vulnerabilities, proof of concept, impact, and remediation steps — making it ideal for fixing issues identified during a test.
-  </Card>
-
-  <Card title="Asset-Specific Report" icon="server">
-    **Purpose:**  
-    Designed to evaluate the security posture of a specific asset or asset group.  
-    Helps asset owners understand cumulative risk, recurring weaknesses, and exposure trends tied to domains, IPs, APIs, or infrastructure components.
-  </Card>
-
-  <Card title="Executive Report" icon="chart-pie">
-    **Purpose:**  
-    Created for leadership and non-technical stakeholders.  
-    Summarizes overall risk, severity distribution, remediation progress, and trends — enabling informed business decisions without exposing technical noise.
-  </Card>
-
-  <Card title="Change Request Report" icon="arrows-rotate">
-    **Purpose:**  
-    Supports secure change management by validating security impact before or after a change.  
-    Ensures new releases, integrations, or infrastructure updates meet security requirements before approval.
-  </Card>
-
-  <Card title="Revalidation Report" icon="shield-check">
-    **Purpose:**  
-    Confirms whether previously reported vulnerabilities have been successfully remediated.  
-    Commonly used for client verification, compliance evidence, and closure confirmation after fixes are deployed.
-  </Card>
-
-  <Card title="Organization-Wide Report" icon="building">
-    **Purpose:**  
-    Provides a holistic view of security posture across all assets and assessments.  
-    Useful for audits, quarterly reviews, and tracking risk trends at an organizational level.
-  </Card>
-</Columns>
-
+<Callout icon="bolt" color="yellow">
+Reports are generated on-demand and stored automatically, ensuring instant access and complete traceability.
+</Callout>
 
 ---
 
-## Generating New Reports
+## Search & Discover
 
-<Frame caption="Generate Report modal with all available report options">
-  <img src="/images/vm/reports2.png" alt="Generate Report modal showing report type and assessment selection" />
+<Frame caption="Search reports instantly by title">
+  <img src="/images/vm/reports-search.png" alt="Search bar for filtering reports by title" />
 </Frame>
+
+The **search bar** enables instant filtering of reports by title.
+
+This allows teams to quickly locate specific reports without navigating through long lists.
+
+### Capabilities
+
+- Search by report name or keyword  
+- Instant filtering of results  
+- Efficient navigation across large datasets  
+
+---
+
+## Generate Reports
+
+<Frame caption="Generate report modal with report type selection">
+  <img src="/images/vm/reports-generate.png" alt="Generate report modal showing available report types" />
+</Frame>
+
+Reports can be generated directly from the Reports page using a simple and guided flow.
 
 <Steps>
-  <Step title="Login to Your Account">
-    Sign in to your Snapsec account to access the reporting dashboard.
+  <Step title="Click Generate Report">
+    Use the **Generate Report** button at the top-right corner.
   </Step>
 
-  <Step title="Navigate to the Reports Page">
-    Go to the **Reports** section — here you’ll find a list of all previously generated reports.
+  <Step title="Select Report Type">
+    Choose the required report format:
+    - Full Re-Validation Report  
+    - Full Executive Report  
+    - All Vulnerabilities  
+    - Assessment Specific  
+    - Change Request  
   </Step>
 
-  <Step title="Click on Generate Report">
-    Click the **Generate Report** button located at the top-right corner of the page.
-  </Step>
-
-  <Step title="Choose Report Type">
-    Select the type of report you want to generate:<br/>
-    **Assessment Specific**, **Asset Specific**, **Executive Report**, **Revalidation Report**, or others.
-  </Step>
-
-  <Step title="Select Input Source">
-    Based on the selected report type, choose the required **Assessment**, **Asset**, or **Change Request** from the dropdown.
-  </Step>
-
-  <Step title="Generate Report">
-    Click **Generate** and wait for Snapsec to compile the PDF.  
-    The system will automatically collect all relevant data — vulnerabilities, metadata, summaries, and evidences.
-  </Step>
-
-  <Step title="Download the Report">
-    Once completed, click the **Download** icon next to the newly generated report to save the PDF.
+  <Step title="Generate">
+    Submit the request — Snapsec automatically compiles the report using the latest available data.
   </Step>
 </Steps>
 
-<Banner>
-All generated reports are automatically stored, timestamped, and versioned — guaranteeing auditability, traceability, and consistent reporting.
-</Banner>
+<Callout icon="gear" color="blue">
+Report generation automatically aggregates vulnerabilities, metadata, and remediation status — eliminating manual effort.
+</Callout>
 
 ---
 
-## Downloading and Deleting Reports
+## Manage Reports
 
-<Frame caption="List of generated reports with status indicators and quick actions">
-  <img src="/images/vm/reports3.png" alt="Reports table showing different report types, states, and quick action buttons" />
+<Frame caption="Quick actions menu for downloading and deleting reports">
+  <img src="/images/vm/reports-dl-dlt.png" alt="Reports table showing actions menu with download and delete options" />
 </Frame>
 
-Once reports are generated, you can perform key actions directly from the list view:
+Each report includes an **actions menu (⋯)** that provides quick access to key operations.
 
-<Columns cols={3}>
-  <Card title="Download" icon="download">
-    Instantly download PDF versions for internal sharing or submission.
-  </Card>
-  <Card title="Regenerate" icon="refresh">
-    Rebuild a report with updated data when vulnerabilities or remediation statuses change.
-  </Card>
-  <Card title="Delete" icon="trash">
-    Remove outdated or duplicate reports to keep your workspace organized.
-  </Card>
-</Columns>
+### Available Actions
 
+- **Download**  
+  Download the generated report instantly for sharing or documentation  
 
+- **Delete**  
+  Remove outdated or unnecessary reports  
 
 ---
 
-## Value
+## Report List & Status
 
-The **Reports** module bridges the gap between technical testing and business insight.  
-It automates report creation, ensures consistency across deliverables, and helps communicate progress effectively across teams — from engineers to executives.
+The reports table provides a structured view of all generated reports:
+
+- **Report Name** — Title and type of report  
+- **Assessment Name** — Associated assessment (if available)  
+- **State** — Current status (e.g., Completed)  
+- **Actions** — Quick access to report operations  
+
+This layout ensures clarity, quick access, and efficient report management.
 
 ---
 
+## Why It Matters
+
+The redesigned Reports module enables:
+
+- Faster report generation workflows  
+- Instant search and retrieval  
+- Simplified report management via quick actions  
+- Consistent reporting across technical and executive use cases  
+
+<Callout icon="chart-line" color="green">
+Convert vulnerability data into structured, shareable insights in seconds.
+</Callout>
+
+---
 
 ## Explore Live Demo
 
 <Card title="Explore Snapsec Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Jump straight into the live environment and see how Snapsec unifies asset intelligence, threat detection, and vulnerability tracking — all in one dashboard.
+  Generate, search, and manage reports in a unified vulnerability management platform.
 </Card>
