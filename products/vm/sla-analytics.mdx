@@ -1,203 +1,232 @@
 ---
 title: "SLA Analytics"
-description: "Monitor and optimize vulnerability remediation performance with SLA tracking, team metrics, and automated compliance reporting."
+description: "Track, enforce, and optimize vulnerability remediation timelines with real-time SLA visibility, violations tracking, and automated reporting."
 icon: "chart-line"
 mode: "wide"
 ---
 
-<Frame caption="SLA Analytics Dashboard showing SLA overview and team performance">
-  <img src="/images/vm/sla1.png" alt="SLA Analytics Dashboard" />
+<Frame caption="SLA Dashboard showing compliance overview, severity breakdown, and team performance">
+  <img src="/images/vm/sla-db.png" alt="SLA dashboard with compliance metrics, charts, and breakdown" />
 </Frame>
 
 ## Overview
 
-The **SLA Analytics Dashboard** helps organizations measure how efficiently vulnerabilities are being remediated according to defined **Service Level Agreements (SLAs)**.  
-It tracks every vulnerability ticket’s progress, breach status, and compliance percentage across users, teams, and severity levels — ensuring that **no SLA breach goes unnoticed**.
+**SLA Analytics** provides a real-time view of how effectively your organization is resolving vulnerabilities within defined timelines.
+
+It transforms SLA tracking from a passive metric into an **active operational system** — helping teams identify breaches, enforce accountability, and continuously improve remediation performance.
+
+You can monitor:
+
+- SLA compliance across all vulnerabilities  
+- Breached and at-risk issues  
+- Team and owner performance  
+- Severity-based remediation trends  
+
+<Callout icon="shield-check" color="orange">
+Every vulnerability is continuously tracked against SLA deadlines — ensuring zero blind spots in remediation timelines.
+</Callout>
 
 ---
 
-## Value
+## SLA Dashboard
 
-SLA Analytics empowers security and engineering leaders to:
+The **Dashboard** gives a high-level snapshot of SLA performance across your organization.
 
-- **Monitor remediation timelines** for every severity category.
-- **Detect SLA breaches** early and prioritize critical fixes.
-- **Measure team performance** and compliance across departments.
-- **Generate executive-ready reports** for audit and governance.
-- **Optimize resources** by focusing on teams or assets lagging behind.
-
-<Columns cols={2}>
-  <Card title="Compliance Visibility" icon="shield-check">
-    Gain full visibility into SLA adherence across vulnerabilities and teams.
-  </Card>
-  <Card title="Automated Metrics" icon="bar-chart">
-    Track total tickets, breached SLAs, compliant issues, and pending risks in real-time.
-  </Card>
-</Columns>
-
----
-
-## Setting up SLA
-
-
-<Frame caption="SLA Configuration Settings for severity and weekends">
-  <img src="/images/vm/sla4.png" alt="SLA Settings Configuration" />
+<Frame caption="Top-level SLA metrics including total tickets, breached, compliant, and at-risk">
+  <img src="/images/vm/sla-export-report.png" alt="SLA dashboard summary metrics and export option" />
 </Frame>
 
+### Key Metrics
 
-Configuring your SLAs ensures that vulnerabilities are automatically tracked against organizational timelines.
-
-<Steps>
-  <Step title="Navigate to SLA → Settings">
-    Go to the **Settings** tab within the SLA Analytics module.
-  </Step>
-  <Step title="Define SLA Durations">
-    Set the number of days allowed for each severity level — Critical, High, Medium, and Low.
-  </Step>
-  <Step title="Adjust Weekend Configuration">
-    Include or exclude Fridays, Saturdays, or Sundays in SLA calculations based on your work week.
-  </Step>
-  <Step title="Add Holiday Exceptions">
-    Optionally, import your organization’s holiday calendar (iCal) to exclude those days from SLA timers.
-  </Step>
-  <Step title="Save Configuration">
-    Click **Save SLA Configuration** — all existing and new vulnerabilities will follow the new SLA policy.
-  </Step>
-</Steps>
+- **Total Tickets** — All tracked vulnerabilities  
+- **Total Breached** — Issues that exceeded SLA timelines  
+- **Total Compliant** — Resolved within SLA  
+- **Unassigned** — Vulnerabilities without ownership  
+- **At Risk** — Close to breaching SLA  
 
 ---
 
-## Violations
+### Visual Insights
 
-<Frame caption="SLA Violations View — critical and medium issues by owner">
-  <img src="/images/vm/sla2.png" alt="SLA Violations List" />
-</Frame>
+- **SLA Compliance Overview**
+  - % of compliant vs breached vulnerabilities  
 
-The **Violations** tab lists all vulnerabilities that have **breached** or are **at risk** of breaching their SLA.  
-Each row shows severity, breach date, time overdue, and the assigned owner.
+- **Violations by Severity**
+  - Identify which severity levels are failing SLAs  
 
+- **Violations by Department**
+  - Understand which teams are lagging  
 
+- **Business Unit Breakdown**
+  - Track SLA performance across organizational units  
 
-### Features:
-- Filter by **severity**, **owner**, or **team**.
-- Track **time overdue** and **breach date** for each issue.
-- Identify **critical delays** that impact compliance metrics.
-- Assign or reassign owners directly to expedite resolution.
-
----
-
-## Leaderboard
-
-<Frame caption="Leaderboard showing team SLA compliance percentage">
-  <img src="/images/vm/sla3.png" alt="SLA Leaderboard Table" />
-</Frame>
-
-The **Leaderboard** ranks users or teams based on SLA performance, giving clear insight into compliance and ownership quality.
-
-
-
-### Metrics Displayed:
-- **Total Vulnerabilities:** Count of assigned tickets.  
-- **Breached:** Number of issues past their SLA deadline.  
-- **At Risk:** Vulnerabilities close to SLA violation.  
-- **Total Violations:** Combined SLA breaches and risk count.  
-- **Compliance %:** Percentage of issues resolved within SLA timelines.
+<Callout icon="eye" color="green">
+The dashboard refreshes automatically, ensuring decisions are always based on current data.
+</Callout>
 
 ---
 
-## Exporting CSV Report
+## SLA Violations
 
-<Frame caption="Sample exported SLA compliance report in Excel format">
-  <img src="/images/vm/sla6.png" alt="Exported SLA Analytics Report" />
+<Frame caption="SLA violations table with filters, column controls, and CSV export">
+  <img src="/images/vm/sla-violations-filters.png" alt="SLA violations table with filters and controls" />
 </Frame>
 
-Export detailed SLA performance data for executive review or compliance audits.
+The **Violations** view is your **execution layer** — where teams actively track and resolve SLA breaches.
 
-<Steps>
-  <Step title="Open the SLA Dashboard">
-    Navigate to the **SLA → Dashboard** section.
-  </Step>
-  <Step title="Click Export Report">
-    Use the **Export Report** button to download a structured Excel or CSV file.
-  </Step>
-  <Step title="Review Metrics">
-    The exported file includes:
-    - SLA Overview by Percentage
-    - Breakdown by Severity
-    - Team-wise and Department-level compliance
-    - Breached and Resolved ticket counts
-  </Step>
-</Steps>
+### What You See
+
+- Vulnerability title and source  
+- Severity and current state  
+- Assigned owner  
+- Time overdue (in days)  
+
+---
+
+### Powerful Controls
+
+- **Advanced Filters**
+  - Filter by severity, violation type, state, owner, team, department, and more  
+
+- **Column Customization**
+  - Toggle visible columns for tailored workflows  
+
+- **CSV Export**
+  - Download filtered data for reporting or audits  
+
+<Frame caption="Column customization and CSV export options">
+  <img src="/images/vm/sla-violations-filters-dl-csv.png" alt="Column toggle and export CSV in SLA violations" />
+</Frame>
+
+<Callout icon="filter" color="blue">
+Focus instantly on critical SLA breaches using filters — no need to scan large datasets manually.
+</Callout>
+
+---
+
+## SLA Leaderboard
+
+<Frame caption="Leaderboard ranking users by SLA compliance and breach count">
+  <img src="/images/vm/sla-leaderboard.png" alt="SLA leaderboard showing compliance per user" />
+</Frame>
+
+The **Leaderboard** provides visibility into **ownership and accountability**.
+
+### Metrics Tracked
+
+- **Total Vulnerabilities**  
+- **Breached**  
+- **At Risk**  
+- **Compliant**  
+- **Compliance %**  
+
+This allows organizations to:
+
+- Identify high-performing teams  
+- Detect bottlenecks in remediation  
+- Drive accountability across owners  
+
+<Callout icon="trophy" color="yellow">
+Turn SLA compliance into a measurable performance metric across teams.
+</Callout>
+
+---
+
+## SLA Configuration
+
+<Frame caption="SLA settings for severity timelines and calendar configuration">
+  <img src="/images/vm/sla-settings.png" alt="SLA configuration settings for severity and weekends" />
+</Frame>
+
+Define how SLA timelines are calculated across your organization.
+
+### Configuration Options
+
+- **Severity-Based Timelines**
+  - Set resolution deadlines for Critical, High, Medium, and Low  
+
+- **Weekend Inclusion**
+  - Include or exclude specific days in SLA calculations  
+
+- **Holiday Exceptions**
+  - Import iCal calendars to exclude non-working days  
+
+Once configured, SLA tracking is automatically applied to all vulnerabilities.
 
 ---
 
 ## Weekly Reports
 
-The **Weekly Reports** section allows teams to automatically send SLA compliance summaries to stakeholders on a recurring schedule.  
-These reports provide a consistent snapshot of remediation performance without manual effort.
-
-<Frame caption="Weekly Reports configuration for automated SLA reporting">
-  <img src="/images/vm/sla-weekly-config.png" alt="Weekly SLA Reports configuration screen" />
+<Frame caption="Weekly report configuration with recipients and scheduling">
+  <img src="/images/vm/sla-weekly-report.png" alt="Weekly SLA report scheduling and recipients configuration" />
 </Frame>
 
-### What Weekly Reports Include
+Automate SLA reporting for stakeholders with scheduled summaries.
 
-Weekly SLA reports summarize key remediation metrics such as:
+### Features
 
-- Total vulnerabilities tracked during the period  
+- **Recipient Management**
+  - Add multiple stakeholders  
+
+- **Flexible Scheduling**
+  - Weekly frequency, day, and time selection  
+
+- **Manual Trigger**
+  - Use **Send Now** for instant reporting  
+
+---
+
+### What Reports Include
+
 - SLA compliance percentage  
 - Breached and at-risk vulnerabilities  
-- Severity-wise breakdown  
-- Overall remediation trend  
+- Severity breakdown  
+- Overall remediation performance  
 
-These reports are ideal for **management updates, compliance tracking, and operational reviews**.
-
----
-
-### Configure Weekly Reports
-
-You can customize when and to whom the SLA reports are sent.
-
-**Configuration options include:**
-- **Recipients** — One or more email addresses to receive the report
-- **Frequency** — Weekly scheduling
-- **Weekday** — Choose the day the report is delivered
-- **Time** — Set the delivery time based on your timezone
-
-Once saved, Snapsec automatically sends reports based on the defined schedule.
+<Callout icon="envelope" color="blue">
+Keep leadership aligned with automated, consistent SLA reporting — no manual effort required.
+</Callout>
 
 ---
 
-### Send Report Now
+## Exporting Reports
 
-In addition to automated delivery, teams can **manually trigger a report** at any time using the **Send Now** button.
+You can export SLA insights at any time for audits or executive reporting.
 
-<Frame caption="Send Now confirmation for weekly SLA report">
-  <img src="/images/vm/sla-weekly-send.png" alt="Send Now confirmation modal for SLA weekly report" />
-</Frame>
+<Steps>
+  <Step title="Open SLA Dashboard">
+    Navigate to the SLA Dashboard section.
+  </Step>
+  <Step title="Click Export Report">
+    Use the **Export Report** button to download structured data.
+  </Step>
+  <Step title="Analyze Data">
+    Use exported data for compliance audits, leadership updates, or internal tracking.
+  </Step>
+</Steps>
 
-This is useful when:
-- Immediate updates are required  
-- Leadership requests an on-demand SLA snapshot  
-- SLA configuration changes need instant validation  
+<Callout icon="page" color="green">
+Exported reports include organization-wide SLA metrics, breakdowns, and performance indicators.
+</Callout>
 
 ---
 
-### Why Weekly Reports Matter
+## Why SLA Analytics Matters
 
-Weekly SLA reports help organizations:
+SLA Analytics helps organizations:
 
-- Maintain continuous visibility into remediation performance  
-- Proactively identify SLA risks before escalation  
-- Reduce manual reporting overhead  
-- Keep stakeholders aligned with security progress  
+- Prevent SLA breaches before they happen  
+- Improve remediation speed and efficiency  
+- Align security and engineering teams  
+- Provide audit-ready compliance visibility  
+- Eliminate manual tracking and reporting  
 
-They ensure SLA accountability becomes a **routine operational signal**, not a reactive audit exercise.
+It turns vulnerability management into a **measurable, enforceable process**.
 
 ---
 
 ## Explore Live Demo
 
 <Card title="Explore Snapsec Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Jump straight into the live environment and see how Snapsec unifies asset intelligence, threat detection, and vulnerability tracking — all in one dashboard.
+  Experience real-time SLA tracking, violation management, and automated reporting — all in one unified platform.
 </Card>
