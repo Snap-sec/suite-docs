@@ -1,80 +1,111 @@
 ---
 title: "Dashboard"
-description: "Get a unified overview of your organization’s external attack surface — from subdomains and ports to technologies, services, and exposures."
+description: "Monitor your external attack surface with real-time metrics, risk trends, and asset distribution insights."
 icon: "chart-bar"
 mode: "wide"
 ---
 
 ## Overview
 
-The **ASM Dashboard** provides a complete, real-time overview of your organization’s external attack surface.  
-It helps you visualize discovered assets, exposed services, open ports, and potential risks — all aggregated from continuous reconnaissance and scanning.
+The **ASM Dashboard** provides a real-time, consolidated view of your organization’s external attack surface.
 
-This centralized view enables security teams to **track discovery trends**, **analyze exposure**, and **prioritize risk reduction efforts** across their infrastructure.
+It highlights **what assets exist**, **where risks are emerging**, and **how your exposure is evolving over time** — enabling teams to quickly understand and act on security posture.
 
-<Frame caption="Attack Surface Overview Dashboard">
-  <img src="/images/asm/dashboard.png" alt="Attack Surface Management Dashboard" />
+Unlike static inventories, this dashboard continuously reflects data from discovery and scanning pipelines, ensuring decisions are based on the **latest observed surface**.
+
+<Frame caption="Attack Surface Management Dashboard with KPIs, trends, and risk distribution">
+  <img src="/images/asm/dashboard.png" alt="ASM dashboard showing total assets, risk trends, asset distribution, and critical risks table" />
 </Frame>
 
 ---
 
 ## Key Metrics
 
-At the top of the dashboard, you’ll find a summary of core visibility and exposure metrics:
+The top section provides a quick snapshot of your current attack surface:
 
 | Metric | Description |
-|--------|--------------|
-| **Subdomains** | Total discovered subdomains linked to your organization. |
-| **Ports** | Unique open ports identified across hosts and IPs. |
-| **Services** | Active services detected across the external network. |
-| **Technologies** | Frameworks, platforms, and products identified during scanning. |
-| **Web Servers** | Hosts serving HTTP/HTTPS content. |
-| **IP Addresses** | Unique IPs associated with your assets. |
-| **Certificates** | SSL/TLS certificates found across hosts. |
-| **DNS Records** | Total DNS entries discovered. |
-| **Exposures** | Known risks or misconfigurations identified. |
-| **Scans** | The number of reconnaissance scans executed. |
+|-------|-------------|
+| **Total Assets** | Total number of discovered assets across your environment |
+| **Risky Assets** | Assets currently associated with identified risks or exposures |
+| **Critical Risks** | High-impact issues requiring immediate attention |
+| **Next Scan** | Scheduled time for the next discovery or scan cycle |
+
+These metrics help teams instantly assess **scale, risk concentration, and upcoming activity**.
 
 ---
 
-## Visual Analytics
+## Risk & Asset Trend
 
-The dashboard features multiple visual charts that break down your external posture.
+The **Asset vs Risk Trend** graph visualizes how your attack surface evolves over time.
 
-<Columns cols={2}>
-  <Card title="Port Exposure Analysis" icon="server">
-    Displays distribution of open ports (e.g., 80, 443, 8080) to help identify unnecessary exposures.
-  </Card>
-  <Card title="WAF Coverage Analysis" icon="shield">
-    Shows what percentage of assets are protected by a Web Application Firewall (WAF).
-  </Card>
-  <Card title="Geographic Asset Distribution" icon="globe">
-    Highlights the geographical location of your exposed assets, revealing region-based exposure trends.
-  </Card>
-  <Card title="DNS Record Distribution" icon="cloud">
-    Visualizes DNS record types (A, CNAME, TXT, MX, etc.) for better infrastructure mapping.
-  </Card>
-  <Card title="Technology Used" icon="microchip">
-    Summarizes detected technologies such as Nginx, React, jQuery, Node.js, etc.
-  </Card>
-  <Card title="Subdomain Distribution" icon="list">
-    Displays the percentage of **live** vs **dead** subdomains, reflecting cleanup and active surface size.
-  </Card>
-</Columns>
+- Tracks **growth of assets** vs **increase in risks**
+- Helps identify whether risk is scaling with discovery
+- Useful for measuring **security posture improvement or degradation**
+
+<Callout icon="chart-line" color="blue">
+A rising risk curve alongside asset growth may indicate unmanaged exposure or delayed remediation.
+</Callout>
 
 ---
 
-## Value to Security Teams
+## Asset Distribution
 
-- **Instant Visibility:** Understand your exposed assets at a glance.  
-- **Data-Driven Prioritization:** Identify critical areas with the most open ports or missing protections.  
-- **Continuous Tracking:** Visualize trends across scans to measure attack surface growth or reduction.  
-- **Cross-Domain Insights:** Correlate technologies, geolocations, and DNS data for deeper context.
+The **Asset Distribution panel** breaks down your attack surface by asset type and highlights associated risks.
+
+### Includes:
+
+- Ports  
+- Web Servers  
+- DNS Records  
+- Technologies  
+- IP Addresses  
+- Subdomains  
+- Certificates  
+
+Each row shows:
+
+- Total count per asset type  
+- Visual distribution bar  
+- Highlighted risk indicators (where applicable)  
+
+This allows teams to quickly identify **which asset categories contribute most to exposure**.
+
+---
+
+## Top Critical Risks
+
+The **Top Critical Risks table** provides a focused view of high-priority issues.
+
+| Field | Description |
+|------|-------------|
+| **Asset Type** | The affected asset (e.g., subdomain or host) |
+| **Reason** | Context or description of the identified issue |
+| **State** | Current status (e.g., In Review, False Positive) |
+| **Severity** | Risk level associated with the issue |
+
+This section helps teams:
+
+- Prioritize remediation efforts  
+- Track validation status  
+- Quickly review critical findings without navigating deeper  
+
+<Callout icon="triangle-exclamation" color="red">
+Critical risks should be reviewed and validated promptly to prevent exploitable exposure.
+</Callout>
+
+---
+
+## Why This Dashboard Matters
+
+- **Real-Time Visibility** — Always reflects the latest discovered assets and risks  
+- **Trend Awareness** — Understand how your attack surface is changing over time  
+- **Focused Prioritization** — Quickly identify high-risk assets and exposures  
+- **Operational Clarity** — Combine discovery, risk, and validation into one view  
 
 ---
 
 ## Explore Live Demo
 
 <Card title="Explore ASM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Instantly explore how Snapsec **Attack Surface Management (ASM)** discovers external assets, identifies exposures, enriches attack surface data, and visualizes risk — all in real time, without creating an account.
+  Discover how Snapsec ASM continuously maps your attack surface, detects risks, and provides actionable insights — all in one unified dashboard.
 </Card>
