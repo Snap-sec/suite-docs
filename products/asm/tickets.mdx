@@ -1,0 +1,163 @@
+---
+title: "Tickets"
+description: "Track, manage, and remediate security exposures through a centralized ticketing workflow integrated with attack surface intelligence."
+icon: "ticket"
+mode: "wide"
+---
+
+import { Frame } from 'nextra/components'
+import { Card } from '@/components/ui/card'
+
+## Overview
+
+**Tickets** provide a centralized workflow to **track, assign, and remediate security exposures** identified by Risk Signals.
+
+Each exposure can be converted into an actionable ticket, enabling teams to move from detection to resolution efficiently.
+
+<Frame caption="Tickets view showing all exposures with severity, state, and actions">
+  <img src="/images/asm/tickets.png" alt="Tickets Overview" />
+</Frame>
+
+---
+
+## Ticket Details
+
+Each ticket provides deep context required for investigation and remediation.
+
+<Frame caption="Detailed ticket view including summary, impact, and asset metadata">
+  <img src="/images/asm/view-ticket.png" alt="Ticket Details" />
+</Frame>
+
+### Includes
+
+- Summary of the issue  
+- Impact description  
+- Asset details (IP, domain, subdomain)  
+- Port, service, and protocol information  
+- Discovery metadata  
+
+---
+
+## Report Panel & Actions
+
+The right-side panel provides quick insights and actions.
+
+<Frame caption="Report details panel with severity, CVSS, ownership, and actions">
+  <img src="/images/asm/download-report.png" alt="Report Panel" />
+</Frame>
+
+### Capabilities
+
+- View CVSS score and vector  
+- Assign ownership  
+- Update ticket state  
+- Download report  
+- Copy or share findings  
+
+---
+
+## Comments & Collaboration
+
+Teams can collaborate directly within tickets.
+
+<Frame caption="Comment and blocker panel for collaboration">
+  <img src="/images/asm/comments.png" alt="Comments Panel" />
+</Frame>
+
+- Add comments and mentions  
+- Create blockers  
+- Track discussion history  
+
+---
+
+## Attachments
+
+Add supporting evidence or documentation directly to tickets.
+
+<Frame caption="Attachment upload interface">
+  <img src="/images/asm/attachments.png" alt="Attachments" />
+</Frame>
+
+- Drag & drop files  
+- Upload screenshots or logs  
+- Maintain investigation artifacts  
+
+---
+
+## Actions & Integrations
+
+Tickets integrate directly with remediation workflows.
+
+<Frame caption="Send exposures to vulnerability management systems">
+  <img src="/images/asm/send-vm.png" alt="Send to VM" />
+</Frame>
+
+- Send to VM (Vulnerability Management tools)  
+- Create or link external tickets  
+- Sync remediation status  
+
+---
+
+## Export & Sync
+
+Manage exposure data at scale.
+
+<Frame caption="Export and sync actions from exposure view">
+  <img src="/images/asm/export-sync.png" alt="Export" />
+</Frame>
+
+- Export exposure data  
+- Sync to VM systems  
+- Maintain reporting consistency  
+
+---
+
+## Exposure Timeline
+
+Track how exposures evolve over time.
+
+<Frame caption="Exposure timeline showing historical activity">
+  <img src="/images/asm/exposure-timeline.png" alt="Exposure Timeline" />
+</Frame>
+
+- View historical changes  
+- Track remediation progress  
+- Identify recurring issues  
+
+---
+
+## Workflow Example
+
+1. Exposure is detected via Risk Signals  
+2. A ticket is created automatically or manually  
+3. Security team reviews details and assigns ownership  
+4. Actions are taken (fix, mitigate, or escalate)  
+5. Ticket is synced with VM or external systems  
+6. Status is updated and validated  
+
+---
+
+## Benefits
+
+✅ Centralized remediation workflow  
+✅ Seamless collaboration across teams  
+✅ Integrated VM and ticketing actions  
+✅ Full visibility into exposure lifecycle  
+✅ Audit-ready tracking and documentation  
+
+---
+
+## From Detection to Resolution
+
+**Detection → Ticketing → Assignment → Action → Validation**
+
+Tickets ensure every identified risk is **tracked, owned, and resolved**.
+
+---
+
+## Explore Live Demo
+
+<Card title="Explore ASM Live — No Signup Needed" icon="wand-magic-sparkles"
+href="https://suite.snapsec.co/demo">
+  Instantly explore how Snapsec Attack Surface Management (ASM) detects exposures, correlates signals, and enables real-time security decisions — all in one unified platform.
+</Card>
