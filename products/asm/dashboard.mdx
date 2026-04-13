@@ -1,111 +1,127 @@
 ---
 title: "Dashboard"
-description: "Monitor your external attack surface with real-time metrics, risk trends, and asset distribution insights."
+description: "Get a real-time overview of your attack surface, risk signals, and asset distribution across your organization."
 icon: "chart-bar"
 mode: "wide"
 ---
 
 ## Overview
 
-The **ASM Dashboard** provides a real-time, consolidated view of your organization’s external attack surface.
+The **ASM Dashboard** provides a real-time view of your organization’s external attack surface — combining **asset discovery, risk signals, and operational insights** into a single interface.
 
-It highlights **what assets exist**, **where risks are emerging**, and **how your exposure is evolving over time** — enabling teams to quickly understand and act on security posture.
+It helps teams quickly answer:
 
-Unlike static inventories, this dashboard continuously reflects data from discovery and scanning pipelines, ensuring decisions are based on the **latest observed surface**.
+- What assets are exposed?
+- Where are risks concentrated?
+- Which areas require attention right now?
 
-<Frame caption="Attack Surface Management Dashboard with KPIs, trends, and risk distribution">
-  <img src="/images/asm/dashboard.png" alt="ASM dashboard showing total assets, risk trends, asset distribution, and critical risks table" />
+All data is continuously updated from ASM discovery pipelines, ensuring visibility reflects your **current external footprint**.
+
+<Frame caption="ASM Dashboard showing asset distribution, signal insights, and attack surface posture">
+  <img src="/images/asm/dashboard.png" alt="ASM dashboard with asset counts, signal distribution, risk distribution, and posture table" />
 </Frame>
 
 ---
 
 ## Key Metrics
 
-The top section provides a quick snapshot of your current attack surface:
+At the top of the dashboard, core metrics provide a quick snapshot of your environment:
 
 | Metric | Description |
 |-------|-------------|
-| **Total Assets** | Total number of discovered assets across your environment |
-| **Risky Assets** | Assets currently associated with identified risks or exposures |
-| **Critical Risks** | High-impact issues requiring immediate attention |
+| **Total Assets** | Total number of discovered assets across all categories |
+| **Risk Signals** | Total number of signals indicating potential risks or anomalies |
+| **Total Tickets** | Issues or findings currently tracked for action or validation |
 | **Next Scan** | Scheduled time for the next discovery or scan cycle |
 
-These metrics help teams instantly assess **scale, risk concentration, and upcoming activity**.
-
----
-
-## Risk & Asset Trend
-
-The **Asset vs Risk Trend** graph visualizes how your attack surface evolves over time.
-
-- Tracks **growth of assets** vs **increase in risks**
-- Helps identify whether risk is scaling with discovery
-- Useful for measuring **security posture improvement or degradation**
-
-<Callout icon="chart-line" color="blue">
-A rising risk curve alongside asset growth may indicate unmanaged exposure or delayed remediation.
-</Callout>
+These metrics give an immediate understanding of **scale, activity, and operational workload**.
 
 ---
 
 ## Asset Distribution
 
-The **Asset Distribution panel** breaks down your attack surface by asset type and highlights associated risks.
+The **Asset Distribution** chart shows how your attack surface is spread across different asset types.
 
 ### Includes:
 
-- Ports  
-- Web Servers  
-- DNS Records  
-- Technologies  
 - IP Addresses  
+- Ports  
 - Subdomains  
+- Technologies  
+- Web Servers  
 - Certificates  
+- DNS Records  
 
-Each row shows:
+This view helps you:
 
-- Total count per asset type  
-- Visual distribution bar  
-- Highlighted risk indicators (where applicable)  
-
-This allows teams to quickly identify **which asset categories contribute most to exposure**.
+- Understand which asset types dominate your surface  
+- Identify areas with higher exposure potential  
+- Track growth across different infrastructure layers  
 
 ---
 
-## Top Critical Risks
+## Signal Distribution
 
-The **Top Critical Risks table** provides a focused view of high-priority issues.
+The **Signal Distribution** chart breaks down where risk signals are originating from.
+
+Signals are categorized by asset type, such as:
+
+- DNS Records  
+- IP Addresses  
+- Ports  
+- Web Servers  
+
+This enables teams to:
+
+- Identify **which layers are generating the most alerts**  
+- Detect patterns in misconfigurations or anomalies  
+- Focus investigations on the most active risk sources  
+
+---
+
+## Risk Distribution
+
+The **Risk Distribution** chart provides a high-level view of how risks are spread across asset categories.
+
+It helps answer:
+
+- Which asset types contribute most to overall risk?  
+- Is risk concentrated or distributed across the environment?  
+
+This allows for **better prioritization and resource allocation**.
+
+---
+
+## Attack Surface Posture
+
+The **Current Attack Surface Posture** table provides a structured breakdown of your environment.
 
 | Field | Description |
 |------|-------------|
-| **Asset Type** | The affected asset (e.g., subdomain or host) |
-| **Reason** | Context or description of the identified issue |
-| **State** | Current status (e.g., In Review, False Positive) |
-| **Severity** | Risk level associated with the issue |
+| **Asset Type** | Category of asset (IP, Ports, Subdomains, etc.) |
+| **Current Asset Count** | Total assets in that category |
+| **Total Signals** | Number of signals associated with that asset type |
+| **Total Risks** | Number of confirmed or mapped risks |
 
-This section helps teams:
+This table enables:
 
-- Prioritize remediation efforts  
-- Track validation status  
-- Quickly review critical findings without navigating deeper  
-
-<Callout icon="triangle-exclamation" color="red">
-Critical risks should be reviewed and validated promptly to prevent exploitable exposure.
-</Callout>
+- Side-by-side comparison of asset categories  
+- Identification of **high-signal / high-risk areas**  
+- Faster prioritization of remediation efforts  
 
 ---
 
 ## Why This Dashboard Matters
 
-- **Real-Time Visibility** — Always reflects the latest discovered assets and risks  
-- **Trend Awareness** — Understand how your attack surface is changing over time  
-- **Focused Prioritization** — Quickly identify high-risk assets and exposures  
-- **Operational Clarity** — Combine discovery, risk, and validation into one view  
+- **Unified Visibility** — Assets, signals, and risks in one place  
+- **Actionable Insights** — Quickly identify where attention is needed  
+- **Operational Awareness** — Track tickets and ongoing activity  
+- **Data-Driven Decisions** — Prioritize based on real exposure and signals  
 
 ---
 
 ## Explore Live Demo
 
 <Card title="Explore ASM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Discover how Snapsec ASM continuously maps your attack surface, detects risks, and provides actionable insights — all in one unified dashboard.
+  See how ASM provides real-time visibility into your attack surface, correlates signals, and helps prioritize risks across your environment.
 </Card>
