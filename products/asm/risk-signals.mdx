@@ -1,0 +1,107 @@
+---
+title: "Risk Signals"
+description: "Continuously detect, analyze, and act on security exposures across your attack surface using real-time signals and rule-based intelligence."
+icon: "triangle-exclamation"
+mode: "wide"
+---
+
+import { Frame } from 'nextra/components'
+import { Card } from '@/components/ui/card'
+
+## Overview
+
+**Risk Signals** transform your attack surface into **real-time, actionable security intelligence**.
+
+<Frame caption="Risk Signals overview with active detections, severity, and trend insights">
+  <img src="/images/asm/risk-signals.png" alt="Risk Signals Overview" />
+</Frame>
+
+---
+
+## Signal Deep Dive
+
+<Frame caption="Signal detail view with description, query logic, and impacted assets">
+  <img src="/images/asm/active-signal.png" alt="Signal Details" />
+</Frame>
+
+### Impacted Assets
+
+- Asset (IP / domain)  
+- Host mapping  
+- External exposure status  
+- Detection timestamp  
+- VM ticket actions (View / Create Ticket)  
+
+---
+
+## Export & Action
+
+<Frame caption="Export impacted assets from the signal view">
+  <img src="/images/asm/export.png" alt="Export Assets" />
+</Frame>
+
+- Export impacted assets  
+- Take action via ticketing  
+- Track remediation progress  
+
+---
+
+## Creating Rules
+
+<Frame caption="Create rule interface when no rules are present">
+  <img src="/images/asm/create-rule.png" alt="Create Rule" />
+</Frame>
+
+---
+
+## Guided Rule Editor
+
+<Frame caption="Guided rule editor with condition builder and YAML preview">
+  <img src="/images/asm/guided-rule-editor.png" alt="Guided Rule Editor" />
+</Frame>
+
+### Configuration Includes
+
+- Rule name and description  
+- Condition builder (field, operator, value)  
+- Multiple condition support  
+- Live YAML preview  
+
+---
+
+## Workflow Example
+
+1. Signals automatically evaluate assets after discovery and scanning  
+2. Detected exposures appear as violations with severity and trends  
+3. Security teams review impacted assets  
+4. Remediation or ticketing actions are performed  
+5. Signals are re-synced to validate fixes  
+
+---
+
+## Reporting Workflow
+
+1. Generate a report after signal evaluation  
+2. The platform compiles assets, exposures, and analytics  
+3. Export findings for internal or compliance use  
+4. Share with stakeholders or leadership  
+
+---
+
+## From Detection to Action
+
+**Assets → Detection → Context → Action → Validation**
+
+Risk Signals ensure your team is actively reducing risk — not just observing it.
+
+---
+
+## Explore Live Demo
+
+<Card
+  title="Explore ASM Live — No Signup Needed"
+  icon="wand-magic-sparkles"
+  href="https://suite.snapsec.co/demo"
+>
+  Instantly explore how Snapsec Attack Surface Management (ASM) detects exposures, correlates signals, and enables real-time security decisions — all in one unified platform.
+</Card>
