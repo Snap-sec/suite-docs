@@ -1,19 +1,19 @@
 ---
 title: "Asset Catalog"
-description: "A unified, continuously updated inventory of all externally exposed assets discovered by Attack Surface Management."
+description: "Explore, filter, and manage all discovered external assets with real-time context, signals, and exposure insights."
 icon: "database"
 mode: "wide"
 ---
 
 ## Overview
 
-The **Asset Catalog** is the foundation of **Attack Surface Management (ASM)** — providing a **live, continuously updated inventory** of everything exposed across your organization’s external footprint.
+The **Asset Catalog** is your **single source of truth** for everything exposed across your external attack surface.
 
-Instead of fragmented visibility across tools, ASM consolidates all discovered assets into a **single, structured system**, where every entity is enriched, categorized, and correlated in real time.
+It provides a **structured, continuously updated inventory** of all discovered assets — enriched with context like **signals, exposure status, technologies, ports, and infrastructure mapping**.
 
-From subdomains and IPs to technologies and DNS records, the catalog ensures that **nothing exposed remains unknown**.
+Unlike traditional inventories, this is not just a list — it’s an **interactive system designed for investigation, filtering, and action**.
 
-<Frame caption="Unified asset inventory across subdomains, IPs, ports, certificates, and technologies">
+<Frame caption="Unified asset inventory with filtering, signals, and export capabilities">
   <img src="/images/asm/catalog.png" alt="ASM Asset Catalog Overview" />
 </Frame>
 
@@ -21,228 +21,274 @@ From subdomains and IPs to technologies and DNS records, the catalog ensures tha
 
 ## How It Works
 
-ASM continuously performs **active and passive discovery** across:
+ASM continuously discovers and updates assets using:
 
-- Domains and subdomains  
-- IP ranges and infrastructure  
-- Certificate transparency logs  
-- DNS records and internet-wide datasets  
+- Active scanning (ports, services, web validation)  
+- Passive intelligence (DNS, CT logs, internet datasets)  
+- Technology fingerprinting  
+- Infrastructure mapping  
 
-Every discovered asset is:
+Each asset is:
 
-- **Normalized** into a structured format  
-- **Enriched** with metadata (ownership, exposure, tech stack)  
-- **Linked** to related entities (IP ↔ domain ↔ port ↔ technology)  
-- **Continuously updated** as changes occur  
+- **Discovered** → identified from multiple sources  
+- **Enriched** → tagged with metadata (WAF, ASN, tech stack)  
+- **Classified** → grouped by type (IP, Subdomain, Port, etc.)  
+- **Monitored** → updated as changes occur  
+- **Correlated** → linked to related entities  
 
-This creates a **living map of your attack surface**, not just a static inventory.
+This creates a **live, queryable map of your attack surface**.
+
+---
+
+## Core Capabilities
+
+### Unified Asset Inventory
+
+All asset types are accessible in one place:
+
+- Subdomains  
+- Web Servers  
+- IP Addresses  
+- DNS Records  
+- Ports  
+- Certificates  
+- Technologies  
+
+Each view is optimized for **deep inspection and filtering**, not just visibility.
+
+---
+
+### Filtering & Exploration
+
+Every asset view includes powerful controls:
+
+- Search across assets  
+- Filters (e.g., **Is New, WAF, Status, Network Scope**)  
+- Attribute-based filtering (ports, services, DNS class, etc.)  
+- Reset and quick refinement  
+
+This enables teams to:
+
+- Narrow down large datasets instantly  
+- Investigate specific exposure patterns  
+- Focus on high-priority segments  
+
+---
+
+### Signals Integration
+
+Each asset is mapped with **signals** — indicators of potential risk, anomalies, or findings.
+
+- Signals are visible directly in tables  
+- Assets with **0 signals are still tracked** (important for baseline visibility)  
+- Enables quick identification of **active vs clean surface areas**
+
+---
+
+### Export & Reporting
+
+All views support **Export to CSV**, allowing teams to:
+
+- Share data externally  
+- Perform offline analysis  
+- Integrate with reporting workflows  
+
+<Frame caption="Export asset data for reporting and external analysis">
+  <img src="/images/asm/export.png" alt="Export to CSV feature" />
+</Frame>
 
 ---
 
 ## Asset Views
 
-The catalog is broken down into dedicated views — each designed to give deep visibility into a specific layer of your attack surface.
+Each asset type provides a focused lens into a specific layer of your attack surface.
 
 ---
 
 ### Subdomains
 
-Subdomains represent the **entry points of your external surface**.
+Subdomains represent your **external entry points**.
 
-ASM discovers subdomains using a combination of DNS enumeration, passive intelligence, and certificate data — ensuring even hidden or forgotten assets are surfaced.
-
-<Frame caption="Subdomain inventory with ports, IP mappings, WAF detection, and exposure status">
-  <img src="/images/asm/subdomains.png" alt="ASM Subdomains View" />
+<Frame caption="Subdomains with ports, IP mapping, WAF detection, and exposure context">
+  <img src="/images/asm/subdomains.png" alt="Subdomains View" />
 </Frame>
 
-**What You Get:**
-- Live vs inactive subdomain tracking  
-- Associated **IP addresses and open ports**  
-- WAF detection (e.g., Cloudflare, DenyAll)  
-- External vs internal exposure classification  
-- Signal-based risk indicators  
+**Key Insights:**
 
-**Why It Matters:**
-Subdomains are often the weakest link — forgotten apps, staging environments, or misconfigured DNS entries can become attack vectors.
+- Open ports per subdomain  
+- IP address mappings  
+- WAF detection (e.g., Cloudflare)  
+- External exposure classification  
+- Signal presence  
+
+**Why It Matters:**  
+Unmanaged or forgotten subdomains are one of the most common attack vectors.
 
 ---
 
 ### Web Servers
 
-The Web Servers view focuses on **HTTP/HTTPS-exposed services** across your infrastructure.
+Focuses on **HTTP/HTTPS services and application exposure**.
 
-ASM fingerprints each service to identify behavior, technologies, and response characteristics.
-
-<Frame caption="Web servers with detected technologies, ports, status codes, and exposure context">
-  <img src="/images/asm/webservers.png" alt="ASM Web Servers View" />
+<Frame caption="Web servers with status codes, detected services, and exposure context">
+  <img src="/images/asm/webservers.png" alt="Web Servers View" />
 </Frame>
 
-**What You Get:**
-- HTTP status validation (200, 404, etc.)  
-- Detected technologies and frameworks  
-- Open ports and exposed services  
-- External exposure classification  
-- Risk indicators per service  
+**Key Insights:**
 
-**Why It Matters:**
-This is where real attack surfaces live — APIs, dashboards, admin panels, and applications.
+- HTTP status codes (200, 403, 418, etc.)  
+- Detected services (Dozzle, Vercel, etc.)  
+- Open ports per service  
+- External exposure visibility  
+
+**Why It Matters:**  
+This is where attackers interact — APIs, panels, dashboards, and apps.
 
 ---
 
 ### IP Addresses
 
-The IP view provides a **network-level perspective** of your attack surface.
+Provides a **network-level view** of infrastructure.
 
-Every discovered IP is enriched with location, hosting provider, and associated assets.
-
-<Frame caption="IP inventory with geolocation, ASN, open ports, and asset mapping">
-  <img src="/images/asm/ips.png" alt="ASM IP Addresses View" />
+<Frame caption="IP addresses with geolocation, ASN, and port exposure">
+  <img src="/images/asm/ips.png" alt="IP Addresses View" />
 </Frame>
 
-**What You Get:**
-- IP ↔ domain mapping  
-- Geolocation and hosting provider (ASN)  
+**Key Insights:**
+
+- Geolocation and ASN (e.g., AWS, Fastly, Hostinger)  
 - Open ports per IP  
-- External exposure tracking  
-- Detection timestamps  
+- Network scope (external/internal)  
+- Infrastructure ownership  
 
-**Why It Matters:**
-Understanding infrastructure ownership is critical for identifying **shadow assets, cloud misconfigurations, and unmanaged hosts**.
-
----
-
-### Certificates
-
-The Certificates view gives full visibility into your **SSL/TLS posture**.
-
-ASM continuously tracks certificates across domains and IPs.
-
-<Frame caption="Certificates with validity status, issuers, and expiration tracking">
-  <img src="/images/asm/certificates.png" alt="ASM Certificates View" />
-</Frame>
-
-**What You Get:**
-- Valid, expired, and expiring certificates  
-- Issuer and certificate metadata  
-- Domain associations  
-- Risk signals tied to certificate issues  
-
-**Why It Matters:**
-Expired or misconfigured certificates can cause outages — and also indicate neglected assets.
+**Why It Matters:**  
+Helps identify shadow infrastructure and unmanaged cloud assets.
 
 ---
 
 ### DNS Records
 
-DNS is the backbone of your attack surface — and often the source of hidden exposure.
+Tracks all DNS-level mappings and configurations.
 
-ASM tracks all DNS records and monitors changes over time.
-
-<Frame caption="DNS records across A, CNAME, MX, TXT and other types">
-  <img src="/images/asm/dns-records.png" alt="ASM DNS Records View" />
+<Frame caption="DNS records including A, MX, SOA and mapping details">
+  <img src="/images/asm/dns-records.png" alt="DNS Records View" />
 </Frame>
 
-**What You Get:**
-- Full DNS record inventory (A, CNAME, MX, TXT, etc.)  
-- Mapping between domains and infrastructure  
-- Detection timestamps and updates  
-- Signal tracking for anomalies  
+**Key Insights:**
 
-**Why It Matters:**
-Misconfigured or dangling DNS records can expose infrastructure you no longer control.
+- Record types (A, CNAME, MX, SOA, etc.)  
+- Domain ↔ infrastructure relationships  
+- Detection timestamps  
+- Signal tracking  
+
+**Why It Matters:**  
+DNS misconfigurations and dangling records are common exposure points.
 
 ---
 
 ### Ports
 
-The Ports view highlights **network-level exposure** across all assets.
+Highlights **network exposure and service-level access**.
 
-ASM scans and tracks open ports, services, and versions.
-
-<Frame caption="Open ports with services, versions, and exposure status">
-  <img src="/images/asm/ports.png" alt="ASM Ports View" />
+<Frame caption="Ports with service detection, status, and exposure scope">
+  <img src="/images/asm/ports.png" alt="Ports View" />
 </Frame>
 
-**What You Get:**
-- Open ports and associated services  
-- Service versions (e.g., nginx, OpenSSH)  
-- Exposure status (external/internal)  
+**Key Insights:**
+
+- Open ports and services (HTTP, HTTPS, etc.)  
+- Service versions (if detected)  
+- External vs internal exposure  
 - Detection timestamps  
 
-**Why It Matters:**
-Unexpected open ports are one of the most common entry points for attackers.
+**Why It Matters:**  
+Unexpected open ports often indicate misconfigurations or attack surface expansion.
+
+---
+
+### Certificates
+
+Tracks SSL/TLS posture across assets.
+
+<Frame caption="Certificates with validity, expiration, and risk indicators">
+  <img src="/images/asm/certificates.png" alt="Certificates View" />
+</Frame>
+
+**Key Insights:**
+
+- Valid, expired, and at-risk certificates  
+- Expiry timelines  
+- Domain associations  
+- Signal indicators  
+
+**Why It Matters:**  
+Certificate issues can indicate neglected assets or cause service disruptions.
 
 ---
 
 ### Technologies
 
-The Technologies view provides a **high-level inventory of all detected technologies** across your attack surface.
+Provides a **high-level inventory of detected technologies**.
 
-Instead of raw data, technologies are grouped into structured categories — making it easy to understand your stack at scale.
-
-<Frame caption="Technology catalog showing frameworks, platforms, and services detected across assets">
-  <img src="/images/asm/technologies.png" alt="ASM Technologies View" />
+<Frame caption="Technology catalog with categorized frameworks, CDNs, and services">
+  <img src="/images/asm/technologies.png" alt="Technologies View" />
 </Frame>
 
-**What You Get:**
-- Technologies like **Nginx, Node.js, React, Next.js, Cloudflare, Netlify**  
-- Categorization (CDN, Web Servers, Analytics, Frameworks, etc.)  
-- Asset-level mapping for each technology  
-- Clean card-based visualization for exploration  
+**Key Insights:**
+
+- Frameworks (React, Next.js)  
+- Infrastructure (Nginx, Cloudflare, Netlify, Vercel)  
+- Categories (CDN, Analytics, Security, etc.)  
+- Asset-level mapping  
 
 **Why It Matters:**
-- Identify outdated or vulnerable tech stacks  
+
+- Detect outdated or vulnerable stacks  
+- Identify unauthorized technologies  
 - Understand platform usage across teams  
-- Detect unauthorized or unexpected technologies  
-- Support vulnerability prioritization  
 
 ---
 
 ## Correlation Across Assets
 
-What makes the Asset Catalog powerful is not just visibility — but **correlation**.
+The real power of the catalog lies in **relationships**:
 
-Every asset is connected:
+- Subdomain → IP → Ports → Web Server  
+- DNS → Infrastructure → Exposure  
+- Technology → Service → Risk signals  
 
-- Subdomain → IP → Ports → Technologies → Certificate  
-- DNS → Infrastructure → Exposure → Signals  
+This allows teams to:
 
-This creates a **context-rich graph of your attack surface**, enabling:
-
-- Faster root cause analysis  
-- Better risk prioritization  
-- Smarter automation across security workflows  
-
----
-
-## Continuous Intelligence
-
-The catalog is not static — it is **continuously refreshed**.
-
-ASM integrates with multiple data sources and scanners to:
-
-- Discover new assets in real time  
-- Detect changes instantly  
-- Enrich existing data automatically  
-
-This ensures your inventory always reflects **your current attack surface — not yesterday’s**.
+- Trace issues across layers  
+- Perform faster root cause analysis  
+- Understand full exposure context  
 
 ---
 
-## Business Value
+## Continuous Updates
 
-| Outcome | Impact |
-|--------|--------|
-| **Full Visibility** | Know every exposed asset across your organization |
-| **Risk Reduction** | Identify and fix exposures before attackers exploit them |
-| **Operational Efficiency** | Eliminate manual asset tracking |
-| **Faster Response** | Trace relationships instantly during incidents |
-| **Better Decisions** | Prioritize risks with full context |
+The catalog is **always live**:
+
+- New assets are discovered automatically  
+- Changes are reflected in near real-time  
+- Signals update dynamically  
+
+This ensures your visibility is always aligned with your **actual attack surface**.
+
+---
+
+## Why This Matters
+
+- **Complete Visibility** — No blind spots across external assets  
+- **Actionable Context** — Signals + metadata in one place  
+- **Faster Investigations** — Correlated asset relationships  
+- **Operational Efficiency** — Filter, export, and act instantly  
+- **Reduced Risk** — Identify exposure before exploitation  
 
 ---
 
 ## Explore Live Demo
 
 <Card title="Explore ASM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  See how ASM discovers, correlates, and monitors your entire attack surface in real time.
+  Experience how ASM provides real-time asset discovery, enrichment, and visibility across your entire attack surface.
 </Card>
