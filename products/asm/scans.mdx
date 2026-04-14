@@ -1,140 +1,169 @@
 ---
 title: "Scans"
-description: "Manage and execute domain scans to continuously discover, map, and track your external assets and exposures."
+description: "Execute and monitor domain scans to continuously discover, track, and manage your external attack surface."
 icon: "radar"
 mode: "wide"
 ---
 
 ## Overview
 
-The **Scans** page is where your **Attack Surface Management (ASM)** journey begins.  
-It allows security teams to **initiate discovery scans**, track their progress, and monitor how your external footprint evolves over time.
+The **Scans** page enables security teams to **initiate, monitor, and manage discovery scans** across their external attack surface.
 
-Each scan performs deep reconnaissance across multiple sources — DNS, IP ranges, certificate transparency logs, and third-party datasets — to uncover every publicly accessible asset related to your organization.
+Each scan identifies assets such as subdomains, IPs, services, and exposures — providing a continuously updated view of your organization's internet-facing footprint.
 
-<Frame caption="Scans overview showing discovery trend and scan progress">
-  <img src="/images/asm/scans.png" alt="ASM Scans Dashboard" />
+<Frame caption="Scans dashboard showing scan history, status, and scheduling">
+  <img src="/images/asm/scans.png" alt="Scans Dashboard" />
 </Frame>
-
----
-
-## Overview
-
-The Scans page presents a **dashboard view** and a **list of executed scans**, providing full visibility into the discovery process and historical changes in your attack surface.
-
-**Key Highlights:**
-- Track discovery trends over time.  
-- View each scan’s **status**, **progress**, and **execution date**.  
-- Measure **growth or reduction** in total detected assets.  
-- Identify **newly added** or **removed** assets since the last scan.
-
----
-
-## Asset Discovery Trend
-
-At the top of the page, a dynamic graph visualizes the **total number of assets detected** over time.
-
-<Frame caption="Discovery trend line showing assets detected per scan">
-  <img src="/images/asm/scans2.png" alt="Asset Discovery Trend Graph" />
-</Frame>
-
-This graph helps you:
-- See how your attack surface expands or contracts across scans.  
-- Evaluate the impact of remediation actions.  
-- Identify unusual spikes that may indicate new deployments or shadow infrastructure.
 
 ---
 
 ## Scan List
 
-<Frame caption="Scan list showing domain scans, asset counts, and execution status">
-  <img src="/images/asm/scans3.png" alt="ASM Scan List" />
-</Frame>
+The scan list provides a **historical and real-time view** of all executed and scheduled scans.
 
-Each scan entry represents a **complete discovery cycle** for a specific domain or root organization.
+### Key Capabilities
+
+- View **scan status** (Upcoming, Completed, etc.)  
+- Track **execution time and duration**  
+- Monitor **scan frequency (weekly / one-time)**  
+- Identify **recent scan activity**  
+
+### Fields Explained
 
 | Field | Description |
-|--------|--------------|
-| **Target Domain** | The root domain or scope of the scan. |
-| **Status** | Displays whether the scan is *Running*, *Completed*, or *Failed*. |
-| **New Assets** | The number of assets discovered for the first time in this scan. |
-| **Total Exposures** | Exposures detected during the discovery process. |
-| **Execution Date** | The date the scan was executed. |
-| **Progress Bar** | Visual indicator of the scan’s completion percentage. |
-
-
-
-**Status indicators:**
-- 🟢 **Completed** — Scan successfully finished and results are available.  
-- 🔵 **Running** — Scan is in progress; assets are still being discovered.  
-- 🔴 **Failed** — Scan could not be executed (connectivity or configuration issues).
+|------|-------------|
+| **Domain** | Target domain scanned |
+| **Status** | Current state of the scan |
+| **Started** | When the scan started or will start |
+| **Duration** | Total scan execution time |
+| **Frequency** | Recurrence (Weekly / Once) |
 
 ---
 
-## Creating a New Scan
+## Scan Status & Filtering
 
-<Frame caption="Create new scan modal for initiating discovery">
-  <img src="/images/asm/scans.png" alt="Create New Scan Modal" />
+<Frame caption="Status filter for refining scan results">
+  <img src="/images/asm/scanss-status.png" alt="Scan Status Filter" />
 </Frame>
 
-To initiate a new scan, click **“Create Scan”** at the top right of the page.  
-A modal will appear, prompting you to enter the **root domain** or target organization.
+You can filter scans based on their execution state:
 
+- **Pending** — Scheduled but not started  
+- **Running** — Currently in progress  
+- **Completed** — Successfully finished  
+- **Failed** — Encountered an issue  
+- **Cancelled** — Manually stopped  
 
+This helps teams quickly focus on **active or problematic scans**.
 
-Once created:
-- The scan automatically begins enumerating all related subdomains, IPs, certificates, and technologies.  
-- Progress updates in real time under the **Running** state.  
-- Upon completion, newly detected assets are added to the **Asset Catalog**.
+---
+
+## Launching a Scan
+
+<Frame caption="Launch Scan button to initiate a new scan">
+  <img src="/images/asm/launch-scan-now.png" alt="Launch Scan" />
+</Frame>
+
+To start a new scan:
+
+1. Click **“Launch Scan Now”**  
+2. Confirm the action in the prompt  
+3. The scan is scheduled and begins execution  
+
+---
+
+## Confirmation Flow
+
+<Frame caption="Confirmation modal before starting a new scan">
+  <img src="/images/asm/scans-confirmation.png" alt="Scan Confirmation Modal" />
+</Frame>
+
+Before execution, a confirmation modal ensures intentional action:
+
+- Prevents accidental scan triggers  
+- Adds operational control  
+- Confirms scan initiation  
 
 ---
 
 ## How Scans Work
 
-Each scan performs a **multi-layered discovery process**, combining:
-1. **Passive Discovery** — certificate transparency logs, WHOIS data, ASN mappings, public datasets.  
-2. **Active Enumeration** — DNS brute-forcing, subdomain resolvers, and HTTP fingerprinting.  
-3. **Asset Enrichment** — correlating discovered items with IPs, ports, and technologies.  
-4. **Exposure Detection** — scanning for misconfigurations, open ports, and public access.
+Each scan performs a **multi-layered discovery process**:
 
-All discovered assets are automatically de-duplicated and enriched before being reflected in your **Asset Catalog**.
+1. **Asset Enumeration**  
+   - Subdomains  
+   - IP addresses  
+   - DNS records  
+
+2. **Service Detection**  
+   - Open ports  
+   - Running services  
+   - Web servers  
+
+3. **Data Correlation**  
+   - Mapping assets to hosts  
+   - Identifying relationships  
+
+4. **Exposure Identification**  
+   - Publicly accessible services  
+   - Misconfigurations  
+   - Security risks  
 
 ---
 
 ## Continuous Monitoring
 
-By scheduling scans periodically, ASM enables **continuous asset discovery**.  
-This helps you stay ahead of emerging risks by:
+Scans can be scheduled (e.g., weekly) to ensure **continuous visibility**.
 
-- Detecting **newly exposed assets** in near real time.  
-- Tracking **changes to existing infrastructure**.  
-- Monitoring for **re-emergence of deprecated systems**.  
-- Quantifying the **impact of remediation and hardening efforts**.
+This enables:
+
+- Detection of **newly introduced assets**  
+- Monitoring of **infrastructure changes**  
+- Early identification of **security risks**  
+- Tracking of **attack surface growth over time**  
+
+---
+
+## Workflow Example
+
+1. Launch a scan manually or via schedule  
+2. Scan begins asset discovery and enumeration  
+3. Assets and exposures are identified  
+4. Results are added to the platform  
+5. Risk Signals and Tickets are generated  
 
 ---
 
 ## Best Practices
 
-- 🕒 **Run scans regularly** — weekly or monthly to maintain up-to-date visibility.  
-- 🎯 **Scope scans smartly** — include all known domains and third-party integrations.  
-- 🔁 **Correlate results** — review detected assets under the **Asset Catalog** for validation.  
-- 📈 **Monitor trends** — use the asset detection graph to assess ROI of remediation efforts.  
+- 🕒 Run scans **regularly (weekly recommended)**  
+- 🎯 Ensure **complete domain coverage**  
+- 🔁 Review results after each scan  
+- 📊 Track trends to measure security improvements  
 
 ---
 
 ## Value to Security Teams
 
 | Benefit | Description |
-|----------|-------------|
-| **Automated Discovery** | Continuous scanning ensures no external asset is missed. |
-| **Attack Surface Reduction** | Identify, prioritize, and remove unnecessary exposures. |
-| **Historical Tracking** | Compare asset counts across scans to track posture improvements. |
-| **Operational Efficiency** | Save manual effort through automation and real-time enrichment. |
+|--------|-------------|
+| **Automated Discovery** | Continuously identifies all external assets |
+| **Real-Time Visibility** | Always know what is exposed |
+| **Risk Reduction** | Detect exposures early |
+| **Operational Efficiency** | Eliminate manual asset tracking |
+
+---
+
+## From Discovery to Security
+
+**Scan → Discover → Analyze → Detect → Act**
+
+Scans form the **foundation of Attack Surface Management**, enabling all downstream security workflows.
 
 ---
 
 ## Explore Live Demo
 
 <Card title="Explore ASM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Instantly explore how Snapsec **Attack Surface Management (ASM)** discovers external assets, identifies exposures, enriches attack surface data, and visualizes risk — all in real time, without creating an account.
+  Instantly explore how Snapsec Attack Surface Management (ASM) discovers assets, detects exposures, and enables real-time security decisions — all in one unified platform.
 </Card>
