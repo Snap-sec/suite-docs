@@ -71,6 +71,7 @@
               "products/vm/business-units",
               "products/vm/blockers",
               "products/vm/normalization-rules",
+              "products/vm/risk-acceptance",
               "/integrations/vm/index"
             ]
           },
@@ -84,7 +85,8 @@
               "products/asm/exposures",
               "products/asm/reports",
               "products/asm/risk-signals",
-              "products/asm/blacklisted-assets"
+              "products/asm/blacklisted-assets",
+              "products/asm/settings"
             ]
           },
           {
