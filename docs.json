@@ -83,7 +83,8 @@
               "products/asm/asset-catalog",
               "products/asm/exposures",
               "products/asm/reports",
-              "/integrations/asm/index"
+              "products/asm/risk-signals",
+              "products/asm/blacklisted-assets"
             ]
           },
           {
