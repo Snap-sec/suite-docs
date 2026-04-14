@@ -1,0 +1,108 @@
+---
+title: "Blacklisted Assets"
+description: "Exclude specific assets from monitoring, scanning, and risk evaluation to reduce noise and focus on relevant exposures."
+icon: "ban"
+mode: "wide"
+---
+
+## Overview
+
+The **Blacklisted Assets** section allows you to **exclude specific assets** from monitoring, scans, and risk signal evaluations.
+
+This helps security teams eliminate **false positives**, ignore **non-relevant infrastructure**, and maintain a **clean and actionable attack surface view**.
+
+<Frame caption="Blacklisted assets table showing excluded IPs and subdomains">
+  <img src="/images/asm/blacklisted-assets.png" alt="Blacklisted Assets Table" />
+</Frame>
+
+---
+
+## Why Blacklist Assets?
+
+Not all discovered assets require monitoring.
+
+Blacklisting is useful when:
+
+- 🧪 Assets are used for **testing or staging**  
+- 🔁 Assets are **owned but intentionally exposed**  
+- 🚫 Assets are **out of scope** for security monitoring  
+- ⚠️ Assets generate **repeated false positives**  
+
+---
+
+## Blacklisted Assets Table
+
+The table provides a centralized view of all excluded assets.
+
+### Fields Explained
+
+| Field | Description |
+|------|-------------|
+| **Asset Value** | The IP address or domain/subdomain |
+| **Type** | Asset type (IP or Subdomain) |
+| **Reason** | Optional explanation for blacklisting |
+| **Blacklisted By** | User who performed the action |
+| **Blacklisted On** | Date when the asset was excluded |
+
+---
+
+## How Blacklisting Works
+
+Once an asset is blacklisted:
+
+- It is **excluded from scans**  
+- It does not appear in **Risk Signals**  
+- It is ignored in **exposure detection**  
+- It is removed from **security prioritization workflows**  
+
+This ensures your team focuses only on **relevant and actionable risks**.
+
+---
+
+## Workflow Example
+
+1. Identify an asset generating noise or not relevant  
+2. Add it to the **Blacklist**  
+3. Future scans ignore the asset  
+4. Risk Signals no longer include it  
+5. Security team focuses on real threats  
+
+---
+
+## Best Practices
+
+- 🎯 Only blacklist assets that are **confirmed non-critical**  
+- 📝 Always provide a **reason** for traceability  
+- 🔍 Periodically review blacklisted assets  
+- 🔁 Re-include assets if their risk profile changes  
+
+---
+
+## Value to Security Teams
+
+| Benefit | Description |
+|--------|-------------|
+| **Noise Reduction** | Eliminates irrelevant findings |
+| **Improved Focus** | Prioritize real security risks |
+| **Cleaner Dashboards** | Accurate exposure visibility |
+| **Operational Efficiency** | Reduce unnecessary triage effort |
+
+---
+
+## From Noise to Clarity
+
+**Discover → Filter → Focus → Secure**
+
+Blacklisting ensures your attack surface reflects **what truly matters**.
+
+---
+
+## Explore Live Demo
+
+<Card
+  title="Explore ASM Live — No Signup Needed"
+  icon="wand-magic-sparkles"
+  href="https://suite.snapsec.co/demo"
+>
+  Instantly explore how Snapsec Attack Surface Management (ASM) detects exposures, filters noise, and enables real-time security decisions — all in one unified platform.
+</Card>

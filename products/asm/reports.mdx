@@ -1,106 +1,159 @@
 ---
 title: "Reports"
-description: "Generate and manage PDF reports of your external attack surface for executive, compliance, and security reviews."
+description: "Generate, download, and manage reports for your attack surface, exposures, and security posture."
 icon: "file-pdf"
 mode: "wide"
 ---
 
+import { Frame } from 'nextra/components'
+import { Card } from '@/components/ui/card'
+import { Columns } from '@/components/ui/columns'
+
 ## Overview
 
-The **Reports** section consolidates your Attack Surface data — subdomains, ports, IPs, certificates, and exposures — into structured PDF deliverables for executives, auditors, and stakeholders.
+The **Reports** section allows security teams to **generate, manage, and export structured reports** of their external attack surface.
 
+Reports consolidate data from scans, assets, and risk signals into **executive-ready and audit-friendly documents**, enabling better visibility, decision-making, and compliance tracking.
 
-<Frame caption="ASM Reports Overview">
-  <img src="/images/asm/reports.png" alt="Reports listing view in ASM" />
+<Frame caption="Reports dashboard with report generation and history">
+  <img src="/images/asm/reports.png" alt="Reports Dashboard" />
 </Frame>
 
 ---
 
-## Overview
+## Report Types
 
-The Reports page in **Attack Surface Management (ASM)** allows you to generate and view detailed and compliance-ready security reports.  
-Each report contains a full summary of your organization's external attack surface, exposures, and actionable remediation steps.
+The platform supports multiple report formats tailored for different use cases:
 
-Generated reports are automatically archived for auditing and tracking purposes, ensuring transparency and repeatability for quarterly or ad-hoc assessments.
+<Columns cols={3}>
 
----
-
-## Key Capabilities
-
-<Columns cols={2}>
-
-<Card title="Generate PDF Reports" icon="file-arrow-down">
-  Export detailed Attack Surface summaries with one click using the **Generate Report** button.
+<Card title="Executive Report" icon="file-pdf">
+  High-level PDF report summarizing assets, exposures, and risk posture for leadership and stakeholders.
 </Card>
 
-<Card title="Comprehensive Breakdown" icon="chart-pie">
-  Reports include project summary, exposure catalog, key findings, methodology, and tools used.
+<Card title="Exposure Report" icon="file-excel">
+  Detailed breakdown of all detected exposures and vulnerabilities in structured format.
 </Card>
 
-<Card title="Audit Trail" icon="clipboard-list">
-  Track when and by whom each report was generated, providing complete audit visibility.
-</Card>
-
-<Card title="Executive Insights" icon="users">
-  Each report contains executive-level summaries and recommendations to aid leadership decisions.
+<Card title="Attack Surface Report" icon="diagram-project">
+  Complete inventory of all discovered external assets across your organization.
 </Card>
 
 </Columns>
 
 ---
 
-## Report Structure
+## Generating Reports
 
-Each generated report follows a consistent and compliance-focused layout:
+To generate a report:
 
-| Section | Description |
-|----------|-------------|
-| **Project Summary** | Outlines scope, objectives, and key dates. |
-| **Executive Summary** | High-level overview of findings, exposure counts, and priorities. |
-| **Executive Action Plan** | A clear roadmap for remediation priorities and accountability. |
-| **Exposure Catalogue** | Summarizes all detected assets (subdomains, IPs, ports, etc.) with severity. |
-| **Methodology** | Explains how assets and exposures were identified, including detection techniques. |
-| **Tools Used** | Lists open-source and enterprise tools used for discovery (Subfinder, Nmap, CRT.sh, etc.). |
-| **Detailed Exposure Tables** | Provides structured data for each exposure type (e.g., invalid certs, open ports). |
-| **Conclusion & Contacts** | Closes with analyst notes, conclusions, and key contact details. |
+1. Select the desired report type  
+2. Click **Generate**  
+3. The system compiles data from scans and exposures  
+4. Report appears in **Report History**  
+
+Reports are generated asynchronously and updated with a **status indicator**.
 
 ---
 
-## Actions
+## Report History
 
-Each report can be **viewed**, **downloaded**, or **deleted** directly from the dashboard.
-
-<Frame caption="Report Actions">
-  <img src="/images/asm/reports2.png" alt="Report Actions (view, download, delete)" />
+<Frame caption="Report history with status tracking and actions">
+  <img src="/images/asm/reports.png" alt="Report History Table" />
 </Frame>
 
-- 👁️ **Preview** — View the report inline before downloading.  
-- ⬇️ **Download** — Export a local PDF copy for archiving or sharing.  
-- 🗑️ **Delete** — Remove outdated or test reports to keep your workspace clean.
+The **Report History** section provides a complete log of all generated reports.
+
+### Fields Explained
+
+| Field | Description |
+|------|-------------|
+| **Name** | Report title with timestamp |
+| **Created At** | When the report was generated |
+| **Generation Initiated By** | User who triggered the report |
+| **Status** | Current state (Completed / Failed) |
+
+---
+
+## Report Status
+
+- 🟢 **Completed** — Report is ready for download  
+- 🔴 **Failed** — Report generation failed  
+- 🟡 *(Processing)* — Report is being generated (if applicable)  
+
+---
+
+## Report Actions
+
+<Frame caption="Report actions: download and delete options">
+  <img src="/images/asm/dld-del-report.png" alt="Download and Delete Report Actions" />
+</Frame>
+
+Each report provides quick actions via the menu:
+
+- ⬇️ **Download Report** — Export the report file  
+- 🗑️ **Delete Report** — Remove unnecessary reports  
+
+These actions allow teams to maintain a clean and usable report repository.
+
+---
+
+## How Reports Are Built
+
+Reports aggregate data from multiple ASM components:
+
+1. **Scans** — Asset discovery results  
+2. **Assets** — Subdomains, IPs, services  
+3. **Exposures** — Detected risks and misconfigurations  
+4. **Risk Signals** — Correlated findings and severity  
+
+This ensures every report reflects the **latest security posture**.
 
 ---
 
 ## Workflow Example
 
-1. Click **Generate Report** after your latest ASM scan is complete.  
-2. The platform compiles all assets, exposures, and analytics into a structured PDF.  
-3. Review the document online or download it for internal distribution.  
-4. Present the findings to your executive or compliance team for review.
+1. Run or complete a scan  
+2. Navigate to **Reports**  
+3. Generate an Executive or Exposure report  
+4. Wait for processing to complete  
+5. Download and share with stakeholders  
 
 ---
 
 ## Benefits
 
-✅ Audit-ready documentation for security and compliance reviews  
-✅ Automated and consistent report formatting  
-✅ Executive-ready summaries for leadership briefings  
-✅ Complete visibility into attack surface trends over time  
+- ✅ Centralized reporting for all ASM data  
+- ✅ Executive-ready summaries  
+- ✅ Easy export for compliance and audits  
+- ✅ Full audit trail of generated reports  
+- ✅ Quick access to historical reports  
+
+---
+
+## Best Practices
+
+- 📅 Generate reports after each major scan  
+- 📊 Use Executive Reports for leadership  
+- 🔍 Use Exposure Reports for technical teams  
+- 🧹 Clean up failed or duplicate reports regularly  
+
+---
+
+## From Data to Decisions
+
+**Scan → Detect → Analyze → Report → Act**
+
+Reports transform raw attack surface data into **actionable insights** for both technical and non-technical stakeholders.
 
 ---
 
 ## Explore Live Demo
 
-<Card title="Explore ASM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Instantly explore how Snapsec **Attack Surface Management (ASM)** discovers external assets, identifies exposures, enriches attack surface data, and visualizes risk — all in real time, without creating an account.
+<Card
+  title="Explore ASM Live — No Signup Needed"
+  icon="wand-magic-sparkles"
+  href="https://suite.snapsec.co/demo"
+>
+  Instantly explore how Snapsec Attack Surface Management (ASM) detects exposures, correlates signals, and enables real-time security decisions — all in one unified platform.
 </Card>
-
