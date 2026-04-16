@@ -1,114 +1,192 @@
 ---
 title: "APIs"
-description: "Discover, monitor, and manage all APIs with visibility into endpoints, vulnerabilities, ownership, and exposure."
+description: "Discover, analyze, and investigate APIs with deep visibility into endpoints, vulnerabilities, authentication posture, and asset relationships."
 icon: "code"
 mode: "wide"
 ---
 
 ## Overview
 
-The **APIs** section in AIM provides a centralized inventory of all APIs discovered across your organization.  
-It enables teams to track **endpoint exposure, vulnerabilities, ownership, and authentication posture** — helping identify risky or unmanaged APIs quickly.
+The **APIs** module provides a centralized and enriched inventory of all APIs discovered across your organization.
 
-<Frame caption="API inventory table showing endpoints, vulnerabilities, ownership, and detection timeline">
-  <img src="/images/aim/apis1.png" alt="API Inventory Table" />
+It combines **endpoint visibility, vulnerability data, authentication insights, and ownership context** into a single interface — enabling teams to identify exposed, risky, or unmanaged APIs quickly.
+
+<Frame caption="API inventory with endpoint counts, vulnerabilities, ownership, and detection timeline">
+  <img src="/images/aim/apis1.png" />
 </Frame>
 
 ---
 
 ## Dashboard View
 
-Each API is backed by a dedicated **dashboard view** that provides high-level analytics before diving into individual APIs.
+The dashboard provides a high-level understanding of API posture before diving into individual services.
 
-<Frame caption="API dashboard showing vulnerability distribution, auth insights, environment, and API exposure">
-  <img src="/images/aim/apis2.png" alt="API Dashboard View" />
+<Frame caption="API dashboard showing vulnerability distribution, authentication posture, environment, and method usage">
+  <img src="/images/aim/apis2.png" />
 </Frame>
 
-The dashboard highlights:
+### Key Metrics
 
-- **Total APIs** — Total number of APIs discovered  
-- **No Auth APIs** — APIs without authentication (high-risk exposure)  
-- **Vulnerable APIs** — APIs with associated vulnerabilities  
-- **Critical APIs** — High-risk APIs requiring immediate action  
+- **Total APIs** — All discovered APIs  
+- **No Auth APIs** — APIs without authentication (high risk)  
+- **Vulnerable APIs** — APIs with security findings  
+- **Critical APIs** — High severity APIs  
 
----
+### Visual Insights
 
-## Key Insights
-
-### Vulnerability Distribution
-Shows how vulnerabilities are distributed across APIs, helping prioritize remediation.
-
-### Environment Distribution
-Breakdown of APIs across environments:
-- Production  
-- Staging  
-- Others  
-
-### Internal vs External APIs
-Identifies exposure scope:
-- External APIs (public-facing)  
-- Internal APIs  
-
-### HTTP Method Distribution
-Analyzes usage patterns across:
-- GET  
-- POST  
-- PUT  
-- DELETE  
-- Other methods  
-
-### Authentication Insights
-Highlights APIs based on auth posture:
-- Authenticated  
-- No authentication (potential risk)  
-
-### Collections by Workspace
-Shows how APIs are grouped across workspaces or teams.
+- **Vulnerability Distribution** — Severity breakdown  
+- **Environment Distribution** — Production vs others  
+- **Internal vs External APIs** — Exposure scope  
+- **HTTP Method Distribution** — GET, POST, PATCH, DELETE, etc.  
+- **Auth Distribution** — Authenticated vs unauthenticated  
+- **Workspace Distribution** — API ownership across teams  
 
 ---
 
-## Inventory Table
+## Inventory View
 
-The inventory table is the **primary operational view** for managing APIs.
+The inventory is the **operational layer** for API discovery and triage.
 
 ### Key Columns
 
 | Column | Description |
 |--------|-------------|
-| **API Name** | Name of the API or service |
-| **Endpoint Count** | Number of endpoints under the API |
-| **Vulnerabilities** | Number of associated vulnerabilities |
-| **Owner** | Assigned owner responsible for the API |
-| **Detected On** | First and last detection timestamps |
+| **API Name** | Service or API identifier |
+| **Endpoint Count** | Total endpoints mapped to the API |
+| **Vulnerabilities** | Number of findings |
+| **Owner** | Responsible user |
+| **Detected On** | First & last detection timestamps |
+
+### Filters
+
+- **Is Vulnerable**
+- **Workspace**
+- **Search by API Name**
 
 ---
 
-## Search and Filters
+## API Asset View
 
-Quickly locate and prioritize APIs using filters:
+Clicking an API opens a **deep inspection view**.
 
-- **Is Vulnerable** — Show APIs with vulnerabilities  
-- **Workspace** — Filter APIs by workspace or team  
-- **Search** — Locate APIs by name  
+<Frame caption="API asset overview with general information and ownership details">
+  <img src="/images/aim/inside-apis3.png" />
+</Frame>
 
-These filters help isolate risky APIs, ownership gaps, or newly discovered services.
+### General Information
+
+- **Asset ID**
+- **Type (API)**
+- **API Name**
+- **Environment**
+- **Internal Asset (Yes/No)**
+- **Is New**
+- **Associated Assets**
+- **First / Last Detected**
+
+### Ownership Context
+
+- **User**
+- **Team**
+- **Department**
+
+This ensures **clear accountability for every API**.
+
+---
+
+## Security Overview
+
+<Frame caption="API security summary showing vulnerabilities, severity breakdown, CVSS, and remediation progress">
+  <img src="/images/aim/inside-apis4.png" />
+</Frame>
+
+### Security Data
+
+- **Total Vulnerabilities**
+- **Severity Breakdown** (Critical, High, Medium, Low, Info)
+- **Open vs Closed Vulnerabilities**
+- **Aggregate CVSS Score**
+- **Remediation Progress**
+- **Test Status**
+- **Last Scan Date**
+
+---
+
+## Endpoint Visibility
+
+Each API is mapped to its underlying endpoints, providing **true operational visibility**.
+
+### Endpoint Data Includes
+
+- **HTTP Method** (GET, POST, PATCH, DELETE)
+- **Endpoint Path**
+- **Associated API**
+- **Endpoint Type**
+
+### Example Endpoints
+
+| Method | Endpoint |
+|--------|---------|
+| GET    | /util/v1/engine/rules |
+| POST   | /util/v1/engine/rules |
+| PATCH  | /util/v1/engine/rule/:id |
+| DELETE | /util/v1/engine/rule/:id |
+
+
+This allows teams to:
+
+- Understand **attack surface at endpoint level**
+- Identify **sensitive or critical operations**
+- Detect **overexposed APIs**
+
+---
+
+## Asset Relationships
+
+APIs are not isolated — they are connected to other assets.
+
+### Relationships Include
+
+- **Endpoints**
+- **Applications**
+- **Services**
+- **Other infrastructure assets**
+
+This enables:
+
+- **Dependency mapping**
+- **Blast radius analysis**
+- **Impact assessment during incidents**
+
+---
+
+## Data Sources (Adapters)
+
+API data is enriched through integrations:
+
+- **Postman** — Fetch API endpoints from collections  
+- **Vulnerability Management** — Attach security findings  
+
+These integrations ensure APIs are not just discovered, but **contextually enriched**.
 
 ---
 
 ## Why This Matters
 
-The APIs module helps transform API discovery into **actionable security intelligence**:
+The APIs module transforms API discovery into **actionable security intelligence**:
 
-- Identify **unauthenticated APIs (critical exposure)**  
-- Track **API sprawl and shadow APIs**  
-- Prioritize **vulnerable APIs based on impact**  
-- Enforce **ownership and accountability**  
-- Understand **endpoint-level risk distribution**
+- Identify **unauthenticated APIs instantly**
+- Detect **shadow or unmanaged APIs**
+- Analyze **endpoint-level exposure**
+- Track **vulnerabilities with real context**
+- Enforce **ownership and accountability**
+- Understand **API dependencies and impact**
 
 ---
 
 ## Explore Live Demo
 
-<Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Instantly explore how Snapsec AIM discovers, enriches, and tracks every asset in real time — all without creating an account.
+<Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles"
+  href="https://suite.snapsec.co/demo">
+  Instantly explore how Snapsec AIM discovers, enriches, and analyzes APIs in real time — all without creating an account.
 </Card>

@@ -1,141 +1,101 @@
 ---
 title: "IP Addresses"
-description: "Track, monitor, and analyze all IP addresses with visibility into exposure, location, vulnerabilities, and ownership."
+description: "Track and analyze IPs with visibility into exposure, relationships, and security posture."
 icon: "network-wired"
 mode: "wide"
 ---
 
 ## Overview
 
-The **IP Addresses** section in AIM provides a complete inventory of all IPs discovered across your organization.  
-It helps teams understand **network exposure, geolocation, vulnerabilities, and ownership**, enabling faster risk identification and response.
+The **IP Addresses** module provides a structured view of your network — from **high-level exposure** to **deep asset intelligence**.
 
-<Frame caption="IP inventory table showing location, exposure, ISP, vulnerabilities, and asset associations">
-  <img src="/images/aim/ips1.png" alt="IP Inventory Table" />
+---
+
+## 1. Dashboard
+
+<Frame caption="High-level view of IP exposure, location distribution, and vulnerabilities">
+  <img src="/images/aim/ips1.png" />
 </Frame>
 
----
+Shows:
 
-## Dashboard View
-
-Each IP dataset is supported by a **dashboard view** that provides high-level insights into exposure, distribution, and risk posture.
-
-<Frame caption="IP dashboard showing reachability, location distribution, ASN insights, and vulnerability breakdown">
-  <img src="/images/aim/ips2.png" alt="IP Dashboard View" />
-</Frame>
-
-The dashboard highlights:
-
-- **Total IPs** — Total number of discovered IPs  
-- **External IPs** — Publicly exposed IP addresses  
-- **Vulnerable IPs** — IPs with associated vulnerabilities  
-- **Critical IPs** — High-risk IPs requiring immediate attention  
-
----
-
-## Key Insights
-
-### External Reachability
-Shows how many IPs are:
-- Reachable (externally accessible)  
-- Unreachable  
-
-This helps identify publicly exposed infrastructure.
-
----
-
-### Location Distribution
-Breakdown of IPs by geography:
-- Country  
-- Region  
-- Global distribution  
-
-Useful for understanding infrastructure spread and unexpected locations.
-
----
-
-### Vulnerable vs Safe
-Quick view of:
+- Total IPs  
+- External vs internal exposure  
 - Vulnerable IPs  
-- Safe IPs  
-
-Helps prioritize remediation efforts.
+- Location and ASN distribution  
 
 ---
 
-### Vulnerability Severity Distribution
-Displays severity levels:
-- High  
-- Medium  
-- (and others if present)
+## 2. Inventory
+
+<Frame caption="IP inventory with filtering, ownership, and associations">
+  <img src="/images/aim/ips2.png" />
+</Frame>
+
+Allows you to:
+
+- Search and filter IPs  
+- Identify vulnerable assets  
+- View ownership and linked assets  
 
 ---
 
-### Network Scope
-Classifies IPs as:
-- External  
-- Internal  
+## 3. IP Details
+
+### 3.1 General Information
+
+<Frame caption="Core IP metadata and ownership">
+  <img src="/images/aim/inside-ips3.png" />
+</Frame>
+
+Includes:
+
+- IP classification  
+- Environment  
+- Ownership  
+- Detection timeline  
 
 ---
 
-### ASN Distribution
-Shows which providers host your infrastructure:
-- AWS  
-- Google Cloud  
-- Hosting providers  
+### 3.2 Location & Security
 
-Helps identify third-party exposure risks.
+<Frame caption="Geolocation, ISP, and vulnerability posture">
+  <img src="/images/aim/inside-ips4.png" />
+</Frame>
 
----
+Includes:
 
-## Inventory Table
-
-The inventory table is the **primary working view** for IP management.
-
-### Key Columns
-
-| Column | Description |
-|--------|-------------|
-| **IP Address** | The discovered IP |
-| **Location** | Country and city of the IP |
-| **Reachability** | Whether the IP is externally reachable |
-| **ISP / ASN** | Hosting provider or network |
-| **Vulnerabilities** | Number of associated vulnerabilities |
-| **Owner** | Assigned owner |
-| **Business Unit** | Associated business group |
-| **Associations** | Linked assets (domains, services, etc.) |
-| **Detected On** | First and last detection timestamps |
+- Location and ISP  
+- ASN details  
+- Vulnerability summary  
 
 ---
 
-## Search and Filters
+### 3.3 Relationships & DNS
 
-Quickly refine IP visibility using:
+<Frame caption="DNS records and asset relationships">
+  <img src="/images/aim/inside-ips5.png" />
+</Frame>
 
-- **Is Vulnerable** — Show IPs with vulnerabilities  
-- **IP Version** — IPv4 / IPv6 filtering  
-- **Locations** — Filter by geography  
-- **ISPs** — Filter by hosting provider  
-- **Search** — Locate specific IPs  
+Shows:
 
-These filters help isolate high-risk or unusual infrastructure quickly.
+- DNS mappings  
+- Linked subdomains  
+- Connected assets  
 
 ---
 
 ## Why This Matters
 
-The IP module gives you direct visibility into your **network attack surface**:
-
-- Identify **externally exposed infrastructure**  
-- Detect **unexpected geolocations or hosting providers**  
-- Track **IP-level vulnerabilities and risks**  
-- Understand **asset relationships across IPs**  
-- Enforce **ownership and accountability**
+- Quickly identify exposed infrastructure  
+- Understand where assets are hosted  
+- Trace relationships across your attack surface  
+- Prioritize risks based on real context  
 
 ---
 
 ## Explore Live Demo
 
 <Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Instantly explore how Snapsec AIM discovers, enriches, and tracks every asset in real time — all without creating an account.
+Instantly explore how Snapsec AIM maps your attack surface in real time.
 </Card>

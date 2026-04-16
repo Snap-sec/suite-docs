@@ -1,119 +1,219 @@
 ---
 title: "Subdomains"
-description: "Discover, monitor, and manage all organizational subdomains with enriched context including vulnerabilities, exposure, ownership, and environment."
+description: "Discover, analyze, and investigate subdomains with deep visibility into DNS, SSL, ports, vulnerabilities, and asset relationships."
 icon: "sitemap"
 mode: "wide"
 ---
 
 ## Overview
 
-The **Subdomains** section in AIM provides a complete inventory of all discovered subdomains across your organization.  
-It combines **discovery, enrichment, and risk visibility** into a single unified interface — allowing teams to track exposure, vulnerabilities, ownership, and infrastructure context in real time.
+The **Subdomains** module provides a complete, enriched inventory of all discovered subdomains across your organization.
 
-<Frame caption="Subdomain inventory table with filters, exposure status, vulnerabilities, and ownership">
-  <img src="/images/aim/subdomains1.png" alt="Subdomain Inventory Table" />
+It goes beyond simple discovery by combining **reachability, vulnerabilities, DNS intelligence, SSL data, open ports, and asset relationships** into a single investigation workflow.
+
+<Frame caption="Subdomain inventory with reachability, vulnerabilities, ownership, and associations">
+  <img src="/images/aim/subdomains1.png" />
 </Frame>
 
 ---
 
 ## Dashboard View
 
-Each asset type includes a dedicated **dashboard view** that provides high-level insights before diving into the inventory.
+The dashboard provides high-level visibility into subdomain posture across the organization.
 
-<Frame caption="Subdomain dashboard showing vulnerability distribution, environment spread, WAF coverage, and status codes">
-  <img src="/images/aim/subdomains2.png" alt="Subdomain Dashboard View" />
+<Frame caption="Subdomain dashboard with vulnerability distribution, environment spread, WAF coverage, and status codes">
+  <img src="/images/aim/subdomains2.png" />
 </Frame>
 
-The dashboard highlights:
+### Key Metrics
 
-- **Total Subdomains** — Complete count of discovered subdomains  
-- **Live Subdomains** — Actively reachable assets  
-- **Vulnerable Subdomains** — Subdomains with associated vulnerabilities  
-- **Critical Subdomains** — High-risk assets requiring immediate attention  
+- **Total Subdomains** — All discovered assets  
+- **Live Subdomains** — Actively reachable endpoints  
+- **Vulnerable Subdomains** — Subdomains with findings  
+- **Critical Subdomains** — High severity assets  
 
----
+### Visual Insights
 
-## Key Insights
-
-### Vulnerability Distribution
-Visual breakdown of vulnerabilities by severity, helping prioritize remediation.
-
-### Environment Distribution
-Shows how subdomains are spread across:
-- Production  
-- Staging  
-- Unknown  
-
-### Network Scope
-Identifies whether subdomains are:
-- External  
-- Internal  
-
-### WAF Coverage
-Displays which subdomains are:
-- Behind WAF  
-- Not protected  
-
-### Active vs Inactive
-Distinguishes:
-- Live assets  
-- Dead or inactive endpoints  
-
-### Status Code Distribution
-Shows HTTP response patterns:
-- 200 (Active)  
-- 403 / 404 (Restricted or broken)  
-- Other response anomalies  
+- **Vulnerability Distribution** — Severity-based breakdown  
+- **Environment Distribution** — Production, Staging, Unknown  
+- **Network Scope** — External vs internal exposure  
+- **WAF Distribution** — Protected vs unprotected assets  
+- **Active vs Inactive** — Live vs dead endpoints  
+- **Status Code Distribution** — HTTP response patterns  
 
 ---
 
-## Inventory Table
+## Inventory View
 
-The inventory table is the **core operational view** where teams investigate and take action.
+The inventory is the **operational layer** for filtering and triaging subdomains.
 
 ### Key Columns
 
 | Column | Description |
 |--------|-------------|
-| **Asset Value** | Subdomain name with metadata (title / description if available) |
-| **Status Code** | HTTP response status (e.g., 200, 403, 404) |
-| **Vulnerabilities** | Number of associated vulnerabilities |
-| **Reachability** | Whether the asset is externally reachable |
-| **Environment** | Classification (Production, Staging, etc.) |
-| **Owner** | Assigned user responsible for the asset |
-| **Associations** | Linked assets (IPs, services, dependencies) |
-| **Detected On** | First and last detection timestamps |
+| **Asset Value** | Subdomain name + title |
+| **Status** | HTTP response code |
+| **Vulnerabilities** | Count of findings |
+| **Reachability** | External / internal |
+| **Environment** | Production / staging |
+| **Owner** | Assigned user |
+| **Associations** | Linked assets |
+| **Detected On** | First & last seen |
+
+### Filters
+
+- **Is Vulnerable**
+- **Status Code**
+- **WAF Protection**
+- **Externally Reachable**
+- **Environment**
 
 ---
 
-## Search and Filters
+## Subdomain Asset View
 
-Powerful filtering enables precise asset discovery:
+Clicking a subdomain opens a **deep inspection view**.
 
-- **Is Vulnerable** — Filter assets with vulnerabilities  
-- **Status Code** — Filter by HTTP response  
-- **WAF Protection** — Identify protected vs exposed assets  
-- **Externally Reachable** — Focus on public exposure  
-- **Environment** — Filter by production, staging, etc.  
+<Frame caption="Subdomain asset overview with general information and metadata">
+  <img src="/images/aim/inside-subdomain3.png" />
+</Frame>
 
-Filters can be combined to create highly targeted queries for investigation and triage.
+### General Information
+
+- **Asset ID**
+- **Type (Subdomain)**
+- **Domain Value**
+- **Environment**
+- **Internal Asset**
+- **Is New**
+- **Associated Assets**
+- **First / Last Detected**
+
+---
+
+## Subdomain Details
+
+This section provides live HTTP and infrastructure insights.
+
+<Frame caption="Subdomain details including status, reachability, WAF detection, and server info">
+  <img src="/images/aim/inside-subdomain4.png" />
+</Frame>
+
+### Includes
+
+- **Status Code** (e.g., 200, 403)
+- **Page Title**
+- **Live Status**
+- **Externally Reachable (Yes/No)**
+- **Network Scope**
+- **WAF Detection**
+- **Server Type (e.g., nginx)**
+- **Content Type**
+
+---
+
+## Security Overview
+
+<Frame caption="Security summary showing vulnerability counts, CVSS, and remediation progress">
+  <img src="/images/aim/inside-subdomain5.png" />
+</Frame>
+
+### Security Data
+
+- **Total Vulnerabilities**
+- **Severity Breakdown** (Critical, High, Medium, Low, Info)
+- **Open vs Closed Vulnerabilities**
+- **Aggregate CVSS Score**
+- **Remediation Progress**
+- **Test Status**
+- **Last Scan Date**
+
+---
+
+## Open Ports
+
+<Frame caption="Open ports detected on the subdomain with associated assets">
+  <img src="/images/aim/inside-subdomain6.png" />
+</Frame>
+
+### Port Intelligence
+
+- **Port Number** (e.g., 80, 443)
+- **Environment**
+- **Vulnerability Status**
+- **Associated Assets Count**
+- **Last Checked Timestamp**
+
+---
+
+## DNS Records & SSL Certificates
+
+<Frame caption="DNS records and SSL certificates associated with the subdomain">
+  <img src="/images/aim/subdomains-dns-ssl.png" />
+</Frame>
+
+### DNS Visibility
+
+- **Record Values (IP / NS / MX / TXT)**
+- **Record Type**
+- **Resolved From**
+- **Third-party indication**
+- **Last Checked**
+
+### SSL Certificate Data
+
+- **Common Name**
+- **Issuer**
+- **Validity Period**
+- **Alternative Names**
+
+---
+
+## Asset Relationships
+
+Subdomains are automatically linked to related infrastructure.
+
+### Includes Relationships With:
+
+- **DNS Records**
+- **IP Addresses**
+- **Repositories**
+- **Applications**
+- **Other assets in AIM**
+
+This enables teams to **trace dependencies and understand blast radius**.
+
+---
+
+## Data Sources (Adapters)
+
+Subdomain data is enriched through multiple integrations:
+
+- **HackerTarget** — External reconnaissance data  
+- **CRT (Certificate Transparency)** — Subdomain discovery via cert logs  
+- **SnapSec ASM** — External attack surface intelligence  
+- **Vulnerability Management** — Security findings  
 
 ---
 
 ## Why This Matters
 
-The Subdomains module transforms raw discovery into **actionable asset intelligence**:
+The Subdomains module enables teams to:
 
-- Identify **publicly exposed attack surfaces instantly**  
-- Prioritize **high-risk subdomains based on vulnerabilities**  
-- Enforce **ownership and accountability**  
-- Understand **environment-level risk distribution**  
-- Reduce noise with **focused filtering and context**
+- Discover **complete external attack surface**
+- Identify **publicly exposed assets instantly**
+- Correlate **DNS, SSL, and infrastructure signals**
+- Detect **open ports and reachable services**
+- Track **vulnerabilities with remediation context**
+- Understand **asset relationships and dependencies**
+
+This turns subdomain tracking from simple inventory into **full attack surface intelligence**.
 
 ---
 
 ## Explore Live Demo
 
-<Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Instantly explore how Snapsec AIM discovers, enriches, and tracks every asset in real time — all without creating an account.
+<Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles"
+  href="https://suite.snapsec.co/demo">
+  Instantly explore how Snapsec AIM discovers, enriches, and analyzes subdomains in real time — all without creating an account.
 </Card>
