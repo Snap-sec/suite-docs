@@ -1,80 +1,168 @@
 ---
 title: "Dashboard"
-description: "Gain a real-time overview of your entire asset inventory — monitor asset types, ownership, adapters, and technology distribution in one unified view."
+description: "Get a real-time overview of your entire asset inventory with unified visibility across asset types, vulnerabilities, and infrastructure distribution."
 icon: "chart-bar"
 mode: "wide"
 ---
 
 ## Overview
 
-The **AIM Dashboard** provides a centralized view of all assets detected across your organization.  
-It helps teams understand asset growth, distribution, ownership, and the health of integrations — empowering better visibility and control over your digital footprint.
+The **AIM Dashboard** provides a high-level, real-time view of all assets across your organization.  
+It centralizes visibility into asset types, vulnerability distribution, and infrastructure composition — enabling security teams to quickly understand their external and internal footprint.
 
-
-<Frame caption="AIM Dashboard Overview">
-  <img src="/images/aim/dashboard.png" alt="Asset Intelligence Management Dashboard" />
+<Frame caption="AIM Dashboard showing asset counts, vulnerability distribution, and asset type breakdown">
+  <img src="/images/aim/dashboard.png" alt="AIM Dashboard Overview" />
 </Frame>
 
 ---
 
-## Key Actions on This Page
+## Top-Level Asset Summary
 
-<Columns cols={2}>
+At the top of the dashboard, you get an instant snapshot of your total asset inventory:
 
-<Card title="Monitor Total Asset Inventory" icon="boxes-stacked">
-  Track the total number of active assets across all categories including subdomains, IPs, APIs, repositories, applications, and more.
-</Card>
+- **Total Assets** — Complete count of all discovered assets  
+- **Subdomains** — All discovered domains and subdomains  
+- **APIs** — Identified API endpoints and services  
+- **IP Addresses** — Mapped internal and external IPs  
+- **Repositories** — Connected code repositories  
+- **Certificates** — SSL/TLS certificates across assets  
+- **Employees** — Mapped identities (if integrated)  
+- **Applications** — Detected applications across environments  
 
-<Card title="View Asset Type Distribution" icon="chart-pie">
-  Quickly identify which asset types dominate your environment with a detailed breakdown of counts per type.
-</Card>
-
-<Card title="Assess Severity Trends" icon="circle-exclamation">
-  Visualize severity distribution (Critical, High, Medium, Low) to prioritize remediation across assets.
-</Card>
-
-<Card title="Track Ownership Coverage" icon="user-check">
-  Review the **Asset Ownership** chart to monitor how many assets are assigned versus unassigned — helping enforce accountability.
-</Card>
-
-<Card title="Check Active Adapters" icon="plug">
-  See which data sources (like DNS, CRT, VM, TechDetect, etc.) are contributing assets and monitor their sync activity.
-</Card>
-
-<Card title="Identify Technology Stack" icon="layer-group">
-  Analyze the most common technologies and frameworks used across your assets — such as jQuery, Google Analytics, and Python.
-</Card>
-
-</Columns>
+This summary helps you quickly assess the scale and diversity of your attack surface.
 
 ---
 
-## Dashboard Insights
+## Asset View Selector
 
-### Asset Distribution
-A tabular summary of asset types and counts, helping teams quickly understand where assets are concentrated (e.g., 192 Subdomains, 173 Applications).
+The dashboard includes a **dynamic view selector** (top-right), allowing you to filter insights by asset type:
 
-### Severity Distribution
-Real-time visualization of asset risk levels — instantly shows how many assets are associated with critical or high issues.
-
-### Ownership Overview
-Track asset ownership percentage. Quickly spot unassigned assets that need owners to ensure complete accountability.
-
-### Adapter Overview
-List of all configured adapters with their usage count — easily verify integrations with external sources like DNS records, certificates, and vulnerability data.
-
-### Technology Insights
-See which technologies appear most frequently across your assets, helping with stack standardization and potential security policy alignment.
+- Default (All assets)  
+- Subdomains  
+- IP Addresses  
+- Certificates  
+- Applications  
+- Repositories  
+- Object Storage  
+- APIs  
+- Employees  
 
 ---
 
-## Value for Teams
+## Focused Asset Dashboards
 
-- Provides an instant snapshot of your organization’s asset landscape.  
-- Helps prioritize efforts with severity-based visual insights.  
-- Increases accountability through ownership tracking.  
-- Strengthens governance with unified adapter visibility.  
-- Simplifies technology management across large, dynamic environments.  
+Each asset type has its **own dedicated dashboard view**, allowing you to drill into specific asset categories with tailored insights.
+
+<Frame caption="Focused dashboard view for a selected asset type (e.g., Subdomains, APIs, or IPs)">
+  <img src="/images/aim/dashboard2.png" alt="Filtered Asset Dashboard View" />
+</Frame>
+
+When a specific asset type is selected:
+
+- Metrics update **contextually for that asset class only**  
+- Visualizations reflect **type-specific insights**  
+- Teams can analyze **risk and distribution in isolation**  
+- Noise is reduced, enabling **faster decision-making**
+
+---
+
+## Key Visual Insights
+
+### Active Vulnerabilities
+
+A severity-based bar chart showing:
+
+- Critical  
+- High  
+- Medium  
+- Low  
+- Informational  
+
+This helps teams instantly prioritize remediation efforts.
+
+---
+
+### Subdomains Distribution
+
+Breakdown across environments:
+
+- Production  
+- Development  
+- Staging  
+
+---
+
+### IP Address Classification
+
+- External  
+- Internal  
+
+Helps identify exposed infrastructure.
+
+---
+
+### Code Repositories
+
+Displays total repositories and their activity status.  
+Useful for understanding code exposure and supply chain risk.
+
+---
+
+### APIs Overview
+
+Shows API exposure and authentication posture:
+
+- Secured (e.g., bearer token)  
+- Unauthenticated  
+
+---
+
+### Applications Overview
+
+Breakdown by deployment type:
+
+- SaaS  
+- On-Prem  
+
+---
+
+### SSL Certificates
+
+Tracks certificate lifecycle:
+
+- Valid  
+- Expired  
+- About to expire  
+
+---
+
+### Object Storage
+
+Distribution across cloud providers:
+
+- AWS S3  
+- Azure Blob  
+- GCP Storage  
+- OCI  
+
+---
+
+### Registry / Asset State
+
+- Active  
+- Archived  
+
+---
+
+## Why This Matters
+
+The AIM Dashboard transforms fragmented asset data into a **single, actionable intelligence layer**:
+
+- Understand your **complete asset inventory instantly**  
+- Identify **risk concentration areas quickly**  
+- Detect **public exposure and weak configurations**  
+- Analyze **specific asset classes in isolation**  
+- Enable **faster, data-driven security decisions**
 
 ---
 

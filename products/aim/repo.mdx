@@ -1,85 +1,139 @@
 ---
-title: "Repositories Catalog"
-description: "Track Git repositories, monitor activity, and manage secure code assets across your organization."
+title: "Repositories"
+description: "Track and manage code repositories with visibility into exposure, activity, vulnerabilities, and ownership."
 icon: "code-branch"
 mode: "wide"
 ---
 
 ## Overview
 
-The **Repositories Catalog** provides a centralized dashboard showing all code repositories discovered across connected Git platforms such as GitHub, GitLab, or Bitbucket.
+The **Repositories** section in AIM provides a complete inventory of all code repositories discovered across your organization.  
+It enables teams to monitor **repository exposure, activity, vulnerabilities, and ownership** in a single unified view.
 
-This dashboard helps security and engineering teams understand repository posture at a glance — including activity, archive status, ownership, and risk.
-
-<Frame caption="Repositories Catalog Dashboard">
-  <img src="/images/aim/aim-repositories.png"  />
+<Frame caption="Repository inventory showing visibility, language, vulnerabilities, ownership, and activity">
+  <img src="/images/aim/repos1.png" alt="Repository Inventory Table" />
 </Frame>
-
-### What the Dashboard Shows
-
-- **Total Repositories** — Complete count of repositories discovered
-- **Vulnerable Repositories** — Repositories linked to security findings
-- **Private Repositories** — Internal or restricted repositories
-- **Public Repositories** — Internet-facing repositories
-- **Activity Panel** — Repository update or commit activity
-- **Archive Status** — Archived vs active repositories
-- **Technology Distribution** — Languages and tech stacks used (when available)
-
-Below the analytics, the repository table allows users to:
-
-- Search repositories by name  
-- Filter by owner, risk, exposure, adapters, or vulnerability presence  
-- Sort by activity, creation date, or risk score  
-
-Each row represents a single repository discovered by AIM.
 
 ---
 
-## Repository Asset View (Inside a Repository)
+## Dashboard View
 
-Clicking any repository opens its **Repository Asset View**, providing deep visibility into that specific codebase.
+Each repository dataset is supported by a **dashboard view** that highlights overall posture, activity, and distribution trends.
 
-<Frame caption="Repository Asset View">
-  <img src="/images/aim/aim-repositories2.png"  />
+<Frame caption="Repository dashboard showing visibility, activity trends, archive status, and language distribution">
+  <img src="/images/aim/repos2.png" alt="Repository Dashboard View" />
 </Frame>
 
-### Repository Summary Panel
+The dashboard provides:
 
-Each repository asset includes:
+- **Total Repositories** — All discovered repositories  
+- **Active Repositories** — Currently active codebases  
+- **Vulnerable Repositories** — Repositories with detected issues  
+- **Archived Repositories** — Repositories no longer in active use  
 
-- **Repository Name & Status** (Active / Inactive)
-- **Total Vulnerabilities**
-- **Risk Score**
-- **Exposure Status** (Safe / Exposed)
-- **Environment** (Prod, Dev, Unknown)
-- **First Found / Last Found**
-- **Managed By** (Owner or team)
+---
 
-Lifecycle actions available:
-- **Decommission Asset**
-- **Delete Asset**
+## Key Insights
 
-### Repository Insights
+### Vulnerable vs Safe
+Shows how many repositories:
+- Have vulnerabilities  
+- Are currently safe  
 
-Within the repository asset view, AIM provides:
+Helps quickly identify risky codebases.
 
-- **Vulnerability Trends** — Historical vulnerability changes (if available)
-- **Severity Distribution** — Breakdown of vulnerability severity
-- **Tags** — Labels such as `GitHub`, `Repository`
-- **Technologies** — Detected languages or frameworks (when available)
-- **Asset Relations Graph** — Visual mapping of how the repository connects to:
-  - Applications
-  - APIs
-  - Domains
-  - Other assets
+---
 
-This view enables teams to trace security findings back to source code and understand downstream impact.
+### Visibility Distribution
+Breakdown of:
+- Private repositories  
+- Public repositories  
+
+Public repositories require extra attention due to exposure risk.
+
+---
+
+### Repository Creation Trends
+Tracks repository creation over time:
+- Helps identify spikes in development activity  
+- Useful for governance and growth tracking  
+
+---
+
+### Repository Activity Overview
+Shows activity levels across time:
+- Last week  
+- Last month  
+- Last 3 months  
+- Last year  
+
+Helps identify inactive or stale repositories.
+
+---
+
+### Active vs Archived
+Displays:
+- Active repositories  
+- Archived repositories  
+
+Useful for cleanup and lifecycle management.
+
+---
+
+### Language Distribution
+Breakdown of programming languages used across repositories:
+- Helps understand technology stack  
+- Useful for standardization and risk analysis  
+
+---
+
+## Inventory Table
+
+The repository table is the **primary working view** for managing code assets.
+
+### Key Columns
+
+| Column | Description |
+|--------|-------------|
+| **Repository** | Repository name and source (GitHub, GitLab, etc.) |
+| **Visibility** | Public or Private |
+| **Language** | Primary programming language |
+| **Status** | Active or Archived |
+| **Vulnerabilities** | Number of associated issues |
+| **Owner** | Assigned owner |
+| **Last Push** | Last activity timestamp |
+| **Detected On** | First and last detection |
+
+---
+
+## Search and Filters
+
+Quickly refine repository data using:
+
+- **Is Vulnerable** — Show repositories with vulnerabilities  
+- **Archive Status** — Active vs archived  
+- **Visibility** — Public or private  
+- **Language** — Filter by tech stack  
+- **Search** — Find specific repositories  
+
+These filters help prioritize security and cleanup efforts.
+
+---
+
+## Why This Matters
+
+The Repositories module gives visibility into your **code attack surface**:
+
+- Identify **publicly exposed repositories**  
+- Detect **inactive or abandoned codebases**  
+- Track **vulnerabilities tied to code assets**  
+- Understand **technology usage across repos**  
+- Enforce **ownership and accountability**  
 
 ---
 
 ## Explore Live Demo
 
-<Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles"
-  href="https://suite.snapsec.co/demo">
-  Instantly explore how Snapsec AIM discovers, enriches, and tracks repositories and other assets in real time — all without creating an account.
+<Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
+  Instantly explore how Snapsec AIM discovers, enriches, and tracks every asset in real time — all without creating an account.
 </Card>

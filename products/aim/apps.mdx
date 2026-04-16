@@ -1,99 +1,188 @@
 ---
-title: "Application Inventory"
-description: "Catalog and monitor enterprise applications discovered across your environments."
+title: "Applications"
+description: "Discover, monitor, and manage applications across your organization with visibility into ownership, exposure, and relationships."
 icon: "window-restore"
 mode: "wide"
 ---
 
 ## Overview
 
-The **Application Inventory** dashboard provides a centralized view of all applications discovered across your organization, including internal apps, APIs, and externally exposed services.
+The **Applications** module provides a centralized inventory of all applications discovered across your environment — including internal services and externally exposed platforms.
 
-It helps teams understand application exposure, vulnerability concentration, and ownership at a glance.
+It enables teams to track ownership, understand deployment types, and monitor application lifecycle and security posture.
 
-<Frame caption="Application Inventory Dashboard">
-  <img src="/images/aim/apps-overview.png" />
+<Frame caption="Application Inventory Dashboard showing distribution by type, source, and status">
+  <img src="/images/aim/apps1.png" />
 </Frame>
 
-### What the Dashboard Shows
+---
 
-- **Total Applications** discovered
-- **Vulnerable Applications** with linked security findings
-- **Exposed Applications** reachable from external networks
-- **Shadowed Applications** without clear ownership or classification
+## Dashboard View
+
+The dashboard gives a high-level overview of your application landscape.
+
+### Key Metrics
+
+- **Total Applications** — All discovered applications  
+- **Live Applications** — Currently active applications  
+- **Vulnerable Applications** — Applications with detected issues  
+- **Critical Applications** — Applications with critical findings  
 
 ### Visual Insights
 
-- **Vulnerability Distribution** by severity (Critical, High, Medium, Low)
-- **Application Distribution** across environments
-- **Exposure-based breakdown** for prioritization
-
-### Application Table
-
-The table lists all discovered applications with key metadata:
-
-| Column | Description |
-|------|-------------|
-| **Asset Value** | Application name or identifier |
-| **Vuln Count** | Number of linked vulnerabilities |
-| **Auto Risk** | System-calculated risk score |
-| **Type** | Application type |
-| **Owner** | Assigned application owner |
-| **Tags** | Labels such as `vm`, `application` |
-| **Associations** | Linked assets |
-| **Detected On** | First and last discovery timestamps |
-
-This view is used to triage, filter, and select applications for deeper inspection.
+- **Application Type Distribution** — OnPrem vs SaaS  
+- **Application Source Distribution** — Discovery source (e.g., Cloudflare)  
+- **Status Distribution** — Lifecycle state of applications  
 
 ---
 
-## Application Asset Detail View
+## Application Inventory
 
-Clicking an application opens its **asset-level view**, providing full context about that specific application.
+The inventory view lists all applications with operational and ownership details.
 
-<Frame caption="Application Asset Detail View">
-  <img src="/images/aim/app-detail.png" />
+<Frame caption="Application inventory table with hosting type, ownership, and associations">
+  <img src="/images/aim/apps2.png" />
 </Frame>
 
-### Application Summary
+### Table Columns
 
-Each application asset includes:
+| Column | Description |
+|--------|-------------|
+| **Asset Value** | Application name and domain |
+| **Hosting** | Deployment type (OnPrem / SaaS) |
+| **HTTP Response Status** | Response status (if available) |
+| **Reachability** | External/Internal visibility |
+| **Vuln Count** | Number of linked vulnerabilities |
+| **Owner** | Assigned owner |
+| **Associations** | Linked assets |
+| **Detected On** | Discovery timeline |
 
-- **Status** (Active)
-- **Total Vulnerabilities**
-- **Risk Score**
-- **Exposure** (Exposed or Safe)
-- **Environment**
-- **First Found / Last Found**
-- **Managed By (Owner)**
+### Filters & Search
 
-Lifecycle actions available:
-- **Decommission Asset**
-- **Delete Asset**
-
-### Vulnerability Insights
-
-- Vulnerability trend panel
-- Severity distribution panel  
-(Displayed when vulnerability data is available)
-
-### Metadata & Relationships
-
-Inside an application asset, you can view and manage:
-
-- **Tags** for classification
-- **Technologies** associated with the application
-- **Open Ports** (if detected)
-- **Asset Relations Graph** showing connections to:
-  - Domains
-  - APIs
-  - Certificates
-  - Other linked assets
-
-This view helps teams understand **blast radius**, dependencies, and risk impact before remediation or decommissioning.
+- **Is Vulnerable**
+- **Application Sources**
+- **Hosting Type**
+- **Search by application name**
 
 ---
 
+## Application Asset View
+
+Selecting an application opens a detailed view with complete context.
+
+<Frame caption="Application asset detail view with general metadata">
+  <img src="/images/aim/apps3.png" />
+</Frame>
+
+---
+
+## General Information
+
+Each application includes:
+
+- **Asset ID**
+- **Type (Application)**
+- **Value (Domain / Identifier)**
+- **Environment**
+- **Internal Asset (Yes / No)**
+- **Associated Assets**
+- **First Detected / Last Detected**
+
+---
+
+## Lifecycle Status
+
+Applications support lifecycle tracking directly from the asset view.
+
+<Frame caption="Application lifecycle status options">
+  <img src="/images/aim/apps4.png" />
+</Frame>
+
+Available states:
+
+- **Active** — Currently in use  
+- **Pending** — Newly discovered and under review  
+- **Staged** — Pre-production or testing phase  
+- **Decommissioned** — No longer in use  
+
+---
+
+## Application Information
+
+<Frame caption="Application metadata including name, domain, type, and source">
+  <img src="/images/aim/apps5.png" />
+</Frame>
+
+Includes:
+
+- **Application Name**
+- **App ID**
+- **Domain**
+- **Application Type (OnPrem / SaaS)**
+- **Status**
+- **Source (e.g., Cloudflare)**
+- **Allowed IPs**
+- **Policies**
+- **Identity Providers**
+
+---
+
+## Security Overview
+
+<Frame caption="Application security summary with vulnerability metrics">
+  <img src="/images/aim/apps6.png" />
+</Frame>
+
+Displays:
+
+- Total vulnerabilities  
+- Severity breakdown (Critical, High, Medium, Low, Info)  
+- Open vs closed vulnerabilities  
+- Aggregate CVSS score  
+- Remediation progress  
+
+---
+
+## Asset Relationships
+
+Applications are connected to other assets within your environment.
+
+<Frame caption="Asset relationships showing linked assets and dependencies">
+  <img src="/images/aim/apps7.png" />
+</Frame>
+
+This helps teams:
+
+- Understand how applications are linked to subdomains and other assets  
+- Identify dependencies across the environment  
+- Analyze impact before making changes  
+
+---
+
+## Data Sources (Adapters)
+
+Applications are discovered through integrated data sources.
+
+- Example: **Cloudflare**
+- Shows which integrations are contributing asset discovery  
+
+---
+
+## Why This Matters
+
+The Applications module helps teams:
+
+- Maintain a complete application inventory  
+- Track ownership and accountability  
+- Understand deployment environments (OnPrem vs SaaS)  
+- Monitor lifecycle states of applications  
+- Identify security issues across applications  
+- Gain visibility into asset relationships  
+
+---
+
+## Explore Live Demo
+
 <Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Instantly explore how Snapsec AIM discovers, enriches, and tracks applications and assets in real time — all without creating an account.
+  Instantly explore how Snapsec AIM discovers, enriches, and tracks applications across your organization — all without creating an account.
 </Card>

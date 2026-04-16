@@ -1,116 +1,199 @@
 ---
-title: "Workstation Directory"
-description: "Track employee devices, workstation risks, exposure levels, and lifecycle states across the organization."
+title: "Workstations"
+description: "Monitor endpoints, system details, and device-level security posture across your organization."
 icon: "desktop"
 mode: "wide"
 ---
 
 ## Overview
 
-The **Workstation Directory** provides a centralized dashboard of all employee-linked devices such as laptops, desktops, and virtual workstations discovered across the environment.
+The **Workstations** module provides a centralized inventory of all discovered endpoints including laptops, desktops, and virtual machines.
 
-This dashboard gives security and IT teams immediate visibility into device posture, vulnerability presence, exposure status, and ownership.
+It enables teams to track device ownership, operating systems, system-level data, and basic security posture across the environment.
 
-<Frame caption="Workstation Dashboard Overview">
-  <img src="/images/aim/workstations-dashboard.png" />
+<Frame caption="Workstation dashboard showing distribution by platform, region, RAM, and status">
+  <img src="/images/aim/workstations.png" />
 </Frame>
-
-### What the Dashboard Shows
-
-- **Total Workstations** — All discovered employee devices
-- **Vulnerable Workstations** — Devices with one or more security findings
-- **Exposure Status** — Safe vs exposed workstations
-- **Risk Distribution** — Risk scoring across devices
-- **Vulnerability Trends** — High-level trend view (when data exists)
-- **Severity Distribution** — Breakdown of Critical, High, Medium, and Low findings
-
-Below the analytics, the workstation table allows teams to:
-
-- Search devices by name or identifier  
-- Filter by owner, risk, exposure, adapters, or vulnerability presence  
-- Sort devices by risk score, discovery date, or vulnerability count  
-
-Each row represents a single workstation asset tracked by AIM.
 
 ---
 
-## Asset Risk Calculation
+## Dashboard View
 
-Each workstation includes a transparent and explainable **Asset Risk Calculation**, showing exactly how its final risk score is derived.
+The dashboard provides a high-level summary of all workstations.
 
-<Frame caption="Workstation Asset Risk Calculation">
-  <img src="/images/aim/workstation-risk-calculation.png" />
-</Frame>
+### Key Metrics
 
-### How Risk Is Calculated
+- **Total Workstations** — All discovered devices  
+- **Live Workstations** — Currently active endpoints  
+- **Vulnerable Workstations** — Devices with detected issues  
+- **Critical Workstations** — Devices with critical findings  
 
-AIM computes workstation risk using weighted components:
+### Visual Insights
 
-- **Vulnerabilities (60%)**  
-  Based on severity counts:
-  - Critical
-  - High
-  - Medium
-  - Low
-
-- **Exposure (30%)**  
-  Whether the workstation is externally reachable or safely contained.
-
-- **Inherent Asset Risk (10%)**  
-  Baseline risk associated with the asset type (workstation, laptop, VM).
-
-### Final Risk Score
-
-All components are combined into a **final numerical risk score**, giving teams:
-
-- Clear prioritization
-- Consistent scoring across asset types
-- Defensible risk justification for audits and reporting
-
-This ensures workstation risk is **measurable, explainable, and actionable**.
+- **Platform Distribution** — Windows, Linux, Darwin  
+- **Region Distribution** — Geographic breakdown  
+- **RAM Distribution** — Memory allocation across devices  
+- **Architecture Distribution** — Arm64 vs Amd64  
+- **Status Distribution** — Active, Inactive, Maintenance  
 
 ---
 
-## Workstation Asset View (Inside a Workstation)
+## Workstation Inventory
 
-Clicking any workstation opens its **Workstation Asset View**, providing deep visibility into that specific device.
+The inventory view lists all discovered workstations with key details.
 
-<Frame caption="Workstation Asset View">
-  <img src="/images/aim/workstation-asset-view.png" />
+<Frame caption="Workstation inventory table with OS, owner, and detection timeline">
+  <img src="/images/aim/workstation2.png" />
 </Frame>
 
-### Workstation Summary Panel
+### Table Columns
 
-Each workstation asset displays:
+| Column | Description |
+|--------|-------------|
+| **Asset** | Device name or identifier |
+| **Operating System** | OS type and version |
+| **Vuln Count** | Number of vulnerabilities |
+| **Owner** | Assigned user |
+| **Detected On** | First and last detection timestamps |
 
-- **Device Name & Status** (Active / Decommissioned)
-- **Total Vulnerabilities**
-- **Risk Score**
-- **Exposure Status**
-- **Environment** (Prod, Dev, Unknown)
-- **First Found / Last Found**
-- **Managed By** (Owner or team)
+### Filters & Search
 
-Lifecycle actions available:
-- **Decommission Asset**
-- **Delete Asset**
+- **Is Vulnerable**
+- **OS Platform**
+- **Firewall Status**
+- **Location**
+- **Search by device name**
 
-### Workstation Insights
+---
 
-Within the asset view, teams can access:
+## Workstation Asset View
 
-- **Vulnerability Trends** — Historical vulnerability changes
-- **Severity Distribution** — Severity breakdown for findings
-- **Tags** — Labels such as `workstation`, `laptop`, `employee-device`
-- **Technologies** — Installed or detected technologies (if available)
-- **Asset Relations Graph** — Visual mapping of relationships with:
-  - Employees
-  - Applications
-  - Repositories
-  - Certificates
-  - Other infrastructure assets
+Selecting a workstation opens a detailed view with complete system context.
 
-This view enables precise investigation, faster remediation, and clear understanding of device impact across the organization.
+<Frame caption="Workstation asset detail with general information and device metadata">
+  <img src="/images/aim/workstation3.png" />
+</Frame>
+
+---
+
+## General Information
+
+Each workstation includes:
+
+- **Asset ID**
+- **Type (Workstation)**
+- **Hostname**
+- **FQDN**
+- **Timezone**
+- **Environment**
+- **Internal Asset (Yes / No)**
+- **Associated Assets**
+- **First Detected / Last Detected**
+
+---
+
+## Operating System
+
+<Frame caption="Operating system details including platform, version, and architecture">
+  <img src="/images/aim/workstation4.png" />
+</Frame>
+
+Includes:
+
+- **Platform** (e.g., Darwin, Linux, Windows)  
+- **Distribution**  
+- **Version**  
+- **Architecture**  
+
+---
+
+## Hardware Details
+
+<Frame caption="Hardware configuration including CPU, RAM, and disk capacity">
+  <img src="/images/aim/workstation5.png" />
+</Frame>
+
+Displays:
+
+- **CPU Model**
+- **Cores & Threads**
+- **RAM Total / Used / Available**
+- **Disk Capacity**
+
+---
+
+## Processes
+
+<Frame caption="Running processes with PID, user, and resource usage">
+  <img src="/images/aim/workstation6.png" />
+</Frame>
+
+Provides visibility into:
+
+- Active processes  
+- Process IDs (PID / PPID)  
+- Running user (e.g., root)  
+- CPU and memory usage  
+
+---
+
+## Users & Network Information
+
+<Frame caption="System users and network location details">
+  <img src="/images/aim/workstation7.png" />
+</Frame>
+
+Includes:
+
+### System Users
+- Username  
+- UID  
+- Shell  
+- Groups  
+
+### Network & Location
+- Public IP  
+- City, Region, Country  
+- ISP and ASN  
+- Latitude & Longitude  
+- Timezone  
+
+---
+
+## Security Overview
+
+Displays basic security posture of the workstation:
+
+- Total vulnerabilities  
+- Severity breakdown (if available)  
+- Open vs closed vulnerabilities  
+- Aggregate CVSS  
+- Remediation progress  
+- Last scan date  
+
+---
+
+## Ownership
+
+Each workstation is mapped to an owner for accountability:
+
+- **User**
+- **Team**
+- **Department**
+- **Custom Assignment**
+
+---
+
+## Why This Matters
+
+The Workstations module helps teams:
+
+- Maintain complete visibility of all endpoints  
+- Track device ownership and accountability  
+- Monitor system-level configurations  
+- Understand geographic and network exposure  
+- Investigate processes and user activity  
+- Identify vulnerable or unmanaged devices  
 
 ---
 
@@ -118,6 +201,5 @@ This view enables precise investigation, faster remediation, and clear understan
 
 <Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles"
   href="https://suite.snapsec.co/demo">
-Instantly explore how Snapsec AIM discovers, enriches, and tracks workstations and other assets in real time — all without creating an account.
+  Instantly explore how Snapsec AIM discovers and tracks workstations across your environment — all without creating an account.
 </Card>
-

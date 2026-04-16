@@ -1,100 +1,140 @@
 ---
 title: "Object Storage"
-description: "Discover, track, and assess cloud object storage buckets across AWS, Azure, and GCP."
+description: "Discover, track, and manage cloud object storage buckets across multiple providers."
 icon: "database"
 mode: "wide"
 ---
 
 ## Overview
 
-The **Object Storage** dashboard provides a centralized view of all cloud storage buckets discovered across supported cloud providers such as **AWS S3**, **Azure Blob Storage**, and **Google Cloud Storage (GCS)**.
+The **Object Storage** module provides a centralized inventory of all cloud storage buckets discovered across your environment.
 
-This dashboard helps security and cloud teams quickly understand storage exposure, ownership gaps, and potential risk signals.
+It enables teams to track storage locations, monitor vulnerabilities, and maintain visibility across multiple cloud providers.
 
-<Frame caption="Object Storage Inventory Dashboard">
-  <img src="/images/aim/object-storage-dashboard.png" />
+<Frame caption="Object Storage dashboard with provider and region distribution">
+  <img src="/images/aim/obj-str1.png" />
 </Frame>
-
-### What the Dashboard Shows
-
-- **Total Buckets** — Total number of discovered object storage buckets  
-- **Exposed Buckets** — Buckets that may be publicly accessible or misconfigured  
-- **Tested Buckets** — Buckets assessed through connected security scanners  
-- **Exposure Repositories** — Linked assets or services interacting with buckets  
-
-Below the summary metrics, the bucket table allows teams to:
-
-- Search buckets by name  
-- Filter by **Owner**, **Risk**, **Exposure**, **Adapters**, or **Vulnerability presence**  
-- View vulnerability count, auto risk score, and associations  
-- Track **first found** and **last found** timestamps  
-
-Each row represents a single object storage bucket managed within AIM.
 
 ---
 
-## Object Storage Asset View (Inside a Bucket)
+## Dashboard View
 
-Selecting a bucket opens its **Object Storage Asset View**, offering detailed visibility into configuration, risk posture, and relationships.
+The dashboard provides a high-level summary of object storage assets.
 
-<Frame caption="Object Storage Asset View">
-  <img src="/images/aim/object-storage-asset.png" />
+### Key Metrics
+
+- **Total Buckets** — All discovered storage buckets  
+- **Live Buckets** — Active buckets currently tracked  
+- **Vulnerable Buckets** — Buckets with detected vulnerabilities  
+- **Critical Buckets** — Buckets with critical issues  
+
+### Visual Insights
+
+- **Provider Distribution** — AWS S3, Azure Blob, GCP Cloud Storage, OCI Object Storage  
+- **Region Distribution** — Bucket distribution across regions  
+- **Vulnerability Distribution** — Displays severity breakdown when data is available  
+
+---
+
+## Object Storage Inventory
+
+The inventory view lists all buckets with key metadata.
+
+<Frame caption="Object storage inventory with provider, region, and ownership details">
+  <img src="/images/aim/obj-str2.png" />
 </Frame>
 
-### Bucket Summary Panel
+### Table Columns
 
-Each object storage asset includes:
+| Column | Description |
+|--------|-------------|
+| **Asset** | Bucket name |
+| **Compartment Name** | Logical grouping (if available) |
+| **Provider** | Cloud provider (AWS, Azure, GCP, OCI) |
+| **Region** | Bucket region |
+| **Owner** | Assigned owner |
+| **Associations** | Linked assets |
+| **Detected On** | Discovery timestamps |
 
-- **Bucket Name & Status** (Active / Inactive)
+### Filters & Search
+
+- **Is Vulnerable**
+- **Provider**
+- **Region**
+- **Search by bucket name**
+
+---
+
+## Object Storage Asset View
+
+Selecting a bucket opens its detailed asset view.
+
+<Frame caption="Object storage asset view with general information and security summary">
+  <img src="/images/aim/inside-objstr3.png" />
+</Frame>
+
+---
+
+## General Information
+
+Each bucket includes:
+
+- **Asset ID**
+- **Type (Object Storage)**
+- **Bucket Name**
+- **Environment**
+- **Internal Asset (Yes / No)**
+- **Is New**
+- **Associated Assets**
+- **First Detected / Last Detected**
+
+---
+
+## Security Overview
+
+<Frame caption="Security summary for the selected bucket">
+  <img src="/images/aim/inside-objstr4.png" />
+</Frame>
+
+Each bucket includes a built-in security summary:
+
 - **Total Vulnerabilities**
-- **Risk Score**
-- **Exposure Status** (Safe / Exposed)
-- **Environment** (Prod, Dev, Unknown)
-- **First Found / Last Found**
-- **Managed By** (Owner or team)
-
-Available lifecycle actions:
-- **Decommission Asset**
-- **Delete Asset**
-
-### Bucket Insights
-
-Within the asset view, AIM provides:
-
-- **Vulnerability Trends** — Historical vulnerability data (when available)
-- **Severity Distribution** — Breakdown of detected issues by severity
-- **Tags** — Classification labels for governance and filtering
-- **Technologies** — Related services or storage technologies
-- **Asset Relations Graph** — Visual mapping showing how the bucket is:
-  - Hosted by cloud vendors
-  - Connected to applications or services
-  - Related to other assets in the environment
-
-This view enables teams to understand storage exposure in context and trace how sensitive data stores connect to the wider attack surface.
+- **Severity Breakdown** (Critical, High, Medium, Low, Info)
+- **Open vs Closed Vulnerabilities**
+- **Aggregate CVSS**
+- **Remediation Progress**
+- **Tested Status**
+- **Last Scan Date**
 
 ---
 
-## Example Use Cases
+## Data Sources (Adapters)
 
-<CardGroup cols={3}>
-  <Card title="Cloud Exposure Management" icon="cloud-exclamation">
-    Identify publicly exposed or misconfigured storage buckets before data leakage occurs.
-  </Card>
+AIM integrates with external providers to discover object storage assets.
 
-  <Card title="Data Security Governance" icon="lock">
-    Maintain visibility into where critical data is stored and who owns each bucket.
-  </Card>
+- Example: **GitLab Integration**
+- Used to enrich and map storage-related assets and repositories
 
-  <Card title="Incident Investigation" icon="diagram-project">
-    Quickly trace compromised buckets and understand their relationships with other assets.
-  </Card>
-</CardGroup>
+---
+
+## Why This Matters
+
+The Object Storage module helps teams:
+
+- Maintain visibility across all cloud storage buckets  
+- Track vulnerabilities associated with storage assets  
+- Understand bucket distribution across providers and regions  
+- Identify ownership gaps  
+- Monitor storage assets within a centralized inventory  
 
 ---
 
 ## Explore Live Demo
 
-<Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles"
-  href="https://suite.snapsec.co/demo">
-Instantly explore how Snapsec AIM discovers, enriches, and tracks object storage assets in real time — all without creating an account.
+<Card
+  title="Explore AIM Live — No Signup Needed"
+  icon="wand-magic-sparkles"
+  href="https://suite.snapsec.co/demo"
+>
+  Instantly explore how Snapsec AIM discovers and tracks object storage assets across your environment — all without creating an account.
 </Card>

@@ -1,94 +1,98 @@
 ---
-title: "Employee Catalog"
-description: "Centralized visibility into employee-linked identities, activity, and associated assets."
-icon: "id-card"
+title: "Employees"
+description: "Track employee identities, understand internal vs external exposure, and monitor activity across your organization."
+icon: "users"
 mode: "wide"
 ---
 
 ## Overview
 
-The **Employee Inventory** dashboard provides a high-level view of all employee-linked identities discovered across your organization.  
-It helps security and IAM teams understand workforce exposure, vendor usage, and identity distribution at a glance.
+The **Employees** section provides visibility into all employee-linked identities discovered across your environment.  
+It helps teams track internal and external users, understand workforce exposure, and maintain accountability for asset ownership.
 
-<Frame caption="Employee Inventory Dashboard">
-  <img src="/images/aim/employees-overview.png" />
+<Frame caption="Employee inventory showing identities with internal or external classification">
+  <img src="/images/aim/employee1.png" alt="Employee Inventory" />
 </Frame>
-
-### What the Dashboard Shows
-
-- **Total Employees** — Count of all discovered employee identities  
-- **Internal Employees** — Identities using organization-managed domains  
-- **External Employees** — Vendor, contractor, or partner identities  
-
-### Visual Insights Available
-
-- **Vendor Distribution** — Breakdown of identity providers and associated domains  
-- **User Activity** — Login activity timelines (inactive, long-dormant, recently active)  
-- **Internal vs External Users** — Proportional view of workforce composition  
-
-### Employee Inventory Table
-
-Each row represents a discovered employee identity with:
-
-- **Employee Email / Identity**
-- **Source** (CSV, vendor, or integration)
-- **Vulnerability Count**
-- **Auto Risk Score**
-- **Owner**
-- **Tags**
-- **Asset Associations**
-- **Detection Timeline**
-
-This view allows teams to quickly spot unused accounts, external identities, or unowned employee records.
 
 ---
 
-## Employee Asset View
+## Dashboard View
 
-Clicking an employee opens the **Employee Asset Detail View**, providing full visibility into that identity’s risk, activity, and relationships.
+The dashboard gives a high-level overview of employee distribution and activity.
 
-<Frame caption="Employee Asset Detail View">
-  <img src="/images/aim/employees-detail.png" />
+<Frame caption="Employee dashboard showing total users, internal vs external distribution, and activity trends">
+  <img src="/images/aim/employee2.png" alt="Employee Dashboard" />
 </Frame>
 
-### Employee Summary
+---
 
-Each employee asset displays:
+## Key Metrics
 
-- **Identity Value** (email or username)
-- **Status** (Active / Decommissioned)
-- **Total Vulnerabilities**
-- **Risk Score**
-- **Exposure Status**
-- **Environment**
-- **First Found / Last Found**
-- **Managed By**
-
-### Available Actions
-
-- **Decommission Asset** — Mark the employee identity as inactive  
-- **Delete Asset** — Permanently remove the identity  
-
-### Asset Intelligence Sections
-
-- **Vulnerability Trends** — Historical vulnerability data (if available)  
-- **Severity Distribution** — Risk severity breakdown  
-- **Tags** — Classification labels (employee, internal, external, vendor)  
-- **Technologies** — Associated platforms (if detected)  
-- **Open Ports** — Network exposure (if applicable)  
-
-### Asset Relation Graph
-
-The **Asset Relation** graph visually maps how the employee identity connects to:
-
-- Applications  
-- Domains  
-- Other assets  
-
-This helps understand access scope and potential blast radius during incidents or offboarding.
+- **Total Employees** — Total number of discovered identities  
+- **External Employees** — Vendor, contractor, or third-party users  
+- **Active Employees** — Currently active identities  
+- **Inactive Employees** — Disabled or inactive identities  
 
 ---
+
+## Key Insights
+
+### Internal vs External Users
+- Differentiates employees based on domain or source  
+- Helps identify third-party exposure and vendor access  
+
+---
+
+### Vendor Distribution
+- Shows which platforms or domains employees are associated with  
+- Useful for identifying reliance on external services  
+
+---
+
+### Activity Distribution
+- Tracks user activity over time  
+- Helps identify dormant or inactive accounts  
+
+---
+
+## Employee Inventory
+
+The inventory view displays employee identities in a card-based format.
+
+### What Each Card Shows
+
+- **User Initial / Avatar**
+- **Name**
+- **Email Address**
+- **Type** (Internal / External)
+
+---
+
+## Filters & Search
+
+Users can refine employee data using:
+
+- **Is Vulnerable** (if applicable)  
+- **Active Status**  
+- **Employee Type** (Internal / External)  
+- **Search by Name or Email**
+
+---
+
+## Why This Matters
+
+The Employees module helps teams:
+
+- Identify external and third-party access  
+- Detect inactive or unused accounts  
+- Maintain visibility into identity exposure  
+- Strengthen ownership and accountability  
+- Support IAM and security audits  
+
+---
+
+## Explore Live Demo
 
 <Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Instantly explore how Snapsec AIM discovers, enriches, and tracks employee identities and assets — all without creating an account.
+  Instantly explore how Snapsec AIM discovers, enriches, and tracks employee identities across your organization — all without creating an account.
 </Card>

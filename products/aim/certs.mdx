@@ -1,122 +1,197 @@
 ---
-title: "Certificates Library"
-description: "Monitor SSL/TLS certificates, expiry risks, and asset associations across your attack surface."
-icon: "id-card-alt"
+title: "Certificates"
+description: "Monitor SSL/TLS certificates, track expiry risks, and manage certificate lifecycle across your asset inventory."
+icon: "id-card"
 mode: "wide"
 ---
 
 ## Overview
 
-The **Certificates Library** provides centralized visibility into all SSL/TLS certificates discovered across your environment.  
-It helps teams identify expired, invalid, or risky certificates and understand how they relate to domains and assets.
+The **Certificates** section provides complete visibility into all SSL/TLS certificates discovered across your environment.  
+It helps teams monitor certificate health, prevent expirations, and understand how certificates are connected to assets like subdomains and services.
 
-<Frame caption="Certificates Library Dashboard">
-  <img src="/images/aim/certificates-dashboard.png" />
+<Frame caption="Certificates inventory showing status, issuer, validity period, and ownership">
+  <img src="/images/aim/certs1.png" alt="Certificates Inventory Table" />
 </Frame>
 
 ---
 
-## Certificates Dashboard
+## Dashboard View
 
-The dashboard gives a high-level snapshot of certificate health across your organization:
+The dashboard provides a high-level overview of certificate posture and expiry risks.
 
-- **Total Certificates** — All certificates discovered
-- **Expired Certificates** — Certificates past validity
-- **Nearly Expired Certificates** — Certificates nearing expiration
-- **Invalid Certificates** — Certificates with trust or configuration issues
+<Frame caption="Certificates dashboard showing validity, expiry timeline, and certificate authority distribution">
+  <img src="/images/aim/certs2.png" alt="Certificates Dashboard View" />
+</Frame>
 
-Visual analytics help you quickly understand:
+### Key Metrics
 
-- Certificate validity status
-- Expiry timelines
-- Certificate signing authorities in use
-
-This view helps teams prioritize renewals and prevent service disruptions.
+- **Total Certificates** — All discovered certificates  
+- **Expired Certificates** — Certificates no longer valid  
+- **Expiring Soon** — Certificates nearing expiration  
+- **Valid Certificates** — Currently active and trusted certificates  
 
 ---
 
-## Certificates Table
+## Key Insights
 
-The certificates table lists every discovered SSL/TLS certificate with contextual metadata for investigation and triage.
+### Valid vs Expired
+Quickly identify:
+- Active certificates  
+- Expired certificates  
 
-### Table Columns
+Helps prevent downtime caused by missed renewals.
+
+---
+
+### Certificate Authority Distribution
+Shows which providers are issuing certificates:
+- Let’s Encrypt  
+- Google Trust Services  
+- GlobalSign  
+- Others  
+
+Useful for trust analysis and compliance tracking.
+
+---
+
+### Issuer Country
+Breakdown of certificate issuers by country:
+- Helps detect unusual or unexpected issuance sources  
+
+---
+
+### Expiration Timeline
+Visualizes when certificates will expire:
+- Immediate (< 1 month)  
+- Short-term (1–3 months)  
+- Mid-term (3–6 months)  
+- Long-term (> 6 months)  
+
+Critical for proactive renewal planning.
+
+---
+
+## Inventory Table
+
+The certificates table is the primary view for managing certificate assets.
+
+### Key Columns
 
 | Column | Description |
-|------|-------------|
-| **Asset Value** | Domain or hostname the certificate applies to |
-| **Source** | Discovery adapter (e.g., sslcert) |
-| **Vuln Count** | Number of vulnerabilities linked to the certificate |
-| **Auto Risk** | System-generated risk score |
-| **Owner** | Assigned owner or responsible team |
-| **Tags** | Classification tags (e.g., SSL, Certificate) |
-| **Associations** | Number of linked assets |
-| **Detected On** | First and last discovery timestamps |
-
-Filters allow narrowing by **Owner**, **Risk**, **Adapter**, and **Vulnerability presence**.
+|--------|-------------|
+| **Asset Value** | Domain or hostname using the certificate |
+| **Status** | Certificate status (Valid, Expired, etc.) |
+| **Issued By** | Certificate authority |
+| **Valid From** | Certificate start date |
+| **Valid Till** | Expiration date |
+| **Owner** | Assigned owner |
+| **Detected On** | First and last detection timestamps |
 
 ---
 
 ## Certificate Detail View
 
-When a certificate is selected, AIM opens a detailed asset view showing its full context and relationships.
+Selecting a certificate opens a detailed asset view with full context.
 
-<Frame caption="Certificate Detail View">
-  <img src="/images/aim/certificate-detail.png" />
+<Frame caption="Certificate detail view showing metadata, ownership, and lifecycle status">
+  <img src="/images/aim/inside-cert1.png" />
 </Frame>
 
-### Certificate Summary
+---
 
-The summary panel displays:
+## General Information
 
-- **Certificate Value**
-- **Status** (Active / Expired / Invalid)
-- **Total Vulnerabilities**
-- **Risk Score**
-- **Exposure**
-- **Environment**
-- **First Found / Last Found**
-- **Managed By**
+This section includes:
 
-Actions available:
-- **Decommission Asset**
-- **Delete Asset**
+- **Asset ID**
+- **Type (Certificate)**
+- **Certificate Value (Fingerprint / Hash)**
+- **Issuer Details** (CN, Organization, Country)
+- **Last Checked Timestamp**
+- **Certificate Status (Valid/Invalid)**  
+- **Associated Assets**
+- **First Detected / Last Detected**
 
 ---
 
-### Vulnerability & Severity Insights
+## Lifecycle Management
 
-Sections include:
+Each certificate can be assigned a lifecycle state:
 
-- **Vulnerability Trends** — Historical vulnerability data (if available)
-- **Severity Distribution** — Breakdown by severity level
+- **Active** — Currently in use  
+- **Pending** — Newly discovered or under review  
+- **Staged** — Prepared but not fully active  
+- **Decommissioned** — No longer in use  
 
-These panels help assess whether the certificate introduces downstream risk.
-
----
-
-### Tags & Technologies
-
-- **Tags** — Labels such as `SSL`, `Certificate`
-- **Technologies** — Manually added or detected technologies associated with the certificate
+This helps teams track operational status beyond technical validity.
 
 ---
 
-### Asset Relationships
+## Ownership & Accountability
 
-The **Asset Relation Graph** visualizes how the certificate connects to other assets such as:
+<Frame caption="Owner details including user, team, and department">
+  <img src="/images/aim/inside-cert3.png" />
+</Frame>
 
-- Domains
-- Subdomains
-- APIs
-- Applications
+Certificates can be mapped to:
 
-This relationship view helps teams understand impact radius before decommissioning or rotation.
+- **User**
+- **Team**
+- **Department**
+
+Ensuring clear accountability for renewal and management.
+
+---
+
+## Security Insights
+
+<Frame caption="Security panel showing vulnerability counts and severity distribution">
+  <img src="/images/aim/inside-cert2.png" />
+</Frame>
+
+The security section provides:
+
+- Total vulnerabilities linked to the certificate  
+- Severity breakdown (Critical, High, Medium, Low, Info)  
+- Open vs closed vulnerabilities  
+- Aggregate CVSS score  
+- Remediation progress  
+
+---
+
+## Asset Relationships
+
+Certificates are linked to other assets such as:
+
+- Subdomains  
+- Domains  
+- Applications  
+
+This helps understand **impact before rotation or removal**.
+
+---
+
+## Data Sources
+
+Shows which adapter discovered the certificate (e.g., SSL cert scanner), helping validate data origin and reliability.
+
+---
+
+## Why This Matters
+
+The Certificates module helps teams:
+
+- Prevent outages caused by expired certificates  
+- Identify weak or misconfigured certificates  
+- Maintain trust and compliance standards  
+- Track ownership and accountability  
+- Understand certificate dependencies across assets  
 
 ---
 
 ## Explore Live Demo
 
-<Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles"
-href="https://suite.snapsec.co/demo">
-  Instantly explore how Snapsec AIM discovers, enriches, and tracks certificates and assets in real time — all without creating an account.
+<Card title="Explore AIM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
+  Instantly explore how Snapsec AIM discovers, enriches, and tracks certificates and other assets in real time — all without creating an account.
 </Card>
