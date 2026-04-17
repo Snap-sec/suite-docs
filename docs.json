@@ -103,14 +103,9 @@
               "products/aim/workstations",
               "products/aim/registries",
               "products/aim/objects",
-              "products/aim/decommisioning",
-              "/integrations/aim/index",
-              "products/aim/classifier",
-              "products/aim/tags",
-              "products/aim/groups",
-              "products/aim/exports",
               "products/aim/advanced-search",
-              "products/aim/business-units"
+              "products/aim/business-units",
+              "/integrations/aim/index"
             ]
           },
           {
