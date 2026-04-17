@@ -1,0 +1,228 @@
+---
+title: "Business Units"
+description: "Organize and manage assets by business context to gain clear visibility into ownership, risk exposure, and operational impact."
+icon: "building"
+mode: "wide"
+---
+
+## Overview
+
+**Business Units** provide a logical grouping of assets based on organizational structure, product lines, or operational domains.  
+This allows security and engineering teams to understand **who owns what**, **where risk exists**, and **how vulnerabilities impact the business**.
+
+Each business unit aggregates assets, vulnerabilities, and risk signals into a single, actionable view.
+
+---
+
+## 1. Access Business Units
+
+<Frame caption="View all business units and their risk posture">
+  <img src="/images/aim/business-units.png" />
+</Frame>
+
+The Business Units page provides a centralized list of all units with key insights:
+
+- **Owner** responsible for the unit  
+- **Total assets** mapped to the unit  
+- **Risk classification** (Critical, High, Medium)  
+- **Open vulnerabilities summary**  
+- **Last updated timestamp**
+
+This helps quickly identify high-risk areas across the organization.
+
+---
+
+## 2. Create a Business Unit
+
+<Frame caption="Initiate creation of a new business unit">
+  <img src="/images/aim/create-new.png" />
+</Frame>
+
+Click **Create Business Unit** to define a new logical grouping for assets.
+
+This is typically used to represent:
+
+- Products (e.g., Payments, Analytics)  
+- Teams (e.g., Backend, DevOps)  
+- Business functions (e.g., Customer Systems, Internal Tools)  
+
+---
+
+## 3. Enter Business Unit Details
+
+<Frame caption="Provide required business unit information">
+  <img src="/images/aim/inside-create-new.png" />
+</Frame>
+
+Provide the following details:
+
+- **Name** – Unique identifier for the unit  
+- **Description** – Context about its purpose or scope  
+- **Owner** – Responsible individual or team  
+- **Logo URL** – Optional visual identifier  
+
+This ensures clear accountability and traceability.
+
+---
+
+## 4. Business Unit Overview
+
+<Frame caption="High-level summary of assets and vulnerabilities">
+  <img src="/images/aim/inside-business1.png" />
+</Frame>
+
+The overview dashboard provides:
+
+- **Total associated assets**  
+- **Open critical vulnerabilities**  
+- **Total open vulnerabilities**  
+- **Associated vulnerabilities count**
+
+This acts as a quick snapshot of the unit’s security posture.
+
+---
+
+## 5. Asset & Vulnerability Insights
+
+<Frame caption="Asset growth trends and vulnerability distribution">
+  <img src="/images/aim/inside-business2.png" />
+</Frame>
+
+Visual insights include:
+
+- **Asset trend over time** to track growth or changes  
+- **Vulnerability distribution** to understand severity spread  
+- **Asset type distribution** (IPs, repositories, subdomains, etc.)
+
+This helps identify patterns and potential risk concentration.
+
+---
+
+## 6. Risk Assessment
+
+<Frame caption="Business unit risk score and classification">
+  <img src="/images/aim/inside-business3.png" />
+</Frame>
+
+Each business unit is assigned a **risk score** based on multiple factors.
+
+The system categorizes risk into:
+
+- Low  
+- Medium  
+- High  
+- Critical  
+
+This enables prioritization across business units.
+
+---
+
+## 7. Configure Risk Parameters
+
+<Frame caption="Define factors contributing to risk calculation">
+  <img src="/images/aim/inside-business4.png" />
+</Frame>
+
+Risk scoring can be influenced using configurable parameters such as:
+
+- **Application exposure** (e.g., internet-facing)  
+- **Financial impact**  
+- **User/customer scale**  
+- **Data sensitivity (confidentiality)**  
+- **Integrity and availability requirements**  
+- **Transactional importance**  
+- **Compliance requirements (e.g., PCI)**  
+
+Adjusting these ensures risk reflects real business impact.
+
+---
+
+## 8. Associated Assets
+
+<Frame caption="View all assets linked to the business unit">
+  <img src="/images/aim/inside-business5.png" />
+</Frame>
+
+This section lists all mapped assets along with:
+
+- Asset type (IP, repository, subdomain, etc.)  
+- Owner  
+- Active vulnerabilities  
+
+This provides a direct link between assets and business context.
+
+---
+
+## 9. Add / Manage Assets
+
+<Frame caption="Add new assets to the business unit">
+  <img src="/images/aim/inside-business6.png" />
+</Frame>
+
+Click **Add Assets** to associate new assets with the business unit.
+
+This ensures all relevant resources are included in risk evaluation.
+
+---
+
+## 10. Asset Selection
+
+<Frame caption="Search and select assets to associate">
+  <img src="/images/aim/inside-business7.png" />
+</Frame>
+
+You can:
+
+- Search assets across inventory  
+- Select multiple assets  
+- Add or remove associations dynamically  
+
+This keeps business units up to date as infrastructure evolves.
+
+---
+
+## 11. Vulnerabilities View
+
+<Frame caption="View vulnerabilities for the business unit">
+  <img src="/images/aim/inside-business8.png" />
+</Frame>
+
+Displays all vulnerabilities associated with the unit.
+
+If no vulnerabilities are present, the system clearly indicates a **clean security state**, helping teams quickly validate risk posture.
+
+---
+
+## Value
+
+Business Units bridge the gap between **technical assets and business impact** by:
+
+- Establishing clear ownership  
+- Enabling risk-based prioritization  
+- Providing contextual visibility into vulnerabilities  
+- Supporting compliance and reporting needs  
+
+---
+
+## Next Steps
+
+- Map all critical assets to appropriate business units  
+- Configure risk parameters based on your organization  
+- Regularly review high-risk units and take action  
+
+---
+
+## Why This Matters
+
+- Connect asset-level risk to business impact  
+- Eliminate blind spots across organizational boundaries  
+- Enable risk-based prioritization per business unit  
+- Strengthen accountability across teams  
+
+---
+
+## Explore Live Demo
+
+<Card title="Explore Business Units in AIM — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
+Experience how Snapsec AIM groups assets into business units, enabling contextual risk analysis and faster decision-making.
+</Card>
