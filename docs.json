@@ -107,7 +107,9 @@
               "products/aim/business-units",
               "/integrations/aim/index",
               "products/aim/agents",
-              "products/aim/agent-settings"
+              "products/aim/agent-settings",
+              "products/aim/classifiers",
+              "products/aim/alerts"
             ]
           },
           {
