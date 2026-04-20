@@ -1,0 +1,238 @@
+---
+title: "Lifecycle Management"
+description: "Manage asset states across staging, active usage, and decommissioning with full visibility, restoration capabilities, and deep asset context."
+icon: "shuffle"
+mode: "wide"
+---
+
+## Overview
+
+The **Lifecycle Management** module allows teams to control how assets transition across different operational states — from staging to decommissioning — while maintaining full visibility and context.
+
+It ensures assets are never lost, supports recovery when needed, and preserves security and ownership data across the entire lifecycle.
+
+---
+
+## Staged Assets
+
+<Frame caption="Empty state indicating no assets are currently staged">
+  <img src="/images/aim/lifecycle-mmt.png" />
+</Frame>
+
+The **Staged** section acts as a holding layer for assets that are identified but not yet active.
+
+### Key Behavior
+
+- Assets can be reviewed before activation  
+- Prevents unverified assets from entering active inventory  
+- Displays an empty state when no assets are staged  
+
+---
+
+## Decommissioned Inventory
+
+<Frame caption="Decommissioned inventory showing asset details, ownership, vulnerabilities, and lifecycle metadata">
+  <img src="/images/aim/lifecycle-mmt1.png" />
+</Frame>
+
+The **Decommissioned** section stores assets that are no longer active but are retained for visibility and audit purposes.
+
+### What You Can See
+
+- Asset name and type  
+- Active vulnerabilities at time of decommission  
+- Owner and ownership details  
+- Who decommissioned the asset  
+- Decommission date  
+
+---
+
+## Restoring Assets
+
+<Frame caption="Restore action available from the asset menu">
+  <img src="/images/aim/lifecycle-mmt2.png" />
+</Frame>
+
+Assets in the decommissioned state can be restored at any time.
+
+### How It Works
+
+1. Click the **three-dot menu (⋯)**  
+2. Select **Restore**  
+3. Asset returns to active inventory  
+
+This ensures no asset is permanently lost and historical context remains intact.
+
+---
+
+## Lifecycle State Control
+
+<Frame caption="Lifecycle state selector with Active, Pending, Staged, and Decommissioned options">
+  <img src="/images/aim/inside-lifecycle-mmt.png" />
+</Frame>
+
+Each asset is assigned a lifecycle state that defines its operational status.
+
+### Available States
+
+- **Active** — Fully operational and monitored  
+- **Pending** — Newly discovered and under review  
+- **Staged** — Prepared but not yet active  
+- **Decommissioned** — Retired but retained for visibility  
+
+---
+
+## General Asset Information
+
+<Frame caption="Asset overview including type, value, environment, and detection timeline">
+  <img src="/images/aim/inside-lifecycle-mmt.png" />
+</Frame>
+
+Provides core metadata required to understand the asset.
+
+### Includes
+
+- Asset ID and type  
+- Asset value (domain/IP)  
+- Environment classification  
+- Internal vs external designation  
+- Associated assets  
+- First and last detection timestamps  
+
+---
+
+## Subdomain & Exposure Details
+
+<Frame caption="Subdomain details showing status, reachability, and WAF detection">
+  <img src="/images/aim/inside-lifecycle-mmt2.png" />
+</Frame>
+
+Gives visibility into how the asset behaves externally.
+
+### Key Insights
+
+- HTTP status code  
+- External reachability  
+- WAF presence and provider  
+- Network scope  
+
+---
+
+## Ownership & Accountability
+
+<Frame caption="Ownership details including assigned user, team, and department">
+  <img src="/images/aim/inside-lifecycle-mmt3.png" />
+</Frame>
+
+Every asset is mapped to an owner to ensure accountability.
+
+### Includes
+
+- Assigned user  
+- Team  
+- Department  
+- Custom assignment status  
+
+---
+
+## Location & Infrastructure Data
+
+<Frame caption="Geolocation, ISP, ASN, and infrastructure metadata">
+  <img src="/images/aim/inside-lifecycle-mmt4.png" />
+</Frame>
+
+Provides infrastructure-level intelligence about the asset.
+
+### Data Points
+
+- City, region, country  
+- Latitude and longitude  
+- ISP and ASN  
+- Organization and timezone  
+- IP version and exposure  
+
+---
+
+## Security Overview
+
+<Frame caption="Security panel showing vulnerabilities, severity distribution, and remediation metrics">
+  <img src="/images/aim/inside-lifecycle-mmt5.png" />
+</Frame>
+
+Summarizes the security posture of the asset.
+
+### Includes
+
+- Total vulnerabilities  
+- Severity breakdown (Critical, High, Medium, Low, Info)  
+- Open vs closed vulnerabilities  
+- Aggregate CVSS score  
+- Remediation progress  
+
+---
+
+## Open Ports
+
+<Frame caption="Open ports with exposure and associated asset mapping">
+  <img src="/images/aim/inside-lifecycle-mmt5.png" />
+</Frame>
+
+Displays exposed services and potential entry points into the asset.
+
+---
+
+## DNS Records
+
+<Frame caption="DNS records including A, CNAME, and resolution paths">
+  <img src="/images/aim/inside-lifecycle-mmt5.png" />
+</Frame>
+
+Shows how the asset resolves across infrastructure.
+
+---
+
+## SSL Certificates
+
+<Frame caption="SSL certificate details including issuer, validity, and expiration">
+  <img src="/images/aim/inside-lifecycle-mmt5.png" />
+</Frame>
+
+Tracks certificate validity and encryption posture of the asset.
+
+---
+
+## Asset Relationships
+
+<Frame caption="Relationships between assets including DNS, ports, certificates, and technologies">
+  <img src="/images/aim/inside-lifecycle-mmt5.png" />
+</Frame>
+
+Helps understand how the asset connects with other components.
+
+---
+
+## Data Sources
+
+<Frame caption="Adapters contributing asset intelligence such as ASM, CRT, and vulnerability data">
+  <img src="/images/aim/inside-lifecycle-mmt5.png" />
+</Frame>
+
+Displays integrations responsible for discovering and enriching asset data.
+
+---
+
+## Why This Matters
+
+- Prevents orphaned and unmanaged assets  
+- Enables safe decommissioning without losing context  
+- Allows quick restoration of critical assets  
+- Maintains full lifecycle visibility across infrastructure  
+- Preserves security, ownership, and operational history  
+
+---
+
+## Explore Live Demo
+
+<Card title="Explore Lifecycle Management — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
+Experience how Snapsec AIM helps you manage asset states, restore assets instantly, and maintain complete lifecycle visibility across your infrastructure.
+</Card>
