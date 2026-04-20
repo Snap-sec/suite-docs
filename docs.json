@@ -110,7 +110,8 @@
               "products/aim/agent-settings",
               "products/aim/classifiers",
               "products/aim/alerts",
-              "products/aim/triggers"
+              "products/aim/triggers",
+              "products/aim/reports"
             ]
           },
           {
