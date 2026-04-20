@@ -105,13 +105,15 @@
               "products/aim/objects",
               "products/aim/advanced-search",
               "products/aim/business-units",
-              "/integrations/aim/index",
+              "products/aim/lifecycle",
               "products/aim/agents",
               "products/aim/agent-settings",
               "products/aim/classifiers",
               "products/aim/alerts",
               "products/aim/triggers",
-              "products/aim/reports"
+              "products/aim/reports",
+              "products/aim/integrations",
+              "products/aim/settings"
             ]
           },
           {
