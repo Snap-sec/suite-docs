@@ -106,7 +106,8 @@
               "products/aim/advanced-search",
               "products/aim/business-units",
               "/integrations/aim/index",
-              "products/aim/agents"
+              "products/aim/agents",
+              "products/aim/agent-settings"
             ]
           },
           {

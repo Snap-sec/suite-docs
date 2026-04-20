@@ -1,0 +1,145 @@
+---
+title: "Agent Settings"
+description: "Configure, install, and manage agents across different operating systems to ensure continuous asset data ingestion."
+icon: "gear"
+mode: "wide"
+---
+
+## Overview
+
+The **Agent Settings** module allows you to install, configure, and manage agents across multiple operating systems.
+
+Agents are responsible for collecting asset data and sending it to the platform in real time. This section provides installation commands, prerequisites, and operational controls for managing agents efficiently.
+
+---
+
+## Installation (Linux)
+
+<Frame caption="Linux agent installation with prerequisites and command execution">
+  <img src="/images/aim/agent-settings.png" />
+</Frame>
+
+### Prerequisites
+
+- Root or sudo access  
+- `curl` installed  
+- Systemd for service management  
+
+### Steps
+
+1. Run the installation command  
+2. Verify installation using systemctl  
+
+---
+
+## Agent Management (Linux)
+
+<Frame caption="Linux agent service management commands">
+  <img src="/images/aim/agents-settings2.png" />
+</Frame>
+
+### Available Commands
+
+- **Check Status** — Verify if the agent is running  
+- **View Logs** — Monitor real-time logs  
+- **Restart Agent** — Restart the service  
+- **Stop Agent** — Stop agent execution  
+- **Uninstall Agent** — Remove agent and disable service  
+
+---
+
+## Installation (Windows)
+
+<Frame caption="Windows agent installation using PowerShell">
+  <img src="/images/aim/agents-settings3.png" />
+</Frame>
+
+### Prerequisites
+
+- Administrator privileges  
+- PowerShell 5.1 or higher  
+- Internet connectivity  
+
+### Steps
+
+1. Execute PowerShell installation command  
+2. Verify using Windows service check  
+
+---
+
+## Agent Management (Windows)
+
+<Frame caption="Windows agent management commands and service control">
+  <img src="/images/aim/agents-settings4.png" />
+</Frame>
+
+### Available Commands
+
+- **Check Status** — Get-Service  
+- **View Logs** — Read agent log file  
+- **Restart Agent** — Restart-Service  
+- **Stop Agent** — Stop-Service  
+- **Uninstall Agent** — Remove service completely  
+
+---
+
+## Installation (macOS)
+
+<Frame caption="macOS agent installation with Homebrew support">
+  <img src="/images/aim/agents-settings5.png" />
+</Frame>
+
+### Prerequisites
+
+- Administrator access  
+- Homebrew (optional for service management)  
+- curl installed  
+
+### Steps
+
+1. Run installation script via terminal  
+2. Verify using brew services  
+
+---
+
+## Agent Management (macOS)
+
+<Frame caption="macOS agent lifecycle and service management commands">
+  <img src="/images/aim/agents-settings6.png" />
+</Frame>
+
+### Available Commands
+
+- **Check Status** — Verify via brew services  
+- **View Logs** — Tail log files  
+- **Restart Agent** — Restart service  
+- **Stop Agent** — Stop service  
+- **Uninstall Agent** — Remove binary and service  
+
+---
+
+## Agent Ingestion Control
+
+Agent ingestion can be toggled directly from the interface.
+
+- **Enabled** — Agents actively send data  
+- **Disabled** — Data collection is paused  
+
+This allows controlled ingestion during maintenance or troubleshooting.
+
+---
+
+## Why This Matters
+
+- Ensures continuous asset visibility across environments  
+- Standardizes agent deployment across OS platforms  
+- Simplifies troubleshooting using built-in commands  
+- Provides full lifecycle control of agents  
+
+---
+
+## Explore Live Demo
+
+<Card title="Explore Agent Settings — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
+Experience how Snapsec AIM enables seamless agent deployment, real-time monitoring, and cross-platform management from a single interface.
+</Card>
