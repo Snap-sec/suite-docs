@@ -125,7 +125,8 @@
               "products/vs/group-management",
               "products/vs/scanner-configuration",
               "products/vs/vulnerability-catalogue",
-              "/integrations/vs/index"
+              "/integrations/vs/index",
+              "products/vs/suppression-rules"
             ]
           },
           {

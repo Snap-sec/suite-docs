@@ -1,0 +1,104 @@
+---
+title: "Suppression Rules"
+description: "Create and manage rules to automatically suppress non-actionable vulnerabilities and reduce noise."
+icon: "ban"
+mode: "wide"
+---
+
+## Overview
+
+Suppression Rules allow you to automatically ignore or suppress vulnerabilities based on defined conditions.
+
+This helps reduce false positives, eliminate noise, and focus only on actionable security issues.
+
+---
+
+## Suppression Rules List
+
+<Frame caption="View and manage all suppression rules with status and applicability">
+  <img src="/images/vs/suppression-rules.png" />
+</Frame>
+
+This screen provides a centralized view of all suppression rules.
+
+### Key Features
+
+- **Search** — Find rules quickly  
+- **Filters** — Filter by severity or origin  
+- **Status Toggle** — Enable or disable rules instantly  
+- **Columns Control** — Customize visible fields  
+
+### Key Columns
+
+- **Rule Name** — Name and description of the rule  
+- **Origin** — System-generated or manually created  
+- **Applies To** — Number of affected vulnerabilities  
+- **Status** — Active (ON) or Disabled (OFF)  
+
+---
+
+## Create Suppression Rule
+
+<Frame caption="Define conditions to automatically suppress vulnerabilities">
+  <img src="/images/vs/suppression-rules-2.png" />
+</Frame>
+
+Create rules to automatically suppress vulnerabilities based on conditions.
+
+### Rule Configuration
+
+- **Rule Name** — Unique identifier  
+- **Description** — Optional explanation  
+
+### Matching Conditions
+
+Define when a vulnerability should be suppressed:
+
+- Select a **field** (e.g., severity)  
+- Choose an **operator** (equals, contains, etc.)  
+- Set a **value** (e.g., high, medium)  
+
+You can combine multiple conditions to create precise suppression logic.
+
+---
+
+## Manage Rules
+
+<Frame caption="Edit or delete suppression rules from the actions menu">
+  <img src="/images/vs/suppression-rules-3.png" />
+</Frame>
+
+Each rule includes management actions:
+
+- **Edit Rule** — Modify conditions or metadata  
+- **Delete Rule** — Remove rule permanently  
+- **Toggle Status** — Enable or disable rule instantly  
+
+This allows full control over suppression behavior.
+
+---
+
+## Use Cases
+
+- Suppress **informational findings** that are not actionable  
+- Ignore vulnerabilities in **test or staging environments**  
+- Exclude **known accepted risks**  
+- Reduce noise from **repeated low-impact issues**  
+
+---
+
+## Why This Matters
+
+- Reduces alert fatigue  
+- Eliminates false positives  
+- Improves signal-to-noise ratio  
+- Enables focused remediation  
+- Supports scalable security operations  
+
+---
+
+## Explore Live Demo
+
+<Card title="Explore Suppression Rules — No Signup Needed" icon="ban" href="https://suite.snapsec.co/demo">
+See how Snapsec VS helps you automate noise reduction and focus only on real security risks.
+</Card>
