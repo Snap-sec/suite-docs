@@ -1,118 +1,102 @@
 ---
-title: "Group Management"
-description: "Organize assets into logical groups for scanning, prioritization, and workflow automation."
-icon: "users-gear"
+title: "Groups"
+description: "Organize assets into logical groups for better visibility, ownership, and targeted vulnerability management."
+icon: "layer-group"
 mode: "wide"
 ---
 
 ## Overview
 
-The **Group Management** allows teams to structure assets into collections — enabling targeted scans, environment-level controls, and precise risk prioritization across the stack.
+Groups allow you to organize assets into meaningful categories such as environments, infrastructure types, or ownership domains.
 
+This enables better visibility, targeted scanning, and more efficient vulnerability management.
 
-<Frame caption="Group Management Overview">
-  <img src="/images/vs/products/groups.png" />
+---
+
+## Groups Overview
+
+<Frame caption="View all asset groups with vulnerability summaries">
+  <img src="/images/vs/groups.png" />
 </Frame>
 
----
+Each group provides a summarized view of its assets and associated vulnerabilities.
 
-## Overview
+### Key Elements
 
-Groups help you:
-- Segment assets by environment  
-- Run focused vulnerability scans  
-- Apply consistent policies across similar systems  
-- Assign owners and teams to grouped assets  
-
-Examples include:
-- Production APIs  
-- Staging environments  
-- External applications  
-- Cloud microservices  
+- **Group Name & Description** — Defines the purpose of the group  
+- **Assets Count** — Number of assets within the group  
+- **Vulnerability Summary** — Breakdown by severity (Critical, High, Medium, Low)  
+- **Quick Insights** — Instantly identify high-risk groups  
 
 ---
 
-## Types of Groups
+## Create a Group
 
-<Columns cols={3}>
-
-<Card title="Environment Groups" icon="building-shield">
-  Group assets by environment like prod, dev, or staging.
-</Card>
-
-<Card title="Service Groups" icon="cubes">
-  Cluster APIs, apps, and servers that form a single service.
-</Card>
-
-<Card title="Risk Groups" icon="fire">
-  Organize assets based on risk score or exposure level.
-</Card>
-
-</Columns>
-
----
-
-## Group Details
-
-Each group contains:
-- Assigned assets  
-- Total vulnerability count  
-- Severity distribution  
-- Owners  
-- Scan schedules  
-- Group metadata and tags  
-
-<Frame caption="Group Details View">
-  <img src="/images/vs/products/group-details.png" />
+<Frame caption="Create a new asset group using the Add Group button">
+  <img src="/images/vs/groups-2.png" />
 </Frame>
 
----
+To create a new group:
 
-## Group Actions
-
-<Steps>
-  <Step title="Create a Group" icon="plus">
-    Add a new group with environment, risk, or service-based rules.
-  </Step>
-  <Step title="Add Assets" icon="folder-plus">
-    Select assets from the catalogue to include in this group.
-  </Step>
-  <Step title="Assign Owners" icon="user-check">
-    Allocate responsibility to teams or individuals.
-  </Step>
-  <Step title="Schedule Scans" icon="calendar-check">
-    Enable recurring scans for the entire group.
-  </Step>
-</Steps>
+1. Click **Add Group**  
+2. Enter group details  
+3. Save the configuration  
 
 ---
 
-## Benefits
+## Group Creation Modal
 
-<Columns cols={2}>
+<Frame caption="Provide group name and description">
+  <img src="/images/vs/groups-3.png" />
+</Frame>
 
-<Card title="Organized Security Workflow" icon="sitemap">
-  Reduce triage complexity by grouping related assets.
-</Card>
+### Required Fields
 
-<Card title="Targeted Testing" icon="bullseye">
-  Run scans only on assets that matter for a specific context.
-</Card>
+- **Name** — Unique group identifier  
+- **Description** — Purpose or context of the group  
 
-<Card title="Stronger Accountability" icon="users-gear">
-  Assign ownership at the group level.
-</Card>
+Groups should reflect:
 
-<Card title="Automation-Friendly" icon="robot">
-  Use groups in CI/CD and recurring schedule workflows.
-</Card>
+- Environment (Prod, Staging, Dev)  
+- Exposure (External, Internal)  
+- Ownership (Team-based grouping)  
 
-</Columns>
+---
+
+## View Group Assets
+
+<Frame caption="View assets filtered by selected group">
+  <img src="/images/vs/inside-one-group.png" />
+</Frame>
+
+Click on a group to:
+
+- View all assets within that group  
+- Analyze vulnerabilities specific to that segment  
+- Track scan status and coverage  
+
+---
+
+## Use Cases
+
+- Segment assets by **environment or exposure**  
+- Assign ownership for **accountability**  
+- Perform **targeted vulnerability analysis**  
+- Prioritize remediation by **group risk level**  
+
+---
+
+## Why This Matters
+
+- Improves asset organization and clarity  
+- Enables focused security operations  
+- Helps prioritize high-risk environments  
+- Supports scalable vulnerability management  
 
 ---
 
 ## Explore Live Demo
 
-<Card title="Explore Snapsec Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Jump straight into the live environment and see how Snapsec unifies asset intelligence, threat detection, and vulnerability tracking — all in one dashboard.
+<Card title="Explore Asset Grouping — No Signup Needed" icon="layer-group" href="https://suite.snapsec.co/demo">
+See how Snapsec VS helps you organize assets into groups for better visibility and control.
 </Card>
