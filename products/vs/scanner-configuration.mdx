@@ -1,95 +1,98 @@
 ---
-title: "Scanner-Configuration"
-description: "Manage vulnerability scanners, register new scanners, and monitor their status."
+title: "Scanners"
+description: "Deploy, manage, and monitor scanning engines used to perform vulnerability assessments."
 icon: "server"
 mode: "wide"
 ---
 
 ## Overview
 
-The **Scanners** page lists all registered vulnerability scanners and allows you to create new ones.  
-Each scanner displays its current status, URL, and vulnerability counts discovered by that scanner.
+Scanners are the execution engines responsible for performing vulnerability scans across your infrastructure.
 
-<Frame caption="Scanner List Overview">
-  <img src="/images/vs/products/list.png" />
+They allow you to scale scanning operations, distribute workloads, and ensure reliable coverage across internal and external environments.
+
+---
+
+## Scanner List
+
+<Frame caption="View all configured scanners and their status">
+  <img src="/images/vs/scanners.png" />
 </Frame>
 
----
+This page provides a real-time view of all available scanners.
 
-## Overview
+### Key Details
 
-The Scanners page shows:
-
-- **Scanner name**  
-- **Creation timestamp**  
-- **Status badge** (e.g., *Active*)  
-- **Scanner URL**  
-- **Vulnerability counts** (C0 · H0 · M0 · L0)
-
-You can also **search scanners** using the Search bar at the top.
+- **Scanner Name** — Identifier for the scanner  
+- **Status** — Active or Offline  
+- **Endpoint** — Scanner URL or host  
+- **Last Seen** — Last heartbeat timestamp  
+- **Vulnerability Summary** — Findings detected by the scanner  
 
 ---
 
-## Scanner Card Breakdown
+## Scanner Actions
 
-Each scanner card displays:
+<Frame caption="Create or deploy a new scanner instance">
+  <img src="/images/vs/scanners-2.png" />
+</Frame>
 
-- **Name** (e.g., *Default Scanner*)  
-- **Created On** timestamp  
-- **Status Indicator** (*Active*)  
-- **Scanner URL** (e.g., `http://vscanner:3018`)  
-- **Vulnerability Summary**  
-  - C0 = Critical  
-  - H0 = High  
-  - M0 = Medium  
-  - L0 = Low  
-- **Delete Scanner** action (trash icon)
+### Available Actions
+
+- **Download Scanner**  
+  Deploy a scanner within your infrastructure  
+
+- **Create Scanner**  
+  Register a new scanner instance  
+
+These actions allow you to horizontally scale scanning capacity.
 
 ---
 
 ## Create Scanner
 
-Users can add a new scanner using the **Create Scanner** button.
-
-<Frame caption="Create Scanner Modal">
-  <img src="/images/vs/products/create.png" />
+<Frame caption="Register a new scanner with name and endpoint">
+  <img src="/images/vs/scanners-3.png" />
 </Frame>
 
-### Fields in the Create Scanner Form
+To register a scanner:
 
-- **Scanner Name**  
-  A user-defined name for the scanner.
-
-- **Scanner URL**  
-  The live and externally accessible URL of the scanner.
-
-### Steps to Create a Scanner
-
-1. Click **Create Scanner**.  
-2. Enter a **Scanner Name**.  
-3. Enter the **Scanner URL**.  
-4. Click **Create Scanner** to register the scanner.
+1. Provide a **Scanner Name**  
+2. Enter the **Scanner URL / Endpoint**  
+3. Ensure the scanner is reachable  
+4. Click **Create Scanner**
 
 ---
 
-## Available Actions
+## Scanner Status
 
-<Columns cols={2}>
+- **Active** — Scanner is online and operational  
+- **Offline / Dead** — Scanner is unreachable or not responding  
 
-<Card title="Download Scanner" icon="download">
-  Download the scanner package for deployment.
-</Card>
+Monitoring scanner health ensures reliable scan execution.
 
-<Card title="Create Scanner" icon="plus">
-  Register a new scanner by providing its Name and URL.
-</Card>
+---
 
-</Columns>
+## Use Cases
+
+- Deploy scanners inside private networks  
+- Scan internal infrastructure securely  
+- Distribute scans across multiple regions  
+- Improve performance with parallel scanning  
+
+---
+
+## Why This Matters
+
+- Enables **scalable vulnerability scanning**  
+- Supports **internal + external asset coverage**  
+- Reduces scan latency through distributed architecture  
+- Ensures **high availability of scanning operations**  
 
 ---
 
 ## Explore Live Demo
 
-<Card title="Explore Snapsec Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Jump straight into the live environment and see how Snapsec unifies asset intelligence, threat detection, and vulnerability tracking — all in one dashboard.
+<Card title="Deploy and Run Scanners Instantly" icon="server" href="https://suite.snapsec.co/demo">
+Experience how Snapsec scales vulnerability scanning using distributed scanner nodes.
 </Card>
