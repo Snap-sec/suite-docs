@@ -1,153 +1,136 @@
 ---
-title: "Asset Catalogue"
-description: "View and manage all assets scanned by the Vulnerability Scanner, including their risk, coverage, and vulnerability associations."
-icon: "rectangle-list"
+title: "Assets"
+description: "View, manage, and scan assets to identify vulnerabilities across your attack surface."
+icon: "server"
 mode: "wide"
 ---
 
 ## Overview
 
-The **Asset Catalogue** provides a unified list of all assets monitored by the Vulnerability Scanner.  
-It shows their exposure, vulnerability counts, scanning status, and risk posture — helping teams prioritize what matters most.
+The Assets page provides a centralized view of all discovered assets within your environment.
 
+It allows you to monitor vulnerability exposure, organize assets into groups, and trigger scans directly.
 
-<Frame caption="Asset Catalogue Overview">
-  <img src="/images/vs/products/assets.png" />
+---
+
+## Assets List
+
+<Frame caption="View all assets with vulnerability counts, grouping, and scan status">
+  <img src="/images/vs/assets.png" />
 </Frame>
 
----
+This table displays all assets along with their security posture.
 
-## Overview
+### Key Metrics
 
-The Asset Catalogue aggregates all assets discovered or imported into the Vulnerability Scanner.  
-Each entry includes:
+- **Total Assets** — Total number of tracked assets  
+- **Vulnerable Assets** — Assets with at least one vulnerability  
+- **Safe Assets** — Assets with no vulnerabilities  
+- **Scan Coverage** — Percentage of assets scanned  
 
-- Asset value (domain, IP, URL, or application)  
-- Vulnerability count  
-- Last scan status  
-- Exposure level  
-- Associated scanner  
-- Automated risk score  
+### Key Features
 
-This centralized view helps identify unscanned assets, high-risk systems, or resources repeatedly flagged in tests.
-
----
-
-## Key Metrics
-
-<Columns cols={3}>
-
-<Card title="Total Assets" icon="server">
-  Total number of assets detected across all scans and integrations.
-</Card>
-
-<Card title="Assets With Vulnerabilities" icon="triangle-exclamation">
-  Shows how many assets contain one or more active vulnerabilities.
-</Card>
-
-<Card title="Scan Coverage" icon="chart-line">
-  Indicates how many assets have been scanned recently vs. pending.
-</Card>
-
-</Columns>
+- **Search & Filters** — Filter by group, type, vulnerability presence, or severity  
+- **Groups Column** — Organize assets by environment or function  
+- **Vulnerabilities** — Displays severity counts (C, H, M, etc.)  
+- **Last Scanned** — Shows scan recency  
 
 ---
 
-## Search, Filters & Sorting
+## Assign Assets to Groups
 
-The catalogue includes powerful filtering for fast investigation.
-
-### Available Filters
-
-| Filter | Description |
-|--------|-------------|
-| **Scanner** | Filter assets by the scanner that detected them. |
-| **Exposure** | Identify exposed, internal, shadow, or unverified assets. |
-| **Risk Score** | Sort by automated risk evaluation. |
-| **hasVulns** | Show only assets with active vulnerabilities. |
-| **Date Range** | Filter by detection or last scanned timeline. |
-
-These filters allow analysts to focus on urgent or high-risk targets efficiently.
-
----
-
-## Asset Table Columns
-
-Each asset includes detailed metadata:
-
-| Column | Description |
-|--------|-------------|
-| **Asset Value** | URL, domain, or IP representing the scanned target |
-| **Scanner** | The scanner engine used to test the asset |
-| **Vuln Count** | Number of vulnerabilities detected |
-| **Exposure** | Whether the asset is external, internal, or unknown |
-| **Auto Risk** | System-generated risk score |
-| **Last Scan** | Timestamp of the most recent scan |
-| **Tags** | Labels for categorization and governance |
-| **Detected On** | First time the asset was discovered |
-
----
-
-## Asset Detail View
-
-<Frame caption="Asset Detail View">
-  <img src="/images/vs/products/asset-details.png" />
+<Frame caption="Add assets to groups for better organization and ownership">
+  <img src="/images/vs/assets-2.png" />
 </Frame>
 
-Each asset includes a full detail page showing:
+You can organize assets into logical groups such as:
 
-- Summary information  
-- Vulnerability list  
-- Scan history  
-- Technologies detected  
-- Exposure reasoning  
-- Risk insights  
-- Evidence linkage  
+- Development  
+- External Assets  
+- Internal Infrastructure  
 
-This allows deep investigation of a specific system.
+Click the **+ icon** next to a group to assign or update grouping.
 
 ---
 
-## How Assets Are Discovered
+## Add to Group
 
-Assets may be added to the catalogue through:
+<Frame caption="Select a group to categorize the asset">
+  <img src="/images/vs/assets-3.png" />
+</Frame>
 
-- Manual submission during scan creation  
-- CI/CD pipelines  
-- Scheduled scans  
-- Integrations with ASM, VM, or AIM  
-- API-based imports  
+Choose from existing groups to categorize assets.
 
-The catalogue automatically updates as new assets appear in your environment.
+Grouping helps with:
+
+- Ownership mapping  
+- Targeted scanning  
+- Better reporting  
 
 ---
 
-## Example Use Cases
+## Run Scan on Asset
 
-<Columns cols={2}>
+<Frame caption="Trigger a scan directly from the asset actions menu">
+  <img src="/images/vs/assets-4.png" />
+</Frame>
 
-<Card title="Prioritize High-Risk Assets" icon="fire">
-  Identify assets with critical vulnerabilities or high exposure.
-</Card>
+Each asset includes quick actions:
 
-<Card title="Improve Asset Coverage" icon="arrow-trend-up">
-  Detect assets that have not been scanned recently and schedule tests.
-</Card>
+- **Run Scan** — Start an immediate scan  
+- Access via the **actions menu (⋯)**  
 
-<Card title="Track Asset Lifecycle" icon="arrows-rotate">
-  Monitor first-found, last-seen, and scan activity over time.
-</Card>
+This enables on-demand security testing.
 
-<Card title="Support Incident Response" icon="shield">
-  Pull up vulnerabilities and scan history for an affected asset instantly.
-</Card>
+---
 
-</Columns>
+## Scan Confirmation
+
+<Frame caption="Confirm before running an immediate scan">
+  <img src="/images/vs/assets-5.png" />
+</Frame>
+
+Before starting a scan:
+
+- A confirmation dialog ensures intentional execution  
+- Prevents accidental scans on production systems  
+
+---
+
+## Asset-Level Vulnerability View
+
+<Frame caption="View vulnerabilities specific to an asset">
+  <img src="/images/vs/inside-asset.png" />
+</Frame>
+
+Drill down into an asset to:
+
+- View associated vulnerabilities  
+- Analyze severity and status  
+- Track remediation progress  
+
+---
+
+## Use Cases
+
+- Monitor **asset-level risk exposure**  
+- Organize assets by **environment or ownership**  
+- Run **targeted scans on critical assets**  
+- Track **scan coverage and gaps**  
+
+---
+
+## Why This Matters
+
+- Provides complete asset visibility  
+- Enables targeted vulnerability management  
+- Improves ownership and accountability  
+- Supports continuous security monitoring  
 
 ---
 
 ## Explore Live Demo
 
-<Card title="Explore Snapsec Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Jump straight into the live environment and see how Snapsec unifies asset intelligence, threat detection, and vulnerability tracking — all in one dashboard.
+<Card title="Explore Asset Management — No Signup Needed" icon="server" href="https://suite.snapsec.co/demo">
+See how Snapsec VS helps you track, group, and scan assets to uncover vulnerabilities in real-time.
 </Card>
