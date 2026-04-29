@@ -1,80 +1,103 @@
 ---
 title: "Scan Profiles"
-description: "Manage and configure reusable API scan profiles for Web Application Scanner (WAS)."
+description: "Configure how your web application scans behave using customizable profiles."
 icon: "sliders"
 mode: "wide"
 ---
 
 ## Overview
 
-The **Scan Profiles** section allows you to define reusable scanning configurations such as custom headers.  
-These profiles can be attached to scans to ensure consistent authentication, headers, and request behavior across environments.
+Scan Profiles define **how your scanner behaves during execution**.
+
+They control request configuration, rate limits, and headers—allowing you to tailor scans for different environments like staging, production, or protected applications.
 
 ---
 
-## Scan Profiles Overview
+## Profile Configuration
 
-<Frame caption="Scan Profiles Overview">
-  <img src="/images/was/products/scan-profile-overview.png" />
+<Frame caption="Create and configure scan profiles">
+  <img src="/images/was/scan-profiles.png" />
 </Frame>
 
-The overview page displays:
+### Profile Details
 
-- A **Profile Details** panel for creating new scan profiles  
-- A list of **Existing Scan Profiles** already created  
-- Profile metadata such as creation time  
-
-Each scan profile represents a reusable configuration that can be applied while creating scans.
-
----
-
-## Create Scan Profile
-
-<Frame caption="Create New Scan Profile">
-  <img src="/images/was/products/scan-profile-create.png" />
-</Frame>
-
-Use this section to create a new scan profile by defining:
-
-- **Profile Name** — A descriptive name for the scan configuration  
-- **Custom Headers** — Key-value HTTP headers added to every request  
-  - Header Name  
-  - Header Value  
-- **Add Header** — Add multiple headers as required  
-
-Click **Create Profile** to save the scan profile.  
-Once created, it becomes available for selection while creating scans.
-
----
-
-## Edit & Manage Existing Scan Profiles
-
-<Frame caption="Edit Existing Scan Profile">
-  <img src="/images/was/products/scan-profiles-edit.png" />
-</Frame>
-
-The **Existing Scan Profiles** section allows you to manage saved profiles:
-
-Each profile card shows:
 - **Profile Name**
-- **Created At** timestamp
-
-Available actions:
-- **Edit** — Update profile name or modify custom headers  
-- **Delete** — Remove an unused scan profile  
-
-While editing a profile:
-- Existing headers can be updated or removed  
-- New headers can be added  
-- Changes are saved using **Update Profile**
-
-This ensures scan configurations remain flexible and easy to maintain.
+  Identify the purpose of the scan (e.g., *Rate Limit Profile*, *Cloudflare Bypass*)
 
 ---
 
+## Custom Headers
+
+<Frame caption="Add custom headers for authenticated or protected scans">
+  <img src="/images/was/scan-profiles-custom-headers.png" />
+</Frame>
+
+Custom headers allow you to simulate real user or authenticated traffic.
+
+### Common Use Cases
+
+- Add `Authorization` tokens (JWT, API Keys)  
+- Include session cookies  
+- Bypass WAF/CDN protections  
+- Test authenticated endpoints  
+
+---
+
+## Key Controls
+
+### Override Host
+
+Replace the target host during scan execution.
+
+**Use Case:**
+- Scan staging while routing through production domain
+- Test internal services behind reverse proxies
+
+---
+
+### Rate Limiting
+
+Control how aggressive your scan is.
+
+- Define requests per second  
+- Prevent server overload  
+- Avoid triggering rate-limiting or blocking mechanisms  
+
+---
+
+## Existing Profiles
+
+Profiles can be reused across applications.
+
+### Examples
+
+- **Rate Limit Profile** → Controlled scanning for production  
+- **Host Override** → Custom routing for testing environments  
+- **Cloudflare Bypass** → Headers configured to bypass protections  
+
+Each profile supports:
+
+- Edit configuration  
+- Delete when no longer needed  
+
+---
+
+## Why It Matters
+
+Scan Profiles give you control over **how your scanner interacts with real systems**.
+
+### Key Benefits
+
+- Safe scanning in production environments  
+- Authenticated testing for deeper coverage  
+- Reduced false positives from blocked requests  
+- Flexible configuration for different deployment setups  
+- Better alignment with real-world traffic behavior  
+
+---
 
 ## Explore Live Demo
 
-<Card title="Explore Snapsec Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Jump straight into the live environment and see how Snapsec unifies asset intelligence, threat detection, and vulnerability tracking — all in one dashboard.
+<Card title="Customize Your Scan Behavior" icon="settings" href="https://suite.snapsec.co/demo">
+Create scan profiles tailored for your infrastructure and security needs.
 </Card>

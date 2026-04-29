@@ -148,7 +148,6 @@
               "products/was/dashboard",
               "products/was/applications",
               "products/was/url-catalog",
-              "products/was/requests",
               "products/was/vulnerabilities",
               "products/was/detection-rules",
               "products/was/scan-profiles"
