@@ -1,0 +1,98 @@
+---
+title: "URL Catalog"
+description: "Discover, monitor, and analyze all API endpoints and web routes across your applications."
+icon: "link"
+mode: "wide"
+---
+
+## Overview
+
+The URL Catalog provides a complete, continuously updated inventory of all discovered endpoints across your applications.
+
+It enables security teams to understand the real attack surface, analyze request behavior, and map vulnerabilities directly to endpoints.
+
+---
+
+## API Requests Inventory
+
+<Frame caption="Centralized view of all discovered endpoints across applications">
+  <img src="/images/was/url-catalog.png" />
+</Frame>
+
+### Key Capabilities
+
+- Full endpoint discovery across applications  
+- HTTP method visibility (GET, POST, etc.)  
+- Application-level mapping  
+- Vulnerability association per endpoint  
+- Advanced filtering (method, vulnerabilities, application)  
+
+---
+
+## Endpoint-Level Intelligence
+
+Each row represents a discovered endpoint enriched with security context:
+
+- **URL** — Full endpoint path  
+- **Method** — Request type (GET, POST, etc.)  
+- **Application** — Associated application  
+- **Total Vulnerabilities** — Vulnerability count per endpoint  
+
+This allows teams to quickly identify high-risk endpoints instead of scanning blindly.
+
+---
+
+## Request Deep Dive
+
+<Frame caption="Inspect full request details for any endpoint">
+  <img src="/images/was/url-catalog-inside.png" />
+</Frame>
+
+### What You Can Analyze
+
+- Full HTTP request (headers, body, cookies)  
+- Authentication context  
+- Payload structure  
+- Origin and referrer details  
+- Client behavior (user-agent, headers)  
+
+This transforms WAS from just a scanner into a **request-level security analysis tool**.
+
+---
+
+## Why It Matters
+
+Traditional scanners only show vulnerabilities.  
+The URL Catalog shows **where and how they exist**.
+
+### Real Value
+
+- Maps the **true attack surface** (including hidden endpoints)  
+- Enables **targeted testing and validation**  
+- Helps prioritize vulnerabilities by endpoint exposure  
+- Provides context needed to reduce false positives  
+- Bridges the gap between **DAST and manual testing**  
+
+---
+
+## Advanced Use Cases
+
+### Attack Surface Mapping
+Identify all exposed endpoints, including undocumented or shadow APIs.
+
+### Vulnerability Correlation
+Link vulnerabilities directly to the endpoints where they exist.
+
+### API Security Testing
+Analyze GraphQL, REST, and internal APIs in a unified view.
+
+### Threat Investigation
+Inspect raw requests to understand how vulnerabilities are triggered.
+
+---
+
+## Explore Live Demo
+
+<Card title="Visualize Your Real Attack Surface" icon="globe" href="https://suite.snapsec.co/demo">
+See how Snapsec URL Catalog gives you endpoint-level visibility and control over your application security.
+</Card>

@@ -120,13 +120,13 @@
             "group": "Vulnerability Scanner",
             "pages": [
               "products/vs/dashboard",
-              "/integrations/vs/index",
+              "products/vs/vulnerabilities",
               "products/vs/suppression-rules",
               "products/vs/assets",
               "products/vs/groups",
               "products/vs/scan",
-              "products/vs/vulnerabilities",
               "products/vs/scanners",
+              "/integrations/vs/index",
               "products/vs/settings"
             ]
           },
@@ -146,6 +146,7 @@
             "group": "Web Application Scanner",
             "pages": [
               "products/was/dashboard",
+              "products/was/applications",
               "products/was/projects",
               "products/was/requests",
               "products/was/vulnerabilities",
@@ -153,7 +154,8 @@
               "products/was/rules",
               "products/was/scans",
               "products/was/scan-profiles",
-              "/integrations/was/index"
+              "/integrations/was/index",
+              "products/was/url-catalog"
             ]
           },
           {
