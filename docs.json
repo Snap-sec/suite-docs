@@ -126,7 +126,6 @@
               "products/vs/groups",
               "products/vs/scan",
               "products/vs/scanners",
-              "/integrations/vs/index",
               "products/vs/settings"
             ]
           },
