@@ -131,6 +131,7 @@
           },
           {
             "group": "Threat Modeler",
+            "hidden": true,
             "pages": [
               "products/tm/introduction",
               "products/tm/projects",
