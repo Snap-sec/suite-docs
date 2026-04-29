@@ -147,15 +147,11 @@
             "pages": [
               "products/was/dashboard",
               "products/was/applications",
-              "products/was/projects",
+              "products/was/url-catalog",
               "products/was/requests",
               "products/was/vulnerabilities",
-              "products/was/environments",
-              "products/was/rules",
-              "products/was/scans",
-              "products/was/scan-profiles",
-              "/integrations/was/index",
-              "products/was/url-catalog"
+              "products/was/detection-rules",
+              "products/was/scan-profiles"
             ]
           },
           {

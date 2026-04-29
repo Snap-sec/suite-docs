@@ -1,175 +1,101 @@
 ---
 title: "Vulnerabilities"
-description: "View, filter, triage, and manage vulnerabilities detected across your Web Application Scanner projects."
-icon: "shield-halved"
+description: "View, analyze, and manage all detected security issues across your applications."
+icon: "bug"
 mode: "wide"
 ---
 
 ## Overview
 
-The **Vulnerabilities section** provides a centralized view of all findings discovered across your scanned applications.  
-It allows analysts to filter, investigate, and manage vulnerabilities by severity, scan source, suppression status, and more — ensuring complete visibility of application security risks.
+The Vulnerabilities section provides a centralized view of all security issues identified during scans.
 
+It enables teams to understand risk, validate findings, and take action with clear remediation guidance.
 
-<Frame caption="Vulnerabilities Overview">
-  <img src="/images/was/products/vulnerabilities.png" />
+---
+
+## Vulnerability Summary
+
+<Frame caption="Quick overview of vulnerability distribution by severity">
+  <img src="/images/was/vulnerabilities.png" />
 </Frame>
 
----
+### What You See
 
-## Overview
+- Total count of vulnerabilities by severity:
+  - Critical
+  - High
+  - Medium
+  - Low
+  - Info
 
-The Vulnerabilities module aggregates every issue detected across all WAS scans and presents:
-
-- Total active vulnerabilities  
-- Total resolved vulnerabilities  
-- Severity distribution  
-- Recent scan detections  
-- Suppressed vs. active vulnerability counts  
-- Full vulnerability listing with sorting, filtering, and triage actions  
-
-This serves as the primary panel for identifying and prioritizing security issues across all applications.
+This gives an immediate understanding of the overall risk posture of your application.
 
 ---
 
-## Key Metrics
+## Vulnerability List
 
-<Columns cols={3}>
+The main table displays all detected vulnerabilities with key details:
 
-<Card title="Total Active" icon="list-check">
-  Displays the number of unresolved vulnerabilities currently open.
-</Card>
+- **Title** — Description of the issue  
+- **CWE** — Standard classification (Common Weakness Enumeration)  
+- **Severity** — Impact level of the vulnerability  
+- **Status** — Current state (e.g., In Review, Resolved)  
+- **Application** — Affected application  
+- **Detected On** — When the issue was identified  
+- **VM Ticket** — Option to send to vulnerability management  
 
-<Card title="Total Resolved" icon="check">
-  Shows how many findings have been marked as resolved.
-</Card>
+### Capabilities
 
-<Card title="Suppressed" icon="eye-slash">
-  Count of findings manually suppressed or programmatically muted.
-</Card>
-
-</Columns>
-
----
-
-## Filters & Search
-
-The Vulnerabilities table supports deep filtering to quickly locate findings of interest:
-
-<Columns cols={3}>
-
-<Card title="Filter by Severity" icon="triangle-exclamation">
-  Narrow results to Critical, High, Medium, Low, or Informational.
-</Card>
-
-<Card title="Filter by Scan Source" icon="magnifying-glass-chart">
-  View findings tied to specific scans or rescans.
-</Card>
-
-<Card title="Filter by Status" icon="toggle-on">
-  Switch between Active, Resolved, or Suppressed issues.
-</Card>
-
-</Columns>
-
-Other filters include:
-- **Rule Type**
-- **Request/Endpoint**
-- **Detection timeframe**
-- **Workspace or project context**
+- Search and filter vulnerabilities  
+- Filter by severity, status, application, and more  
+- Track remediation progress  
+- Send findings to VM workflow  
 
 ---
 
-## Vulnerability Table
+## Vulnerability Details
 
-<Frame caption="Vulnerability Listing">
-  <img src="/images/was/products/vulnerabilities-table.png" />
+<Frame caption="Detailed view of a vulnerability with reproduction steps and mitigation">
+  <img src="/images/was/vulnerabilities-inside.png" />
 </Frame>
 
-Each row presents:
+Each vulnerability includes detailed context to help security and development teams act effectively.
 
-- **Title** — Name of the vulnerability  
-- **Severity** — Risk classification  
-- **Status** — Active, suppressed, or resolved  
-- **Scan Name** — Which project/scan identified it  
-- **Timestamps** — First detected & last detected  
-- **Actions** — Drill-down, suppress, resolve  
+### Included Information
 
----
+- **Description**  
+  Explains what the vulnerability is and how it was identified  
 
-## Vulnerability Details Page
+- **Impact**  
+  Describes the potential risk and consequences  
 
-When clicking a vulnerability row, WAS provides an in-depth view including:
+- **Steps to Reproduce**  
+  Provides exact steps to validate the issue  
 
-### 🔍 Technical Details
-- Description of the issue  
-- Impact assessment  
-- CWE mapping  
-- Evidence from request/response logs  
-- Reproduction steps  
+- **Mitigation**  
+  Recommends how to fix or secure the issue  
 
-### 🛠 Recommended Fixes
-- Framework-specific remediation guidance  
-- Secure coding patterns  
-- Validation, authentication, or sanitization strategies  
-
-### 📊 Affected Endpoints
-- Each endpoint where the vulnerability was detected  
-- Associated request methods  
-- Count of occurrences  
-
-### 🚦 Status & Workflow
-- Mark as **Resolved**  
-- Mark as **False Positive**  
-- **Suppress** with optional expiration  
-- View historical detection timeline  
+- **Tags**  
+  Adds contextual classification (e.g., auth, misconfiguration)  
 
 ---
 
-## Bulk Actions
+## Why It Matters
 
-Analysts can take actions at scale:
+The Vulnerabilities section transforms scan results into actionable insights.
 
-<Columns cols={2}>
+### Key Value
 
-<Card title="Bulk Suppress" icon="eye-slash">
-  Hide multiple vulnerabilities at once from dashboards and reporting.
-</Card>
-
-<Card title="Bulk Resolve" icon="check-double">
-  Mark multiple findings as resolved for program tracking.
-</Card>
-
-</Columns>
-
----
-
-## Best Practices
-
-<Columns cols={2}>
-
-<Card title="Prioritize by Severity" icon="fire">
-  Address Critical and High findings promptly to reduce attack surface.
-</Card>
-
-<Card title="Review Detection Trends" icon="chart-line">
-  Compare first/last detection timestamps to identify recurring issues.
-</Card>
-
-<Card title="Use Suppression Wisely" icon="eye-slash">
-  Suppress only intentional behavior or accepted risks.
-</Card>
-
-<Card title="Investigate Endpoint Clusters" icon="sitemap">
-  Multiple vulnerabilities on the same endpoint often indicate deeper flaws.
-</Card>
-
-</Columns>
+- Centralized visibility of all security issues  
+- Clear prioritization based on severity  
+- Reproducible findings for validation  
+- Actionable remediation guidance  
+- Integration with vulnerability management workflows  
 
 ---
 
 ## Explore Live Demo
 
-<Card title="Explore Snapsec Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Jump straight into the live environment and see how Snapsec unifies asset intelligence, threat detection, and vulnerability tracking — all in one dashboard.
+<Card title="See Vulnerabilities in Action" icon="shield" href="https://suite.snapsec.co/demo">
+Explore how Snapsec helps you identify, prioritize, and fix vulnerabilities with complete context.
 </Card>

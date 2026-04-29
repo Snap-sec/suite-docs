@@ -1,0 +1,158 @@
+---
+title: "Detection Rules"
+description: "Define, customize, and manage vulnerability detection logic using rule-based scanning."
+icon: "shield"
+mode: "wide"
+---
+
+## Overview
+
+Detection Rules are the core of how vulnerabilities are identified.
+
+They simulate attacker behavior by modifying requests and analyzing responses to detect security flaws.
+
+---
+
+## Rule Categories
+
+<Frame caption="Browse vulnerability categories">
+  <img src="/images/was/detection-rules.png" />
+</Frame>
+
+Rules are grouped into categories for better organization:
+
+- CRLF  
+- Authentication & Authorization  
+- Command Injection  
+- CORS  
+- Database Injection  
+- Error Handling & Logs  
+- File Inclusion  
+- Open Redirect  
+- Security Headers  
+- Sensitive Data Exposure  
+- SSRF  
+- XSS  
+- XXE  
+
+---
+
+## Creating a Rule
+
+<Frame caption="Create a new detection rule">
+  <img src="/images/was/detection-rules-2.png" />
+</Frame>
+
+Use **Create Rule** to define custom detection logic.
+
+Each rule allows you to simulate real attack scenarios and detect application weaknesses.
+
+---
+
+## YAML-Based Rule Engine
+
+<Frame caption="Define detection logic using YAML">
+  <img src="/images/was/detection-rules-3.png" />
+</Frame>
+
+Rules are written in YAML and consist of:
+
+### Core Sections
+
+- **Transform**
+  - Modify headers, query params, or body
+- **Match Conditions**
+  - Status codes  
+  - Response content  
+- **Report**
+  - Title  
+  - Description  
+  - Severity  
+  - CWE  
+  - CVSS  
+  - Impact  
+  - Mitigation  
+  - Reproduction Steps  
+
+---
+
+## Rule Execution Logic
+
+Rules work by:
+
+1. Modifying the original request  
+2. Sending the transformed request  
+3. Analyzing the response  
+4. Flagging unexpected behavior as vulnerabilities  
+
+---
+
+## Rule Management
+
+<Frame caption="Manage and monitor active rules">
+  <img src="/images/was/inside-detection-rules.png" />
+</Frame>
+
+Each rule provides:
+
+- Enable / Disable toggle  
+- Severity classification  
+- Detection description  
+- Number of findings  
+
+---
+
+## Editing Rules
+
+<Frame caption="Edit existing rule configuration">
+  <img src="/images/was/inside-detection-rules-2.png" />
+</Frame>
+
+Rules can be modified anytime to:
+
+- Improve detection accuracy  
+- Reduce false positives  
+- Adjust logic for application-specific behavior  
+
+---
+
+## Deep Rule Customization
+
+<Frame caption="Advanced YAML rule editor">
+  <img src="/images/was/inside-detection-rules-3.png" />
+</Frame>
+
+The editor allows full control over:
+
+- Request transformations  
+- Matching conditions  
+- Reporting output  
+
+This enables detection of:
+
+- Business logic flaws  
+- Authorization bypass  
+- Misconfigurations  
+- Edge-case vulnerabilities  
+
+---
+
+## Why It Matters
+
+Detection Rules turn your scanner into a customizable security engine.
+
+### Key Benefits
+
+- Adapt scanning to your application logic  
+- Detect beyond standard vulnerability signatures  
+- Reduce noise with precise matching  
+- Align findings with real-world attack patterns  
+- Enable security teams to build reusable detection logic  
+
+---
+
+## Explore Live Demo
+
+<Card title="Build Your Own Detection Rules" icon="settings" href="https://suite.snapsec.co/demo">
+Create, test, and deploy custom detection logic tailored to your applications.
+</Card>
