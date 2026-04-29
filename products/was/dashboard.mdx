@@ -1,154 +1,88 @@
 ---
 title: "Dashboard"
-description: "Monitor API and Web Application Scanner posture, vulnerability trends, rule coverage, and scanning performance in real time."
-icon: "chart-bar"
+description: "Get a real-time overview of web application vulnerabilities, risk distribution, and security posture."
+icon: "globe"
 mode: "wide"
 ---
 
 ## Overview
 
-The **Web Application Scanner (WAS) Dashboard** provides a unified, real-time view of your application’s security health — including vulnerability distribution, endpoints analyzed, active rules, and scan activity.  
-It serves as the central location for understanding your exposure, tracking trends, and prioritizing remediation.
+The Web Application Scanner (WAS) Dashboard provides a centralized view of your application security posture.
 
+It highlights vulnerability trends, severity distribution, and critical risks across all scanned applications.
 
-<Frame caption="WAS Dashboard Overview">
-  <img src="/images/was/products/dashboard.png" />
+---
+
+## Security Overview
+
+<Frame caption="Real-time overview of vulnerabilities, applications, and active scans">
+  <img src="/images/was/dashboard-was.png" />
 </Frame>
 
----
+### Key Metrics
 
-## Overview
-
-The WAS Dashboard aggregates data from:
-- API request analysis  
-- Automated security scans  
-- Rule-based vulnerability detections  
-- Endpoint discovery  
-
-It presents the overall security posture across:
-- **Total Endpoints**
-- **Total Vulnerabilities**
-- **Total Rules Active**
-- **Total Scans Executed**
-
-This allows teams to track detection quality, exposure trends, and rule effectiveness.
+- **Total Vulnerabilities** — Overall findings across applications  
+- **Total Applications** — Applications under monitoring  
+- **Critical Vulnerabilities** — High-risk issues requiring immediate action  
+- **Applications with Active Scans** — Currently monitored apps  
 
 ---
 
-## Key Metrics & Analytics
+## Vulnerability Insights
 
-<Columns cols={4}>
-
-<Card title="Total Endpoints" icon="server">
-  Number of API endpoints discovered and analyzed.
-</Card>
-
-<Card title="Total Vulnerabilities" icon="shield-halved">
-  Total number of vulnerabilities detected across all API endpoints.
-</Card>
-
-<Card title="Total Rules" icon="list-check">
-  Count of rule checks currently active for detection.
-</Card>
-
-<Card title="Total Scans" icon="magnifying-glass-chart">
-  Total number of scans executed in the workspace.
-</Card>
-
-</Columns>
-
----
-
-## Visual Analytics & Security Trends
-
-### Vulnerability Severity Distribution
-
-<Frame caption="Severity Distribution Chart">
-  <img src="/images/was/products/severity-chart.png" />
+<Frame caption="Visual breakdown of vulnerabilities and risk distribution">
+  <img src="/images/was/dashboard-2.png" />
 </Frame>
 
-Displays vulnerability distribution across:
-- Critical  
-- High  
-- Medium  
-- Low  
-- Informational  
+### Distribution Views
 
-This helps security teams estimate the immediate remediation workload.
+- **Severity Distribution**  
+  Breakdown of vulnerabilities by Critical, High, Medium, Low, and Info  
 
----
+- **Vulnerabilities by Application**  
+  Identify which applications carry the highest risk  
 
-### CWE Distribution
-
-<Frame caption="CWE Classification Chart">
-  <img src="/images/was/products/cwe-distribution.png" />
-</Frame>
-
-Shows how vulnerabilities group under standardized CWE categories (e.g., CWE-284: Improper Access Control), helping teams understand recurring weakness patterns.
-
----
-
-### Open/Closed Vulnerabilities
-
-<Frame caption="Open vs Closed Vulnerabilities">
-  <img src="/images/was/products/open-close.png" />
-</Frame>
-
-Helps track remediation progress and backlog by showing:
-- Active vulnerabilities  
-- Resolved vulnerabilities  
+- **CWE Distribution**  
+  Understand vulnerability types based on CWE classification  
 
 ---
 
 ## Top Vulnerabilities
 
-<Frame caption="Top Vulnerabilities Table">
-  <img src="/images/was/products/top-vulns.png" />
-</Frame>
+The dashboard highlights the most critical vulnerabilities detected across applications.
 
-Highlights:
-- Most frequent vulnerabilities  
-- Affected endpoints  
-- Severity  
-- Detection timestamps  
+### Key Details
 
-This prioritizes what needs immediate attention.
+- **Title** — Vulnerability type and endpoint  
+- **Status** — In Review, Open, Resolved  
+- **Severity** — Risk level  
+- **Application Name** — Affected application  
+- **Reported On** — Detection timeline  
 
-Columns include:
-- **Title**
-- **State**
-- **Severity**
-- **First Detected**
-- **Reported On**
+This helps teams prioritize remediation effectively.
 
 ---
 
-## How to Use the Dashboard
+## Use Cases
 
-<Columns cols={2}>
+- Monitor application security posture in real time  
+- Identify high-risk applications instantly  
+- Track vulnerability trends over time  
+- Prioritize critical vulnerabilities for remediation  
 
-<Card title="Track Security Posture" icon="chart-pie">
-  Monitor trends across vulnerabilities, endpoints, severity, and detection rules.
-</Card>
+---
 
-<Card title="Identify High-Risk Endpoints" icon="exclamation">
-  Quickly detect endpoints repeatedly affected by access control or logic flaws.
-</Card>
+## Why This Matters
 
-<Card title="Validate Detection Rules" icon="clipboard-check">
-  Ensure rules are triggering correctly across environments and projects.
-</Card>
-
-<Card title="Improve Scan Efficiency" icon="bolt">
-  Use scan frequency and vulnerability density metrics to adjust scan profiles.
-</Card>
-
-</Columns>
+- Provides complete visibility into application-layer risks  
+- Enables faster detection of exploitable vulnerabilities  
+- Helps prioritize fixes based on severity and impact  
+- Strengthens overall application security posture  
 
 ---
 
 ## Explore Live Demo
 
-<Card title="Explore Snapsec Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Jump straight into the live environment and see how Snapsec unifies asset intelligence, threat detection, and vulnerability tracking — all in one dashboard.
+<Card title="Scan Your Web Applications in Minutes" icon="globe" href="https://suite.snapsec.co/demo">
+Experience how Snapsec WAS identifies vulnerabilities across your web applications in real time.
 </Card>

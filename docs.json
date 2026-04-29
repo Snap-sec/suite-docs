@@ -120,13 +120,14 @@
             "group": "Vulnerability Scanner",
             "pages": [
               "products/vs/dashboard",
-              "products/vs/scan-management",
-              "products/vs/asset-catalogue",
-              "products/vs/group-management",
-              "products/vs/scanner-configuration",
-              "products/vs/vulnerability-catalogue",
               "/integrations/vs/index",
-              "products/vs/suppression-rules"
+              "products/vs/suppression-rules",
+              "products/vs/assets",
+              "products/vs/groups",
+              "products/vs/scan",
+              "products/vs/vulnerabilities",
+              "products/vs/scanners",
+              "products/vs/settings"
             ]
           },
           {
