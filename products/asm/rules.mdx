@@ -3,30 +3,31 @@ title: "Exposure Rules"
 description: "Define your company’s exposure policy with YAML rules that classify risky assets automatically."
 icon: "shield-halved"
 mode: "wide"
+hidden: true
 ---
 
 ## Overview
 
-Exposure Rules use our YAML **Rule Engine** to translate human-readable policy into executable queries.  
+Exposure Rules use our YAML **Rule Engine** to translate human-readable policy into executable queries.\
 Each rule inspects asset metadata (subdomains, IPs, ports, tech, certs, DNS, screenshots, etc.) and, when matched, **marks the asset/exposure**, assigns **severity**, and optionally **sets attributes** (e.g., category, ownerHint, runbookLink).
 
 <Frame caption="Exposure Rules list and quick status">
-  <img src="/images/asm/rules.png" alt="Exposure Rules list"/>
+  ![Exposure Rules list](/images/asm/rules.png)
 </Frame>
 
 - **Input:** Discovered assets from ASM scans (Subdomains, IPs, Web Servers, Ports, DNS, Certificates, Technologies…).
-- **Logic:** YAML rules (match + optional set).
+- **Logic:** YAML rules (match \+ optional set).
 - **Output:** Standardized **Exposures** in the Exposures module, ready for triage, dashboards, and reporting.
 
 ---
 
 ## How it Works (Evaluation Cycle)
 
-1. **Scan completes** → assets are normalized & enriched.  
-2. **Rules execute** in order (you can reorder; most specific first is recommended).  
-3. If a rule’s `match` is satisfied:  
-   - An exposure is created/updated and **fields in `set` are applied** (severity/category/notes/etc.).  
-   - The asset keeps the exposure tag for history & trend charts.  
+1. **Scan completes** → assets are normalized & enriched.
+2. **Rules execute** in order (you can reorder; most specific first is recommended).
+3. If a rule’s `match` is satisfied:
+   - An exposure is created/updated and **fields in `set` are applied** (severity/category/notes/etc.).
+   - The asset keeps the exposure tag for history & trend charts.
 4. **Conflicts:** If multiple rules match, we **merge `set` fields**; the **highest severity wins**.
 
 > The syntax and operators are the same as the **YAML Rule Engine** used across Suite. Full guide below.
@@ -52,8 +53,6 @@ set:     # optional: fields to set on the matched exposure
     value: "attack-surface"
 ```
 
-
-
 ## Exampe Rules
 
 ```yaml
@@ -73,7 +72,8 @@ set:
     value: "tls"
   - field: title
     value: "TLS certificate expiring soon"
-````
+```
+
 ---
 
 ```yaml
@@ -94,8 +94,8 @@ set:
   - field: title
     value: "TLS certificate expired"
 ```
----
 
+---
 
 ```yaml
 # 3. Self-Signed Certificate
@@ -113,8 +113,8 @@ set:
   - field: title
     value: "Self-signed certificate in use"
 ```
----
 
+---
 
 ```yaml
 # 4. Weak Certificate Algorithm
@@ -135,7 +135,6 @@ set:
 ```
 
 ---
-
 
 ```yaml
 # 5. Exposed Admin Panel
@@ -163,7 +162,6 @@ set:
 
 ---
 
-
 ```yaml
 # 6. Dangerous Management Port Exposed
 name: "Dangerous Management Port Exposed"
@@ -181,7 +179,6 @@ set:
     value: "network"
   - field: title
     value: "High-risk management port exposed"
-
 ```
 
 ---
@@ -207,7 +204,6 @@ set:
     value: "environment"
   - field: title
     value: "Non-production host reachable on the internet"
-
 ```
 
 ---
@@ -227,11 +223,9 @@ set:
     value: "misconfiguration"
   - field: title
     value: "CORS allows any origin"
-
 ```
 
 ---
-
 
 ```yaml
 # 9. SPF Missing
@@ -271,7 +265,6 @@ set:
 
 ---
 
-
 ```yaml
 # 11. No WAF Detected
 name: "No WAF Detected"
@@ -290,8 +283,8 @@ set:
   - field: title
     value: "Web endpoint without WAF protection"
 ```
----
 
+---
 
 ```yaml
 # 12. Default App Login Page Exposed
@@ -309,8 +302,8 @@ set:
   - field: title
     value: "Default vendor login/landing page is publicly visible"
 ```
----
 
+---
 
 ```yaml
 # 13. Outdated Technology Fingerprint
@@ -334,8 +327,8 @@ set:
     value: "technology"
   - field: title
     value: "Outdated/EOL software detected"
-
 ```
+
 ## Explore Live Demo
 
 <Card title="Explore ASM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
