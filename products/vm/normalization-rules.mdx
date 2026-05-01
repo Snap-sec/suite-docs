@@ -1,130 +1,114 @@
 ---
 title: "Normalization Engine"
-description: "Define and manage vulnerability severity and CVSS normalization logic to ensure consistent, business-aligned risk scoring."
+description: "Standardize, categorize, and automate vulnerability classification using custom rules."
 icon: "sliders"
 mode: "wide"
 ---
 
-## Normalization Engine Overview
+## Overview
 
-The **Normalization Engine** provides a centralized control layer for standardizing vulnerability severity and CVSS scores across all scanners, assessments, and integrations.
+The Normalization Engine allows you to **automatically classify and standardize vulnerabilities** using custom rules.
 
-It allows security teams to override scanner inconsistencies, reduce noise, and align vulnerability risk with internal security policies — ensuring consistent prioritization across the organization.
+Instead of manually triaging findings, you can:
 
-<Frame caption="Normalization Engine Dashboard">
-  ![](/images/vm/normalization-overview.png)
+- Normalize inconsistent data from multiple sources  
+- Apply severity or categorization rules  
+- Reduce noise and false positives  
+- Enforce consistent vulnerability handling  
+
+---
+
+## Rules Dashboard
+
+<Frame caption="View and manage normalization rules">
+  <img src="/images/vm/normalization-engine.png" />
 </Frame>
 
-From this dashboard, teams can:
+### What You See
 
-- View all normalization rules and their active/inactive status
-- Instantly enable or disable rules
-- Review applied actions (severity or CVSS changes)
-- Track rule creation and modification timestamps
+- List of normalization rules  
+- Vulnerability count per rule  
+- Current action applied  
+- Rule status (Active / Inactive)  
 
 ---
 
 ## Create Normalization Rule
 
-Creating a normalization rule begins with defining **rule metadata** and **conditions** that determine when the rule should trigger.
-
-<Frame caption="Create Normalization Rule – Conditions">
-  ![](/images/vm/normalization-create-rule.png)
+<Frame caption="Create a new normalization rule">
+  <img src="/images/vm/normalization-engine-x2.png" />
 </Frame>
 
-### Rule Configuration Includes
+### Rule Configuration
 
-- **Rule Name** — Clear identifier for the rule
-- **Description** — Purpose and intent
-- **Conditions** — Matching logic based on vulnerability attributes
-  - Field
-  - Operator
-  - Value
+Each rule consists of:
 
-Multiple conditions can be combined to create precise and targeted normalization logic.
+#### 1. Rule Details
+- Rule Name  
+- Description  
+
+#### 2. Conditions
+Define when the rule should apply:
+
+- Field (e.g., Title, Severity, Source)  
+- Operator (contains, equals, regex)  
+- Value  
+
+You can add multiple conditions for precise matching.
 
 ---
 
-## Rule Actions – Set Discrete Severity
+## Rule Matching & Output
 
-The **Set Discrete Severity** action overrides the vulnerability’s severity with a fixed value whenever conditions are met.
-
-<Frame caption="Normalization Rule – Set Discrete Severity">
-  ![](/images/vm/normalization-actions-severity.png)
+<Frame caption="Matched vulnerabilities based on rule conditions">
+  <img src="/images/vm/normalization-engine-2.png" />
 </Frame>
 
-### Supported Severity Levels
+### What Happens
 
-- Critical
-- High
-- Medium
-- Low
-- Info
-- None
+Once a rule is applied:
 
-This action is commonly used to:
-
-- Downgrade noisy or low-impact findings
-- Elevate critical vulnerability classes
-- Align severity with internal risk frameworks
+- Matching vulnerabilities are automatically identified  
+- Rules can standardize severity or classification  
+- Helps unify inconsistent findings across tools  
 
 ---
 
-## Rule Actions – Transform CVSS Score
+## Search & Rule Navigation
 
-For advanced tuning, the Normalization Engine supports **CVSS score transformation** using mathematical operations.
-
-<Frame caption="Normalization Rule – Transform CVSS Score">
-  ![](/images/vm/normalization-actions-cvss.png)
+<Frame caption="Search and quickly locate rules">
+  <img src="/images/vm/normalization-engine-search.png" />
 </Frame>
 
-### CVSS Transformation Capabilities
-
-- Select a mathematical operation
-- Apply a value (e.g., `+1.5`, `×0.8`, `−2`)
-- Automatically recalculate severity based on the updated CVSS score
-
-This enables:
-
-- Context-aware risk scoring
-- Asset-sensitive prioritization
-- Fine-grained control without discarding CVSS fidelity
+- Quickly search rules  
+- Navigate large rule sets  
+- Identify relevant normalization logic faster  
 
 ---
 
-## Execute Normalization
+## How It Works
 
-The **Execute Normalization** action applies all active normalization rules to existing vulnerability data across the platform.
-
-This is especially useful when:
-
-- New normalization rules are introduced
-- Severity logic is updated
-- Historical vulnerabilities need re-evaluation
-
-<Frame caption="Execute Normalization Confirmation">
-  ![](/images/vm/normalization-execute.png)
-</Frame>
-
-Once confirmed, the engine recalculates severity and CVSS scores automatically — without requiring rescans.
+1. Define a rule using conditions  
+2. System scans vulnerabilities  
+3. Matches findings based on logic  
+4. Applies normalization automatically  
 
 ---
 
-## Why the Normalization Engine Matters
+## Example Use Cases
 
-The Normalization Engine ensures vulnerability scoring reflects **your organization’s real-world risk**, not just scanner defaults.
-
-It helps teams:
-
-- Reduce alert fatigue
-- Maintain consistent severity standards
-- Align technical findings with business impact
-- Improve remediation prioritization
+- Tag all “Outdated Software” findings as High  
+- Normalize scanner-specific naming differences  
+- Reduce duplicate classifications  
+- Automatically flag risky patterns  
 
 ---
 
-## Explore Live Demo
+## Key Value
 
-<Card title="Explore VM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  See how Snapsec’s Normalization Engine recalculates severity, transforms CVSS scores, and aligns vulnerability risk scoring in real time — all without creating an account.
-</Card>
+- Eliminates manual triage overhead  
+- Ensures consistent vulnerability classification  
+- Improves reporting accuracy  
+- Reduces noise from multiple sources  
+
+---
