@@ -1,120 +1,335 @@
 ---
-title: "Normalization Engine"
-description: "Standardize, categorize, and automate vulnerability classification using custom rules."
-icon: "sliders"
+title: "Prioritization"
+description: "Prioritize vulnerabilities using normalization rules and adaptive True Risk scoring."
+icon: "ranking-star"
 mode: "wide"
 ---
 
 ## Overview
 
-The Normalization Engine allows you to **automatically classify and standardize vulnerabilities** using custom rules.
+The **Prioritization** module helps security teams focus on the vulnerabilities that matter most by combining rule-based normalization with context-aware risk scoring.
+
+It consists of two major capabilities:
+
+- **Normalization Engine** – Standardize and classify vulnerabilities using custom rules.
+- **True Risk** – Prioritize vulnerabilities using business context, exposure, exploitability, and environmental factors.
+
+Together, these capabilities help reduce alert fatigue, improve remediation efficiency, and ensure resources are focused on the highest-impact risks.
+
+---
+
+# Normalization Engine
+
+The **Normalization Engine** allows you to automatically classify and standardize vulnerabilities using custom rules.
 
 Instead of manually triaging findings, you can:
 
-- Normalize inconsistent data from multiple sources  
-- Apply severity or categorization rules  
-- Reduce noise and false positives  
-- Enforce consistent vulnerability handling  
+- Normalize inconsistent data from multiple sources
+- Apply severity or categorization rules
+- Reduce noise and false positives
+- Enforce consistent vulnerability handling
 
 ---
 
 ## Rules Dashboard
 
 <Frame caption="View and manage normalization rules">
-  <img src="/images/vm/normalization-engine.png" />
+  ![](/images/vm/normalization-engine.png)
 </Frame>
 
 ### What You See
 
-- List of normalization rules  
-- Vulnerability count per rule  
-- Current action applied  
-- Rule status (Active / Inactive)  
+- List of normalization rules
+- Vulnerability count per rule
+- Current action applied
+- Rule status (Active / Inactive)
 
 ---
 
 ## Create Normalization Rule
 
 <Frame caption="Create a new normalization rule">
-  <img src="/images/vm/normalization-engine-x2.png" />
+  ![](/images/vm/normalization-engine-x2.png)
 </Frame>
 
 ### Rule Configuration
 
 Each rule consists of:
 
-#### 1. Rule Details
-- Rule Name  
-- Description  
+#### Rule Details
 
-#### 2. Conditions
+- Rule Name
+- Description
+
+#### Conditions
+
 Define when the rule should apply:
 
-- Field (e.g., Title, Severity, Source)  
-- Operator (contains, equals, regex)  
-- Value  
+- Field (e.g., Title, Severity, Source)
+- Operator (contains, equals, regex)
+- Value
 
-You can add multiple conditions for precise matching.
+Multiple conditions can be combined for precise matching.
 
 ---
 
 ## Rule Matching & Output
 
 <Frame caption="Matched vulnerabilities based on rule conditions">
-  <img src="/images/vm/normalization-engine-2.png" />
+  ![](/images/vm/normalization-engine-2.png)
 </Frame>
 
 ### What Happens
 
 Once a rule is applied:
 
-- Matching vulnerabilities are automatically identified  
-- Rules can standardize severity or classification  
-- Helps unify inconsistent findings across tools  
+- Matching vulnerabilities are automatically identified
+- Rules can standardize severity or classification
+- Findings from different tools can be normalized into a consistent format
 
 ---
 
 ## Search & Rule Navigation
 
 <Frame caption="Search and quickly locate rules">
-  <img src="/images/vm/normalization-engine-search.png" />
+  ![](/images/vm/normalization-engine-search.png)
 </Frame>
 
-- Quickly search rules  
-- Navigate large rule sets  
-- Identify relevant normalization logic faster  
-
----
-
-## How It Works
-
-1. Define a rule using conditions  
-2. System scans vulnerabilities  
-3. Matches findings based on logic  
-4. Applies normalization automatically  
+- Quickly search existing rules
+- Navigate large rule sets
+- Locate specific normalization logic faster
 
 ---
 
 ## Example Use Cases
 
-- Tag all “Outdated Software” findings as High  
-- Normalize scanner-specific naming differences  
-- Reduce duplicate classifications  
-- Automatically flag risky patterns  
+- Tag outdated software findings as High severity
+- Normalize scanner-specific naming differences
+- Reduce duplicate classifications
+- Automatically identify common risk patterns
 
 ---
 
-## Key Value
+# True Risk
 
-- Eliminates manual triage overhead  
-- Ensures consistent vulnerability classification  
-- Improves reporting accuracy  
-- Reduces noise from multiple sources  
+Traditional CVSS scoring only measures the technical severity of a vulnerability.
+
+**True Risk** extends vulnerability prioritization by incorporating environmental, business, and operational context to determine which vulnerabilities should be addressed first.
+
+This ensures that vulnerabilities with lower CVSS scores but higher business impact can still receive elevated priority.
+
+---
+
+## Prioritization Strategy
+
+The Prioritization Strategy tab allows you to choose the scoring framework used across the platform.
+
+<Frame caption="Select the vulnerability prioritization methodology">
+  ![](/images/vm/true-risk-prioritization.png)
+</Frame>
+
+### Available Methodologies
+
+#### Standard CVSS v3.1
+
+Uses industry-standard CVSS scoring.
+
+Prioritization is based entirely on:
+
+- Attack complexity
+- Privileges required
+- Impact metrics
+- Exploitability metrics
+
+This provides a consistent and widely accepted severity model.
+
+---
+
+#### True Risk Framework
+
+The True Risk Framework augments CVSS scoring with additional business and environmental intelligence.
+
+It considers factors such as:
+
+- Asset exposure
+- Business criticality
+- Exploitability likelihood
+- SLA impact
+- Known exploitation activity
+
+This produces a more realistic remediation priority based on actual organizational risk.
+
+---
+
+## True Risk Prioritization Model
+
+When the True Risk Framework is selected, the platform dynamically adjusts vulnerability priority based on contextual factors.
+
+<Frame caption="Context-aware vulnerability prioritization using the True Risk Framework">
+  ![](/images/vm/true-risk-methodology.png)
+</Frame>
+
+### Engine Parameters
+
+The framework combines multiple inputs:
+
+| Factor | Purpose |
+| --- | --- |
+| CVSS Base Metric | Technical severity |
+| Threat Exploitability | Likelihood of exploitation |
+| Business Criticality | Importance of affected assets |
+| Network Exposure | External or internal accessibility |
+
+---
+
+### Prioritization Policy
+
+True Risk can elevate vulnerabilities that:
+
+- Have low CVSS scores
+- Affect critical business assets
+- Are internet-facing
+- Have active exploitation indicators
+
+This prevents teams from overlooking vulnerabilities that present significant operational risk.
+
+---
+
+### Prioritization Preview
+
+The preview section demonstrates how scores can change when contextual risk is applied.
+
+Examples include:
+
+- Public-facing systems receiving higher priority
+- Internal vulnerabilities receiving lower priority
+- Business-critical assets being elevated above standard CVSS rankings
+
+---
+
+## True Risk Scoring
+
+The True Risk Scoring tab provides full control over how risk is calculated.
+
+<Frame caption="Configure weights and scoring factors used by the True Risk engine">
+  ![](/images/vm/true-risk-scoring.png)
+</Frame>
+
+Administrators can customize how much influence each scoring factor has on the final risk calculation.
+
+The total allocation must equal 100%.
+
+---
+
+## Adjustable Risk Factors
+
+<Frame caption="Configure individual risk factor weights and scoring values">
+  ![](/images/vm/true-risk-scoring-expanded-1.png)
+</Frame>
+
+<Frame caption="Configure SLA, EPSS, and KEV prioritization settings">
+  ![](/images/vm/true-risk-scoring-expanded-2.png)
+</Frame>
+
+<Frame caption="Configure Asset Type">
+  ![](/images/vm/true-risk-scoring-expanded-2.png)
+</Frame>
+
+<Frame caption="Configure Business Unit Risk scoring">
+  ![](/images/vm/true-risk-scoring-expanded-4.png)
+</Frame>
+
+### Available Risk Components
+
+#### CVSS Scoring System
+
+Measures technical severity using CVSS.
+
+#### Exposure Prioritization
+
+Assigns risk based on accessibility.
+
+Examples:
+
+- Internet-facing assets
+- Internal-only assets
+
+---
+
+#### SLA Prioritization
+
+Incorporates remediation deadlines into prioritization.
+
+Examples:
+
+- Breached SLA
+- At Risk
+- Within SLA
+- Compliant
+- No SLA
+
+---
+
+#### EPSS Scoring System
+
+Uses Exploit Prediction Scoring System (EPSS) data to estimate the likelihood of real-world exploitation.
+
+---
+
+#### Known Exploited Vulnerabilities (KEV)
+
+Uses CISA KEV intelligence to prioritize vulnerabilities known to be actively exploited.
+
+---
+
+#### Asset Type Prioritization
+
+Assigns different risk values to asset categories.
+
+Examples:
+
+- Web Applications
+- Infrastructure Servers
+- API Endpoints
+- Cloud Storage
+- Source Code Repositories
+- SSL/TLS Certificates
+
+---
+
+#### Business Unit Risk
+
+Allows organizations to prioritize vulnerabilities based on business importance.
+
+Examples:
+
+- Payment Systems
+- Customer Platforms
+- Production Services
+- Internal Business Applications
+
+---
+
+## Benefits of True Risk
+
+<Columns cols={3}>
+  <Card title="Context-Aware Prioritization" icon="chart-line">
+    Prioritize vulnerabilities based on business impact rather than technical severity alone.
+  </Card>
+
+  <Card title="Reduced Alert Fatigue" icon="filter">
+    Focus remediation efforts on vulnerabilities that present meaningful organizational risk.
+  </Card>
+
+  <Card title="Custom Risk Model" icon="sliders">
+    Tailor scoring logic to match your organization's environment and priorities.
+  </Card>
+</Columns>
 
 ---
 
 ## Explore Live Demo
 
 <Card title="Explore VM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Jump straight into the live environment and see how Snapsec unifies asset intelligence, threat detection, and vulnerability tracking — all in one dashboard.
+  Experience how Snapsec combines normalization and True Risk scoring to help teams prioritize the vulnerabilities that matter most.
 </Card>
