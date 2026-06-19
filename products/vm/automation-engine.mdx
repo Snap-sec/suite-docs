@@ -1,0 +1,179 @@
+<Frame caption="Create and manage automation workflows for vulnerabilities">
+  ![Automation Engine Rule Creation](/images/vm/automation-rule-create.png)
+</Frame>
+
+## Overview
+
+The **Automation Engine** helps security teams automate repetitive vulnerability management tasks by defining rules that execute actions whenever specified conditions are met.
+
+Instead of manually processing vulnerabilities, teams can create automated workflows that trigger actions such as ticket creation, vulnerability archiving, and other operational processes.
+
+### Key Benefits
+
+- Reduce manual effort
+- Accelerate remediation workflows
+- Improve operational consistency
+- Standardize vulnerability handling
+- Scale security operations efficiently
+
+<Callout icon="bolt" color="blue">
+  Automation Engine continuously monitors vulnerabilities and automatically executes configured actions when rule conditions are satisfied.
+</Callout>
+
+---
+
+## Create an Automation Engine Rule
+
+<Frame caption="Define conditions and actions for automation">
+  ![Create Automation Rule](/images/vm/automation-rule-create.png)
+</Frame>
+
+To create a new automation rule:
+
+1. Navigate to **Automation Engine**
+2. Click the **\+** button
+3. Enter rule details
+4. Configure trigger conditions
+5. Configure actions
+6. Save the rule
+
+### Rule Details
+
+| Field | Description |
+| --- | --- |
+| Rule Name | Unique name used to identify the automation rule |
+| Description | Brief explanation of the rule's purpose |
+
+---
+
+## Configure Rule Conditions
+
+Conditions determine when the Automation Engine should execute a rule.
+
+### Trigger Events
+
+Select one or more trigger events:
+
+| Event | Description |
+| --- | --- |
+| Vuln Created | Executes when a new vulnerability is created |
+| Vuln Updated | Executes when an existing vulnerability is modified |
+
+### Condition Builder
+
+Each condition consists of:
+
+| Component | Description |
+| --- | --- |
+| Field | Vulnerability attribute to evaluate |
+| Operator | Comparison method used for evaluation |
+| Value | Value that must match for execution |
+
+### Example Conditions
+
+- Severity equals Critical
+- State equals Unresolved
+- Source equals Qualys
+- Category contains Web Application
+
+Use **Add Condition** to create more complex workflows.
+
+<Callout icon="filter" color="yellow">
+  Rules are executed only when all configured conditions are satisfied.
+</Callout>
+
+---
+
+## Configure Rule Actions
+
+<Frame caption="Select actions that execute when conditions are matched">
+  ![Automation Engine Actions](/images/vm/automation-rule-actions.png)
+</Frame>
+
+Actions determine what happens when vulnerabilities match the configured conditions.
+
+### Available Actions
+
+<Columns cols={2}>
+  <Card title="Push to Jira" icon="paper-plane">
+    Automatically create or update Jira tickets for matching vulnerabilities.
+  </Card>
+
+  <Card title="Archive Vulnerability" icon="archive">
+    Automatically move matching vulnerabilities to the archive.
+  </Card>
+</Columns>
+
+You can configure multiple actions within a single automation rule.
+
+---
+
+## How Automation Engine Works
+
+1. A vulnerability is created or updated.
+2. Automation Engine evaluates all active rules.
+3. Matching conditions are checked.
+4. Configured actions are executed automatically.
+5. Workflow activity is recorded for auditing and tracking.
+
+---
+
+## Example Workflow
+
+### Automatically Create Jira Tickets for Critical Vulnerabilities
+
+**Trigger Event**
+
+- Vulnerability Created
+
+**Condition**
+
+- Severity equals Critical
+
+**Action**
+
+- Push to Jira
+
+**Result**
+
+Every newly discovered critical vulnerability automatically generates a Jira ticket for remediation tracking.
+
+---
+
+## Automation Use Cases
+
+<Columns cols={3}>
+  <Card title="Ticket Automation" icon="ticket">
+    Automatically create remediation tickets for critical findings.
+  </Card>
+
+  <Card title="Workflow Cleanup" icon="archive">
+    Archive accepted risks and informational findings automatically.
+  </Card>
+
+  <Card title="Process Standardization" icon="gear">
+    Apply consistent vulnerability handling across teams.
+  </Card>
+</Columns>
+
+---
+
+## Why It Matters
+
+Automation Engine transforms vulnerability management from a manual process into an automated workflow.
+
+### Impact
+
+- Faster remediation cycles
+- Reduced operational overhead
+- Consistent vulnerability handling
+- Improved security team productivity
+- Scalable vulnerability management operations
+
+---
+
+## Explore Live Demo
+
+<Card title="Explore VM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
+  Experience how Automation Engine streamlines vulnerability management through intelligent workflow automation.
+</Card>
