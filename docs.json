@@ -77,8 +77,8 @@
               "products/vm/service-vendors",
               "products/vm/vulnerability-sources",
               "products/vm/automation-engine",
-              "products/vm/normalization-rules.mdx",
-              "/integrations/vm/index"
+              "/integrations/vm/index",
+              "products/vm/normalization-engine"
             ]
           },
           {
