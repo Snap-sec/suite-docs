@@ -1,82 +1,682 @@
 ---
 title: "Dashboard"
-description: "Get a real-time overview of vulnerabilities, remediation progress, and team performance in one unified view."
+description: "Monitor your organization's security posture through dedicated analytics dashboards for risk, operations, and vulnerability sources."
 icon: "grip"
 mode: "wide"
 ---
 
+# Risk Analytics
+
 ## Overview
 
-<Frame caption="Vulnerability Management Dashboard overview">
+<Frame caption="Risk Analytics dashboard providing a high-level overview of organizational security posture">
   <img
     style={{ borderRadius: '0.5rem' }}
-    src="/images/vm/vm db1.png"
+    src="/images/vm/risk-analytics-1.png"
   />
 </Frame>
 
-The **Dashboard** acts as the central command center for your vulnerability management program.  
-It provides a real-time snapshot of your security posture, helping teams quickly understand what needs attention, what’s in progress, and what’s already resolved.
+The **Risk Analytics** dashboard provides an executive-level view of your organization's security posture. It combines vulnerability statistics, organizational risk scoring, SLA compliance, threat exposure, and remediation trends into a single dashboard, enabling security teams and leadership to quickly understand where the greatest risks exist.
+
+Rather than focusing on individual vulnerabilities, Risk Analytics presents a comprehensive view of your security program, helping teams prioritize remediation efforts based on business impact and overall exposure.
+
+<Callout icon="shield-check" color="green">
+  Risk Analytics continuously aggregates vulnerability data to provide an always up-to-date view of your organization's overall security posture.
+</Callout>
 
 ---
 
-## What You Can See
+## Executive Summary
+
+The summary cards at the top of the dashboard provide an instant snapshot of your current vulnerability landscape.
+
+### Available Metrics
+
+- **Total Open**
+  - Displays the total number of unresolved vulnerabilities.
+- **Critical**
+  - Number of active Critical severity vulnerabilities.
+- **High**
+  - Number of High severity vulnerabilities.
+- **Medium**
+  - Number of Medium severity vulnerabilities.
+- **Unique CVEs**
+  - Total unique CVEs currently affecting your environment.
+- **Unique CWEs**
+  - Number of unique weakness categories represented across findings.
+- **Known Exploited Vulnerabilities (KEV)**
+  - Vulnerabilities listed in the CISA Known Exploited Vulnerabilities catalog.
+- **Average CVSS**
+  - Average CVSS score across all active findings.
+
+---
+
+## Organization Risk Score
+
+The **Organization Risk Score** provides an overall measurement of your security posture.
+
+The score is dynamically calculated using multiple factors including:
+
+- Vulnerability severity
+- True Risk prioritization
+- Business impact
+- Asset exposure
+- Active vulnerabilities
+- Organizational risk weighting
+
+As vulnerabilities are discovered or remediated, the score automatically updates to reflect your current risk posture.
+
+---
+
+## SLA Compliance Overview
+
+The SLA Compliance widget tracks remediation performance against defined Service Level Agreements.
+
+It provides visibility into:
+
+- Compliant vulnerabilities
+- At Risk vulnerabilities
+- Breached vulnerabilities
+- Vulnerabilities without assigned SLAs
+
+Additional operational metrics include:
+
+- **MTTR (Mean Time to Resolution)**
+- **Remediation Velocity**
+
+These metrics help measure how effectively vulnerabilities are being resolved within expected timelines.
+
+---
+
+## Threat Exposure
+
+The Threat Exposure panel summarizes your organization's exposure based on multiple security indicators.
+
+Key metrics include:
+
+- Overall Exposure Score
+- Known Exploited Vulnerabilities (KEV)
+- High EPSS vulnerabilities
+- High and Critical findings
+- Average CVSS
+- Unique CVEs
+
+These indicators help identify areas requiring immediate remediation.
+
+---
+
+## Severity Trend
+
+<Frame caption="Historical severity trend showing changes in organizational risk over time">
+  <img
+    style={{ borderRadius: '0.5rem' }}
+    src="/images/vm/risk-analytics-2.png"
+  />
+</Frame>
+
+The **Severity Trend** graph visualizes how vulnerability severity changes over time.
+
+This allows teams to monitor:
+
+- New vulnerabilities introduced
+- Reduction through remediation
+- Overall security posture improvements
+- Historical remediation progress
+
+---
+
+## Average Open Age
+
+The **Average Open Age by Severity** visualization shows how long vulnerabilities remain unresolved across each severity level.
+
+This helps identify:
+
+- Aging Critical vulnerabilities
+- Long-standing High severity findings
+- Medium and Low severity backlog
+- Overall remediation efficiency
+
+---
+
+## Executive Insights
+
+The Executive Insights panel automatically highlights the most important remediation opportunities and security observations.
+
+Typical recommendations include:
+
+- Critical vulnerabilities with the highest impact
+- High severity findings driving organizational risk
+- SLA breaches requiring immediate attention
+- Remediation blockers delaying progress
+- Accepted risks that should be periodically reviewed
+
+<Callout icon="lightbulb" color="yellow">
+  Executive Insights continuously adapt to changes in your vulnerability data, ensuring recommendations remain relevant as your environment evolves.
+</Callout>
+
+---
+
+## Why Risk Analytics Matters
+
+Risk Analytics transforms vulnerability data into actionable security intelligence by helping organizations:
+
+- Understand overall organizational risk
+- Monitor remediation performance
+- Track SLA compliance
+- Measure threat exposure
+- Prioritize vulnerabilities effectively
+- Present executive-ready security metrics
+
+---
+
+# Operational Analytics
+
+## Overview
+
+<Frame caption="Operational Analytics dashboard showing remediation progress, team performance, and vulnerability lifecycle metrics">
+  <img
+    style={{ borderRadius: '0.5rem' }}
+    src="/images/vm/operational-analytics-1.png"
+  />
+</Frame>
+
+The **Operational Analytics** dashboard provides a detailed view of your organization's day-to-day vulnerability management activities. It focuses on remediation progress, vulnerability lifecycle tracking, SLA performance, and team productivity to help security teams monitor operational effectiveness.
+
+Unlike Risk Analytics, which focuses on overall organizational risk, Operational Analytics helps security teams understand **how efficiently vulnerabilities are being managed and resolved**.
+
+<Callout icon="chart-line" color="green">
+  Operational Analytics provides real-time operational insights, enabling security teams to identify bottlenecks and continuously improve remediation performance.
+</Callout>
+
+---
+
+## Operational Summary
+
+The summary section provides an instant overview of vulnerability lifecycle states.
+
+### Available Metrics
 
 - **Total Vulnerabilities**
-  - Instantly view the total number of detected vulnerabilities across your environment.
-
-- **Status Distribution**
-  - Track vulnerabilities across stages like *In Review, Triaged, Retest, Resolved, and Rejected*.
-
-- **Detection vs Resolution Timeline**
-  - Visualize how vulnerabilities are being discovered and fixed over time.
-
-- **Exportable Reports**
-  - Generate and export reports directly from the dashboard for audits and stakeholder updates.
+  - Total vulnerabilities currently tracked.
+- **In Review**
+  - Findings awaiting triage.
+- **Triaged**
+  - Vulnerabilities that have been reviewed and categorized.
+- **Unresolved**
+  - Open vulnerabilities still awaiting remediation.
+- **Duplicate**
+  - Duplicate findings linked to existing vulnerabilities.
+- **Retest**
+  - Vulnerabilities awaiting verification after remediation.
+- **Fixed in Staging**
+  - Vulnerabilities resolved in staging environments and awaiting production validation.
+- **Resolved**
+  - Successfully remediated vulnerabilities.
+- **Risk Accepted**
+  - Vulnerabilities accepted by the organization after risk assessment.
+- **Rejected**
+  - Findings determined to be invalid or not applicable.
 
 ---
 
-## Insights & Analytics
+## Vulnerability Discovery Timeline
 
-<Frame caption="Detailed analytics and performance insights">
+The timeline visualizes how vulnerabilities are discovered over time, helping teams identify spikes in findings and monitor remediation trends.
+
+This visualization assists with:
+
+- Monitoring assessment activity
+- Identifying unusual increases in findings
+- Measuring remediation progress
+- Understanding long-term security trends
+
+---
+
+<Frame caption="Operational Analytics widgets showing remediation performance and security operations">
   <img
     style={{ borderRadius: '0.5rem' }}
-    src="/images/vm/vm db2.png"
+    src="/images/vm/operational-analytics-2.png"
   />
 </Frame>
 
-The dashboard provides deeper insights to help teams track performance and prioritize remediation effectively.
+## Operational Widgets
 
-### Key Insights
+The dashboard includes several widgets that provide detailed operational insights.
 
-- **Severity Breakdown**
-  - Understand the distribution of vulnerabilities across *Critical, High, Medium, Low,* and *Informational*.
+### Severity Distribution
 
-- **Open vs Closed by Severity**
-  - Compare how many vulnerabilities are still open versus resolved across each severity level.
+Displays the distribution of vulnerabilities across:
 
-- **SLA Compliance**
-  - Monitor whether vulnerabilities are being resolved within defined SLA timelines.
+- Critical
+- High
+- Medium
+- Low
+- Informational
 
-- **Top Performing Members**
-  - Identify contributors driving the most vulnerability resolutions.
-
-- **Business Unit Visibility**
-  - Analyze how vulnerabilities are distributed across different business units.
-
-- **Department-wise Remediation**
-  - Track how each department is performing in resolving assigned vulnerabilities.
+This helps teams understand where the majority of security issues exist.
 
 ---
 
-## Why It Matters
+### Open vs Closed by Severity
 
-The dashboard brings clarity to complex vulnerability data by turning it into actionable insights.  
-It enables teams to prioritize effectively, track progress continuously, and ensure accountability across the organization — all from a single view.
+Compares resolved and unresolved vulnerabilities across each severity level.
+
+This enables teams to quickly determine whether high-risk vulnerabilities are being remediated effectively.
+
+---
+
+### SLA Compliance
+
+Measures remediation performance against defined Service Level Agreements.
+
+Displays:
+
+- Within SLA
+- At Risk
+- Breached
+- No SLA Assigned
+
+Helping organizations identify overdue remediation activities.
+
+---
+
+### Top Performing Members
+
+Ranks team members based on remediation activity and vulnerability closures.
+
+This provides visibility into:
+
+- Individual contributions
+- Team productivity
+- Workload distribution
+
+---
+
+### Vulnerabilities by Business Unit
+
+Displays how vulnerabilities are distributed across different business units.
+
+This helps organizations identify departments requiring additional security attention.
+
+---
+
+### Remediation by Department
+
+Measures remediation performance across organizational departments.
+
+Useful for identifying:
+
+- Teams resolving vulnerabilities quickly
+- Departments with growing remediation backlogs
+
+---
+
+<Frame caption="Additional operational metrics including MTTC, vulnerability aging, and source analysis">
+  <img
+    style={{ borderRadius: '0.5rem' }}
+    src="/images/vm/operational-analytics-3.png"
+  />
+</Frame>
+
+## Advanced Operational Metrics
+
+Operational Analytics also includes advanced measurements for tracking remediation efficiency.
+
+### Mean Time to Close (MTTC)
+
+Measures the average time required to resolve vulnerabilities.
+
+This KPI helps evaluate overall remediation effectiveness.
+
+---
+
+### Average Vulnerability Age
+
+Displays the average age of unresolved vulnerabilities grouped by severity.
+
+Older vulnerabilities often indicate remediation bottlenecks or resource constraints.
+
+---
+
+### Vulnerability Source Distribution
+
+Shows where vulnerabilities originate.
+
+Examples include:
+
+- Qualys
+- Nuclei
+- Trivy
+- Manual Assessments
+- Other integrated scanners
+
+Understanding source distribution helps evaluate scanner usage and assessment coverage.
+
+---
+
+## Custom Dashboards
+
+Operational Analytics supports creating multiple custom dashboards for different teams, projects, or reporting requirements.
+
+<Frame caption="Create a new operational dashboard">
+  <img
+    style={{ borderRadius: '0.5rem' }}
+    src="/images/vm/create-dashboard.png"
+  />
+</Frame>
+
+To create a dashboard:
+
+1. Click the **\+** button beside the dashboard selector.
+2. Enter a dashboard name.
+3. Provide an optional description.
+4. Select related assessments.
+5. Choose dashboard visibility.
+6. Save the dashboard.
+
+Custom dashboards allow teams to maintain focused operational views for specific business units or security initiatives.
+
+---
+
+<Frame caption="Configure dashboard information and linked assessments">
+  <img
+    style={{ borderRadius: '0.5rem' }}
+    src="/images/vm/dashboard-details.png"
+  />
+</Frame>
+
+## Dashboard Configuration
+
+Each dashboard can be customized with:
+
+- Dashboard Name
+- Description
+- Linked Assessments
+- Public or Private Visibility
+
+This allows organizations to tailor reporting for different audiences while maintaining centralized vulnerability data.
+
+---
+
+## Why Operational Analytics Matters
+
+Operational Analytics transforms remediation activities into measurable operational metrics.
+
+It enables organizations to:
+
+- Monitor remediation progress
+- Track SLA performance
+- Measure team productivity
+- Identify operational bottlenecks
+- Improve remediation efficiency
+- Build customized dashboards for different teams
+
+By combining lifecycle tracking with performance metrics, Operational Analytics helps security teams continuously improve their vulnerability management process.
+
+---
+
+# Source Analytics
+
+## Overview
+
+<Frame caption="Source Analytics dashboard providing visibility into scanner performance and vulnerability source quality">
+  <img
+    style={{ borderRadius: '0.5rem' }}
+    src="/images/vm/source-analytics-1.png"
+  />
+</Frame>
+
+The **Source Analytics** dashboard provides comprehensive insights into the quality, reliability, and effectiveness of every vulnerability source integrated with Snapsec VM.
+
+Rather than simply counting vulnerabilities, Source Analytics helps security teams understand **where findings originate, how accurate those findings are, and which scanners provide the highest confidence results**.
+
+This enables organizations to continuously improve their security tooling while reducing false positives and prioritizing trusted sources.
+
+<Callout icon="chart-line" color="green">
+  Source Analytics transforms scanner data into actionable intelligence by measuring accuracy, confidence, and overall signal quality across every integrated source.
+</Callout>
+
+---
+
+## Source Overview
+
+The dashboard begins with a high-level summary of all registered vulnerability sources.
+
+### Available Metrics
+
+- **Total Sources**
+  - Total number of configured vulnerability sources.
+- **Active Sources**
+  - Sources currently contributing findings.
+- **Total Findings**
+  - Combined findings across all configured sources.
+- **Accuracy Rate**
+  - Overall percentage of validated findings.
+- **Noisy Sources**
+  - Sources generating excessive false positives.
+- **High Confidence Sources**
+  - Sources consistently producing reliable findings.
+
+These metrics provide an immediate understanding of the overall quality of your vulnerability ingestion pipeline.
+
+---
+
+## Source Performance
+
+The dashboard includes several visualizations that help evaluate scanner performance.
+
+### Findings by Source
+
+Displays how vulnerabilities are distributed across each integrated scanner or manual source.
+
+This helps identify:
+
+- Primary vulnerability producers
+- Scanner utilization
+- Assessment coverage
+
+---
+
+### Findings Classification
+
+Breaks down findings into categories such as:
+
+- Valid
+- False Positive
+- Risk Accepted
+
+Helping teams understand overall signal quality.
+
+---
+
+### Source Activity
+
+Visualizes source activity over time, showing how many findings each source contributes throughout the year.
+
+This enables organizations to monitor scanner usage and identify changes in vulnerability discovery patterns.
+
+---
+
+<Frame caption="Sources inventory displaying configured scanners and their performance">
+  <img
+    style={{ borderRadius: '0.5rem' }}
+    src="/images/vm/source-analytics-2.png"
+  />
+</Frame>
+
+## Sources Inventory
+
+The Sources Inventory provides a centralized list of every registered vulnerability source.
+
+Each entry includes:
+
+- Source Name
+- Source Type
+- Linked Projects
+- Total Findings
+- Valid Findings
+- False Positives
+- Accuracy Percentage
+- Confidence Level
+
+This inventory enables security teams to compare scanners and monitor the quality of imported findings.
+
+---
+
+## Managing Sources
+
+Each source can be searched, filtered, and managed directly from the inventory.
+
+Common management tasks include:
+
+- Viewing source performance
+- Comparing scanners
+- Tracking confidence levels
+- Reviewing historical activity
+
+This makes it easy to identify sources that require tuning or validation.
+
+---
+
+<Frame caption="Register a new vulnerability source">
+  <img
+    style={{ borderRadius: '0.5rem' }}
+    src="/images/vm/add-source.png"
+  />
+</Frame>
+
+## Registering a Source
+
+New scanners and assessment tools can be added directly from the Source Analytics dashboard.
+
+When registering a source, configure:
+
+- **Source Name**
+- **Source Type**
+- **Confidence Level**
+- **Description**
+
+This allows organizations to onboard commercial scanners, open-source tools, or manual assessment sources into a single reporting framework.
+
+---
+
+<Frame caption="Signal Analytics measuring finding quality and scanner reliability">
+  <img
+    style={{ borderRadius: '0.5rem' }}
+    src="/images/vm/source-analytics-3.png"
+  />
+</Frame>
+
+## Signal Analytics
+
+Signal Analytics evaluates the quality of findings generated by each vulnerability source.
+
+For every integrated scanner, Snapsec measures:
+
+- Total Findings
+- Valid Findings
+- False Positives
+- False Positive Rate
+- Accuracy Percentage
+- Signal Quality
+
+These metrics help distinguish reliable scanners from noisy ones and improve confidence in vulnerability data.
+
+---
+
+<Frame caption="Confidence distribution across all configured vulnerability sources">
+  <img
+    style={{ borderRadius: '0.5rem' }}
+    src="/images/vm/source-analytics-4.png"
+  />
+</Frame>
+
+## Confidence Distribution
+
+Sources are automatically grouped according to their confidence level.
+
+Confidence categories include:
+
+- **High Confidence**
+  - Sources consistently producing accurate findings.
+- **Medium Confidence**
+  - Sources requiring occasional validation.
+- **Low Confidence**
+  - Sources generating inconsistent or noisy findings.
+
+This allows security teams to quickly identify which integrations should receive the highest level of trust.
+
+---
+
+<Frame caption="Source comparison highlighting accuracy and false positive rates">
+  <img
+    style={{ borderRadius: '0.5rem' }}
+    src="/images/vm/source-analytics-5.png"
+  />
+</Frame>
+
+## Source Comparison
+
+Source Comparison enables organizations to benchmark integrated scanners against one another.
+
+Comparison metrics include:
+
+- Accuracy Percentage
+- Total Findings
+- False Positive Rate
+- Valid Findings
+- Overall Signal Quality
+
+This helps determine:
+
+- Which scanners provide the most reliable results
+- Where tuning may be required
+- Which tools contribute the greatest operational value
+
+---
+
+<Frame caption="Historical trends showing source reliability and vulnerability contribution over time">
+  <img
+    style={{ borderRadius: '0.5rem' }}
+    src="/images/vm/source-analytics-6.png"
+  />
+</Frame>
+
+## Historical Trends
+
+Historical Trends provide long-term visibility into vulnerability source performance.
+
+Track:
+
+- Changes in scanner accuracy
+- Growth in findings
+- Source activity over time
+- Confidence trends
+- Overall data quality
+
+These insights help organizations continuously optimize their vulnerability management ecosystem.
+
+---
+
+## Why Source Analytics Matters
+
+Source Analytics enables organizations to continuously improve the quality of vulnerability data entering Snapsec VM.
+
+It helps teams:
+
+- Measure scanner effectiveness
+- Reduce false positives
+- Increase confidence in findings
+- Optimize security tooling
+- Improve vulnerability prioritization
+- Build trust in remediation decisions
+
+By combining operational metrics with scanner intelligence, Source Analytics ensures that remediation efforts are based on reliable, high-quality security data.
 
 ---
 
 ## Explore Live Demo
 
 <Card title="Explore VM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Experience how Snapsec centralizes vulnerability visibility, tracking, and remediation in one unified platform.
+  Experience how Snapsec Risk Analytics provides real-time visibility into organizational risk, threat exposure, and remediation performance through a unified executive dashboard.
 </Card>
