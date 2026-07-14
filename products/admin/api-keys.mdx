@@ -1,18 +1,21 @@
 ---
-title: "API Keys"
-description: "Generate, manage, and secure API keys to enable safe integrations and automated workflows across Snapsec products."
-icon: "key"
+title: "Developer Access"
+description: "Manage developer authentication, API access, and Model Context Protocol (MCP) integrations for AI-powered development environments."
+icon: "code"
 mode: "wide"
 ---
 
+# Developer Access
+
+## API Keys
+
 <Frame caption="API Keys entry point under Settings">
-  <img src="/images/admin/api-keys-button.png" alt="API Keys card in Snapsec settings dashboard" />
+  ![API Keys card in Snapsec settings dashboard](/images/admin/api-keys-button.png)
 </Frame>
 
 ## Overview
 
-The **API Keys** module allows organizations to securely authenticate applications, adapters, and integrations with Snapsec.  
-API keys act as a **trusted access mechanism**, enabling programmatic communication between Snapsec services and external systems without exposing user credentials.
+The **API Keys** module allows organizations to securely authenticate applications, adapters, and integrations with Snapsec.<br />API keys act as a **trusted access mechanism**, enabling programmatic communication between Snapsec services and external systems without exposing user credentials.
 
 This module is essential for teams building integrations, automating workflows, or extending Snapsec’s capabilities across environments.
 
@@ -21,12 +24,13 @@ This module is essential for teams building integrations, automating workflows, 
 ## Public API Key
 
 <Frame caption="Public API Key view">
-  <img src="/images/admin/api-section.png" alt="Public API key displayed with copy and regenerate options" />
+  ![Public API key displayed with copy and regenerate options](/images/admin/api-section.png)
 </Frame>
 
 Each workspace is issued a **Public API Key** that can be used to authenticate requests.
 
 ### Key Capabilities
+
 - **Secure Authentication** — Verifies the identity of calling applications.
 - **Easy Access** — Copy or regenerate the key directly from the UI.
 - **Controlled Exposure** — Designed for programmatic use without sharing user credentials.
@@ -38,21 +42,25 @@ The API key acts as a gateway for all supported Snapsec integrations.
 ## What You Can Do With API Keys
 
 <Frame caption="API key usage capabilities">
-  <img src="/images/admin/second-api-section.png" alt="API key capabilities such as adapters, secure routes, automation, and monitoring" />
+  ![API key capabilities such as adapters, secure routes, automation, and monitoring](/images/admin/second-api-section.png)
 </Frame>
 
 API keys unlock multiple integration and automation use cases:
 
 ### Connect Adapters
+
 Link adapters across applications to enable seamless data exchange between Snapsec modules and external tools.
 
 ### Access Secure Routes
+
 Authenticate requests to protected APIs, ensuring only authorized services can access sensitive endpoints.
 
 ### Automate Integrations
+
 Trigger events, sync data, and orchestrate workflows across connected systems without manual intervention.
 
 ### Monitor Usage
+
 Track API activity, request frequency, and integration performance to maintain visibility and security.
 
 ---
@@ -75,7 +83,7 @@ These FAQs help teams adopt APIs safely while following best security practices.
 ## Support & Assistance
 
 <Frame caption="Contact support for API assistance">
-  <img src="/images/admin/contact-support.png" alt="Contact support section for API-related help" />
+  ![Contact support section for API-related help](/images/admin/contact-support.png)
 </Frame>
 
 If you need help with API integrations, security concerns, or advanced use cases, the **Contact Support** section provides direct access to the Snapsec support team for personalized assistance.
@@ -95,9 +103,141 @@ Proper API key management ensures integrations remain powerful, auditable, and s
 
 ---
 
+## Model Context Protocol (MCP)
+
+<Frame caption="Developer Access navigation showing MCP Access">
+  <img
+    style={{ borderRadius: '0.5rem' }}
+    src="/images/admin/mcp-1.png"
+  />
+</Frame>
+
+The **Model Context Protocol (MCP)** enables AI development tools to securely communicate with Snapsec. By configuring an MCP server, developers can provide supported IDEs and AI assistants with controlled access to project context, security data, and Snapsec capabilities directly from their development environment.
+
+MCP is managed centrally at the organization level, ensuring secure, standardized access across all connected clients.
+
+---
+
+<Frame caption="Organization-wide MCP configuration">
+  <img
+    style={{ borderRadius: '0.5rem' }}
+    src="/images/admin/mcp-2.png"
+  />
+</Frame>
+
+## MCP Configuration
+
+The **MCP Configuration** page allows administrators to enable or disable MCP access for the entire organization.
+
+Administrators can:
+
+- Enable or disable organization-wide MCP integration
+- Control developer access to MCP-enabled clients
+- Configure supported IDE connections
+- Manage MCP settings from a centralized location
+
+When enabled, developers can connect compatible IDEs using the provided configuration snippets.
+
+---
+
+## Supported IDEs & Clients
+
+Snapsec provides ready-to-use MCP configuration for several AI-powered development environments.
+
+Supported clients include:
+
+- Antigravity
+- Codex CLI
+- Cursor
+- Visual Studio Code
+- Windsurf
+- Zed
+
+Each client includes:
+
+- Configuration snippet
+- Step-by-step setup guide
+- Required prerequisites
+- Security recommendations for API key management
+
+---
+
+<Frame caption="IDE-specific MCP configuration and setup instructions">
+  <img
+    style={{ borderRadius: '0.5rem' }}
+    src="/images/admin/mcp-3.png"
+  />
+</Frame>
+
+## IDE Configuration
+
+Selecting an IDE displays a dedicated setup page containing everything required to establish a secure MCP connection.
+
+Each configuration provides:
+
+- Ready-to-copy configuration file
+- Installation prerequisites
+- Environment variable guidance
+- IDE-specific setup instructions
+- Secure API key recommendations
+
+This allows developers to quickly integrate Snapsec into their preferred AI development environment without manual configuration.
+
+<Callout icon="triangle-exclamation" color="amber">
+  Never hard-code API keys into configuration files. Store credentials using environment variables or a secure secrets manager.
+</Callout>
+
+---
+
+<Frame caption="Active MCP sessions across connected IDEs">
+  <img
+    style={{ borderRadius: '0.5rem' }}
+    src="/images/admin/mcp-8.png"
+  />
+</Frame>
+
+## MCP Sessions
+
+The **MCP Sessions** page provides visibility into every active MCP connection established within the organization.
+
+For each session, administrators can view:
+
+- Connected IDE or client
+- Device information
+- Associated user
+- Session status
+- Vulnerability requests processed
+- Session creation time
+
+These insights help administrators monitor active AI integrations, audit usage, and identify connected development environments across the organization.
+
+---
+
+## Why Use MCP?
+
+Model Context Protocol brings Snapsec directly into modern AI development workflows.
+
+Benefits include:
+
+- Secure AI-assisted development
+- Organization-wide access control
+- Native IDE integration
+- Centralized MCP management
+- Secure authentication using existing API keys
+- Visibility into active developer sessions
+
+By integrating with supported AI clients, developers can securely access Snapsec capabilities without leaving their coding environment.
+
+---
+
 ## Explore Live Demo
 
-<Card title="Explore Snapsec APIs in Action" icon="wand-magic-sparkles"
-  href="https://suite.snapsec.co/demo">
+<Card title="Explore Developer Access Live" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
+  See how Snapsec enables secure API authentication and AI-powered development through Model Context Protocol (MCP).
+</Card>
+
+## Explore Live Demo
+
+<Card title="Explore Snapsec APIs in Action" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
   Experience how Snapsec API keys power secure integrations, automation, and scalable security workflows—no signup required.
 </Card>
