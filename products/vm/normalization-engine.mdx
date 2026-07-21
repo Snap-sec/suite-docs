@@ -1,331 +1,275 @@
 ---
 title: "Prioritization"
-description: "Prioritize vulnerabilities using normalization rules and adaptive True Risk scoring."
-icon: "ranking-star"
+description: "Prioritize vulnerabilities using remediation campaigns, contextual risk analysis, false positive validation, and customizable risk scoring."
+icon: "list-check"
 mode: "wide"
 ---
 
-## Overview
+## Remediation Campaigns
 
-The **Prioritization** module helps security teams focus on the vulnerabilities that matter most by combining rule-based normalization with context-aware risk scoring.
-
-It consists of two major capabilities:
-
-- **Normalization Engine** – Standardize and classify vulnerabilities using custom rules.
-- **True Risk** – Prioritize vulnerabilities using business context, exposure, exploitability, and environmental factors.
-
-Together, these capabilities help reduce alert fatigue, improve remediation efficiency, and ensure resources are focused on the highest-impact risks.
-
----
-
-# Normalization Engine
-
-The **Normalization Engine** allows you to automatically classify and standardize vulnerabilities using custom rules.
-
-Instead of manually triaging findings, you can:
-
-- Normalize inconsistent data from multiple sources
-- Apply severity or categorization rules
-- Reduce noise and false positives
-- Enforce consistent vulnerability handling
-
----
-
-## Rules Dashboard
-
-<Frame caption="View and manage normalization rules">
-  ![](/images/vm/normalization-engine.png)
+<Frame caption="Manage remediation campaigns from a centralized workspace">
+  ![Remediation Campaigns](/images/vm/prioritization-1.png)
 </Frame>
 
-### What You See
+Remediation Campaigns consolidate related vulnerabilities into actionable remediation efforts, allowing security teams to resolve multiple findings through a single coordinated workflow.
 
-- List of normalization rules
-- Vulnerability count per rule
-- Current action applied
-- Rule status (Active / Inactive)
+To begin working with a remediation campaign:
 
----
+1. Navigate to **Prioritization**
+2. Open the **Remediation Campaigns** section
+3. Select a campaign from the list
+4. Review campaign details and affected assets
+5. Track remediation progress
+6. Resolve vulnerabilities through the campaign workflow
 
-## Create Normalization Rule
+### Campaign Information
 
-<Frame caption="Create a new normalization rule">
-  ![](/images/vm/normalization-engine-x2.png)
-</Frame>
-
-### Rule Configuration
-
-Each rule consists of:
-
-#### Rule Details
-
-- Rule Name
-- Description
-
-#### Conditions
-
-Define when the rule should apply:
-
-- Field (e.g., Title, Severity, Source)
-- Operator (contains, equals, regex)
-- Value
-
-Multiple conditions can be combined for precise matching.
-
----
-
-## Rule Matching & Output
-
-<Frame caption="Matched vulnerabilities based on rule conditions">
-  ![](/images/vm/normalization-engine-2.png)
-</Frame>
-
-### What Happens
-
-Once a rule is applied:
-
-- Matching vulnerabilities are automatically identified
-- Rules can standardize severity or classification
-- Findings from different tools can be normalized into a consistent format
-
----
-
-## Search & Rule Navigation
-
-<Frame caption="Search and quickly locate rules">
-  ![](/images/vm/normalization-engine-search.png)
-</Frame>
-
-- Quickly search existing rules
-- Navigate large rule sets
-- Locate specific normalization logic faster
-
----
-
-## Example Use Cases
-
-- Tag outdated software findings as High severity
-- Normalize scanner-specific naming differences
-- Reduce duplicate classifications
-- Automatically identify common risk patterns
-
----
-
-# True Risk
-
-Traditional CVSS scoring only measures the technical severity of a vulnerability.
-
-**True Risk** extends vulnerability prioritization by incorporating environmental, business, and operational context to determine which vulnerabilities should be addressed first.
-
-This ensures that vulnerabilities with lower CVSS scores but higher business impact can still receive elevated priority.
-
----
-
-## Prioritization Strategy
-
-The Prioritization Strategy tab allows you to choose the scoring framework used across the platform.
-
-<Frame caption="Select the vulnerability prioritization methodology">
-  ![](/images/vm/true-risk-prioritization.png)
-</Frame>
-
-### Available Methodologies
-
-#### Standard CVSS v3.1
-
-Uses industry-standard CVSS scoring.
-
-Prioritization is based entirely on:
-
-- Attack complexity
-- Privileges required
-- Impact metrics
-- Exploitability metrics
-
-This provides a consistent and widely accepted severity model.
-
----
-
-#### True Risk Framework
-
-The True Risk Framework augments CVSS scoring with additional business and environmental intelligence.
-
-It considers factors such as:
-
-- Asset exposure
-- Business criticality
-- Exploitability likelihood
-- SLA impact
-- Known exploitation activity
-
-This produces a more realistic remediation priority based on actual organizational risk.
-
----
-
-## True Risk Prioritization Model
-
-When the True Risk Framework is selected, the platform dynamically adjusts vulnerability priority based on contextual factors.
-
-<Frame caption="Context-aware vulnerability prioritization using the True Risk Framework">
-  ![](/images/vm/true-risk-methodology.png)
-</Frame>
-
-### Engine Parameters
-
-The framework combines multiple inputs:
-
-| Factor | Purpose |
+| Item | Description |
 | --- | --- |
-| CVSS Base Metric | Technical severity |
-| Threat Exploitability | Likelihood of exploitation |
-| Business Criticality | Importance of affected assets |
-| Network Exposure | External or internal accessibility |
+| Campaign Name | Name assigned to the remediation campaign |
+| Vulnerabilities | Total vulnerabilities included in the campaign |
+| Assets | Number of impacted assets |
+| Status | Current remediation status |
+| Risk Reduction | Estimated reduction in organizational risk after remediation |
 
 ---
 
-### Prioritization Policy
+## Campaign Dashboard
 
-True Risk can elevate vulnerabilities that:
-
-- Have low CVSS scores
-- Affect critical business assets
-- Are internet-facing
-- Have active exploitation indicators
-
-This prevents teams from overlooking vulnerabilities that present significant operational risk.
-
----
-
-### Prioritization Preview
-
-The preview section demonstrates how scores can change when contextual risk is applied.
-
-Examples include:
-
-- Public-facing systems receiving higher priority
-- Internal vulnerabilities receiving lower priority
-- Business-critical assets being elevated above standard CVSS rankings
-
----
-
-## True Risk Scoring
-
-The True Risk Scoring tab provides full control over how risk is calculated.
-
-<Frame caption="Configure weights and scoring factors used by the True Risk engine">
-  ![](/images/vm/true-risk-scoring.png)
+<Frame caption="Monitor campaign health and remediation progress">
+  ![Campaign Dashboard](/images/vm/inside-rem-campaigns.png)
 </Frame>
 
-Administrators can customize how much influence each scoring factor has on the final risk calculation.
+The dashboard provides a centralized overview of campaign activity, including remediation status, affected assets, ownership, and campaign progress.
 
-The total allocation must equal 100%.
+### Dashboard Overview
 
----
+| Section | Description |
+| --- | --- |
+| Campaign Summary | Displays campaign information and remediation progress |
+| Risk Metrics | Shows campaign impact and expected risk reduction |
+| Asset Summary | Lists affected assets participating in the campaign |
+| Vulnerability Summary | Displays vulnerabilities included in the campaign |
 
-## Adjustable Risk Factors
-
-<Frame caption="Configure individual risk factor weights and scoring values">
-  ![](/images/vm/true-risk-scoring-expanded-1.png)
+<Frame caption="Visualize remediation trends and vulnerability distribution">
+  ![Campaign Analytics](/images/vm/inside-rem-campaigns-2.png)
 </Frame>
 
-<Frame caption="Configure SLA, EPSS, and KEV prioritization settings">
-  ![](/images/vm/true-risk-scoring-expanded-2.png)
+Interactive charts provide visibility into:
+
+- Resolution timeline
+- Severity distribution
+- Vulnerability state distribution
+- Campaign progress
+
+---
+
+## Campaign Assets
+
+<Frame caption="Review assets impacted by the remediation campaign">
+  ![Campaign Assets](/images/vm/inside-rem-campaigns-3.png)
 </Frame>
 
-<Frame caption="Configure asset type and business unit risk scoring">
-  ![](/images/vm/true-risk-scoring-expanded-3.png)
+The **Assets** tab identifies every asset included in the selected campaign.
+
+Each asset displays:
+
+- Asset name
+- Vulnerability count
+- Associated component
+- Recommended remediation
+
+---
+
+## Campaign Vulnerabilities
+
+<Frame caption="View vulnerabilities included in the selected campaign">
+  ![Campaign Vulnerabilities](/images/vm/inside-rem-campaigns-4.png)
 </Frame>
 
-### Available Risk Components
-
-#### CVSS Scoring System
-
-Measures technical severity using CVSS.
-
-#### Exposure Prioritization
-
-Assigns risk based on accessibility.
-
-Examples:
-
-- Internet-facing assets
-- Internal-only assets
+The **Vulnerabilities** tab lists every vulnerability associated with the campaign, allowing analysts to review severity, ownership, and remediation status from a single location.
 
 ---
 
-#### SLA Prioritization
+## False Positive Analysis
 
-Incorporates remediation deadlines into prioritization.
+<Frame caption="Review and validate suspected false positives">
+  ![False Positive Analysis](/images/vm/prioritization-2.png)
+</Frame>
 
-Examples:
+False Positive Analysis helps analysts verify scanner findings before remediation begins.
 
-- Breached SLA
-- At Risk
-- Within SLA
-- Compliant
-- No SLA
+### Validation Process
 
----
+1. Open a flagged vulnerability
+2. Review AI-assisted analysis
+3. Validate the detection
+4. Mark as False Positive or Confirmed
+5. Save the review
 
-#### EPSS Scoring System
-
-Uses Exploit Prediction Scoring System (EPSS) data to estimate the likelihood of real-world exploitation.
-
----
-
-#### Known Exploited Vulnerabilities (KEV)
-
-Uses CISA KEV intelligence to prioritize vulnerabilities known to be actively exploited.
+<Callout icon="shield-check" color="blue">
+  Accurate false positive validation reduces unnecessary remediation effort while improving vulnerability data quality.
+</Callout>
 
 ---
 
-#### Asset Type Prioritization
+## Risk Relevance Groups
 
-Assigns different risk values to asset categories.
+<Frame caption="Organize vulnerabilities using contextual risk relevance groups">
+  ![Risk Relevance Groups](/images/vm/prioritization-3.png)
+</Frame>
 
-Examples:
+Risk Relevance Groups automatically classify vulnerabilities that share similar exploitation characteristics, enabling analysts to investigate related findings together.
 
-- Web Applications
-- Infrastructure Servers
-- API Endpoints
-- Cloud Storage
-- Source Code Repositories
-- SSL/TLS Certificates
+### Group Overview
 
----
-
-#### Business Unit Risk
-
-Allows organizations to prioritize vulnerabilities based on business importance.
-
-Examples:
-
-- Payment Systems
-- Customer Platforms
-- Production Services
-- Internal Business Applications
+| Item | Description |
+| --- | --- |
+| Risk Group | Logical grouping of related vulnerabilities |
+| Vulnerabilities | Findings included in the group |
+| Risk Points | Combined contextual risk score |
+| Status | Current remediation progress |
 
 ---
 
-## Benefits of True Risk
+## Risk Group Dashboard
 
-<Columns cols={3}>
-  <Card title="Context-Aware Prioritization" icon="chart-line">
-    Prioritize vulnerabilities based on business impact rather than technical severity alone.
-  </Card>
+<Frame caption="Analyze remediation progress for a selected risk group">
+  ![Risk Group Dashboard](/images/vm/inside-risk-relv-group1.png)
+</Frame>
 
-  <Card title="Reduced Alert Fatigue" icon="filter">
-    Focus remediation efforts on vulnerabilities that present meaningful organizational risk.
-  </Card>
+The dashboard provides visibility into:
 
-  <Card title="Custom Risk Model" icon="sliders">
-    Tailor scoring logic to match your organization's environment and priorities.
-  </Card>
-</Columns>
+- Resolution trends
+- Severity distribution
+- Vulnerability lifecycle
+- Overall remediation progress
+
+---
+
+## Group Vulnerabilities
+
+<Frame caption="Review vulnerabilities associated with the selected risk group">
+  ![Risk Group Vulnerabilities](/images/vm/inside-risk-relv-group2.png)
+</Frame>
+
+Each vulnerability includes:
+
+- Severity
+- Owner
+- Current status
+- Risk score
+
+---
+
+## Group Actions
+
+<Frame caption="Configure automation rules for the selected risk group">
+  ![Risk Group Actions](/images/vm/inside-risk-relv-group3.png)
+</Frame>
+
+Automation rules can be attached directly to Risk Relevance Groups to streamline operational workflows.
+
+Supported actions include:
+
+- Assign ownership
+- Update vulnerability state
+- Execute custom workflows
+- Trigger automated actions
+
+<Frame caption="Review automation rule configuration">
+  ![Rule Details](/images/vm/inside-risk-relv-group4.png)
+</Frame>
+
+Each rule includes:
+
+- Trigger conditions
+- Execution policy
+- Configured actions
+- Matching criteria
+
+---
+
+## About Risk Groups
+
+<Frame caption="Understand the purpose of each risk relevance group">
+  ![Risk Group About](/images/vm/inside-risk-relv-group5.png)
+</Frame>
+
+The **About** section explains the group's purpose, associated exploitation characteristics, and recommended remediation approach.
+
+---
+
+## True Risk
+
+<Frame caption="Configure organization-specific vulnerability prioritization">
+  ![True Risk Overview](/images/vm/prioritization-4.png)
+</Frame>
+
+True Risk enables organizations to prioritize vulnerabilities using a customizable scoring model that combines technical severity with business context.
+
+---
+
+## Configure Risk Scoring
+
+<Frame caption="Customize the overall True Risk scoring framework">
+  ![True Risk Dashboard](/images/vm/inside-true-risk1.png)
+</Frame>
+
+The scoring framework combines multiple prioritization factors into a single risk score.
+
+### Available Risk Factors
+
+| Factor | Description |
+| --- | --- |
+| CVSS | Base vulnerability severity |
+| Exposure | Internet-facing and internal exposure |
+| SLA | SLA compliance and remediation deadlines |
+| EPSS | Exploit Prediction Scoring System |
+| KEV | Known Exploited Vulnerabilities |
+| Asset Type | Criticality based on asset category |
+| Business Unit | Organizational business impact |
+
+---
+
+## Configure Individual Risk Categories
+
+<Frame caption="Adjust CVSS and Exposure scoring">
+  ![True Risk Configuration 1](/images/vm/inside-true-risk2.png)
+</Frame>
+
+Configure weighting for:
+
+- CVSS Severity
+- Exposure Prioritization
+
+<Frame caption="Configure SLA and EPSS scoring">
+  ![True Risk Configuration 2](/images/vm/inside-true-risk3.png)
+</Frame>
+
+Configure:
+
+- SLA compliance
+- EPSS probability scoring
+
+<Frame caption="Configure KEV, Asset Type, and Business Unit scoring">
+  ![True Risk Configuration 3](/images/vm/inside-true-risk4.png)
+</Frame>
+
+Additional scoring factors include:
+
+- Known Exploited Vulnerabilities (KEV)
+- Asset Type Prioritization
+- Business Unit Risk
+
+<Callout icon="chart-line" color="green">
+  True Risk allows organizations to build a prioritization model that reflects their own operational, technical, and business requirements instead of relying solely on CVSS scores.
+</Callout>
 
 ---
 
 ## Explore Live Demo
 
-<Card title="Explore VM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Experience how Snapsec combines normalization and True Risk scoring to help teams prioritize the vulnerabilities that matter most.
+<Card title="Explore Vulnerability Prioritization — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
+  Experience how Snapsec prioritizes vulnerabilities using Remediation Campaigns, False Positive Analysis, Risk Relevance Groups, and True Risk scoring to help security teams focus on the vulnerabilities that matter most.
 </Card>

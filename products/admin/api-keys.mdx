@@ -103,22 +103,20 @@ Proper API key management ensures integrations remain powerful, auditable, and s
 
 ---
 
-## Model Context Protocol (MCP)
+## MCP Access
 
-<Frame caption="Developer Access navigation showing MCP Access">
+<Frame caption="Developer Access navigation with MCP Access">
   <img
     style={{ borderRadius: '0.5rem' }}
     src="/images/admin/mcp-1.png"
   />
 </Frame>
 
-The **Model Context Protocol (MCP)** enables AI development tools to securely communicate with Snapsec. By configuring an MCP server, developers can provide supported IDEs and AI assistants with controlled access to project context, security data, and Snapsec capabilities directly from their development environment.
-
-MCP is managed centrally at the organization level, ensuring secure, standardized access across all connected clients.
+The **MCP (Model Context Protocol) Access** module allows organizations to securely connect AI-powered development environments with Snapsec. It provides centralized configuration, IDE-specific setup guides, and visibility into active MCP connections, enabling developers to interact with Snapsec directly from their preferred coding environment.
 
 ---
 
-<Frame caption="Organization-wide MCP configuration">
+<Frame caption="Organization-wide MCP configuration and IDE setup">
   <img
     style={{ borderRadius: '0.5rem' }}
     src="/images/admin/mcp-2.png"
@@ -127,22 +125,15 @@ MCP is managed centrally at the organization level, ensuring secure, standardize
 
 ## MCP Configuration
 
-The **MCP Configuration** page allows administrators to enable or disable MCP access for the entire organization.
+The **MCP Configuration** page is used to enable and manage organization-wide MCP access.
 
 Administrators can:
 
-- Enable or disable organization-wide MCP integration
-- Control developer access to MCP-enabled clients
-- Configure supported IDE connections
-- Manage MCP settings from a centralized location
-
-When enabled, developers can connect compatible IDEs using the provided configuration snippets.
-
----
-
-## Supported IDEs & Clients
-
-Snapsec provides ready-to-use MCP configuration for several AI-powered development environments.
+- Enable or disable MCP integration for the organization
+- Configure supported IDEs and AI clients
+- Access ready-to-use configuration snippets
+- Follow IDE-specific setup instructions
+- Secure connections using existing Snapsec API keys
 
 Supported clients include:
 
@@ -153,91 +144,77 @@ Supported clients include:
 - Windsurf
 - Zed
 
-Each client includes:
+Each client provides a complete configuration snippet, setup guide, prerequisites, and security recommendations for establishing a secure connection.
 
-- Configuration snippet
-- Step-by-step setup guide
-- Required prerequisites
-- Security recommendations for API key management
+<Callout icon="triangle-exclamation" color="amber">
+  Store API keys securely using environment variables or a secrets manager. Avoid embedding credentials directly in configuration files.
+</Callout>
 
 ---
 
-<Frame caption="IDE-specific MCP configuration and setup instructions">
+<Frame caption="Active MCP sessions across connected developer environments">
   <img
     style={{ borderRadius: '0.5rem' }}
     src="/images/admin/mcp-3.png"
   />
 </Frame>
 
-## IDE Configuration
+## MCP Sessions
 
-Selecting an IDE displays a dedicated setup page containing everything required to establish a secure MCP connection.
+The **MCP Sessions** page provides real-time visibility into all active MCP connections established within the organization.
 
-Each configuration provides:
+For every session, Snapsec displays:
 
-- Ready-to-copy configuration file
-- Installation prerequisites
-- Environment variable guidance
-- IDE-specific setup instructions
-- Secure API key recommendations
+- Connected IDE or client
+- Device type
+- Associated user
+- Current session status
+- Number of vulnerability requests
+- Session creation time
 
-This allows developers to quickly integrate Snapsec into their preferred AI development environment without manual configuration.
-
-<Callout icon="triangle-exclamation" color="amber">
-  Never hard-code API keys into configuration files. Store credentials using environment variables or a secure secrets manager.
-</Callout>
+This centralized view helps administrators monitor usage, audit connected clients, and verify active developer access.
 
 ---
 
-<Frame caption="Active MCP sessions across connected IDEs">
+<Frame caption="Filtering MCP sessions by user">
   <img
     style={{ borderRadius: '0.5rem' }}
-    src="/images/admin/mcp-8.png"
+    src="/images/admin/mcp-4.png"
   />
 </Frame>
 
-## MCP Sessions
+## Session Filtering
 
-The **MCP Sessions** page provides visibility into every active MCP connection established within the organization.
+Sessions can be filtered to quickly locate connections associated with specific users.
 
-For each session, administrators can view:
+Available filters allow administrators to:
 
-- Connected IDE or client
-- Device information
-- Associated user
-- Session status
-- Vulnerability requests processed
-- Session creation time
+- View sessions for individual users
+- Identify unassigned sessions
+- Simplify auditing of active MCP connections
+- Monitor developer activity across connected IDEs
 
-These insights help administrators monitor active AI integrations, audit usage, and identify connected development environments across the organization.
+Filtering makes it easier to investigate usage, troubleshoot connections, and review organization-wide MCP activity.
 
 ---
 
-## Why Use MCP?
+## Why Use MCP Access?
 
-Model Context Protocol brings Snapsec directly into modern AI development workflows.
+MCP Access enables secure AI-assisted development by connecting supported IDEs directly with Snapsec.
 
-Benefits include:
+Key benefits include:
 
-- Secure AI-assisted development
-- Organization-wide access control
-- Native IDE integration
 - Centralized MCP management
-- Secure authentication using existing API keys
-- Visibility into active developer sessions
-
-By integrating with supported AI clients, developers can securely access Snapsec capabilities without leaving their coding environment.
+- Secure AI development workflows
+- Ready-to-use IDE configurations
+- Organization-wide access control
+- Real-time session visibility
+- Secure authentication using Snapsec API keys
 
 ---
 
 ## Explore Live Demo
 
 <Card title="Explore Developer Access Live" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  See how Snapsec enables secure API authentication and AI-powered development through Model Context Protocol (MCP).
-</Card>
-
-## Explore Live Demo
-
-<Card title="Explore Snapsec APIs in Action" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Experience how Snapsec API keys power secure integrations, automation, and scalable security workflows—no signup required.
+  Experience how Snapsec securely connects AI development environments through Model Context Protocol (MCP).
 </Card>
