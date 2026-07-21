@@ -1,162 +1,158 @@
 ---
-title: "Automation Engine"
-description: "Automate vulnerability management workflows using condition-based rules and automated actions."
+title: "Workflow Automation"
+description: "Automate vulnerability management processes using rule-based workflows that execute actions based on configurable conditions."
 icon: "bolt"
 mode: "wide"
 ---
 
-## Create an Automation Engine Rule
+# Workflow Automation
 
-<Frame caption="Define conditions and actions for automation">
-  ![Create Automation Rule](/images/vm/automation-rule-create.png)
-</Frame>
-
-To create a new automation rule:
-
-1. Navigate to **Automation Engine**
-2. Click the **\+** button
-3. Enter rule details
-4. Configure trigger conditions
-5. Configure actions
-6. Save the rule
-
-### Rule Details
-
-| Field | Description |
-| --- | --- |
-| Rule Name | Unique name used to identify the automation rule |
-| Description | Brief explanation of the rule's purpose |
+Workflow Automation enables organizations to automate repetitive vulnerability management tasks by creating rules that evaluate vulnerability attributes and execute predefined actions. This reduces manual effort, standardizes operational processes, and accelerates remediation workflows.
 
 ---
 
-## Configure Rule Conditions
+## Automation Rules
 
-Conditions determine when the Automation Engine should execute a rule.
+<Frame caption="Manage and monitor automation rules">
+  ![Automation Rules](/images/vm/workflow-automation.png)
+</Frame>
 
-### Trigger Events
+The **Automation Rules** dashboard provides a centralized view of all configured automation workflows. Each rule displays its execution type, status, and purpose, allowing administrators to quickly review and manage automated processes.
 
-Select one or more trigger events:
+To create a new automation rule:
 
-| Event | Description |
-| --- | --- |
-| Vuln Created | Executes when a new vulnerability is created |
-| Vuln Updated | Executes when an existing vulnerability is modified |
+1. Navigate to **Workflow Automation**
+2. Click the **\+** button.
+3. Provide the rule name and description.
+4. Configure rule conditions.
+5. Define the automation action.
+6. Configure the execution policy.
+7. Save the rule.
 
-### Condition Builder
-
-Each condition consists of:
+### Rule Components
 
 | Component | Description |
 | --- | --- |
-| Field | Vulnerability attribute to evaluate |
-| Operator | Comparison method used for evaluation |
-| Value | Value that must match for execution |
+| Rule Name | Unique identifier for the automation rule. |
+| Description | Brief explanation of the rule's purpose. |
+| Conditions | Criteria that determine when the rule executes. |
+| Action | Operation performed when conditions are satisfied. |
+| Execution Policy | Defines when and how the rule is triggered. |
 
-### Example Conditions
+---
 
-- Severity equals Critical
-- State equals Unresolved
-- Source equals Qualys
-- Category contains Web Application
+## Configure an Automation Rule
 
-Use **Add Condition** to create more complex workflows.
+<Frame caption="Define rule conditions, actions, and execution policy">
+  ![Create Automation Rule](/images/vm/workflow-automation-2.png)
+</Frame>
+
+Automation rules are created using three configuration stages:
+
+### Conditions
+
+Specify the vulnerability attributes that must match before the automation executes.
+
+Common condition fields include:
+
+- Severity
+- State
+- Source
+- Category
+- Owner
+- Business Unit
+- Asset Type
+
+### Actions
+
+Define the operation performed after all configured conditions are satisfied.
+
+Examples include:
+
+- Assign vulnerability owner
+- Update vulnerability state
+- Execute False Positive Analysis
+- Modify vulnerability attributes
+
+### Execution Policy
+
+Configure how the rule is triggered.
+
+| Policy | Description |
+| --- | --- |
+| Event Based | Executes automatically when configured vulnerability events occur. |
+| Manual | Executes only when manually initiated by an administrator. |
 
 <Callout icon="filter" color="yellow">
-  Rules are executed only when all configured conditions are satisfied.
+  Automation rules execute only when all configured conditions evaluate successfully.
 </Callout>
 
 ---
 
-## Configure Rule Actions
+## Rule Details & Execution History
 
-<Frame caption="Select actions that execute when conditions are matched">
-  ![Automation Engine Actions](/images/vm/automation-rule-actions.png)
+<Frame caption="Review rule configuration and execution history">
+  ![Automation Rule Details](/images/vm/workflow-automation-3.png)
 </Frame>
 
-Actions determine what happens when vulnerabilities match the configured conditions.
+Selecting a rule displays its complete configuration and execution history.
 
-### Available Actions
+The **Details** tab provides:
 
-<Columns cols={2}>
-  <Card title="Push to Jira" icon="paper-plane">
-    Automatically create or update Jira tickets for matching vulnerabilities.
-  </Card>
+- Rule description
+- Execution policy
+- Trigger events
+- Configured conditions
+- Configured actions
+- Matching vulnerabilities
 
-  <Card title="Archive Vulnerability" icon="archive">
-    Automatically move matching vulnerabilities to the archive.
-  </Card>
-</Columns>
+The **Jobs** tab records every execution of the automation rule, including:
 
-You can configure multiple actions within a single automation rule.
+- Job ID
+- Execution status
+- Trigger type
+- Creation time
+- Last updated timestamp
 
----
-
-## How Automation Engine Works
-
-1. A vulnerability is created or updated.
-2. Automation Engine evaluates all active rules.
-3. Matching conditions are checked.
-4. Configured actions are executed automatically.
-5. Workflow activity is recorded for auditing and tracking.
+This history helps administrators verify successful executions and troubleshoot workflow behavior when necessary.
 
 ---
 
-## Example Workflow
+## Execute Automation Rules
 
-### Automatically Create Jira Tickets for Critical Vulnerabilities
+<Frame caption="Confirm manual execution of an automation rule">
+  ![Execute Automation Rule](/images/vm/workflow-automation-4.png)
+</Frame>
 
-**Trigger Event**
+Automation rules configured for manual execution can be started directly from the rule details page using the **Execute Now** option.
 
-- Vulnerability Created
+Before execution, the platform requests confirmation to prevent accidental workflow execution.
 
-**Condition**
+After confirmation, Snapsec:
 
-- Severity equals Critical
-
-**Action**
-
-- Push to Jira
-
-**Result**
-
-Every newly discovered critical vulnerability automatically generates a Jira ticket for remediation tracking.
+1. Evaluates the configured rule conditions.
+2. Identifies matching vulnerabilities.
+3. Executes the configured actions.
+4. Records the execution as a job for auditing and tracking.
 
 ---
 
-## Automation Use Cases
+## Why Workflow Automation Matters
 
-<Columns cols={3}>
-  <Card title="Ticket Automation" icon="ticket">
-    Automatically create remediation tickets for critical findings.
-  </Card>
+Workflow Automation helps organizations standardize vulnerability management by reducing repetitive manual tasks and ensuring security processes are executed consistently.
 
-  <Card title="Workflow Cleanup" icon="archive">
-    Archive accepted risks and informational findings automatically.
-  </Card>
+### Benefits
 
-  <Card title="Process Standardization" icon="gear">
-    Apply consistent vulnerability handling across teams.
-  </Card>
-</Columns>
-
----
-
-## Why It Matters
-
-Automation Engine transforms vulnerability management from a manual process into an automated workflow.
-
-### Impact
-
-- Faster remediation cycles
+- Faster vulnerability remediation
 - Reduced operational overhead
-- Consistent vulnerability handling
-- Improved security team productivity
-- Scalable vulnerability management operations
+- Consistent security workflows
+- Automated policy enforcement
+- Complete execution history and auditability
 
 ---
 
 ## Explore Live Demo
 
-<Card title="Explore VM Live — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
-  Experience how Automation Engine streamlines vulnerability management through intelligent workflow automation.
+<Card title="Explore Workflow Automation — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
+  Discover how Snapsec automates vulnerability management through configurable rules, intelligent execution policies, and workflow-driven actions that reduce manual effort and improve operational efficiency.
 </Card>
