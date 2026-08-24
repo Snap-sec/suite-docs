@@ -45,7 +45,7 @@ In Tenable Nessus, open the account menu and select **My Account**.
 ### Generate API Keys
 
 <Frame caption="Generate API keys from the API Keys tab">
-  ![Generate API Keys](/images/vm/tenable-nessus-api-keys.png)
+  ![Generate API Keys](/images/vm/tenable-nessus-scans.png)
 </Frame>
 
 Open the **API Keys** tab and click **Generate**.
@@ -58,10 +58,10 @@ Use the generated **Access Key** and **Access Secret** when configuring the inte
 
 ---
 
-## Verify the Nessus Instance
+## Verify the Connection
 
-<Frame caption="Verify the Nessus instance and available scans">
-  ![Nessus Scans](/images/vm/tenable-nessus-scans.png)
+<Frame caption="Verify if the integration is successful and vulnerabilities have been pulled">
+  ![Nessus Scans](/images/vm/tenable-nessus-api-keys.png)
 </Frame>
 
 After the connection details are configured, Snapsec can authenticate with the Nessus instance and retrieve vulnerability data from the available scans.
@@ -72,11 +72,15 @@ Select the appropriate Snapsec assessment during configuration to determine wher
 
 ## Check Integration Logs
 
-After installing and configuring the integration, open the **Logs** section for the Tenable Nessus integration to verify the connection and data retrieval activity.
+<Frame caption="Review Tenable Nessus integration logs and synchronized records">
+  ![Tenable Nessus Integration Logs](/images/vm/tenable-nessus-logs.png)
+</Frame>
 
-Review the logs to confirm that requests are being processed and vulnerability data is being fetched successfully from the Nessus instance.
+After installing and configuring the integration, open **Integrations → Logs** to verify the adapter status and data synchronization activity.
 
-If the integration is configured correctly, the logs provide the first place to verify that data ingestion is occurring as expected.
+Review the log entries to confirm successful installation, refresh operations, and the number of vulnerability records synchronized from Tenable Nessus.
+
+Use the **Status**, **Log Message**, and **Records Synced** fields to verify that vulnerability data is being retrieved successfully.
 
 ---
 
