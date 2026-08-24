@@ -1,0 +1,87 @@
+## Tenable Nessus Integration
+
+Connect your Tenable Nessus instance to Snapsec VM to bring vulnerability findings into a centralized assessment and remediation workflow.
+
+---
+
+## Install Tenable Nessus
+
+<Frame caption="Install Tenable Nessus from the Snapsec VM Integrations page">
+  ![Install Tenable Nessus](/images/vm/tenable-nessus-install.png)
+</Frame>
+
+1. Open **Integrations** in Snapsec VM.
+2. Locate **Tenable Nessus**.
+3. Click **Install**.
+
+Once the integration is installed, provide the Nessus connection details required to authenticate and import vulnerability data.
+
+---
+
+## Configure the Integration
+
+The Tenable Nessus integration requires the following details:
+
+| Field | Description |
+| --- | --- |
+| API URL | URL where the Tenable Nessus instance is hosted. |
+| Access Key | API access key generated from Nessus account settings. |
+| Access Secret | API secret generated from Nessus account settings. |
+| Assessment | Snapsec assessment where imported vulnerabilities will be stored. |
+| Name | Readable name used to identify the integration. |
+
+---
+
+## Get the Nessus API Credentials
+
+### Open My Account
+
+<Frame caption="Open My Account from the Tenable Nessus user menu">
+  ![Open My Account](/images/vm/tenable-nessus-my-account.png)
+</Frame>
+
+In Tenable Nessus, open the account menu and select **My Account**.
+
+### Generate API Keys
+
+<Frame caption="Generate API keys from the API Keys tab">
+  ![Generate API Keys](/images/vm/tenable-nessus-api-keys.png)
+</Frame>
+
+Open the **API Keys** tab and click **Generate**.
+
+Use the generated **Access Key** and **Access Secret** when configuring the integration in Snapsec VM.
+
+<Callout icon="key" color="yellow">
+  Store the generated API credentials securely. They are required to authenticate Snapsec with your Nessus instance.
+</Callout>
+
+---
+
+## Verify the Nessus Instance
+
+<Frame caption="Verify the Nessus instance and available scans">
+  ![Nessus Scans](/images/vm/tenable-nessus-scans.png)
+</Frame>
+
+After the connection details are configured, Snapsec can authenticate with the Nessus instance and retrieve vulnerability data from the available scans.
+
+Select the appropriate Snapsec assessment during configuration to determine where the imported vulnerabilities will be stored.
+
+---
+
+## Check Integration Logs
+
+After installing and configuring the integration, open the **Logs** section for the Tenable Nessus integration to verify the connection and data retrieval activity.
+
+Review the logs to confirm that requests are being processed and vulnerability data is being fetched successfully from the Nessus instance.
+
+If the integration is configured correctly, the logs provide the first place to verify that data ingestion is occurring as expected.
+
+---
+
+## Explore Live Demo
+
+<Card title="Explore Tenable Nessus in Action — No Signup Needed" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo">
+  See how Snapsec connects vulnerability scanners with centralized vulnerability management and remediation workflows.
+</Card>
