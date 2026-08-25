@@ -136,28 +136,8 @@
             ]
           },
           {
-            "group": "Threat Modeler",
-            "hidden": true,
-            "pages": [
-              "products/tm/introduction",
-              "products/tm/projects",
-              "products/tm/api-catalog",
-              "products/tm/threats",
-              "products/tm/threat-mitigation",
-              "products/tm/severity-distribution",
-              "/integrations/tm/index"
-            ]
-          },
-          {
             "group": "Web Application Scanner",
-            "pages": [
-              "products/was/dashboard",
-              "products/was/applications",
-              "products/was/url-catalog",
-              "products/was/vulnerabilities",
-              "products/was/detection-rules",
-              "products/was/scan-profiles"
-            ]
+            "pages": []
           },
           {
             "group": "Administration & Settings",
