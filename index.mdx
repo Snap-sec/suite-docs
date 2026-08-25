@@ -6,7 +6,7 @@ mode: "wide"
 ---
 
 <Frame caption="Snapsec Suite — choose a product to get started">
-  <img src="/images/suite.png" alt="Snapsec Suite product selection screen with VM, ASM, AIM, VS, and WAS modules" />
+  ![Snapsec Suite product selection screen with VM, ASM, AIM, VS, and WAS modules](/images/suite.png)
 </Frame>
 
 ## Welcome to Snapsec Suite
@@ -22,27 +22,25 @@ Start by selecting a module below based on what you want to do.
 ## Choose Your Starting Point
 
 <CardGroup cols={3}>
+  <Card title="Vulnerability Management (VM)" icon="cube" href="/products/vm">
+    Track vulnerabilities, manage remediation workflows, enforce SLAs, and monitor progress across teams.
+  </Card>
 
-<Card title="Vulnerability Management (VM)" icon="cube" href="/products/vm">
-  Track vulnerabilities, manage remediation workflows, enforce SLAs, and monitor progress across teams.
-</Card>
+  <Card title="Attack Surface Management (ASM)" icon="triangle-exclamation" href="/products/asm">
+    Discover and monitor external-facing assets, subdomains, and exposures in real time.
+  </Card>
 
-<Card title="Attack Surface Management (ASM)" icon="triangle-exclamation" href="/products/asm">
-  Discover and monitor external-facing assets, subdomains, and exposures in real time.
-</Card>
+  <Card title="Asset Intelligence Management (AIM)" icon="crosshairs" href="/products/aim">
+    Build and manage a centralized inventory of assets with ownership, tagging, and contextual intelligence.
+  </Card>
 
-<Card title="Asset Intelligence Management (AIM)" icon="crosshairs" href="/products/aim">
-  Build and manage a centralized inventory of assets with ownership, tagging, and contextual intelligence.
-</Card>
+  <Card title="Vulnerability Scanning (VS)" icon="eye" href="/products/vs">
+    Run automated scans using integrated scanners and import findings directly into your workflow.
+  </Card>
 
-<Card title="Vulnerability Scanning (VS)" icon="eye" href="/products/vs">
-  Run automated scans using integrated scanners and import findings directly into your workflow.
-</Card>
-
-<Card title="Web Application Scanner (WAS)" icon="bolt" href="/products/was">
-  Test and monitor web applications and APIs for vulnerabilities through continuous scanning.
-</Card>
-
+  <Card title="Web Application Scanner (WAS)" icon="bolt" href="/products/was">
+    Test and monitor web applications and APIs for vulnerabilities through continuous scanning.
+  </Card>
 </CardGroup>
 
 ---
@@ -51,17 +49,10 @@ Start by selecting a module below based on what you want to do.
 
 Snapsec modules are designed to work together — not in isolation.
 
-- **ASM → AIM**  
-  Discovered assets automatically become part of your inventory  
-
-- **AIM → VM**  
-  Assets are enriched with vulnerability context and ownership  
-
-- **VS → VM**  
-  Scan results are converted into actionable vulnerabilities  
-
-- **VM → WAS / VS**  
-  Issues can be re-tested and validated continuously  
+- **ASM → AIM**<br />Discovered assets automatically become part of your inventory
+- **AIM → VM**<br />Assets are enriched with vulnerability context and ownership
+- **VS → VM**<br />Scan results are converted into actionable vulnerabilities
+- **VM → WAS / VS**<br />Issues can be re-tested and validated continuously
 
 This creates a **single, connected workflow** from discovery to remediation.
 
@@ -71,53 +62,37 @@ This creates a **single, connected workflow** from discovery to remediation.
 
 If you're new, follow this flow:
 
-1. **Start with ASM**  
-   Discover what assets exist  
-
-2. **Move to AIM**  
-   Organize and assign ownership  
-
-3. **Run scans via VS or WAS**  
-   Identify vulnerabilities  
-
-4. **Manage everything in VM**  
-   Track, prioritize, and remediate issues  
+1. **Start with ASM**<br />Discover what assets exist
+2. **Move to AIM**<br />Organize and assign ownership
+3. **Run scans via VS or WAS**<br />Identify vulnerabilities
+4. **Manage everything in VM**<br />Track, prioritize, and remediate issues
 
 ---
 
 ## What You Can Do Next
 
 <Columns cols={2}>
+  <Card title="Explore Vulnerabilities" icon="bug" href="/products/vm">
+    Dive into detected issues and start managing remediation workflows.
+  </Card>
 
-<Card title="Explore Vulnerabilities" icon="bug" href="/products/vm">
-  Dive into detected issues and start managing remediation workflows.
-</Card>
+  <Card title="View Your Assets" icon="server" href="/products/aim">
+    Understand what exists in your environment and who owns it.
+  </Card>
 
-<Card title="View Your Assets" icon="server" href="/products/aim">
-  Understand what exists in your environment and who owns it.
-</Card>
+  <Card title="Run a Scan" icon="play" href="/products/vs">
+    Launch scans and start identifying security issues.
+  </Card>
 
-<Card title="Run a Scan" icon="play" href="/products/vs">
-  Launch scans and start identifying security issues.
-</Card>
-
-<Card title="Monitor Attack Surface" icon="shield" href="/products/asm">
-  Track exposed assets and detect changes in real time.
-</Card>
-
+  <Card title="Monitor Attack Surface" icon="shield" href="/products/asm">
+    Track exposed assets and detect changes in real time.
+  </Card>
 </Columns>
 
 ---
 
 ## Explore Live Demo
 
-<Card
-  title="Launch Snapsec Demo"
-  icon="wand-magic-sparkles"
-  href="https://suite.snapsec.co/demo"
-  data-umami-event="Demo CTA Click"
-  data-umami-event-location="Getting Started"
-  data-umami-event-variant="Launch Demo">
-  
+<Card title="Launch Snapsec Demo" icon="wand-magic-sparkles" href="https://suite.snapsec.co/demo" data-umami-event="Demo CTA Click" data-umami-event-location="Getting Started" data-umami-event-variant="Launch Demo">
   Access the full Snapsec Suite and explore each module in action.
 </Card>
