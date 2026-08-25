@@ -137,7 +137,14 @@
           },
           {
             "group": "Web Application Scanner",
-            "pages": []
+            "pages": [
+              "products/was/dashboard",
+              "products/was/applications",
+              "products/was/url-catalog",
+              "products/was/vulnerabilities",
+              "products/was/detection-rules",
+              "products/was/scan-profiles"
+            ]
           },
           {
             "group": "Administration & Settings",
